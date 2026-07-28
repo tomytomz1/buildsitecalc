@@ -1,0 +1,29 @@
+import { AlertCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+export type ErrorMessageProps = {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
+export function ErrorMessage({ id, children, className }: ErrorMessageProps) {
+  if (!children) return null;
+
+  return (
+    <p
+      id={id}
+      role="alert"
+      className={cn(
+        "mt-1.5 flex items-start gap-1.5 text-sm text-red-700",
+        className,
+      )}
+    >
+      <AlertCircle
+        className="mt-0.5 h-4 w-4 shrink-0"
+        aria-hidden="true"
+      />
+      <span>{children}</span>
+    </p>
+  );
+}
