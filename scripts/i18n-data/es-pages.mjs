@@ -1,13 +1,13 @@
 export const esPages = {
   about: {
-    title: "Acerca de ProjectCalc Hub",
+    title: "Acerca de BuildSite Calc",
     metaDescription:
-      "ProjectCalc Hub ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
+      "BuildSite Calc ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
     sections: [
       {
         heading: "Nuestra misión",
         paragraphs: [
-          "ProjectCalc Hub existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
+          "BuildSite Calc existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
           "Servimos a propietarios en proyectos DIY y contratistas que necesitan una verificación rápida en obra — sin ocultar pasos en una caja negra.",
         ],
       },
@@ -28,7 +28,7 @@ export const esPages = {
       {
         heading: "Contacto y comentarios",
         paragraphs: [
-          "¿Preguntas, correcciones o sugerencias? Escríbanos a hello@projectcalchub.com. Mejoramos las herramientas con retroalimentación real de obra.",
+          "¿Preguntas, correcciones o sugerencias? Escríbanos a hello@buildsitecalc.com. Mejoramos las herramientas con retroalimentación real de obra.",
         ],
       },
     ],
@@ -37,7 +37,7 @@ export const esPages = {
   methodology: {
     title: "Metodología de cálculo",
     metaDescription:
-      "Cómo funcionan las calculadoras de ProjectCalc Hub: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
+      "Cómo funcionan las calculadoras de BuildSite Calc: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
     sections: [
       {
         heading: "Cómo funcionan los cálculos",
@@ -80,7 +80,7 @@ export const esPages = {
   glossary: {
     title: "Glosario de construcción",
     metaDescription:
-      "Definiciones de términos comunes de construcción y mejoras del hogar usados en ProjectCalc Hub.",
+      "Definiciones de términos comunes de construcción y mejoras del hogar usados en BuildSite Calc.",
     sections: [
       {
         paragraphs: [
@@ -112,12 +112,12 @@ export const esPages = {
   contact: {
     title: "Contáctenos",
     metaDescription:
-      "Contacte a ProjectCalc Hub por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
+      "Contacte a BuildSite Calc por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
     sections: [
       {
         heading: "Escríbanos",
         paragraphs: [
-          "Envíe correo a hello@projectcalchub.com para comentarios sobre calculadoras, reportes de errores, colaboraciones o licencias.",
+          "Envíe correo a hello@buildsitecalc.com para comentarios sobre calculadoras, reportes de errores, colaboraciones o licencias.",
           "Leemos cada mensaje y priorizamos correcciones que afecten precisión de cálculo o accesibilidad.",
         ],
       },
@@ -140,11 +140,11 @@ export const esPages = {
   privacy: {
     title: "Política de privacidad",
     metaDescription:
-      "Política de privacidad de ProjectCalc Hub — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
+      "Política de privacidad de BuildSite Calc — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. ProjectCalc Hub (\"nosotros\") opera https://projectcalchub.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
+          "Última actualización: 28 de julio de 2026. BuildSite Calc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
         ],
       },
       {
@@ -171,7 +171,7 @@ export const esPages = {
       {
         heading: "Sus derechos",
         paragraphs: [
-          "Según su estado de residencia (incluida California), puede tener derechos de acceso, eliminación u oposición a cierto procesamiento. Contacte hello@projectcalchub.com para ejercerlos.",
+          "Según su estado de residencia (incluida California), puede tener derechos de acceso, eliminación u oposición a cierto procesamiento. Contacte hello@buildsitecalc.com para ejercerlos.",
         ],
       },
       {
@@ -186,11 +186,11 @@ export const esPages = {
   terms: {
     title: "Términos de servicio",
     metaDescription:
-      "Términos de servicio de ProjectCalc Hub. Jurisdicción US. Actualizado 28 jul 2026.",
+      "Términos de servicio de BuildSite Calc. Jurisdicción US. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. Al usar ProjectCalc Hub, acepta estos Términos de servicio.",
+          "Última actualización: 28 de julio de 2026. Al usar BuildSite Calc, acepta estos Términos de servicio.",
         ],
       },
       {
@@ -203,7 +203,7 @@ export const esPages = {
       {
         heading: "Propiedad intelectual",
         paragraphs: [
-          "El nombre, marca y contenido original de ProjectCalc Hub nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución.",
+          "El nombre, marca y contenido original de BuildSite Calc nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución.",
         ],
       },
       {
@@ -215,13 +215,13 @@ export const esPages = {
       {
         heading: "Limitación de responsabilidad",
         paragraphs: [
-          "En la máxima medida permitida por ley, ProjectCalc Hub no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio.",
+          "En la máxima medida permitida por ley, BuildSite Calc no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio.",
         ],
       },
       {
         heading: "Ley aplicable",
         paragraphs: [
-          "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera ProjectCalc Hub, sin considerar reglas de conflicto de leyes.",
+          "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera BuildSite Calc, sin considerar reglas de conflicto de leyes.",
         ],
       },
     ],
@@ -230,7 +230,7 @@ export const esPages = {
   disclaimer: {
     title: "Aviso legal",
     metaDescription:
-      "Aviso importante: las calculadoras de ProjectCalc Hub son solo estimaciones, no asesoría de ingeniería ni de código.",
+      "Aviso importante: las calculadoras de BuildSite Calc son solo estimaciones, no asesoría de ingeniería ni de código.",
     sections: [
       {
         paragraphs: ["Última actualización: 28 de julio de 2026."],
@@ -265,11 +265,11 @@ export const esPages = {
   accessibility: {
     title: "Declaración de accesibilidad",
     metaDescription:
-      "Compromiso de accesibilidad web de ProjectCalc Hub y cómo reportar barreras. Actualizado 28 jul 2026.",
+      "Compromiso de accesibilidad web de BuildSite Calc y cómo reportar barreras. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. Buscamos que ProjectCalc Hub sea usable para personas con diversas capacidades.",
+          "Última actualización: 28 de julio de 2026. Buscamos que BuildSite Calc sea usable para personas con diversas capacidades.",
         ],
       },
       {
@@ -287,7 +287,7 @@ export const esPages = {
       {
         heading: "Comentarios",
         paragraphs: [
-          "¿Encontró una barrera? Escriba a hello@projectcalchub.com con la URL y descripción. Atenderemos solicitudes razonables con prontitud.",
+          "¿Encontró una barrera? Escriba a hello@buildsitecalc.com con la URL y descripción. Atenderemos solicitudes razonables con prontitud.",
         ],
       },
     ],
@@ -296,7 +296,7 @@ export const esPages = {
   cookies: {
     title: "Política de cookies",
     metaDescription:
-      "Cómo ProjectCalc Hub usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
+      "Cómo BuildSite Calc usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: ["Última actualización: 28 de julio de 2026."],
@@ -323,7 +323,7 @@ export const esPages = {
       },
       {
         heading: "Contacto",
-        paragraphs: ["Preguntas sobre esta política: hello@projectcalchub.com."],
+        paragraphs: ["Preguntas sobre esta política: hello@buildsitecalc.com."],
       },
     ],
   },

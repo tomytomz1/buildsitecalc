@@ -1,13 +1,13 @@
 export const enPages = {
   about: {
-    title: "About ProjectCalc Hub",
+    title: "About BuildSite Calc",
     metaDescription:
-      "ProjectCalc Hub provides free, transparent home-improvement calculators for homeowners and contractors. Learn about our mission and how to use the tools responsibly.",
+      "BuildSite Calc provides free, transparent home-improvement calculators for homeowners and contractors. Learn about our mission and how to use the tools responsibly.",
     sections: [
       {
         heading: "Our mission",
         paragraphs: [
-          "ProjectCalc Hub exists to make project planning math visible. Whether you are pouring a patio slab, ordering shingles, or building a renovation budget, every calculator shows the formula, assumptions, and units behind the number.",
+          "BuildSite Calc exists to make project planning math visible. Whether you are pouring a patio slab, ordering shingles, or building a renovation budget, every calculator shows the formula, assumptions, and units behind the number.",
           "We serve homeowners tackling DIY improvements and contractors who need a quick sanity check in the field — without hiding steps behind a black box.",
         ],
       },
@@ -28,7 +28,7 @@ export const enPages = {
       {
         heading: "Contact & feedback",
         paragraphs: [
-          "Questions, corrections, or suggestions? Reach us at hello@projectcalchub.com. We improve tools based on real-world feedback from the field.",
+          "Questions, corrections, or suggestions? Reach us at hello@buildsitecalc.com. We improve tools based on real-world feedback from the field.",
         ],
       },
     ],
@@ -37,7 +37,7 @@ export const enPages = {
   methodology: {
     title: "Calculation Methodology",
     metaDescription:
-      "How ProjectCalc Hub calculators work: units, waste factors, rounding rules, and limitations explained.",
+      "How BuildSite Calc calculators work: units, waste factors, rounding rules, and limitations explained.",
     sections: [
       {
         heading: "How calculations work",
@@ -80,7 +80,7 @@ export const enPages = {
   glossary: {
     title: "Construction Glossary",
     metaDescription:
-      "Definitions of common construction and home-improvement terms used across ProjectCalc Hub calculators.",
+      "Definitions of common construction and home-improvement terms used across BuildSite Calc calculators.",
     sections: [
       {
         paragraphs: [
@@ -112,12 +112,12 @@ export const enPages = {
   contact: {
     title: "Contact Us",
     metaDescription:
-      "Contact ProjectCalc Hub by email. Feedback, corrections, and partnership inquiries welcome.",
+      "Contact BuildSite Calc by email. Feedback, corrections, and partnership inquiries welcome.",
     sections: [
       {
         heading: "Get in touch",
         paragraphs: [
-          "Email us at hello@projectcalchub.com for calculator feedback, bug reports, partnership inquiries, or licensing questions.",
+          "Email us at hello@buildsitecalc.com for calculator feedback, bug reports, partnership inquiries, or licensing questions.",
           "We read every message and prioritize fixes that affect calculation accuracy or accessibility.",
         ],
       },
@@ -140,11 +140,11 @@ export const enPages = {
   privacy: {
     title: "Privacy Policy",
     metaDescription:
-      "ProjectCalc Hub privacy policy — data collection, cookies, analytics, and your rights. Last updated July 28, 2026.",
+      "BuildSite Calc privacy policy — data collection, cookies, analytics, and your rights. Last updated July 28, 2026.",
     sections: [
       {
         paragraphs: [
-          "Last updated: July 28, 2026. ProjectCalc Hub (\"we,\" \"us\") operates https://projectcalchub.com. This policy describes how we handle information when you use our website.",
+          "Last updated: July 28, 2026. BuildSite Calc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website.",
         ],
       },
       {
@@ -171,7 +171,7 @@ export const enPages = {
       {
         heading: "Your rights",
         paragraphs: [
-          "Depending on your state of residence (including California), you may have rights to access, delete, or opt out of certain processing. Contact hello@projectcalchub.com to exercise these rights.",
+          "Depending on your state of residence (including California), you may have rights to access, delete, or opt out of certain processing. Contact hello@buildsitecalc.com to exercise these rights.",
         ],
       },
       {
@@ -186,11 +186,11 @@ export const enPages = {
   terms: {
     title: "Terms of Service",
     metaDescription:
-      "Terms of Service for ProjectCalc Hub. US jurisdiction. Last updated July 28, 2026.",
+      "Terms of Service for BuildSite Calc. US jurisdiction. Last updated July 28, 2026.",
     sections: [
       {
         paragraphs: [
-          "Last updated: July 28, 2026. By using ProjectCalc Hub, you agree to these Terms of Service.",
+          "Last updated: July 28, 2026. By using BuildSite Calc, you agree to these Terms of Service.",
         ],
       },
       {
@@ -203,7 +203,7 @@ export const enPages = {
       {
         heading: "Intellectual property",
         paragraphs: [
-          "ProjectCalc Hub name, branding, and original content are owned by ProjectCalc Hub. Calculator formulas expressed as text may be cited with attribution.",
+          "BuildSite Calc name, branding, and original content are owned by BuildSite Calc. Calculator formulas expressed as text may be cited with attribution.",
         ],
       },
       {
@@ -215,13 +215,13 @@ export const enPages = {
       {
         heading: "Limitation of liability",
         paragraphs: [
-          "To the fullest extent permitted by law, ProjectCalc Hub is not liable for indirect, incidental, or consequential damages arising from use of the site.",
+          "To the fullest extent permitted by law, BuildSite Calc is not liable for indirect, incidental, or consequential damages arising from use of the site.",
         ],
       },
       {
         heading: "Governing law",
         paragraphs: [
-          "These terms are governed by the laws of the United States and the state in which ProjectCalc Hub operates, without regard to conflict-of-law rules.",
+          "These terms are governed by the laws of the United States and the state in which BuildSite Calc operates, without regard to conflict-of-law rules.",
         ],
       },
     ],
@@ -230,7 +230,7 @@ export const enPages = {
   disclaimer: {
     title: "Disclaimer",
     metaDescription:
-      "Important disclaimer: ProjectCalc Hub calculators are estimates only, not professional engineering or code advice.",
+      "Important disclaimer: BuildSite Calc calculators are estimates only, not professional engineering or code advice.",
     sections: [
       {
         paragraphs: [
@@ -267,11 +267,11 @@ export const enPages = {
   accessibility: {
     title: "Accessibility Statement",
     metaDescription:
-      "ProjectCalc Hub commitment to web accessibility and how to report barriers. Last updated July 28, 2026.",
+      "BuildSite Calc commitment to web accessibility and how to report barriers. Last updated July 28, 2026.",
     sections: [
       {
         paragraphs: [
-          "Last updated: July 28, 2026. We aim to make ProjectCalc Hub usable for people with diverse abilities.",
+          "Last updated: July 28, 2026. We aim to make BuildSite Calc usable for people with diverse abilities.",
         ],
       },
       {
@@ -289,7 +289,7 @@ export const enPages = {
       {
         heading: "Feedback",
         paragraphs: [
-          "Encounter a barrier? Email hello@projectcalchub.com with the page URL and description. We will work to address reasonable requests promptly.",
+          "Encounter a barrier? Email hello@buildsitecalc.com with the page URL and description. We will work to address reasonable requests promptly.",
         ],
       },
     ],
@@ -298,7 +298,7 @@ export const enPages = {
   cookies: {
     title: "Cookie Policy",
     metaDescription:
-      "How ProjectCalc Hub uses cookies and similar technologies. Last updated July 28, 2026.",
+      "How BuildSite Calc uses cookies and similar technologies. Last updated July 28, 2026.",
     sections: [
       {
         paragraphs: [
@@ -328,7 +328,7 @@ export const enPages = {
       {
         heading: "Contact",
         paragraphs: [
-          "Questions about this policy: hello@projectcalchub.com.",
+          "Questions about this policy: hello@buildsitecalc.com.",
         ],
       },
     ],

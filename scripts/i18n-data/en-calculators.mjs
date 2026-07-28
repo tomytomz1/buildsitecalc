@@ -49,7 +49,7 @@ export const enCalculators = {
     ],
     resultLabels: { volumeYd3: "Concrete to order (yd³)" },
     inputLabels: { thickness: "Slab thickness" },
-    metaTitle: "Concrete Slab Calculator — Cubic Yards | ProjectCalc Hub",
+    metaTitle: "Concrete Slab Calculator — Cubic Yards | BuildSite Calc",
     metaDescription:
       "Free concrete slab calculator. Enter length, width, and thickness to estimate cubic yards with waste factor. US and metric units.",
   }),
@@ -100,7 +100,7 @@ export const enCalculators = {
     ],
     resultLabels: { bagsNeeded: "Premix bags to buy" },
     inputLabels: { bagSize: "Premix bag weight" },
-    metaTitle: "Concrete Bags Calculator — How Many Bags? | ProjectCalc Hub",
+    metaTitle: "Concrete Bags Calculator — How Many Bags? | BuildSite Calc",
     metaDescription:
       "Calculate how many 40, 60, or 80 lb concrete bags you need for slabs, footings, and post holes. Free with waste factor.",
   }),
@@ -151,7 +151,7 @@ export const enCalculators = {
     ],
     resultLabels: { gallons: "Gallons to purchase" },
     inputLabels: { coverageRate: "Paint coverage per gallon" },
-    metaTitle: "Paint Calculator — Gallons Needed | ProjectCalc Hub",
+    metaTitle: "Paint Calculator — Gallons Needed | BuildSite Calc",
     metaDescription:
       "Free paint calculator for rooms and walls. Estimate gallons with door/window deductions, coats, and waste. Interior and exterior.",
   }),
@@ -200,7 +200,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { areaWithWasteFt2: "Flooring to order (ft²)" },
-    metaTitle: "Flooring Calculator — Square Feet & Cartons | ProjectCalc Hub",
+    metaTitle: "Flooring Calculator — Square Feet & Cartons | BuildSite Calc",
     metaDescription:
       "Calculate flooring square footage, waste, and cartons needed for hardwood, laminate, and vinyl plank. Free calculator.",
   }),
@@ -249,7 +249,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { tilesNeeded: "Field tiles to order" },
-    metaTitle: "Tile Calculator — How Many Tiles? | ProjectCalc Hub",
+    metaTitle: "Tile Calculator — How Many Tiles? | BuildSite Calc",
     metaDescription:
       "Free tile calculator for floors and walls. Enter room size and tile dimensions to count tiles with grout gap and waste.",
   }),
@@ -300,7 +300,7 @@ export const enCalculators = {
     ],
     resultLabels: { sheetsNeeded: "Drywall sheets" },
     inputLabels: { sheetSize: "Drywall sheet size" },
-    metaTitle: "Drywall Calculator — Sheets Needed | ProjectCalc Hub",
+    metaTitle: "Drywall Calculator — Sheets Needed | BuildSite Calc",
     metaDescription:
       "Calculate how many 4×8 or 4×12 drywall sheets you need. Free calculator with waste factor for walls and ceilings.",
   }),
@@ -349,7 +349,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { squares: "Roofing squares", bundles: "Shingle bundles" },
-    metaTitle: "Roofing Shingle Calculator — Squares & Bundles | ProjectCalc Hub",
+    metaTitle: "Roofing Shingle Calculator — Squares & Bundles | BuildSite Calc",
     metaDescription:
       "Free roofing calculator. Estimate shingle squares and bundles from roof dimensions and pitch with waste factor.",
   }),
@@ -398,7 +398,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { volumeYd3: "Mulch to order (yd³)" },
-    metaTitle: "Mulch Calculator — Cubic Yards | ProjectCalc Hub",
+    metaTitle: "Mulch Calculator — Cubic Yards | BuildSite Calc",
     metaDescription:
       "Calculate cubic yards of mulch for landscaping beds. Free calculator with depth, area, waste, and optional bag count.",
   }),
@@ -448,7 +448,7 @@ export const enCalculators = {
     ],
     resultLabels: { tons: "Estimated weight (tons)" },
     inputLabels: { densityKey: "Stone type" },
-    metaTitle: "Gravel Calculator — Cubic Yards & Tons | ProjectCalc Hub",
+    metaTitle: "Gravel Calculator — Cubic Yards & Tons | BuildSite Calc",
     metaDescription:
       "Free gravel calculator for driveways and paths. Estimate cubic yards and tons with material density and waste factor.",
   }),
@@ -496,7 +496,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { volumeYd3: "Topsoil to order (yd³)" },
-    metaTitle: "Topsoil Calculator — Cubic Yards | ProjectCalc Hub",
+    metaTitle: "Topsoil Calculator — Cubic Yards | BuildSite Calc",
     metaDescription:
       "Calculate cubic yards of topsoil for lawns and gardens. Free calculator with US and metric units.",
   }),
@@ -545,7 +545,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { posts: "Posts", pickets: "Pickets", rails: "Rails" },
-    metaTitle: "Fence Material Calculator — Posts & Pickets | ProjectCalc Hub",
+    metaTitle: "Fence Material Calculator — Posts & Pickets | BuildSite Calc",
     metaDescription:
       "Calculate fence posts, rails, and pickets for a straight run. Free material estimator for privacy and picket fences.",
   }),
@@ -594,7 +594,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { boardsNeeded: "Deck boards" },
-    metaTitle: "Deck Board Calculator — How Many Boards? | ProjectCalc Hub",
+    metaTitle: "Deck Board Calculator — How Many Boards? | BuildSite Calc",
     metaDescription:
       "Calculate deck boards needed for a rectangular deck. Free estimator with gap, board size, and waste factor.",
   }),
@@ -647,7 +647,7 @@ export const enCalculators = {
       numberOfTreads: "Treads",
       totalRunFt: "Total horizontal run (ft)",
     },
-    metaTitle: "Stair Calculator — Rise, Run & Treads | ProjectCalc Hub",
+    metaTitle: "Stair Calculator — Rise, Run & Treads | BuildSite Calc",
     metaDescription:
       "Calculate stair risers, treads, and total run from floor-to-floor rise. Free geometry helper — verify local code separately.",
   }),
@@ -696,7 +696,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { rollsNeeded: "Wallpaper rolls" },
-    metaTitle: "Wallpaper Calculator — Rolls Needed | ProjectCalc Hub",
+    metaTitle: "Wallpaper Calculator — Rolls Needed | BuildSite Calc",
     metaDescription:
       "Calculate wallpaper rolls from room perimeter and height. Pattern repeat and waste included. Free estimator.",
   }),
@@ -745,7 +745,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { battsNeeded: "Insulation batts" },
-    metaTitle: "Insulation Calculator — Batts Needed | ProjectCalc Hub",
+    metaTitle: "Insulation Calculator — Batts Needed | BuildSite Calc",
     metaDescription:
       "Calculate fiberglass insulation batts for walls and attics. Free calculator with batt width and waste factor.",
   }),
@@ -794,7 +794,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { estimatedBtu: "Estimated load (BTU/hr)", tonnage: "Cooling tons" },
-    metaTitle: "HVAC BTU Calculator — AC Sizing Estimate | ProjectCalc Hub",
+    metaTitle: "HVAC BTU Calculator — AC Sizing Estimate | BuildSite Calc",
     metaDescription:
       "Estimate HVAC BTU and tonnage from room size and climate factors. Free rough-sizing tool — not a Manual J substitute.",
   }),
@@ -843,7 +843,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { recommendedTruck: "Suggested truck" },
-    metaTitle: "Moving Truck Size Calculator | ProjectCalc Hub",
+    metaTitle: "Moving Truck Size Calculator | BuildSite Calc",
     metaDescription:
       "Find the right moving truck size from bedrooms or cubic feet. Free guide for cargo van through 26 ft trucks.",
   }),
@@ -893,7 +893,7 @@ export const enCalculators = {
     ],
     resultLabels: { recommendedDumpster: "Recommended dumpster size" },
     inputLabels: { projectType: "Project type" },
-    metaTitle: "Dumpster Size Calculator — Roll-Off Guide | ProjectCalc Hub",
+    metaTitle: "Dumpster Size Calculator — Roll-Off Guide | BuildSite Calc",
     metaDescription:
       "Choose the right roll-off dumpster size for remodels and cleanouts. Free preset and custom volume calculator.",
   }),
@@ -942,7 +942,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { adjustedQuantity: "Quantity to order" },
-    metaTitle: "Waste Factor Calculator — Material Overage | ProjectCalc Hub",
+    metaTitle: "Waste Factor Calculator — Material Overage | BuildSite Calc",
     metaDescription:
       "Apply a waste percentage to any material quantity. Free overage calculator for flooring, tile, lumber, and more.",
   }),
@@ -991,7 +991,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { boardFeet: "Total board feet" },
-    metaTitle: "Board Foot Calculator — Lumber Volume | ProjectCalc Hub",
+    metaTitle: "Board Foot Calculator — Lumber Volume | BuildSite Calc",
     metaDescription:
       "Calculate board feet from lumber dimensions. Free calculator for hardwood and rough lumber ordering.",
   }),
@@ -1041,7 +1041,7 @@ export const enCalculators = {
     ],
     resultLabels: { totalAreaFt2: "Combined area (ft²)" },
     inputLabels: { rooms: "Room dimensions" },
-    metaTitle: "Square Footage Calculator — Multi-Room Area | ProjectCalc Hub",
+    metaTitle: "Square Footage Calculator — Multi-Room Area | BuildSite Calc",
     metaDescription:
       "Calculate total square footage for multiple rooms. Free area calculator with US and metric output.",
   }),
@@ -1089,7 +1089,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { volumeFt3: "Room volume (ft³)" },
-    metaTitle: "Room Volume Calculator — Cubic Feet | ProjectCalc Hub",
+    metaTitle: "Room Volume Calculator — Cubic Feet | BuildSite Calc",
     metaDescription:
       "Calculate room volume in cubic feet and meters. Free tool for HVAC and ventilation planning.",
   }),
@@ -1138,7 +1138,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { sellingPrice: "Price to charge" },
-    metaTitle: "Labor Markup Calculator — Margin vs Markup | ProjectCalc Hub",
+    metaTitle: "Labor Markup Calculator — Margin vs Markup | BuildSite Calc",
     metaDescription:
       "Calculate selling price from job cost using markup or margin. Free contractor pricing helper.",
   }),
@@ -1188,7 +1188,7 @@ export const enCalculators = {
     ],
     resultLabels: { total: "Materials total" },
     inputLabels: { lineItems: "Material line items" },
-    metaTitle: "Material Cost Calculator — Line Item Total | ProjectCalc Hub",
+    metaTitle: "Material Cost Calculator — Line Item Total | BuildSite Calc",
     metaDescription:
       "Add up material line items with optional sales tax. Free supply list cost calculator for contractors and DIY.",
   }),
@@ -1237,7 +1237,7 @@ export const enCalculators = {
       },
     ],
     resultLabels: { grandTotal: "Total project budget" },
-    metaTitle: "Project Budget Calculator — Renovation Estimate | ProjectCalc Hub",
+    metaTitle: "Project Budget Calculator — Renovation Estimate | BuildSite Calc",
     metaDescription:
       "Build a home project budget with materials, labor, permits, and contingency. Free renovation cost worksheet.",
   }),

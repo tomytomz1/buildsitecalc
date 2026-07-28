@@ -80,7 +80,7 @@ export function ConsentBanner({ labels = {}, className }: ConsentBannerProps) {
 
   const message =
     labels.message ??
-    "We use optional analytics and ads to improve ProjectCalc Hub. Accept to allow cookies; decline to continue without tracking.";
+    "We use optional analytics and ads to improve BuildSite Calc. Accept to allow cookies; decline to continue without tracking.";
   const acceptLabel = labels.accept ?? "Accept";
   const declineLabel = labels.decline ?? "Decline";
 

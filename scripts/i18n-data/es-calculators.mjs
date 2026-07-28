@@ -47,7 +47,7 @@ export const esCalculators = {
     ],
     resultLabels: { volumeYd3: "Concreto a pedir (yd³)" },
     inputLabels: { thickness: "Espesor de la losa" },
-    metaTitle: "Calculadora de losa de concreto — Yardas cúbicas | ProjectCalc Hub",
+    metaTitle: "Calculadora de losa de concreto — Yardas cúbicas | BuildSite Calc",
     metaDescription:
       "Calculadora gratuita de losa de concreto. Ingrese largo, ancho y espesor para estimar yardas cúbicas con factor de desperdicio.",
   }),
@@ -97,7 +97,7 @@ export const esCalculators = {
     ],
     resultLabels: { bagsNeeded: "Sacos premix a comprar" },
     inputLabels: { bagSize: "Peso del saco premix" },
-    metaTitle: "Calculadora de sacos de concreto | ProjectCalc Hub",
+    metaTitle: "Calculadora de sacos de concreto | BuildSite Calc",
     metaDescription:
       "Calcule cuántos sacos de 40, 60 u 80 lb necesita para losas, zapatas y postes. Gratis con factor de desperdicio.",
   }),
@@ -147,7 +147,7 @@ export const esCalculators = {
     ],
     resultLabels: { gallons: "Galones a comprar" },
     inputLabels: { coverageRate: "Rendimiento por galón" },
-    metaTitle: "Calculadora de pintura — Galones necesarios | ProjectCalc Hub",
+    metaTitle: "Calculadora de pintura — Galones necesarios | BuildSite Calc",
     metaDescription:
       "Calculadora gratuita de pintura para habitaciones y paredes. Estime galones con descuentos, manos y desperdicio.",
   }),
@@ -196,7 +196,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { areaWithWasteFt2: "Piso a pedir (ft²)" },
-    metaTitle: "Calculadora de pisos — Pies cuadrados y cajas | ProjectCalc Hub",
+    metaTitle: "Calculadora de pisos — Pies cuadrados y cajas | BuildSite Calc",
     metaDescription:
       "Calcule pies cuadrados, desperdicio y cajas para madera, laminado y vinilo. Calculadora gratuita.",
   }),
@@ -245,7 +245,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { tilesNeeded: "Azulejos de campo a pedir" },
-    metaTitle: "Calculadora de azulejos | ProjectCalc Hub",
+    metaTitle: "Calculadora de azulejos | BuildSite Calc",
     metaDescription:
       "Calculadora gratuita de azulejos. Ingrese tamaño de área y pieza para contar con junta y desperdicio.",
   }),
@@ -295,7 +295,7 @@ export const esCalculators = {
     ],
     resultLabels: { sheetsNeeded: "Placas de tablaroca" },
     inputLabels: { sheetSize: "Tamaño de placa" },
-    metaTitle: "Calculadora de tablaroca — Placas necesarias | ProjectCalc Hub",
+    metaTitle: "Calculadora de tablaroca — Placas necesarias | BuildSite Calc",
     metaDescription:
       "Calcule cuántas placas 4×8 o 4×12 necesita. Calculadora gratuita con factor de desperdicio.",
   }),
@@ -344,7 +344,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { squares: "Cuadrados de techo", bundles: "Paquetes de tejas" },
-    metaTitle: "Calculadora de tejas asfálticas | ProjectCalc Hub",
+    metaTitle: "Calculadora de tejas asfálticas | BuildSite Calc",
     metaDescription:
       "Calculadora gratuita de techado. Estime cuadrados y paquetes con inclinación y desperdicio.",
   }),
@@ -393,7 +393,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { volumeYd3: "Mantillo a pedir (yd³)" },
-    metaTitle: "Calculadora de mantillo — Yardas cúbicas | ProjectCalc Hub",
+    metaTitle: "Calculadora de mantillo — Yardas cúbicas | BuildSite Calc",
     metaDescription:
       "Calcule yardas cúbicas de mantillo para jardín. Gratis con profundidad, área, desperdicio y sacos opcionales.",
   }),
@@ -443,7 +443,7 @@ export const esCalculators = {
     ],
     resultLabels: { tons: "Peso estimado (toneladas)" },
     inputLabels: { densityKey: "Tipo de piedra" },
-    metaTitle: "Calculadora de grava — Yardas y toneladas | ProjectCalc Hub",
+    metaTitle: "Calculadora de grava — Yardas y toneladas | BuildSite Calc",
     metaDescription:
       "Calculadora gratuita de grava. Estime yardas cúbicas y toneladas con densidad y desperdicio.",
   }),
@@ -491,7 +491,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { volumeYd3: "Tierra vegetal a pedir (yd³)" },
-    metaTitle: "Calculadora de tierra vegetal | ProjectCalc Hub",
+    metaTitle: "Calculadora de tierra vegetal | BuildSite Calc",
     metaDescription:
       "Calcule yardas cúbicas de tierra vegetal. Calculadora gratuita en unidades US y métricas.",
   }),
@@ -540,7 +540,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { posts: "Postes", pickets: "Tablillas", rails: "Rieles" },
-    metaTitle: "Calculadora de materiales de cerca | ProjectCalc Hub",
+    metaTitle: "Calculadora de materiales de cerca | BuildSite Calc",
     metaDescription:
       "Calcule postes, rieles y tablillas para un tramo recto. Estimador gratuito para cercas de privacidad.",
   }),
@@ -589,7 +589,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { boardsNeeded: "Tablas de deck" },
-    metaTitle: "Calculadora de tablas de deck | ProjectCalc Hub",
+    metaTitle: "Calculadora de tablas de deck | BuildSite Calc",
     metaDescription:
       "Calcule tablas de deck para superficie rectangular. Estimador gratuito con separación y desperdicio.",
   }),
@@ -642,7 +642,7 @@ export const esCalculators = {
       numberOfTreads: "Huellas",
       totalRunFt: "Recorrido horizontal (ft)",
     },
-    metaTitle: "Calculadora de escaleras — Subida y huella | ProjectCalc Hub",
+    metaTitle: "Calculadora de escaleras — Subida y huella | BuildSite Calc",
     metaDescription:
       "Calcule contrahuellas, huellas y recorrido desde ascenso piso a piso. Ayuda gratuita de geometría — verifique código aparte.",
   }),
@@ -691,7 +691,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { rollsNeeded: "Rollos de papel tapiz" },
-    metaTitle: "Calculadora de papel tapiz — Rollos necesarios | ProjectCalc Hub",
+    metaTitle: "Calculadora de papel tapiz — Rollos necesarios | BuildSite Calc",
     metaDescription:
       "Calcule rollos de papel tapiz por perímetro y altura. Repetición de patrón y desperdicio incluidos.",
   }),
@@ -740,7 +740,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { battsNeeded: "Paneles de aislamiento" },
-    metaTitle: "Calculadora de aislamiento — Paneles necesarios | ProjectCalc Hub",
+    metaTitle: "Calculadora de aislamiento — Paneles necesarios | BuildSite Calc",
     metaDescription:
       "Calcule paneles de aislamiento para muros y áticos. Calculadora gratuita con ancho de panel y desperdicio.",
   }),
@@ -789,7 +789,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { estimatedBtu: "Carga estimada (BTU/h)", tonnage: "Toneladas de frío" },
-    metaTitle: "Calculadora BTU HVAC — Tamaño de AC | ProjectCalc Hub",
+    metaTitle: "Calculadora BTU HVAC — Tamaño de AC | BuildSite Calc",
     metaDescription:
       "Estime BTU y toneladas desde tamaño de cuarto y factores climáticos. Herramienta gratuita — no sustituye Manual J.",
   }),
@@ -838,7 +838,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { recommendedTruck: "Camión sugerido" },
-    metaTitle: "Calculadora de camión de mudanza | ProjectCalc Hub",
+    metaTitle: "Calculadora de camión de mudanza | BuildSite Calc",
     metaDescription:
       "Encuentre el tamaño de camión adecuado por habitaciones o pies cúbicos. Guía gratuita de furgoneta a 26 ft.",
   }),
@@ -888,7 +888,7 @@ export const esCalculators = {
     ],
     resultLabels: { recommendedDumpster: "Tamaño de contenedor recomendado" },
     inputLabels: { projectType: "Tipo de proyecto" },
-    metaTitle: "Calculadora de contenedor — Roll-off | ProjectCalc Hub",
+    metaTitle: "Calculadora de contenedor — Roll-off | BuildSite Calc",
     metaDescription:
       "Elija el tamaño de contenedor roll-off para remodelaciones y limpiezas. Presets y volumen personalizado gratis.",
   }),
@@ -937,7 +937,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { adjustedQuantity: "Cantidad a pedir" },
-    metaTitle: "Calculadora de factor de desperdicio | ProjectCalc Hub",
+    metaTitle: "Calculadora de factor de desperdicio | BuildSite Calc",
     metaDescription:
       "Aplique porcentaje de desperdicio a cualquier cantidad de material. Calculadora gratuita de margen para piso, azulejo, madera y más.",
   }),
@@ -986,7 +986,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { boardFeet: "Total pies tablero" },
-    metaTitle: "Calculadora de pie tablero — Volumen de madera | ProjectCalc Hub",
+    metaTitle: "Calculadora de pie tablero — Volumen de madera | BuildSite Calc",
     metaDescription:
       "Calcule pies tablero desde dimensiones de madera. Calculadora gratuita para madera dura y lumber.",
   }),
@@ -1036,7 +1036,7 @@ export const esCalculators = {
     ],
     resultLabels: { totalAreaFt2: "Área combinada (ft²)" },
     inputLabels: { rooms: "Dimensiones de habitaciones" },
-    metaTitle: "Calculadora de pies cuadrados — Área múltiple | ProjectCalc Hub",
+    metaTitle: "Calculadora de pies cuadrados — Área múltiple | BuildSite Calc",
     metaDescription:
       "Calcule pies cuadrados totales de varias habitaciones. Calculadora gratuita con salida US y métrica.",
   }),
@@ -1084,7 +1084,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { volumeFt3: "Volumen de habitación (ft³)" },
-    metaTitle: "Calculadora de volumen de habitación | ProjectCalc Hub",
+    metaTitle: "Calculadora de volumen de habitación | BuildSite Calc",
     metaDescription:
       "Calcule volumen en pies cúbicos y metros cúbicos. Herramienta gratuita para HVAC y ventilación.",
   }),
@@ -1133,7 +1133,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { sellingPrice: "Precio a cobrar" },
-    metaTitle: "Calculadora de margen de mano de obra | ProjectCalc Hub",
+    metaTitle: "Calculadora de margen de mano de obra | BuildSite Calc",
     metaDescription:
       "Calcule precio de venta desde costo con markup o margen. Ayuda gratuita de precios para contratistas.",
   }),
@@ -1183,7 +1183,7 @@ export const esCalculators = {
     ],
     resultLabels: { total: "Total materiales" },
     inputLabels: { lineItems: "Partidas de materiales" },
-    metaTitle: "Calculadora de costo de materiales | ProjectCalc Hub",
+    metaTitle: "Calculadora de costo de materiales | BuildSite Calc",
     metaDescription:
       "Sume partidas de materiales con impuesto opcional. Calculadora gratuita de lista de insumos.",
   }),
@@ -1232,7 +1232,7 @@ export const esCalculators = {
       },
     ],
     resultLabels: { grandTotal: "Presupuesto total del proyecto" },
-    metaTitle: "Calculadora de presupuesto de proyecto | ProjectCalc Hub",
+    metaTitle: "Calculadora de presupuesto de proyecto | BuildSite Calc",
     metaDescription:
       "Arme presupuesto de renovación con materiales, mano de obra, permisos y contingencia. Hoja gratuita.",
   }),

@@ -1,11 +1,11 @@
 /**
- * Central site configuration — brand, domain, contact, analytics, ads.
+ * Central site configuration - brand, domain, contact, analytics, ads.
  * Update values here; do not scatter across components.
  */
 export const siteConfig = {
   brand: {
-    name: "ProjectCalc Hub",
-    nameShort: "ProjectCalc",
+    name: "BuildSite Calc",
+    nameShort: "BuildSiteCalc",
     tagline: {
       en: "Every measurement, material, and project-cost calculator a homeowner or contractor needs.",
       es: "Todas las calculadoras de medidas, materiales y costos que necesita para su proyecto.",
@@ -15,8 +15,8 @@ export const siteConfig = {
       es: "Calculadoras gratuitas de mejoras del hogar para concreto, pintura, pisos, techos, jardinería, cercas, HVAC, mudanzas y costos de proyecto. Fórmulas transparentes, unidades US y métricas.",
     },
   },
-  domain: "https://projectcalchub.com",
-  contactEmail: "hello@projectcalchub.com",
+  domain: "https://buildsitecalc.com",
+  contactEmail: "hello@buildsitecalc.com",
   locale: {
     default: "en" as const,
     supported: ["en", "es"] as const,
@@ -41,7 +41,7 @@ export const siteConfig = {
     enabled: process.env.NEXT_PUBLIC_AFFILIATES_ENABLED === "true",
   },
   legal: {
-    companyName: "ProjectCalc Hub",
+    companyName: "BuildSite Calc",
     jurisdiction: "United States",
     lastUpdated: "2026-07-28",
   },

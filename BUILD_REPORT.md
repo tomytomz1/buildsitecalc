@@ -1,7 +1,7 @@
-# ProjectCalc Hub — Build Report
+# BuildSite Calc — Build Report
 
 **Date:** 2026-07-28  
-**Working brand:** ProjectCalc Hub  
+**Working brand:** BuildSite Calc  
 **Stack:** Next.js 16 App Router, TypeScript strict, Tailwind CSS 4, Vitest, Playwright  
 
 ## Executive summary
@@ -12,8 +12,8 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 | Topic | Default | Location |
 |-------|---------|----------|
-| Domain | `https://projectcalchub.com` | `src/config/site.ts` |
-| Contact | `hello@projectcalchub.com` | `src/config/site.ts` |
+| Domain | `https://buildsitecalc.com` | `src/config/site.ts` |
+| Contact | `hello@buildsitecalc.com` | `src/config/site.ts` |
 | Default locale | `/en` (root redirects) | middleware + `siteConfig` |
 | Currency display | USD / `en-US` formatting | utils + currency inputs |
 | Concrete bag volumes | 40/60/80 lb → 0.30 / 0.45 / 0.60 ft³ | `units.ts` |
@@ -91,7 +91,7 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 ## Git status
 
 - Branch: `master`
-- Commit: `07a59b1` — `feat: launch ProjectCalc Hub bilingual calculator site`
+- Commit: `07a59b1` — `feat: launch BuildSite Calc bilingual calculator site`
 - **No remote configured** — push when ready:
 
 ```bash

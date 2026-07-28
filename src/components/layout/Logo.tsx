@@ -34,9 +34,9 @@ export function Logo({
       <LogoIcon decorative />
       <span className="flex flex-col">
         <span className="text-lg font-bold leading-tight tracking-tight text-slate-900 group-hover:text-amber-800">
-          <span className="text-amber-700">Project</span>
-          <span className="text-slate-800">Calc</span>
-          <span className="font-semibold text-slate-600"> Hub</span>
+          <span className="text-slate-800">Build</span>
+          <span className="text-amber-700">Site</span>
+          <span className="font-semibold text-slate-600"> Calc</span>
         </span>
         {showTagline ? (
           <span className="hidden text-xs text-slate-500 sm:block">

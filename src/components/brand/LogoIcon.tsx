@@ -8,11 +8,11 @@ export type LogoIconProps = {
 };
 
 /**
- * ProjectCalc Hub mark — steel grid + amber measurement accent.
+ * BuildSite Calc mark — steel grid + amber measurement accent.
  */
 export function LogoIcon({
   className,
-  title = "ProjectCalc Hub",
+  title = "BuildSite Calc",
   decorative = false,
 }: LogoIconProps) {
   return (
