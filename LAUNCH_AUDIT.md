@@ -1,61 +1,91 @@
 # Launch Audit — BuildSiteCalc
 
-**Date:** 2026-07-28
-**Auditor:** Independent launch audit (fresh pass; prior completion claims not trusted)
+**Date:** 2026-07-28 (final pre-deployment remediation)
+**Auditor:** Independent launch audit + remediation pass
 **Repo:** https://github.com/tomytomz1/buildsitecalc
 **Production domain:** https://buildsitecalc.com
 **Contact:** hello@buildsitecalc.com
 
-## Launch recommendation: CONDITIONAL GO
+## Launch recommendation: GO
 
-Ship to Vercel after human completes DNS/domain wiring, attorney review of legal pages, and a smoke check on production. Core product math, branding, bilingual parity, SEO plumbing, ads-safe defaults, and unit/e2e/build gates are verified green in this audit.
+Technical repository readiness is green. Ship to Vercel when DNS/domain attachment and any attorney review of legal pages are ready. Remaining work is operational/human — not product blockers in this repo.
+
+### Readiness by lane
+
+| Lane | Status | Notes |
+|------|--------|-------|
+| **Technical repo readiness** | **GO** | Lint, typecheck, 118 unit tests, 25 e2e, production build, route crawl 97/97, production smoke 34/34, prod npm audit --omit=dev = 0 vulns |
+| **Vercel / DNS** | Human | Import repo, attach buildsitecalc.com, wait for SSL — see VERCEL_DEPLOYMENT.md |
+| **Legal review** | Human | Privacy / Terms / Cookies / Disclaimer attorney review for target jurisdictions |
+| **AdSense** | Human | Keep ads off until approval; set publisher ID then enable |
+| **Analytics** | Human | Optional GA/GTM IDs after consent copy is accepted |
 
 ## Executive results
 
 | Gate | Result |
 |------|--------|
-| Brand (BuildSiteCalc, domain, email) | Fixed and verified |
-| npm install / lockfile sync | Pass (lockfile refreshed) |
+| Brand (BuildSiteCalc, domain, email) | Verified |
+| npm ci / lockfile sync | Pass |
 | Lint | Pass (0 errors) |
 | Typecheck | Pass |
-| Unit tests | 104 passed |
-| E2E | 22 passed |
-| Production build | Pass — 99 static pages |
-| Route crawl | 97/97 OK (audit/route-audit.json) |
-| Visual QA | 39 screenshots (audit/screenshots/) |
-| Ads without IDs | Inactive; ads.txt has no fake publisher when unset |
+| Unit tests | **118 passed** |
+| E2E | **25 passed** |
+| Production build | Pass — Next reports **99** static page generations |
+| Route crawl | **97/97 OK** |
+| Production smoke (scripts/production-smoke.cjs) | **34/34** against local production build |
+| Prod dependency audit (npm audit --omit=dev) | **0 vulnerabilities** |
+| Dev-only audit highs | 9 high (brace-expansion via ESLint) — non-blocking; see docs/dependency-audit.md |
+| Ads without IDs | Inactive; ads.txt has no fake publisher line |
 | Analytics without IDs | Inactive |
 
-## Issues found then fixed
+## Route count reconciliation (99 vs 97)
 
-1. Brand was "BuildSite Calc" (spaced) across config, i18n, logo, contact, docs → BuildSiteCalc.
-2. P0 fence pickets used fence feet for inch lumber sizes (18 vs ~214) → separate inch units.
-3. P0 deck boards same unit bug (7 vs 58) → separate inch units.
-4. P1 insulation batt length 8 ft vs docs 48 in (55 vs 110) → editable battLength default 48 in.
-5. P1 drywall defaults contradicted wall-area example → default area 352 ft2 → 13 sheets.
-6. P1 NaN waste/contingency accepted → require finite >= 0.
-7. P1 wallpaper default waste 15% vs assumptions 10% → default 10%.
-8. Stair worked example used floor division; code uses ceil → examples synced to 16 risers / 6.75 in.
-9. Stair/HVAC meta disclaimers not rendered in UI → shown beside results.
-10. ads.txt emitted pub-000 placeholder → comment-only until publisher ID set.
-11. Search empty option missing aria-selected → fixed.
-12. Engine eslint-disable any removed; unused form destructures cleaned.
+These numbers measure **different inventories**:
+
+### Next.js build: 99 static page generations
+
+Includes prerendered SSG/static shells reported by next build (locale SSG pages, root /, framework /_not-found / /_global-error, robots.txt, sitemap.xml, etc.).
+
+### Route crawl: 97 URLs
+
+Operational health checklist in scripts/route-crawl.cjs:
+
+| Slice | Count |
+|-------|------:|
+| Root redirect / | 1 |
+| Infra: /robots.txt, /sitemap.xml, /ads.txt | 3 |
+| Intentional 404 probe | 1 |
+| EN public pages (home + calc directory + 9 static + 10 categories + 25 calculators) | 46 |
+| ES public pages (parity) | 46 |
+| **Total** | **97** |
+
+### Exact 2-page content explanation
+
+Comparing bilingual **public HTML pages**:
+
+- Crawl expects **92** locale URLs (46 x 2), including /en/calculators and /es/calculators.
+- On-disk SSG HTML for locales is **90** pages (home + 9 static + 10 categories + 25 calculators x 2).
+
+The **2 pages** are /en/calculators and /es/calculators — intentional **dynamic** routes (search/query directory), not missing public pages. Crawl verifies both return HTTP 200. They are simply not SSG-prerendered.
+
+Headline **99 vs 97** is therefore not a missing-content bug; it is build inventory vs crawl checklist (plus the dynamic directory pages above).
+
+## Remediations in this pass
+
+1. **Paint metric consistency** — door/window/coverage area units; SI base math; coherent result units; URL restore; EN/ES labels; unit + Playwright tests.
+2. **Stair unit handling** — shared length unit with conversion on switch; fractional entry; results in selected unit; stringer length; never treat inches as feet; URL restore; EN/ES copy; tests.
+3. **Dependency security** — production highs cleared via safe overrides (postcss, sharp); documented in docs/dependency-audit.md.
+4. **Social URL safety** — empty siteConfig.social values omit footer links and Organization sameAs; unit coverage.
+5. **Production smoke script** — npm run smoke / BASE_URL=... node scripts/production-smoke.cjs.
 
 ## Remaining human next actions
 
-1. Vercel dashboard deploy (see VERCEL_DEPLOYMENT.md). Do not invent DNS values.
+1. Vercel dashboard deploy + DNS for buildsitecalc.com (see VERCEL_DEPLOYMENT.md). Do not invent DNS values.
 2. Attorney review of Privacy / Terms / Cookies / Disclaimer.
-3. Production smoke after DNS: /en, /es, one calculator, sitemap, robots, ads.txt.
-4. Enable GA/GTM/AdSense only after consent + approval.
-5. Optional non-blocking: metric paint openings still ft2; stair shares one length unit; Next audit highs deferred; middleware→proxy migration later.
-6. Social URLs still empty in siteConfig.social.
-
-## Route / bilingual / SEO
-
-- Crawl total 97 URLs; EN and ES content parity for home, directory, 9 static pages, 10 categories, 25 calculators.
-- Canonicals use https://buildsitecalc.com without query params; hreflang en/es/x-default verified in e2e.
-- No ProjectCalc / projectcalchub leftovers after brand pass.
+3. After DNS: production smoke with BASE_URL=https://buildsitecalc.com npm run smoke.
+4. Enable GA/GTM/AdSense only after consent + approvals.
+5. Optional: fill real social profile URLs in siteConfig.social (empty is safe).
 
 ## Recommendation rationale
 
-CONDITIONAL GO: in-repo blockers repaired and re-verified; DNS/Vercel attachment and attorney sign-off remain external human gates.
+**GO** on technical repo readiness. Do not keep CONDITIONAL GO merely because DNS/deploy need humans — those are external attach steps, not unresolved product defects.

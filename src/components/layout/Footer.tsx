@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { siteConfig, type Locale } from "@/config/site";
+import {
+  getConfiguredSocialLinks,
+  siteConfig,
+  type Locale,
+} from "@/config/site";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +41,8 @@ export function Footer({ locale, links, className }: FooterProps) {
     { href: `/${locale}/cookies`, label: links.cookies },
   ];
 
+  const socialLinks = getConfiguredSocialLinks();
+
   return (
     <footer
       className={cn(
@@ -59,6 +65,22 @@ export function Footer({ locale, links, className }: FooterProps) {
                 {siteConfig.contactEmail}
               </a>
             </p>
+            {socialLinks.length > 0 ? (
+              <ul className="flex flex-wrap gap-3 pt-1" aria-label="Social media">
+                {socialLinks.map((link) => (
+                  <li key={link.network}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-slate-400 underline-offset-2 hover:text-amber-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
 
           <nav aria-label="Footer">

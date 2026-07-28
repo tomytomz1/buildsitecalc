@@ -108,24 +108,25 @@ export const esCalculators = {
       "Estime galones de pintura interior o exterior desde dimensiones de habitación o área directa de pared. Descuenta puertas y ventanas y aplica manos y desperdicio.",
     shortDescription: "Galones de pintura para paredes y habitaciones.",
     formula:
-      "Área pintable = área de pared − aberturas. Galones = (área pintable × manos ÷ rendimiento) × (1 + desperdicio%). Resultado redondeado al cuarto de galón más cercano.",
+      "Área pintable = área de pared − aberturas (todo convertido a m² internamente). Galones = (área pintable × manos ÷ rendimiento) × (1 + desperdicio%). Resultado redondeado al cuarto de galón más cercano. Rendimiento y aberturas usan las unidades de área que seleccione (ft² o m²).",
     assumptions: [
-      "Rendimiento predeterminado: 350 ft² por galón por mano en látex de calidad sobre superficie lisa.",
-      "Descuento predeterminado: puerta 21 ft², ventana 15 ft² cada una.",
+      "Rendimiento predeterminado: 350 ft² por galón por mano (≈32,5 m²/gal) en látex de calidad sobre superficie lisa.",
+      "Descuento predeterminado: puerta 21 ft² (≈1,95 m²), ventana 15 ft² (≈1,39 m²) cada una.",
       "Se asumen dos manos salvo que cambie el valor.",
       "No incluye cielo raso salvo que lo sume al área.",
       "Imprimador se calcula aparte si el rendimiento difiere.",
     ],
     workedExample: {
       title: "Habitación 12 × 10 ft, cielos 8 ft, 2 manos",
-      body: "Perímetro = 2×(12+10) = 44 ft. Área pared = 44 × 8 = 352 ft². Menos 1 puerta (21) y 2 ventanas (30) = 301 ft² pintables. Dos manos a 350 ft²/gal: (301×2)÷350 = 1,72 gal → 1,75 gal redondeado, más desperdicio.",
+      body: "Perímetro = 2×(12+10) = 44 ft. Área pared = 44 × 8 = 352 ft². Menos 1 puerta (21) y 2 ventanas (30) = 301 ft² pintables. Dos manos a 350 ft²/gal: (301×2)÷350 = 1,72 gal → 1,75 gal redondeado, más desperdicio. Equivalente métrico: longitudes en m y aberturas/rendimiento en m² dan el mismo resultado físico.",
     },
     howToMeasure:
-      "Mida largo y ancho en el piso. Mida altura en una esquina. Cuente puertas y ventanas estándar, o ingrese áreas personalizadas para puertas corredizas grandes.",
+      "Mida largo y ancho en el piso. Mida altura en una esquina. Cuente puertas y ventanas estándar, o ingrese áreas personalizadas con unidades ft² o m² coherentes para puertas corredizas grandes.",
     commonMistakes: [
       "Usar pies cuadrados de piso en lugar de superficie de pared.",
       "Olvidar la segunda mano en tablaroca nueva o cambios de color fuerte.",
       "Usar el rendimiento ideal del fabricante en paredes texturizadas.",
+      "Ingresar áreas métricas de aberturas dejando la unidad en ft² (o al revés).",
     ],
     faqs: [
       {
@@ -134,7 +135,8 @@ export const esCalculators = {
       },
       {
         question: "¿Qué rendimiento usar?",
-        answer: "Revise la lata. Paredes lisas: 350–400 ft²/gal; texturizadas: 250–300 ft²/gal.",
+        answer:
+          "Revise la lata. Paredes lisas: 350–400 ft²/gal (≈32–37 m²/gal); texturizadas: 250–300 ft²/gal. Cambie la unidad de rendimiento para coincidir con la etiqueta.",
       },
       {
         question: "¿Incluyo el cielo raso?",
@@ -146,10 +148,15 @@ export const esCalculators = {
       },
     ],
     resultLabels: { gallons: "Galones a comprar" },
-    inputLabels: { coverageRate: "Rendimiento por galón" },
+    inputLabels: {
+      coverageRate: "Rendimiento por galón",
+      coverageRateUnit: "Unidad de rendimiento",
+      doorAreaUnit: "Unidad de área de puertas",
+      windowAreaUnit: "Unidad de área de ventanas",
+    },
     metaTitle: "Calculadora de pintura — Galones necesarios | BuildSiteCalc",
     metaDescription:
-      "Calculadora gratuita de pintura para habitaciones y paredes. Estime galones con descuentos, manos y desperdicio.",
+      "Calculadora gratuita de pintura para habitaciones y paredes. Estime galones con descuentos, manos y desperdicio. Unidades US y métricas.",
   }),
 
   flooring: calc({
@@ -597,27 +604,29 @@ export const esCalculators = {
   stair: calc({
     title: "Calculadora de escaleras",
     description:
-      "Calcule número de contrahuellas, huellas y recorrido horizontal desde ascenso total y altura objetivo de contrahuella. Solo geometría básica — verifique código local.",
+      "Calcule número de contrahuellas, huellas, recorrido horizontal y longitud aproximada del larguero desde ascenso total y altura objetivo. Una sola unidad de longitud compartida. Solo geometría básica — verifique código local.",
     shortDescription: "Contrahuellas y huellas para escaleras.",
     formula:
-      "Contrahuellas = redondeo(ascenso total ÷ altura objetivo). Contrahuella real = ascenso ÷ contrahuellas. Huellas = contrahuellas − 1. Recorrido = huellas × profundidad de huella.",
+      "Contrahuellas = ceil(ascenso total ÷ altura objetivo). Contrahuella real = ascenso ÷ contrahuellas. Huellas = contrahuellas − 1. Recorrido = huellas × profundidad. Larguero ≈ √(ascenso² + recorrido²). Todas las longitudes usan la unidad seleccionada.",
     assumptions: [
       "Tramo recto con contrahuellas y huellas uniformes.",
-      "Contrahuella objetivo cerca de 7 in es común en vivienda US.",
+      "Contrahuella objetivo cerca de 7 in (≈178 mm) es común en vivienda US.",
       "No verifica cumplimiento IRC ni código local.",
       "Plataformas intermedias y altura libre no se calculan.",
       "Ascenso total es distancia vertical piso a piso terminado.",
+      "El ancho de escalera es opcional e informativo.",
     ],
     workedExample: {
       title: "Ascenso 9 ft, contrahuella objetivo 7 in",
-      body: "Ascenso = 108 in. Contrahuellas = 108 ÷ 7 ≈ 15,4 → 15. Contrahuella real = 108 ÷ 15 = 7,2 in. Huellas = 14. Recorrido = 14 × 10 in = 140 in (11,67 ft).",
+      body: "Ingrese 108 in de ascenso (o 9 ft con unidad Pies — se convierte). Contrahuellas = 108 ÷ 7 ≈ 15,4 → 16 (ceil). Contrahuella real = 108 ÷ 16 = 6,75 in. Huellas = 15. Recorrido = 15 × 10 in = 150 in. Larguero ≈ √(108² + 150²) ≈ 184,9 in.",
     },
     howToMeasure:
-      "Mida distancia vertical de piso terminado a piso terminado (o descanso). En decks exteriores, de superficie terminada del deck a nivel del suelo en la base.",
+      "Mida distancia vertical de piso terminado a piso terminado (o descanso). Ingrese ascenso, contrahuella y huella en la misma unidad. Al cambiar la unidad se convierten todos los campos para que 108 pulgadas nunca se lean como 108 pies.",
     commonMistakes: [
       "Medir a subpiso en lugar de piso terminado.",
       "Contrahuellas desiguales al ajustar solo el primer peldaño.",
       "Ignorar límites de altura de contrahuella y profundidad de huella en código local.",
+      "Cambiar la unidad de longitud sin convertir valores (esta herramienta convierte automáticamente).",
     ],
     faqs: [
       {
@@ -641,10 +650,18 @@ export const esCalculators = {
       numberOfRisers: "Contrahuellas",
       numberOfTreads: "Huellas",
       totalRunFt: "Recorrido horizontal (ft)",
+      stringerLength: "Longitud del larguero (aprox.)",
+    },
+    inputLabels: {
+      totalRise: "Ascenso total (piso a piso)",
+      riserHeight: "Altura objetivo / máxima de contrahuella",
+      treadDepth: "Profundidad de huella",
+      stairWidth: "Ancho de escalera (opcional)",
+      lengthUnit: "Unidad de longitud (compartida)",
     },
     metaTitle: "Calculadora de escaleras — Subida y huella | BuildSiteCalc",
     metaDescription:
-      "Calcule contrahuellas, huellas y recorrido desde ascenso piso a piso. Ayuda gratuita de geometría — verifique código aparte.",
+      "Calcule contrahuellas, huellas, recorrido y larguero desde ascenso piso a piso. Ayuda gratuita de geometría — verifique código aparte.",
   }),
 
   wallpaper: calc({

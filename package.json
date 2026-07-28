@@ -14,7 +14,9 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:all": "vitest run && playwright test",
-    "qa": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
+    "qa": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
+    "audit:routes": "node scripts/route-crawl.cjs",
+    "smoke": "node scripts/production-smoke.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -44,5 +46,9 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "postcss": "8.5.24",
+    "sharp": "0.35.3"
   }
 }

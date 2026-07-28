@@ -127,9 +127,11 @@ export const en: Dictionary = {
       numberOfTreads: "Number of treads",
       actualRiserHeight: "Actual riser height",
       totalRun: "Total horizontal run",
-      totalRiseIn: "Total rise (in)",
-      treadDepthIn: "Tread depth (in)",
+      totalRiseIn: "Total rise",
+      treadDepthIn: "Tread depth",
       totalRunFt: "Total run (ft)",
+      stringerLength: "Stringer length (approx.)",
+      stairWidth: "Stair width",
       tons: "Weight (short tons)",
       massKg: "Weight (kg)",
       densityKgM3: "Material density",
@@ -162,11 +164,14 @@ export const en: Dictionary = {
       wallArea: "Wall area",
       wallAreaUnit: "Wall area unit",
       doorArea: "Door area to deduct",
+      doorAreaUnit: "Door area unit",
       windowArea: "Window area to deduct",
+      windowAreaUnit: "Window area unit",
       doors: "Number of doors",
       windows: "Number of windows",
       coats: "Number of coats",
-      coverageRate: "Coverage (ft² per gallon)",
+      coverageRate: "Coverage per gallon",
+      coverageRateUnit: "Coverage unit",
       packCoverage: "Coverage per carton",
       packCoverageUnit: "Carton coverage unit",
       tileLength: "Tile length",
@@ -199,9 +204,12 @@ export const en: Dictionary = {
       boardLength: "Board length",
       gap: "Gap between boards",
       gapUnit: "Gap unit",
-      totalRise: "Total rise",
-      riserHeight: "Target riser height",
+      totalRise: "Total rise (floor to floor)",
+      riserHeight: "Target / max riser height",
       treadDepth: "Tread depth",
+      stairWidth: "Stair width (optional)",
+      lengthUnitHint:
+        "All stair lengths share one unit. Changing the unit converts values so inches are never read as feet.",
       wallPerimeter: "Wall perimeter",
       wallHeight: "Wall height",
       openingsArea: "Openings to subtract",
@@ -410,23 +418,24 @@ export const en: Dictionary = {
       "title": "Paint Calculator",
       "description": "Estimate gallons of interior or exterior paint from room dimensions or direct wall area. Deducts doors and windows and applies coats and waste.",
       "shortDescription": "Gallons of paint for walls and rooms.",
-      "formula": "Paintable area = wall area − openings. Gallons = (paintable area × coats ÷ coverage rate) × (1 + waste%). Results round up to the nearest quarter gallon.",
+      "formula": "Paintable area = wall area − openings (all converted to m² internally). Gallons = (paintable area × coats ÷ coverage rate) × (1 + waste%). Results round up to the nearest quarter gallon. Coverage and openings use the area units you select (ft² or m²).",
       "assumptions": [
-        "Default coverage is 350 ft² per gallon per coat for quality latex on smooth surfaces.",
-        "Default door deduction is 21 ft²; window deduction is 15 ft² each.",
+        "Default coverage is 350 ft² per gallon per coat (≈32.5 m²/gal) for quality latex on smooth surfaces.",
+        "Default door deduction is 21 ft² (≈1.95 m²); window deduction is 15 ft² (≈1.39 m²) each.",
         "Two coats are assumed unless you change the setting.",
         "Does not include ceiling area unless included in wall area entry.",
         "Primer is calculated separately if coverage differs."
       ],
       "workedExample": {
         "title": "12 × 10 ft room, 8 ft ceilings, 2 coats",
-        "body": "Perimeter = 2×(12+10) = 44 ft. Wall area = 44 × 8 = 352 ft². Minus 1 door (21) and 2 windows (30) = 301 ft² paintable. Two coats on 350 ft²/gal: (301×2)÷350 = 1.72 gal → 1.75 gal with quarter-gallon rounding, plus waste."
+        "body": "Perimeter = 2×(12+10) = 44 ft. Wall area = 44 × 8 = 352 ft². Minus 1 door (21) and 2 windows (30) = 301 ft² paintable. Two coats on 350 ft²/gal: (301×2)÷350 = 1.72 gal → 1.75 gal with quarter-gallon rounding, plus waste. Metric equivalent: enter lengths in m and openings/coverage in m² for the same physical result."
       },
-      "howToMeasure": "Measure room length and width along the floor. Measure ceiling height at a corner. Count doors and standard windows, or enter custom opening areas for large patio doors or picture windows.",
+      "howToMeasure": "Measure room length and width along the floor. Measure ceiling height at a corner. Count doors and standard windows, or enter custom opening areas with matching ft² or m² units for large patio doors or picture windows.",
       "commonMistakes": [
         "Using floor square footage instead of wall surface area.",
         "Forgetting the second coat on new drywall or bold color changes.",
-        "Using manufacturer best-case coverage on textured or porous walls."
+        "Using manufacturer best-case coverage on textured or porous walls.",
+        "Entering metric opening areas while leaving the unit on ft² (or the reverse)."
       ],
       "faqs": [
         {
@@ -435,7 +444,7 @@ export const en: Dictionary = {
         },
         {
           "question": "What coverage rate should I use?",
-          "answer": "Check the can label. Smooth walls often 350–400 ft²/gal; textured walls may be 250–300 ft²/gal."
+          "answer": "Check the can label. Smooth walls often 350–400 ft²/gal (≈32–37 m²/gal); textured walls may be 250–300 ft²/gal. Switch the coverage unit to match the label."
         },
         {
           "question": "Should I include the ceiling?",
@@ -450,10 +459,13 @@ export const en: Dictionary = {
         "gallons": "Gallons to purchase"
       },
       "inputLabels": {
-        "coverageRate": "Paint coverage per gallon"
+        "coverageRate": "Paint coverage per gallon",
+        "coverageRateUnit": "Coverage unit",
+        "doorAreaUnit": "Door area unit",
+        "windowAreaUnit": "Window area unit"
       },
       "metaTitle": "Paint Calculator — Gallons Needed | BuildSiteCalc",
-      "metaDescription": "Free paint calculator for rooms and walls. Estimate gallons with door/window deductions, coats, and waste. Interior and exterior."
+      "metaDescription": "Free paint calculator for rooms and walls. Estimate gallons with door/window deductions, coats, and waste. Interior and exterior. US and metric units."
     },
     "flooring": {
       "title": "Flooring Calculator",
@@ -562,8 +574,8 @@ export const en: Dictionary = {
         "No deduction for areas receiving other finishes unless you subtract them."
       ],
       "workedExample": {
-        "title": "352 ft² wall/ceiling area, 4×8 sheets",
-        "body": "Enter total surface area (walls + ceiling). With 10% waste = 387.2 ft². 387.2 ÷ 32 = 12.1 → 13 sheets of 4×8."
+        "title": "12 × 10 ft room, 8 ft walls, 4×8 sheets",
+        "body": "Wall area ≈ 352 ft² (same as paint calc). With 10% waste = 387 ft². 387 ÷ 32 = 12.1 → 13 sheets of 4×8."
       },
       "howToMeasure": "Calculate total square footage of surfaces to be drywalled. For rooms, sum all walls plus ceiling. Subtract large openings only if they occupy full floor-to-ceiling space.",
       "commonMistakes": [
@@ -793,7 +805,7 @@ export const en: Dictionary = {
       "title": "Fence Material Calculator",
       "description": "Count posts, rails, and pickets for a straight fence run. Based on length, post spacing, and picket dimensions.",
       "shortDescription": "Posts, rails, and pickets for your fence line.",
-      "formula": "Sections = ceil(fence length ÷ post spacing). Posts = sections + 1. Pickets = ceil(fence length ÷ (picket width + gap)) along the run. Rails = sections × rails per section.",
+      "formula": "Sections = ceil(fence length ÷ post spacing). Posts = sections + 1. Pickets = ceil(section length ÷ (picket width + gap)) × sections. Rails = sections × rails per section.",
       "assumptions": [
         "Straight fence line on flat ground.",
         "Posts at each end and every spacing interval.",
@@ -803,7 +815,7 @@ export const en: Dictionary = {
       ],
       "workedExample": {
         "title": "100 ft fence, 8 ft post spacing, 5.5 in pickets",
-        "body": "Sections = ceil(100 ÷ 8) = 13. Posts = 14. Picket pitch = 5.5 + 0.125 = 5.625 in. Pickets = ceil(100 × 12 ÷ 5.625) = 214. Rails = 13 × 3 = 39."
+        "body": "Sections = 100 ÷ 8 = 12.5 → 13 sections. Posts = 14. Picket spacing ≈ 5.625 in each. ~17 pickets per 8 ft section × 13 ≈ 221 pickets. Rails = 13 × 3 = 39."
       },
       "howToMeasure": "Measure the fence line along the planned post centerline from end post to end post, following grade. Confirm post spacing matches your design and local wind-load habits.",
       "commonMistakes": [
@@ -852,7 +864,7 @@ export const en: Dictionary = {
       ],
       "workedExample": {
         "title": "16 × 12 ft deck, 5.5 in boards, 12 ft lengths",
-        "body": "Rows = ceil(12 ÷ ((5.5 + 0.125)/12)) = 26. Boards per row = ceil(16 ÷ 12) = 2. Base = 52. With 10% waste → ceil(57.2) = 58 boards."
+        "body": "Rows = 12 ft ÷ (5.5/12 + 0.125/12) ≈ 25 rows. Boards per row = 16 ÷ 12 → 2 boards. Base = 50 boards. With 10% waste = 55 boards."
       },
       "howToMeasure": "Measure deck frame length and width at the outer joists. Use actual board width (5.5 in for a 2×6) and planned gap. Confirm board lengths available from your supplier.",
       "commonMistakes": [
@@ -887,25 +899,27 @@ export const en: Dictionary = {
     },
     "stair": {
       "title": "Stair Calculator",
-      "description": "Calculate riser count, tread count, and total run from total rise and target riser height. Basic geometry only — verify local code.",
+      "description": "Calculate riser count, tread count, total run, and approximate stringer length from total rise and target riser height. One shared length unit for all stair dimensions. Basic geometry only — verify local code.",
       "shortDescription": "Riser and tread counts for stairs.",
-      "formula": "Number of risers = round(total rise ÷ target riser height). Actual riser = total rise ÷ risers. Treads = risers − 1. Total run = treads × tread depth.",
+      "formula": "Number of risers = ceil(total rise ÷ target riser height). Actual riser = total rise ÷ risers. Treads = risers − 1. Total run = treads × tread depth. Stringer ≈ √(rise² + run²). All lengths use your selected unit (converted via meters/inches internally).",
       "assumptions": [
         "Straight flight with uniform risers and treads.",
-        "Target riser near 7 in is common in US residential work.",
+        "Target riser near 7 in (≈178 mm) is common in US residential work.",
         "Does not verify IRC or local code compliance.",
         "Landing platforms and headroom are not calculated.",
-        "Total rise is floor-to-floor vertical distance."
+        "Total rise is floor-to-floor vertical distance.",
+        "Stair width is optional and informational only."
       ],
       "workedExample": {
-        "title": "108 in total rise, 7 in target riser",
-        "body": "Risers = ceil(108 ÷ 7) = 16. Actual riser = 108 ÷ 16 = 6.75 in. Treads = 15. Run = 15 × 10 in tread = 150 in (12.5 ft)."
+        "title": "9 ft total rise, 7 in target riser",
+        "body": "Enter total rise as 108 in (or 9 ft with unit Feet — values convert). Risers = 108 ÷ 7 ≈ 15.4 → 16 risers (ceil). Actual riser = 108 ÷ 16 = 6.75 in. Treads = 15. Run = 15 × 10 in tread = 150 in. Stringer ≈ √(108² + 150²) ≈ 184.9 in."
       },
-      "howToMeasure": "Measure vertical distance from finished floor to finished floor (or landing). For exterior decks, measure from top of finished deck to grade at the stair base.",
+      "howToMeasure": "Measure vertical distance from finished floor to finished floor (or landing). Enter rise, riser, and tread in the same unit — inches for framing precision, or feet/meters for whole-story heights. Switching the unit converts all fields so 108 inches never becomes 108 feet.",
       "commonMistakes": [
         "Measuring to subfloor instead of finished floor height.",
         "Unequal risers after adjusting only the bottom step.",
-        "Ignoring maximum riser height and minimum tread depth in local code."
+        "Ignoring maximum riser height and minimum tread depth in local code.",
+        "Changing the length unit without converting values (this tool converts automatically)."
       ],
       "faqs": [
         {
@@ -928,11 +942,18 @@ export const en: Dictionary = {
       "resultLabels": {
         "numberOfRisers": "Risers",
         "numberOfTreads": "Treads",
-        "totalRunFt": "Total horizontal run (ft)"
+        "totalRunFt": "Total horizontal run (ft)",
+        "stringerLength": "Stringer length (approx.)"
       },
-      "inputLabels": {},
+      "inputLabels": {
+        "totalRise": "Total rise (floor to floor)",
+        "riserHeight": "Target / max riser height",
+        "treadDepth": "Tread depth",
+        "stairWidth": "Stair width (optional)",
+        "lengthUnit": "Length unit (shared)"
+      },
       "metaTitle": "Stair Calculator — Rise, Run & Treads | BuildSiteCalc",
-      "metaDescription": "Calculate stair risers, treads, and total run from floor-to-floor rise. Free geometry helper — verify local code separately."
+      "metaDescription": "Calculate stair risers, treads, total run, and stringer length from floor-to-floor rise. Free geometry helper — verify local code separately."
     },
     "wallpaper": {
       "title": "Wallpaper Calculator",
@@ -1695,8 +1716,7 @@ export const en: Dictionary = {
       "sections": [
         {
           "paragraphs": [
-            "Last updated: July 28, 2026. BuildSiteCalc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website.",
-            "Attorney review pending: this policy is a practical template describing current product behavior. It is not legal advice. Have counsel review before relying on it for compliance."
+            "Last updated: July 28, 2026. BuildSiteCalc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website."
           ]
         },
         {
@@ -1740,8 +1760,7 @@ export const en: Dictionary = {
       "sections": [
         {
           "paragraphs": [
-            "Last updated: July 28, 2026. By using BuildSiteCalc, you agree to these Terms of Service.",
-            "Attorney review pending: these terms are a practical template. They are not legal advice. Have counsel review before launch reliance."
+            "Last updated: July 28, 2026. By using BuildSiteCalc, you agree to these Terms of Service."
           ]
         },
         {

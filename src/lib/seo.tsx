@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { absoluteUrl, siteConfig, type Locale } from "@/config/site";
+import {
+  absoluteUrl,
+  getConfiguredSocialLinks,
+  siteConfig,
+  type Locale,
+} from "@/config/site";
 
 export function buildAlternates(
   locale: Locale,
@@ -79,6 +84,7 @@ export function websiteJsonLd(locale: Locale) {
 }
 
 export function organizationJsonLd() {
+  const sameAs = getConfiguredSocialLinks().map((link) => link.url);
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -86,6 +92,7 @@ export function organizationJsonLd() {
     url: siteConfig.domain,
     email: siteConfig.contactEmail,
     description: siteConfig.brand.description.en,
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }
 

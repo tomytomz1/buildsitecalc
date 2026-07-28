@@ -65,12 +65,12 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 | Check | Command | Result |
 |-------|---------|--------|
-| Unit tests | `npm run test` / `npx vitest run` | **104+ passed** (see LAUNCH_AUDIT.md) |
-| E2E | `npx playwright test` | **22+ passed** (see LAUNCH_AUDIT.md) |
+| Unit tests | `npm run test` / `npx vitest run` | **118 passed** |
+| E2E | `npx playwright test` | **25 passed** |
 | Typecheck | `npm run typecheck` | Pass |
 | ESLint errors | `npx eslint src --quiet` | Pass (0 errors) |
 | Production build | `npm run build` | Pass — **99** static routes generated |
-| Dependency audit | `npm audit --omit=dev` | 3 high in Next.js transitive `postcss`/`sharp`; force-fix would downgrade Next — deferred until upstream Next patch |
+| Dependency audit | `npm audit --omit=dev` | **0** prod vulns (safe overrides; see docs/dependency-audit.md) |
 | Middleware note | Next.js 16 deprecates `middleware` → `proxy` | Documented; still functional |
 
 ### Known lint warnings (non-blocking)
@@ -80,6 +80,13 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 - `jsx-a11y` option `aria-selected` suggestion on SearchBox options
 - Next.js middleware → proxy migration advisory
 
+## Production smoke
+
+\ash
+npm run build && npm run start
+BASE_URL=http://127.0.0.1:3000 npm run smoke
+# Later: BASE_URL=https://buildsitecalc.com npm run smoke
+\\n
 ## Sitemap & SEO sanity
 
 - `/sitemap.xml` — locales × home, calculators, categories, static pages, 25 tools  

@@ -49,6 +49,44 @@ export const siteConfig = {
 
 export type Locale = (typeof siteConfig.locale.supported)[number];
 
+export type SocialNetwork = keyof typeof siteConfig.social;
+
+const SOCIAL_LABELS: Record<SocialNetwork, string> = {
+  twitter: "Twitter / X",
+  facebook: "Facebook",
+  youtube: "YouTube",
+  pinterest: "Pinterest",
+  linkedin: "LinkedIn",
+};
+
+/** True when a social profile value is a usable absolute http(s) URL. */
+export function isValidSocialUrl(value: string | undefined | null): boolean {
+  if (!value || typeof value !== "string") return false;
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  try {
+    const url = new URL(trimmed);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+/** Configured social profiles only — empty strings are omitted. */
+export function getConfiguredSocialLinks(): {
+  network: SocialNetwork;
+  url: string;
+  label: string;
+}[] {
+  return (Object.keys(siteConfig.social) as SocialNetwork[])
+    .filter((network) => isValidSocialUrl(siteConfig.social[network]))
+    .map((network) => ({
+      network,
+      url: siteConfig.social[network].trim(),
+      label: SOCIAL_LABELS[network],
+    }));
+}
+
 export function isLocale(value: string): value is Locale {
   return (siteConfig.locale.supported as readonly string[]).includes(value);
 }

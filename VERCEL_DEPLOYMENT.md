@@ -32,3 +32,10 @@ Manual dashboard deploy only. Do not use Vercel CLI for this launch. Do not inve
 ## Rollback
 
 Redeploy the previous Production deployment from the Vercel Deployments tab. DNS usually does not need changes for app rollbacks.
+
+## Production smoke
+
+\ash
+BASE_URL=https://your-deployment.vercel.app npm run smoke
+BASE_URL=https://buildsitecalc.com npm run smoke
+\\n

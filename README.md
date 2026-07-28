@@ -47,6 +47,8 @@ Open [http://localhost:3000](http://localhost:3000) (redirects to `/en`).
 | `npm run test` | Vitest unit tests |
 | `npm run test:e2e` | Playwright e2e |
 | `npm run qa` | format check + lint + typecheck + unit tests + build |
+| `npm run smoke` | Production smoke against BASE_URL (default http://127.0.0.1:3000) |
+| `npm run audit:routes` | Crawl public routes against BASE_URL |
 
 ## Configuration
 

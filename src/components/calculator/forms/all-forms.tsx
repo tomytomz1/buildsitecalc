@@ -7,7 +7,13 @@ import { PercentInput } from "@/components/ui/PercentInput";
 import { Select } from "@/components/ui/Select";
 import { UnitSelect } from "@/components/ui/UnitSelect";
 import { CurrencyInput } from "@/components/ui/CurrencyInput";
+import {
+  convertPaintAreaInput,
+  convertStairInputsOnUnitChange,
+} from "@/lib/calculators";
 import type { CalculatorId } from "@/lib/calculators/types";
+import type { AreaUnit, LengthUnit } from "@/lib/calculators/units";
+import type { StairInputs } from "@/lib/calculators/stair";
 import {
   AreaWithUnitFields,
   FormGrid,
@@ -168,6 +174,28 @@ function PaintForm(props: CalculatorFormProps) {
     useFormHelpers(props);
   const useWallArea = props.inputs.wallArea !== undefined && props.inputs.wallArea !== "";
 
+  const convertAreaField = (
+    valueKey: string,
+    unitKey: string,
+    nextUnit: string,
+  ) => {
+    const from = String(props.inputs[unitKey] ?? "ft2") as AreaUnit;
+    const to = nextUnit as AreaUnit;
+    if (from === to) {
+      setField(unitKey, to);
+      return;
+    }
+    const raw = props.inputs[valueKey];
+    if (raw !== undefined && raw !== "") {
+      const parsed =
+        typeof raw === "number" ? raw : Number.parseFloat(String(raw));
+      if (Number.isFinite(parsed) && parsed >= 0) {
+        setField(valueKey, convertPaintAreaInput(parsed, from, to));
+      }
+    }
+    setField(unitKey, to);
+  };
+
   return (
     <div className="space-y-4">
       <Select
@@ -200,7 +228,7 @@ function PaintForm(props: CalculatorFormProps) {
           areaUnit={String(props.inputs.wallAreaUnit ?? "ft2")}
           areaError={err("wallArea")}
           onArea={setFrac("wallArea")}
-          onUnit={setSelect("wallAreaUnit")}
+          onUnit={(e) => convertAreaField("wallArea", "wallAreaUnit", e.target.value)}
         />
       ) : (
         <RoomDimensionsFieldset
@@ -249,6 +277,15 @@ function PaintForm(props: CalculatorFormProps) {
             locale={locale}
             onChange={setFrac("doorArea")}
           />
+          <UnitSelect
+            name="doorAreaUnit"
+            label={lbl("doorAreaUnit")}
+            value={String(props.inputs.doorAreaUnit ?? "ft2")}
+            kind="area"
+            onChange={(e) =>
+              convertAreaField("doorArea", "doorAreaUnit", e.target.value)
+            }
+          />
           <FractionalInput
             name="windowArea"
             label={lbl("windowArea")}
@@ -256,6 +293,15 @@ function PaintForm(props: CalculatorFormProps) {
             error={err("windowArea")}
             locale={locale}
             onChange={setFrac("windowArea")}
+          />
+          <UnitSelect
+            name="windowAreaUnit"
+            label={lbl("windowAreaUnit")}
+            value={String(props.inputs.windowAreaUnit ?? "ft2")}
+            kind="area"
+            onChange={(e) =>
+              convertAreaField("windowArea", "windowAreaUnit", e.target.value)
+            }
           />
         </FormGrid>
       </Fieldset>
@@ -277,6 +323,16 @@ function PaintForm(props: CalculatorFormProps) {
           error={err("coverageRate")}
           min={1}
           onChange={setNum("coverageRate")}
+        />
+        <UnitSelect
+          name="coverageRateUnit"
+          label={lbl("coverageRateUnit")}
+          value={String(props.inputs.coverageRateUnit ?? "ft2")}
+          kind="area"
+          units={["ft2", "m2"]}
+          onChange={(e) =>
+            convertAreaField("coverageRate", "coverageRateUnit", e.target.value)
+          }
         />
         <WasteField
           labels={labels}
@@ -1009,47 +1065,66 @@ function DeckBoardForm(props: CalculatorFormProps) {
 }
 
 function StairForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, locale, setInputs } = useFormHelpers(props);
+  const lengthUnit = String(props.inputs.lengthUnit ?? "in") as LengthUnit;
+
   return (
-    <FormGrid>
-      <Input
-        name="totalRise"
-        type="number"
-        label={lbl("totalRise")}
-        value={num("totalRise")}
-        error={err("totalRise")}
-        min={0}
-        step="any"
-        onChange={setNum("totalRise")}
-      />
-      <UnitSelect
-        name="lengthUnit"
-        label={lbl("lengthUnit")}
-        value={String(props.inputs.lengthUnit ?? "in")}
-        kind="length"
-        onChange={setSelect("lengthUnit")}
-      />
-      <Input
-        name="riserHeight"
-        type="number"
-        label={lbl("riserHeight")}
-        value={num("riserHeight")}
-        error={err("riserHeight")}
-        min={0}
-        step="any"
-        onChange={setNum("riserHeight")}
-      />
-      <Input
-        name="treadDepth"
-        type="number"
-        label={lbl("treadDepth")}
-        value={num("treadDepth")}
-        error={err("treadDepth")}
-        min={0}
-        step="any"
-        onChange={setNum("treadDepth")}
-      />
-    </FormGrid>
+    <div className="space-y-4">
+      <p className="text-sm text-slate-600">
+        {lbl("lengthUnitHint") ||
+          "All stair lengths use one shared unit. Switching the unit converts rise, riser, tread, and width so physical sizes stay the same."}
+      </p>
+      <FormGrid>
+        <FractionalInput
+          name="totalRise"
+          label={lbl("totalRise")}
+          value={num("totalRise")}
+          error={err("totalRise")}
+          locale={locale}
+          onChange={setFrac("totalRise")}
+        />
+        <UnitSelect
+          name="lengthUnit"
+          label={lbl("lengthUnit")}
+          value={lengthUnit}
+          kind="length"
+          onChange={(e) => {
+            const next = e.target.value as LengthUnit;
+            setInputs((prev) =>
+              convertStairInputsOnUnitChange(
+                prev as unknown as StairInputs,
+                lengthUnit,
+                next,
+              ) as unknown as Record<string, unknown>,
+            );
+          }}
+        />
+        <FractionalInput
+          name="riserHeight"
+          label={lbl("riserHeight")}
+          value={num("riserHeight")}
+          error={err("riserHeight")}
+          locale={locale}
+          onChange={setFrac("riserHeight")}
+        />
+        <FractionalInput
+          name="treadDepth"
+          label={lbl("treadDepth")}
+          value={num("treadDepth")}
+          error={err("treadDepth")}
+          locale={locale}
+          onChange={setFrac("treadDepth")}
+        />
+        <FractionalInput
+          name="stairWidth"
+          label={lbl("stairWidth")}
+          value={num("stairWidth")}
+          error={err("stairWidth")}
+          locale={locale}
+          onChange={setFrac("stairWidth")}
+        />
+      </FormGrid>
+    </div>
   );
 }
 

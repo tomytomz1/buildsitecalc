@@ -79,7 +79,9 @@ export {
 
 export {
   calculate as calculatePaint,
+  convertPaintAreaInput,
   defaultInputs as paintDefaultInputs,
+  preferredPaintAreaUnit,
   type PaintInputs,
 } from "./paint";
 
@@ -141,6 +143,7 @@ export {
 
 export {
   calculate as calculateStair,
+  convertStairInputsOnUnitChange,
   defaultInputs as stairDefaultInputs,
   type StairInputs,
 } from "./stair";
