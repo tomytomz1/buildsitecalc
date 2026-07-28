@@ -91,7 +91,7 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 ## Git status
 
 - Branch: `master`
-- Initial release commit created locally
+- Commit: `07a59b1` — `feat: launch ProjectCalc Hub bilingual calculator site`
 - **No remote configured** — push when ready:
 
 ```bash
