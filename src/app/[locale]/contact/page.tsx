@@ -35,8 +35,8 @@ export default async function ContactPage({
   const page = getDictionary(locale).pages.contact;
   const subject =
     locale === "es"
-      ? "Consulta desde BuildSite Calc"
-      : "Inquiry from BuildSite Calc";
+      ? "Consulta desde BuildSiteCalc"
+      : "Inquiry from BuildSiteCalc";
   const mailto = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent(subject)}`;
 
   return (

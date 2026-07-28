@@ -4,7 +4,7 @@
  */
 export const siteConfig = {
   brand: {
-    name: "BuildSite Calc",
+    name: "BuildSiteCalc",
     nameShort: "BuildSiteCalc",
     tagline: {
       en: "Every measurement, material, and project-cost calculator a homeowner or contractor needs.",
@@ -41,7 +41,7 @@ export const siteConfig = {
     enabled: process.env.NEXT_PUBLIC_AFFILIATES_ENABLED === "true",
   },
   legal: {
-    companyName: "BuildSite Calc",
+    companyName: "BuildSiteCalc",
     jurisdiction: "United States",
     lastUpdated: "2026-07-28",
   },

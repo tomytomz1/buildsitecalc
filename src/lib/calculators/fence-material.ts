@@ -8,7 +8,11 @@ export interface FenceMaterialInputs {
   postSpacing: number;
   railsPerSection: number;
   picketWidth: number;
+  /** Unit for picket width (default inches — nominal lumber sizes). */
+  picketWidthUnit: LengthUnit;
   picketGap?: number;
+  /** Unit for picket gap (default inches). */
+  picketGapUnit: LengthUnit;
   postSizeNote?: string;
 }
 
@@ -18,7 +22,9 @@ export const defaultInputs: FenceMaterialInputs = {
   postSpacing: 8,
   railsPerSection: 3,
   picketWidth: 5.5,
+  picketWidthUnit: "in",
   picketGap: 0.125,
+  picketGapUnit: "in",
   postSizeNote: "4×4 post",
 };
 
@@ -48,12 +54,15 @@ export function calculate(inputs: FenceMaterialInputs): CalcOutput<FenceMaterial
     return fail(errors);
   }
 
+  const picketWidthUnit = inputs.picketWidthUnit ?? "in";
+  const picketGapUnit = inputs.picketGapUnit ?? "in";
+
   const lengthM = toMeters(inputs.fenceLength, inputs.lengthUnit);
   const spacingM = toMeters(inputs.postSpacing, inputs.lengthUnit);
-  const picketWidthM = toMeters(inputs.picketWidth, inputs.lengthUnit);
+  const picketWidthM = toMeters(inputs.picketWidth, picketWidthUnit);
   const picketGapM =
     inputs.picketGap !== undefined && inputs.picketGap !== null
-      ? toMeters(inputs.picketGap, inputs.lengthUnit)
+      ? toMeters(inputs.picketGap, picketGapUnit)
       : 0;
 
   const sections = Math.ceil(lengthM / spacingM);

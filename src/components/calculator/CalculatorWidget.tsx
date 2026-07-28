@@ -157,6 +157,34 @@ export function CalculatorWidget({
             locale={locale}
             emptyMessage={labels.ui.emptyResults ?? "Enter values and calculate to see results."}
           />
+          {result?.meta ? (
+            <div className="space-y-2">
+              {typeof result.meta.disclaimer === "string" ? (
+                <p
+                  role="note"
+                  className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-950"
+                >
+                  {result.meta.disclaimer}
+                </p>
+              ) : null}
+              {typeof result.meta.manualJDisclaimer === "string" ? (
+                <p
+                  role="note"
+                  className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-950"
+                >
+                  {result.meta.manualJDisclaimer}
+                </p>
+              ) : null}
+              {typeof result.meta.riserWarning === "string" ? (
+                <p
+                  role="status"
+                  className="rounded-md border border-orange-200 bg-orange-50 px-3 py-2 text-sm text-orange-950"
+                >
+                  {result.meta.riserWarning}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
           {actions}
         </aside>
       </div>

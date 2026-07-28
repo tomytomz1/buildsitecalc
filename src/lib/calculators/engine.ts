@@ -57,10 +57,14 @@ export interface CalculatorEngine<TInputs = Record<string, unknown>> {
   calculate: (inputs: TInputs) => CalcOutput<TInputs>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyEngine = CalculatorEngine<any>;
+type EngineRegistry = {
+  [K in CalculatorId]: {
+    defaultInputs: object;
+    calculate: (inputs: never) => CalcOutput<object>;
+  };
+};
 
-const ENGINES: Record<CalculatorId, AnyEngine> = {
+const ENGINES = {
   "concrete-slab": {
     defaultInputs: concreteSlabDefaultInputs,
     calculate: calculateConcreteSlab,
@@ -161,8 +165,10 @@ const ENGINES: Record<CalculatorId, AnyEngine> = {
     defaultInputs: projectBudgetDefaultInputs,
     calculate: calculateProjectBudget,
   },
-};
+} as unknown as EngineRegistry;
 
-export function getCalculatorEngine(id: CalculatorId): AnyEngine {
-  return ENGINES[id];
+export function getCalculatorEngine(
+  id: CalculatorId,
+): CalculatorEngine<Record<string, unknown>> {
+  return ENGINES[id] as unknown as CalculatorEngine<Record<string, unknown>>;
 }

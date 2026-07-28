@@ -188,13 +188,17 @@ export const en: Dictionary = {
       postSpacing: "Post spacing",
       railsPerSection: "Rails per section",
       picketWidth: "Picket width",
+      picketWidthUnit: "Picket width unit",
       picketGap: "Gap between pickets",
+      picketGapUnit: "Picket gap unit",
       postSizeNote: "Post size (note)",
       deckLength: "Deck length",
       deckWidth: "Deck width",
       boardWidth: "Board width",
+      boardWidthUnit: "Board width unit",
       boardLength: "Board length",
       gap: "Gap between boards",
+      gapUnit: "Gap unit",
       totalRise: "Total rise",
       riserHeight: "Target riser height",
       treadDepth: "Tread depth",
@@ -211,6 +215,8 @@ export const en: Dictionary = {
       patternRepeatUnit: "Pattern repeat unit",
       battWidth: "Batt width",
       battWidthUnit: "Batt width unit",
+      battLength: "Batt length",
+      battLengthUnit: "Batt length unit",
       rValue: "R-value",
       btuPerSqFt: "BTU per ft²",
       climateFactor: "Climate factor",
@@ -348,7 +354,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "thickness": "Slab thickness"
       },
-      "metaTitle": "Concrete Slab Calculator — Cubic Yards | BuildSite Calc",
+      "metaTitle": "Concrete Slab Calculator — Cubic Yards | BuildSiteCalc",
       "metaDescription": "Free concrete slab calculator. Enter length, width, and thickness to estimate cubic yards with waste factor. US and metric units."
     },
     "concrete-bags": {
@@ -397,7 +403,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "bagSize": "Premix bag weight"
       },
-      "metaTitle": "Concrete Bags Calculator — How Many Bags? | BuildSite Calc",
+      "metaTitle": "Concrete Bags Calculator — How Many Bags? | BuildSiteCalc",
       "metaDescription": "Calculate how many 40, 60, or 80 lb concrete bags you need for slabs, footings, and post holes. Free with waste factor."
     },
     "paint": {
@@ -446,7 +452,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "coverageRate": "Paint coverage per gallon"
       },
-      "metaTitle": "Paint Calculator — Gallons Needed | BuildSite Calc",
+      "metaTitle": "Paint Calculator — Gallons Needed | BuildSiteCalc",
       "metaDescription": "Free paint calculator for rooms and walls. Estimate gallons with door/window deductions, coats, and waste. Interior and exterior."
     },
     "flooring": {
@@ -493,7 +499,7 @@ export const en: Dictionary = {
         "areaWithWasteFt2": "Flooring to order (ft²)"
       },
       "inputLabels": {},
-      "metaTitle": "Flooring Calculator — Square Feet & Cartons | BuildSite Calc",
+      "metaTitle": "Flooring Calculator — Square Feet & Cartons | BuildSiteCalc",
       "metaDescription": "Calculate flooring square footage, waste, and cartons needed for hardwood, laminate, and vinyl plank. Free calculator."
     },
     "tile": {
@@ -540,7 +546,7 @@ export const en: Dictionary = {
         "tilesNeeded": "Field tiles to order"
       },
       "inputLabels": {},
-      "metaTitle": "Tile Calculator — How Many Tiles? | BuildSite Calc",
+      "metaTitle": "Tile Calculator — How Many Tiles? | BuildSiteCalc",
       "metaDescription": "Free tile calculator for floors and walls. Enter room size and tile dimensions to count tiles with grout gap and waste."
     },
     "drywall": {
@@ -556,8 +562,8 @@ export const en: Dictionary = {
         "No deduction for areas receiving other finishes unless you subtract them."
       ],
       "workedExample": {
-        "title": "12 × 10 ft room, 8 ft walls, 4×8 sheets",
-        "body": "Wall area ≈ 352 ft² (same as paint calc). With 10% waste = 387 ft². 387 ÷ 32 = 12.1 → 13 sheets of 4×8."
+        "title": "352 ft² wall/ceiling area, 4×8 sheets",
+        "body": "Enter total surface area (walls + ceiling). With 10% waste = 387.2 ft². 387.2 ÷ 32 = 12.1 → 13 sheets of 4×8."
       },
       "howToMeasure": "Calculate total square footage of surfaces to be drywalled. For rooms, sum all walls plus ceiling. Subtract large openings only if they occupy full floor-to-ceiling space.",
       "commonMistakes": [
@@ -589,7 +595,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "sheetSize": "Drywall sheet size"
       },
-      "metaTitle": "Drywall Calculator — Sheets Needed | BuildSite Calc",
+      "metaTitle": "Drywall Calculator — Sheets Needed | BuildSiteCalc",
       "metaDescription": "Calculate how many 4×8 or 4×12 drywall sheets you need. Free calculator with waste factor for walls and ceilings."
     },
     "roofing-shingle": {
@@ -637,7 +643,7 @@ export const en: Dictionary = {
         "bundles": "Shingle bundles"
       },
       "inputLabels": {},
-      "metaTitle": "Roofing Shingle Calculator — Squares & Bundles | BuildSite Calc",
+      "metaTitle": "Roofing Shingle Calculator — Squares & Bundles | BuildSiteCalc",
       "metaDescription": "Free roofing calculator. Estimate shingle squares and bundles from roof dimensions and pitch with waste factor."
     },
     "mulch": {
@@ -684,7 +690,7 @@ export const en: Dictionary = {
         "volumeYd3": "Mulch to order (yd³)"
       },
       "inputLabels": {},
-      "metaTitle": "Mulch Calculator — Cubic Yards | BuildSite Calc",
+      "metaTitle": "Mulch Calculator — Cubic Yards | BuildSiteCalc",
       "metaDescription": "Calculate cubic yards of mulch for landscaping beds. Free calculator with depth, area, waste, and optional bag count."
     },
     "gravel": {
@@ -733,7 +739,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "densityKey": "Stone type"
       },
-      "metaTitle": "Gravel Calculator — Cubic Yards & Tons | BuildSite Calc",
+      "metaTitle": "Gravel Calculator — Cubic Yards & Tons | BuildSiteCalc",
       "metaDescription": "Free gravel calculator for driveways and paths. Estimate cubic yards and tons with material density and waste factor."
     },
     "topsoil": {
@@ -780,14 +786,14 @@ export const en: Dictionary = {
         "volumeYd3": "Topsoil to order (yd³)"
       },
       "inputLabels": {},
-      "metaTitle": "Topsoil Calculator — Cubic Yards | BuildSite Calc",
+      "metaTitle": "Topsoil Calculator — Cubic Yards | BuildSiteCalc",
       "metaDescription": "Calculate cubic yards of topsoil for lawns and gardens. Free calculator with US and metric units."
     },
     "fence-material": {
       "title": "Fence Material Calculator",
       "description": "Count posts, rails, and pickets for a straight fence run. Based on length, post spacing, and picket dimensions.",
       "shortDescription": "Posts, rails, and pickets for your fence line.",
-      "formula": "Sections = ceil(fence length ÷ post spacing). Posts = sections + 1. Pickets = ceil(section length ÷ (picket width + gap)) × sections. Rails = sections × rails per section.",
+      "formula": "Sections = ceil(fence length ÷ post spacing). Posts = sections + 1. Pickets = ceil(fence length ÷ (picket width + gap)) along the run. Rails = sections × rails per section.",
       "assumptions": [
         "Straight fence line on flat ground.",
         "Posts at each end and every spacing interval.",
@@ -797,7 +803,7 @@ export const en: Dictionary = {
       ],
       "workedExample": {
         "title": "100 ft fence, 8 ft post spacing, 5.5 in pickets",
-        "body": "Sections = 100 ÷ 8 = 12.5 → 13 sections. Posts = 14. Picket spacing ≈ 5.625 in each. ~17 pickets per 8 ft section × 13 ≈ 221 pickets. Rails = 13 × 3 = 39."
+        "body": "Sections = ceil(100 ÷ 8) = 13. Posts = 14. Picket pitch = 5.5 + 0.125 = 5.625 in. Pickets = ceil(100 × 12 ÷ 5.625) = 214. Rails = 13 × 3 = 39."
       },
       "howToMeasure": "Measure the fence line along the planned post centerline from end post to end post, following grade. Confirm post spacing matches your design and local wind-load habits.",
       "commonMistakes": [
@@ -829,7 +835,7 @@ export const en: Dictionary = {
         "rails": "Rails"
       },
       "inputLabels": {},
-      "metaTitle": "Fence Material Calculator — Posts & Pickets | BuildSite Calc",
+      "metaTitle": "Fence Material Calculator — Posts & Pickets | BuildSiteCalc",
       "metaDescription": "Calculate fence posts, rails, and pickets for a straight run. Free material estimator for privacy and picket fences."
     },
     "deck-board": {
@@ -846,7 +852,7 @@ export const en: Dictionary = {
       ],
       "workedExample": {
         "title": "16 × 12 ft deck, 5.5 in boards, 12 ft lengths",
-        "body": "Rows = 12 ft ÷ (5.5/12 + 0.125/12) ≈ 25 rows. Boards per row = 16 ÷ 12 → 2 boards. Base = 50 boards. With 10% waste = 55 boards."
+        "body": "Rows = ceil(12 ÷ ((5.5 + 0.125)/12)) = 26. Boards per row = ceil(16 ÷ 12) = 2. Base = 52. With 10% waste → ceil(57.2) = 58 boards."
       },
       "howToMeasure": "Measure deck frame length and width at the outer joists. Use actual board width (5.5 in for a 2×6) and planned gap. Confirm board lengths available from your supplier.",
       "commonMistakes": [
@@ -876,7 +882,7 @@ export const en: Dictionary = {
         "boardsNeeded": "Deck boards"
       },
       "inputLabels": {},
-      "metaTitle": "Deck Board Calculator — How Many Boards? | BuildSite Calc",
+      "metaTitle": "Deck Board Calculator — How Many Boards? | BuildSiteCalc",
       "metaDescription": "Calculate deck boards needed for a rectangular deck. Free estimator with gap, board size, and waste factor."
     },
     "stair": {
@@ -892,8 +898,8 @@ export const en: Dictionary = {
         "Total rise is floor-to-floor vertical distance."
       ],
       "workedExample": {
-        "title": "9 ft total rise, 7 in target riser",
-        "body": "Total rise = 108 in. Risers = 108 ÷ 7 ≈ 15.4 → 15 risers. Actual riser = 108 ÷ 15 = 7.2 in. Treads = 14. Run = 14 × 10 in tread = 140 in (11.67 ft)."
+        "title": "108 in total rise, 7 in target riser",
+        "body": "Risers = ceil(108 ÷ 7) = 16. Actual riser = 108 ÷ 16 = 6.75 in. Treads = 15. Run = 15 × 10 in tread = 150 in (12.5 ft)."
       },
       "howToMeasure": "Measure vertical distance from finished floor to finished floor (or landing). For exterior decks, measure from top of finished deck to grade at the stair base.",
       "commonMistakes": [
@@ -925,7 +931,7 @@ export const en: Dictionary = {
         "totalRunFt": "Total horizontal run (ft)"
       },
       "inputLabels": {},
-      "metaTitle": "Stair Calculator — Rise, Run & Treads | BuildSite Calc",
+      "metaTitle": "Stair Calculator — Rise, Run & Treads | BuildSiteCalc",
       "metaDescription": "Calculate stair risers, treads, and total run from floor-to-floor rise. Free geometry helper — verify local code separately."
     },
     "wallpaper": {
@@ -972,7 +978,7 @@ export const en: Dictionary = {
         "rollsNeeded": "Wallpaper rolls"
       },
       "inputLabels": {},
-      "metaTitle": "Wallpaper Calculator — Rolls Needed | BuildSite Calc",
+      "metaTitle": "Wallpaper Calculator — Rolls Needed | BuildSiteCalc",
       "metaDescription": "Calculate wallpaper rolls from room perimeter and height. Pattern repeat and waste included. Free estimator."
     },
     "insulation": {
@@ -1019,7 +1025,7 @@ export const en: Dictionary = {
         "battsNeeded": "Insulation batts"
       },
       "inputLabels": {},
-      "metaTitle": "Insulation Calculator — Batts Needed | BuildSite Calc",
+      "metaTitle": "Insulation Calculator — Batts Needed | BuildSiteCalc",
       "metaDescription": "Calculate fiberglass insulation batts for walls and attics. Free calculator with batt width and waste factor."
     },
     "hvac-btu": {
@@ -1067,7 +1073,7 @@ export const en: Dictionary = {
         "tonnage": "Cooling tons"
       },
       "inputLabels": {},
-      "metaTitle": "HVAC BTU Calculator — AC Sizing Estimate | BuildSite Calc",
+      "metaTitle": "HVAC BTU Calculator — AC Sizing Estimate | BuildSiteCalc",
       "metaDescription": "Estimate HVAC BTU and tonnage from room size and climate factors. Free rough-sizing tool — not a Manual J substitute."
     },
     "moving-truck-size": {
@@ -1114,7 +1120,7 @@ export const en: Dictionary = {
         "recommendedTruck": "Suggested truck"
       },
       "inputLabels": {},
-      "metaTitle": "Moving Truck Size Calculator | BuildSite Calc",
+      "metaTitle": "Moving Truck Size Calculator | BuildSiteCalc",
       "metaDescription": "Find the right moving truck size from bedrooms or cubic feet. Free guide for cargo van through 26 ft trucks."
     },
     "dumpster-size": {
@@ -1163,7 +1169,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "projectType": "Project type"
       },
-      "metaTitle": "Dumpster Size Calculator — Roll-Off Guide | BuildSite Calc",
+      "metaTitle": "Dumpster Size Calculator — Roll-Off Guide | BuildSiteCalc",
       "metaDescription": "Choose the right roll-off dumpster size for remodels and cleanouts. Free preset and custom volume calculator."
     },
     "project-waste-factor": {
@@ -1210,7 +1216,7 @@ export const en: Dictionary = {
         "adjustedQuantity": "Quantity to order"
       },
       "inputLabels": {},
-      "metaTitle": "Waste Factor Calculator — Material Overage | BuildSite Calc",
+      "metaTitle": "Waste Factor Calculator — Material Overage | BuildSiteCalc",
       "metaDescription": "Apply a waste percentage to any material quantity. Free overage calculator for flooring, tile, lumber, and more."
     },
     "board-foot": {
@@ -1257,7 +1263,7 @@ export const en: Dictionary = {
         "boardFeet": "Total board feet"
       },
       "inputLabels": {},
-      "metaTitle": "Board Foot Calculator — Lumber Volume | BuildSite Calc",
+      "metaTitle": "Board Foot Calculator — Lumber Volume | BuildSiteCalc",
       "metaDescription": "Calculate board feet from lumber dimensions. Free calculator for hardwood and rough lumber ordering."
     },
     "square-footage": {
@@ -1306,7 +1312,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "rooms": "Room dimensions"
       },
-      "metaTitle": "Square Footage Calculator — Multi-Room Area | BuildSite Calc",
+      "metaTitle": "Square Footage Calculator — Multi-Room Area | BuildSiteCalc",
       "metaDescription": "Calculate total square footage for multiple rooms. Free area calculator with US and metric output."
     },
     "room-volume": {
@@ -1353,7 +1359,7 @@ export const en: Dictionary = {
         "volumeFt3": "Room volume (ft³)"
       },
       "inputLabels": {},
-      "metaTitle": "Room Volume Calculator — Cubic Feet | BuildSite Calc",
+      "metaTitle": "Room Volume Calculator — Cubic Feet | BuildSiteCalc",
       "metaDescription": "Calculate room volume in cubic feet and meters. Free tool for HVAC and ventilation planning."
     },
     "labor-markup": {
@@ -1400,7 +1406,7 @@ export const en: Dictionary = {
         "sellingPrice": "Price to charge"
       },
       "inputLabels": {},
-      "metaTitle": "Labor Markup Calculator — Margin vs Markup | BuildSite Calc",
+      "metaTitle": "Labor Markup Calculator — Margin vs Markup | BuildSiteCalc",
       "metaDescription": "Calculate selling price from job cost using markup or margin. Free contractor pricing helper."
     },
     "material-cost": {
@@ -1449,7 +1455,7 @@ export const en: Dictionary = {
       "inputLabels": {
         "lineItems": "Material line items"
       },
-      "metaTitle": "Material Cost Calculator — Line Item Total | BuildSite Calc",
+      "metaTitle": "Material Cost Calculator — Line Item Total | BuildSiteCalc",
       "metaDescription": "Add up material line items with optional sales tax. Free supply list cost calculator for contractors and DIY."
     },
     "project-budget": {
@@ -1496,20 +1502,20 @@ export const en: Dictionary = {
         "grandTotal": "Total project budget"
       },
       "inputLabels": {},
-      "metaTitle": "Project Budget Calculator — Renovation Estimate | BuildSite Calc",
+      "metaTitle": "Project Budget Calculator — Renovation Estimate | BuildSiteCalc",
       "metaDescription": "Build a home project budget with materials, labor, permits, and contingency. Free renovation cost worksheet."
     }
   },
 
   pages: {
     "about": {
-      "title": "About BuildSite Calc",
-      "metaDescription": "BuildSite Calc provides free, transparent home-improvement calculators for homeowners and contractors. Learn about our mission and how to use the tools responsibly.",
+      "title": "About BuildSiteCalc",
+      "metaDescription": "BuildSiteCalc provides free, transparent home-improvement calculators for homeowners and contractors. Learn about our mission and how to use the tools responsibly.",
       "sections": [
         {
           "heading": "Our mission",
           "paragraphs": [
-            "BuildSite Calc exists to make project planning math visible. Whether you are pouring a patio slab, ordering shingles, or building a renovation budget, every calculator shows the formula, assumptions, and units behind the number.",
+            "BuildSiteCalc exists to make project planning math visible. Whether you are pouring a patio slab, ordering shingles, or building a renovation budget, every calculator shows the formula, assumptions, and units behind the number.",
             "We serve homeowners tackling DIY improvements and contractors who need a quick sanity check in the field — without hiding steps behind a black box."
           ]
         },
@@ -1537,7 +1543,7 @@ export const en: Dictionary = {
     },
     "methodology": {
       "title": "Calculation Methodology",
-      "metaDescription": "How BuildSite Calc calculators work: units, waste factors, rounding rules, and limitations explained.",
+      "metaDescription": "How BuildSiteCalc calculators work: units, waste factors, rounding rules, and limitations explained.",
       "sections": [
         {
           "heading": "How calculations work",
@@ -1578,7 +1584,7 @@ export const en: Dictionary = {
     },
     "glossary": {
       "title": "Construction Glossary",
-      "metaDescription": "Definitions of common construction and home-improvement terms used across BuildSite Calc calculators.",
+      "metaDescription": "Definitions of common construction and home-improvement terms used across BuildSiteCalc calculators.",
       "sections": [
         {
           "paragraphs": [
@@ -1659,7 +1665,7 @@ export const en: Dictionary = {
     },
     "contact": {
       "title": "Contact Us",
-      "metaDescription": "Contact BuildSite Calc by email. Feedback, corrections, and partnership inquiries welcome.",
+      "metaDescription": "Contact BuildSiteCalc by email. Feedback, corrections, and partnership inquiries welcome.",
       "sections": [
         {
           "heading": "Get in touch",
@@ -1685,11 +1691,12 @@ export const en: Dictionary = {
     },
     "privacy": {
       "title": "Privacy Policy",
-      "metaDescription": "BuildSite Calc privacy policy — data collection, cookies, analytics, and your rights. Last updated July 28, 2026.",
+      "metaDescription": "BuildSiteCalc privacy policy — data collection, cookies, analytics, and your rights. Last updated July 28, 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Last updated: July 28, 2026. BuildSite Calc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website."
+            "Last updated: July 28, 2026. BuildSiteCalc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website.",
+            "Attorney review pending: this policy is a practical template describing current product behavior. It is not legal advice. Have counsel review before relying on it for compliance."
           ]
         },
         {
@@ -1729,11 +1736,12 @@ export const en: Dictionary = {
     },
     "terms": {
       "title": "Terms of Service",
-      "metaDescription": "Terms of Service for BuildSite Calc. US jurisdiction. Last updated July 28, 2026.",
+      "metaDescription": "Terms of Service for BuildSiteCalc. US jurisdiction. Last updated July 28, 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Last updated: July 28, 2026. By using BuildSite Calc, you agree to these Terms of Service."
+            "Last updated: July 28, 2026. By using BuildSiteCalc, you agree to these Terms of Service.",
+            "Attorney review pending: these terms are a practical template. They are not legal advice. Have counsel review before launch reliance."
           ]
         },
         {
@@ -1746,7 +1754,7 @@ export const en: Dictionary = {
         {
           "heading": "Intellectual property",
           "paragraphs": [
-            "BuildSite Calc name, branding, and original content are owned by BuildSite Calc. Calculator formulas expressed as text may be cited with attribution."
+            "BuildSiteCalc name, branding, and original content are owned by BuildSiteCalc. Calculator formulas expressed as text may be cited with attribution."
           ]
         },
         {
@@ -1758,20 +1766,20 @@ export const en: Dictionary = {
         {
           "heading": "Limitation of liability",
           "paragraphs": [
-            "To the fullest extent permitted by law, BuildSite Calc is not liable for indirect, incidental, or consequential damages arising from use of the site."
+            "To the fullest extent permitted by law, BuildSiteCalc is not liable for indirect, incidental, or consequential damages arising from use of the site."
           ]
         },
         {
           "heading": "Governing law",
           "paragraphs": [
-            "These terms are governed by the laws of the United States and the state in which BuildSite Calc operates, without regard to conflict-of-law rules."
+            "These terms are governed by the laws of the United States and the state in which BuildSiteCalc operates, without regard to conflict-of-law rules."
           ]
         }
       ]
     },
     "disclaimer": {
       "title": "Disclaimer",
-      "metaDescription": "Important disclaimer: BuildSite Calc calculators are estimates only, not professional engineering or code advice.",
+      "metaDescription": "Important disclaimer: BuildSiteCalc calculators are estimates only, not professional engineering or code advice.",
       "sections": [
         {
           "paragraphs": [
@@ -1806,11 +1814,11 @@ export const en: Dictionary = {
     },
     "accessibility": {
       "title": "Accessibility Statement",
-      "metaDescription": "BuildSite Calc commitment to web accessibility and how to report barriers. Last updated July 28, 2026.",
+      "metaDescription": "BuildSiteCalc commitment to web accessibility and how to report barriers. Last updated July 28, 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Last updated: July 28, 2026. We aim to make BuildSite Calc usable for people with diverse abilities."
+            "Last updated: July 28, 2026. We aim to make BuildSiteCalc usable for people with diverse abilities."
           ]
         },
         {
@@ -1835,7 +1843,7 @@ export const en: Dictionary = {
     },
     "cookies": {
       "title": "Cookie Policy",
-      "metaDescription": "How BuildSite Calc uses cookies and similar technologies. Last updated July 28, 2026.",
+      "metaDescription": "How BuildSiteCalc uses cookies and similar technologies. Last updated July 28, 2026.",
       "sections": [
         {
           "paragraphs": [

@@ -1,13 +1,13 @@
 export const esPages = {
   about: {
-    title: "Acerca de BuildSite Calc",
+    title: "Acerca de BuildSiteCalc",
     metaDescription:
-      "BuildSite Calc ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
+      "BuildSiteCalc ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
     sections: [
       {
         heading: "Nuestra misión",
         paragraphs: [
-          "BuildSite Calc existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
+          "BuildSiteCalc existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
           "Servimos a propietarios en proyectos DIY y contratistas que necesitan una verificación rápida en obra — sin ocultar pasos en una caja negra.",
         ],
       },
@@ -37,7 +37,7 @@ export const esPages = {
   methodology: {
     title: "Metodología de cálculo",
     metaDescription:
-      "Cómo funcionan las calculadoras de BuildSite Calc: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
+      "Cómo funcionan las calculadoras de BuildSiteCalc: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
     sections: [
       {
         heading: "Cómo funcionan los cálculos",
@@ -80,7 +80,7 @@ export const esPages = {
   glossary: {
     title: "Glosario de construcción",
     metaDescription:
-      "Definiciones de términos comunes de construcción y mejoras del hogar usados en BuildSite Calc.",
+      "Definiciones de términos comunes de construcción y mejoras del hogar usados en BuildSiteCalc.",
     sections: [
       {
         paragraphs: [
@@ -112,7 +112,7 @@ export const esPages = {
   contact: {
     title: "Contáctenos",
     metaDescription:
-      "Contacte a BuildSite Calc por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
+      "Contacte a BuildSiteCalc por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
     sections: [
       {
         heading: "Escríbanos",
@@ -140,11 +140,11 @@ export const esPages = {
   privacy: {
     title: "Política de privacidad",
     metaDescription:
-      "Política de privacidad de BuildSite Calc — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
+      "Política de privacidad de BuildSiteCalc — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. BuildSite Calc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
+          "Última actualización: 28 de julio de 2026. BuildSiteCalc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
         ],
       },
       {
@@ -186,11 +186,11 @@ export const esPages = {
   terms: {
     title: "Términos de servicio",
     metaDescription:
-      "Términos de servicio de BuildSite Calc. Jurisdicción US. Actualizado 28 jul 2026.",
+      "Términos de servicio de BuildSiteCalc. Jurisdicción US. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. Al usar BuildSite Calc, acepta estos Términos de servicio.",
+          "Última actualización: 28 de julio de 2026. Al usar BuildSiteCalc, acepta estos Términos de servicio.",
         ],
       },
       {
@@ -203,7 +203,7 @@ export const esPages = {
       {
         heading: "Propiedad intelectual",
         paragraphs: [
-          "El nombre, marca y contenido original de BuildSite Calc nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución.",
+          "El nombre, marca y contenido original de BuildSiteCalc nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución.",
         ],
       },
       {
@@ -215,13 +215,13 @@ export const esPages = {
       {
         heading: "Limitación de responsabilidad",
         paragraphs: [
-          "En la máxima medida permitida por ley, BuildSite Calc no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio.",
+          "En la máxima medida permitida por ley, BuildSiteCalc no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio.",
         ],
       },
       {
         heading: "Ley aplicable",
         paragraphs: [
-          "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera BuildSite Calc, sin considerar reglas de conflicto de leyes.",
+          "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera BuildSiteCalc, sin considerar reglas de conflicto de leyes.",
         ],
       },
     ],
@@ -230,7 +230,7 @@ export const esPages = {
   disclaimer: {
     title: "Aviso legal",
     metaDescription:
-      "Aviso importante: las calculadoras de BuildSite Calc son solo estimaciones, no asesoría de ingeniería ni de código.",
+      "Aviso importante: las calculadoras de BuildSiteCalc son solo estimaciones, no asesoría de ingeniería ni de código.",
     sections: [
       {
         paragraphs: ["Última actualización: 28 de julio de 2026."],
@@ -265,11 +265,11 @@ export const esPages = {
   accessibility: {
     title: "Declaración de accesibilidad",
     metaDescription:
-      "Compromiso de accesibilidad web de BuildSite Calc y cómo reportar barreras. Actualizado 28 jul 2026.",
+      "Compromiso de accesibilidad web de BuildSiteCalc y cómo reportar barreras. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. Buscamos que BuildSite Calc sea usable para personas con diversas capacidades.",
+          "Última actualización: 28 de julio de 2026. Buscamos que BuildSiteCalc sea usable para personas con diversas capacidades.",
         ],
       },
       {
@@ -296,7 +296,7 @@ export const esPages = {
   cookies: {
     title: "Política de cookies",
     metaDescription:
-      "Cómo BuildSite Calc usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
+      "Cómo BuildSiteCalc usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
     sections: [
       {
         paragraphs: ["Última actualización: 28 de julio de 2026."],

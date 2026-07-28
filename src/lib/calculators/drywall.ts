@@ -30,10 +30,8 @@ export interface DrywallInputs {
 }
 
 export const defaultInputs: DrywallInputs = {
-  length: 12,
-  width: 10,
-  lengthUnit: "ft",
-  widthUnit: "ft",
+  area: 352,
+  areaUnit: "ft2",
   sheetSize: "4x8",
   wastePercent: 10,
 };

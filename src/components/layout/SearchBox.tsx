@@ -179,7 +179,7 @@ export function SearchBox({
           className="absolute z-50 mt-1 max-h-72 w-full overflow-auto rounded-md border border-slate-200 bg-white py-1 shadow-lg"
         >
           {results.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-slate-500" role="option">
+            <li className="px-3 py-2 text-sm text-slate-500" role="option" aria-selected="false">
               No calculators found
             </li>
           ) : (

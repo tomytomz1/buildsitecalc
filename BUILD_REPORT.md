@@ -1,7 +1,7 @@
-# BuildSite Calc — Build Report
+# BuildSiteCalc — Build Report
 
 **Date:** 2026-07-28  
-**Working brand:** BuildSite Calc  
+**Working brand:** BuildSiteCalc  
 **Stack:** Next.js 16 App Router, TypeScript strict, Tailwind CSS 4, Vitest, Playwright  
 
 ## Executive summary
@@ -65,8 +65,8 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 | Check | Command | Result |
 |-------|---------|--------|
-| Unit tests | `npm run test` / `npx vitest run` | **93 passed** / 11 files |
-| E2E | `npx playwright test` | **18 passed** |
+| Unit tests | `npm run test` / `npx vitest run` | **104+ passed** (see LAUNCH_AUDIT.md) |
+| E2E | `npx playwright test` | **22+ passed** (see LAUNCH_AUDIT.md) |
 | Typecheck | `npm run typecheck` | Pass |
 | ESLint errors | `npx eslint src --quiet` | Pass (0 errors) |
 | Production build | `npm run build` | Pass — **99** static routes generated |
@@ -91,7 +91,7 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 ## Git status
 
 - Branch: `master`
-- Commit: `07a59b1` — `feat: launch BuildSite Calc bilingual calculator site`
+- Commit: `07a59b1` — `feat: launch BuildSiteCalc bilingual calculator site`
 - **No remote configured** — push when ready:
 
 ```bash

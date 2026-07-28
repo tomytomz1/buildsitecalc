@@ -36,12 +36,11 @@ describe("calculatePaint", () => {
 });
 
 describe("calculateDrywall", () => {
-  it("computes sheet count for 12×10 ft room", () => {
+  it("computes sheet count for 352 ft² wall/ceiling area", () => {
     const result = calculateDrywall(drywallDefaultInputs);
     expectOk(result);
     const sheets = fieldValue(result, "sheetsNeeded") as number;
-    expect(sheets).toBeGreaterThan(0);
-    expect(sheets).toBe(5);
+    expect(sheets).toBe(13);
   });
 
   it("rejects negative waste", () => {

@@ -9,8 +9,8 @@ import {
 } from "./units";
 import { fail, ok, type CalcOutput } from "./types";
 
-/** Standard fiberglass batt length (8 ft). */
-const BATT_LENGTH_FT = 8;
+/** Default fiberglass wall batt length (48 in / 4 ft). */
+export const DEFAULT_BATT_LENGTH_IN = 48;
 
 export interface InsulationInputs {
   area: number;
@@ -18,6 +18,9 @@ export interface InsulationInputs {
   /** Typical values: 15 or 23 inches. */
   battWidth: number;
   battWidthUnit: LengthUnit;
+  /** Batt / roll length (default 48 in for wall batts). */
+  battLength: number;
+  battLengthUnit: LengthUnit;
   /** Informational R-value — does not affect quantity. */
   rValue?: number;
   wastePercent: number;
@@ -28,6 +31,8 @@ export const defaultInputs: InsulationInputs = {
   areaUnit: "ft2",
   battWidth: 15,
   battWidthUnit: "in",
+  battLength: 48,
+  battLengthUnit: "in",
   rValue: 19,
   wastePercent: 10,
 };
@@ -40,28 +45,37 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
+function nonNegativeFinite(value: number, key: string, errors: Record<string, string>): void {
+  if (!Number.isFinite(value) || value < 0) {
+    errors[key] = "invalid";
+  }
+}
+
 export function calculate(inputs: InsulationInputs): CalcOutput<InsulationInputs> {
   const errors: Record<string, string> = {};
 
   positive(inputs.area, "area", errors);
   positive(inputs.battWidth, "battWidth", errors);
 
-  if (Number.isFinite(inputs.wastePercent) && inputs.wastePercent < 0) {
-    errors.wastePercent = "invalid";
-  }
+  const battLength = inputs.battLength ?? DEFAULT_BATT_LENGTH_IN;
+  const battLengthUnit = inputs.battLengthUnit ?? "in";
+  positive(battLength, "battLength", errors);
+  nonNegativeFinite(inputs.wastePercent, "wastePercent", errors);
 
   if (Object.keys(errors).length > 0) {
     return fail(errors);
   }
 
   const areaM2 = toSquareMeters(inputs.area, inputs.areaUnit);
+  const areaFt2 = fromSquareMeters(areaM2, "ft2");
+  const areaWithWasteFt2 = applyWaste(areaFt2, inputs.wastePercent);
   const areaWithWasteM2 = applyWaste(areaM2, inputs.wastePercent);
 
   const battWidthFt = convertLength(inputs.battWidth, inputs.battWidthUnit, "ft");
+  const battLengthFt = convertLength(battLength, battLengthUnit, "ft");
 
-  const coveragePerBattFt2 = battWidthFt * BATT_LENGTH_FT;
-  const areaWithWasteFt2 = fromSquareMeters(areaWithWasteM2, "ft2");
-  const battsNeeded = Math.ceil(areaWithWasteFt2 / coveragePerBattFt2);
+  const coveragePerBattFt2 = battWidthFt * battLengthFt;
+  const battsNeeded = Math.ceil(areaWithWasteFt2 / coveragePerBattFt2 - 1e-9);
 
   const primary = [
     {
@@ -93,9 +107,9 @@ export function calculate(inputs: InsulationInputs): CalcOutput<InsulationInputs
       unit: "m²",
       format: "number" as const,
     },
-    {
+      {
       key: "netArea",
-      value: round(fromSquareMeters(areaM2, "ft2"), 2),
+      value: round(areaFt2, 2),
       unit: "ft²",
       format: "number" as const,
     },

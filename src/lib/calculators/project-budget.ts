@@ -46,7 +46,7 @@ export function calculate(inputs: ProjectBudgetInputs): CalcOutput<ProjectBudget
   nonNegative(inputs.laborCost, "laborCost", errors);
   nonNegative(inputs.permitsCost, "permitsCost", errors);
 
-  if (Number.isFinite(inputs.contingencyPercent) && inputs.contingencyPercent < 0) {
+  if (!Number.isFinite(inputs.contingencyPercent) || inputs.contingencyPercent < 0) {
     errors.contingencyPercent = "invalid";
   }
 

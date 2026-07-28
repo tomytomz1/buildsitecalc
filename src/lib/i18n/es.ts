@@ -188,13 +188,17 @@ export const es: Dictionary = {
       postSpacing: "Separación de postes",
       railsPerSection: "Rieles por tramo",
       picketWidth: "Ancho de tablilla",
+      picketWidthUnit: "Unidad de ancho de tablilla",
       picketGap: "Espacio entre tablillas",
+      picketGapUnit: "Unidad de espacio entre tablillas",
       postSizeNote: "Tamaño de poste (nota)",
       deckLength: "Largo del deck",
       deckWidth: "Ancho del deck",
       boardWidth: "Ancho de tabla",
+      boardWidthUnit: "Unidad de ancho de tabla",
       boardLength: "Largo de tabla",
       gap: "Separación entre tablas",
+      gapUnit: "Unidad de separación",
       totalRise: "Ascenso total",
       riserHeight: "Altura objetivo de contrahuella",
       treadDepth: "Profundidad de huella",
@@ -211,6 +215,8 @@ export const es: Dictionary = {
       patternRepeatUnit: "Unidad de repetición",
       battWidth: "Ancho del panel",
       battWidthUnit: "Unidad de ancho del panel",
+      battLength: "Largo del panel",
+      battLengthUnit: "Unidad de largo del panel",
       rValue: "Valor R",
       btuPerSqFt: "BTU por ft²",
       climateFactor: "Factor climático",
@@ -348,7 +354,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "thickness": "Espesor de la losa"
       },
-      "metaTitle": "Calculadora de losa de concreto — Yardas cúbicas | BuildSite Calc",
+      "metaTitle": "Calculadora de losa de concreto — Yardas cúbicas | BuildSiteCalc",
       "metaDescription": "Calculadora gratuita de losa de concreto. Ingrese largo, ancho y espesor para estimar yardas cúbicas con factor de desperdicio."
     },
     "concrete-bags": {
@@ -397,7 +403,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "bagSize": "Peso del saco premix"
       },
-      "metaTitle": "Calculadora de sacos de concreto | BuildSite Calc",
+      "metaTitle": "Calculadora de sacos de concreto | BuildSiteCalc",
       "metaDescription": "Calcule cuántos sacos de 40, 60 u 80 lb necesita para losas, zapatas y postes. Gratis con factor de desperdicio."
     },
     "paint": {
@@ -446,7 +452,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "coverageRate": "Rendimiento por galón"
       },
-      "metaTitle": "Calculadora de pintura — Galones necesarios | BuildSite Calc",
+      "metaTitle": "Calculadora de pintura — Galones necesarios | BuildSiteCalc",
       "metaDescription": "Calculadora gratuita de pintura para habitaciones y paredes. Estime galones con descuentos, manos y desperdicio."
     },
     "flooring": {
@@ -493,7 +499,7 @@ export const es: Dictionary = {
         "areaWithWasteFt2": "Piso a pedir (ft²)"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de pisos — Pies cuadrados y cajas | BuildSite Calc",
+      "metaTitle": "Calculadora de pisos — Pies cuadrados y cajas | BuildSiteCalc",
       "metaDescription": "Calcule pies cuadrados, desperdicio y cajas para madera, laminado y vinilo. Calculadora gratuita."
     },
     "tile": {
@@ -540,7 +546,7 @@ export const es: Dictionary = {
         "tilesNeeded": "Azulejos de campo a pedir"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de azulejos | BuildSite Calc",
+      "metaTitle": "Calculadora de azulejos | BuildSiteCalc",
       "metaDescription": "Calculadora gratuita de azulejos. Ingrese tamaño de área y pieza para contar con junta y desperdicio."
     },
     "drywall": {
@@ -556,8 +562,8 @@ export const es: Dictionary = {
         "No descuenta áreas con otro acabado salvo que usted lo reste."
       ],
       "workedExample": {
-        "title": "Cuarto 12 × 10 ft, muros 8 ft, placas 4×8",
-        "body": "Área muro ≈ 352 ft². Con 10% = 387 ft². 387 ÷ 32 = 12,1 → 13 placas 4×8."
+        "title": "352 ft² área muro/techo, placas 4×8",
+        "body": "Ingrese el área total (paredes + techo). Con 10% = 387,2 ft². 387,2 ÷ 32 = 12,1 → 13 placas 4×8."
       },
       "howToMeasure": "Calcule el área total de superficies a tablarocar. En cuartos, sume muros y cielo. Reste aberturas grandes solo si ocupan de piso a cielo.",
       "commonMistakes": [
@@ -589,7 +595,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "sheetSize": "Tamaño de placa"
       },
-      "metaTitle": "Calculadora de tablaroca — Placas necesarias | BuildSite Calc",
+      "metaTitle": "Calculadora de tablaroca — Placas necesarias | BuildSiteCalc",
       "metaDescription": "Calcule cuántas placas 4×8 o 4×12 necesita. Calculadora gratuita con factor de desperdicio."
     },
     "roofing-shingle": {
@@ -637,7 +643,7 @@ export const es: Dictionary = {
         "bundles": "Paquetes de tejas"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de tejas asfálticas | BuildSite Calc",
+      "metaTitle": "Calculadora de tejas asfálticas | BuildSiteCalc",
       "metaDescription": "Calculadora gratuita de techado. Estime cuadrados y paquetes con inclinación y desperdicio."
     },
     "mulch": {
@@ -684,7 +690,7 @@ export const es: Dictionary = {
         "volumeYd3": "Mantillo a pedir (yd³)"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de mantillo — Yardas cúbicas | BuildSite Calc",
+      "metaTitle": "Calculadora de mantillo — Yardas cúbicas | BuildSiteCalc",
       "metaDescription": "Calcule yardas cúbicas de mantillo para jardín. Gratis con profundidad, área, desperdicio y sacos opcionales."
     },
     "gravel": {
@@ -733,7 +739,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "densityKey": "Tipo de piedra"
       },
-      "metaTitle": "Calculadora de grava — Yardas y toneladas | BuildSite Calc",
+      "metaTitle": "Calculadora de grava — Yardas y toneladas | BuildSiteCalc",
       "metaDescription": "Calculadora gratuita de grava. Estime yardas cúbicas y toneladas con densidad y desperdicio."
     },
     "topsoil": {
@@ -780,7 +786,7 @@ export const es: Dictionary = {
         "volumeYd3": "Tierra vegetal a pedir (yd³)"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de tierra vegetal | BuildSite Calc",
+      "metaTitle": "Calculadora de tierra vegetal | BuildSiteCalc",
       "metaDescription": "Calcule yardas cúbicas de tierra vegetal. Calculadora gratuita en unidades US y métricas."
     },
     "fence-material": {
@@ -797,7 +803,7 @@ export const es: Dictionary = {
       ],
       "workedExample": {
         "title": "Cerca 100 ft, postes cada 8 ft, tablillas 5,5 in",
-        "body": "Tramos = 100 ÷ 8 = 12,5 → 13. Postes = 14. ~17 tablillas por tramo de 8 ft × 13 ≈ 221 tablillas. Rieles = 13 × 3 = 39."
+        "body": "Tramos = ceil(100 ÷ 8) = 13. Postes = 14. Paso de tablilla = 5,5 + 0,125 = 5,625 in. Tablillas = ceil(100 × 12 ÷ 5,625) = 214. Rieles = 13 × 3 = 39."
       },
       "howToMeasure": "Mida la línea de cerca sobre el eje de postes de extremo a extremo siguiendo el terreno. Confirme separación según diseño y viento local.",
       "commonMistakes": [
@@ -829,7 +835,7 @@ export const es: Dictionary = {
         "rails": "Rieles"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de materiales de cerca | BuildSite Calc",
+      "metaTitle": "Calculadora de materiales de cerca | BuildSiteCalc",
       "metaDescription": "Calcule postes, rieles y tablillas para un tramo recto. Estimador gratuito para cercas de privacidad."
     },
     "deck-board": {
@@ -846,7 +852,7 @@ export const es: Dictionary = {
       ],
       "workedExample": {
         "title": "Deck 16 × 12 ft, tablas 5,5 in, largo 12 ft",
-        "body": "Filas = 12 ÷ (5,5/12 + 0,125/12) ≈ 25. Tablas/fila = 16 ÷ 12 → 2. Base = 50 tablas. Con 10% = 55 tablas."
+        "body": "Filas = ceil(12 ÷ ((5,5 + 0,125)/12)) = 26. Tablas/fila = ceil(16 ÷ 12) = 2. Base = 52. Con 10% → ceil(57,2) = 58 tablas."
       },
       "howToMeasure": "Mida largo y ancho del marco exterior. Use ancho real (5,5 in para 2×6) y separación planificada. Confirme largos disponibles del proveedor.",
       "commonMistakes": [
@@ -876,7 +882,7 @@ export const es: Dictionary = {
         "boardsNeeded": "Tablas de deck"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de tablas de deck | BuildSite Calc",
+      "metaTitle": "Calculadora de tablas de deck | BuildSiteCalc",
       "metaDescription": "Calcule tablas de deck para superficie rectangular. Estimador gratuito con separación y desperdicio."
     },
     "stair": {
@@ -892,8 +898,8 @@ export const es: Dictionary = {
         "Ascenso total es distancia vertical piso a piso terminado."
       ],
       "workedExample": {
-        "title": "Ascenso 9 ft, contrahuella objetivo 7 in",
-        "body": "Ascenso = 108 in. Contrahuellas = 108 ÷ 7 ≈ 15,4 → 15. Contrahuella real = 108 ÷ 15 = 7,2 in. Huellas = 14. Recorrido = 14 × 10 in = 140 in (11,67 ft)."
+        "title": "Ascenso 108 in, contrahuella objetivo 7 in",
+        "body": "Contrahuellas = ceil(108 ÷ 7) = 16. Contrahuella real = 108 ÷ 16 = 6,75 in. Huellas = 15. Recorrido = 15 × 10 in = 150 in (12,5 ft)."
       },
       "howToMeasure": "Mida distancia vertical de piso terminado a piso terminado (o descanso). En decks exteriores, de superficie terminada del deck a nivel del suelo en la base.",
       "commonMistakes": [
@@ -925,7 +931,7 @@ export const es: Dictionary = {
         "totalRunFt": "Recorrido horizontal (ft)"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de escaleras — Subida y huella | BuildSite Calc",
+      "metaTitle": "Calculadora de escaleras — Subida y huella | BuildSiteCalc",
       "metaDescription": "Calcule contrahuellas, huellas y recorrido desde ascenso piso a piso. Ayuda gratuita de geometría — verifique código aparte."
     },
     "wallpaper": {
@@ -972,7 +978,7 @@ export const es: Dictionary = {
         "rollsNeeded": "Rollos de papel tapiz"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de papel tapiz — Rollos necesarios | BuildSite Calc",
+      "metaTitle": "Calculadora de papel tapiz — Rollos necesarios | BuildSiteCalc",
       "metaDescription": "Calcule rollos de papel tapiz por perímetro y altura. Repetición de patrón y desperdicio incluidos."
     },
     "insulation": {
@@ -1019,7 +1025,7 @@ export const es: Dictionary = {
         "battsNeeded": "Paneles de aislamiento"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de aislamiento — Paneles necesarios | BuildSite Calc",
+      "metaTitle": "Calculadora de aislamiento — Paneles necesarios | BuildSiteCalc",
       "metaDescription": "Calcule paneles de aislamiento para muros y áticos. Calculadora gratuita con ancho de panel y desperdicio."
     },
     "hvac-btu": {
@@ -1067,7 +1073,7 @@ export const es: Dictionary = {
         "tonnage": "Toneladas de frío"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora BTU HVAC — Tamaño de AC | BuildSite Calc",
+      "metaTitle": "Calculadora BTU HVAC — Tamaño de AC | BuildSiteCalc",
       "metaDescription": "Estime BTU y toneladas desde tamaño de cuarto y factores climáticos. Herramienta gratuita — no sustituye Manual J."
     },
     "moving-truck-size": {
@@ -1114,7 +1120,7 @@ export const es: Dictionary = {
         "recommendedTruck": "Camión sugerido"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de camión de mudanza | BuildSite Calc",
+      "metaTitle": "Calculadora de camión de mudanza | BuildSiteCalc",
       "metaDescription": "Encuentre el tamaño de camión adecuado por habitaciones o pies cúbicos. Guía gratuita de furgoneta a 26 ft."
     },
     "dumpster-size": {
@@ -1163,7 +1169,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "projectType": "Tipo de proyecto"
       },
-      "metaTitle": "Calculadora de contenedor — Roll-off | BuildSite Calc",
+      "metaTitle": "Calculadora de contenedor — Roll-off | BuildSiteCalc",
       "metaDescription": "Elija el tamaño de contenedor roll-off para remodelaciones y limpiezas. Presets y volumen personalizado gratis."
     },
     "project-waste-factor": {
@@ -1210,7 +1216,7 @@ export const es: Dictionary = {
         "adjustedQuantity": "Cantidad a pedir"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de factor de desperdicio | BuildSite Calc",
+      "metaTitle": "Calculadora de factor de desperdicio | BuildSiteCalc",
       "metaDescription": "Aplique porcentaje de desperdicio a cualquier cantidad de material. Calculadora gratuita de margen para piso, azulejo, madera y más."
     },
     "board-foot": {
@@ -1257,7 +1263,7 @@ export const es: Dictionary = {
         "boardFeet": "Total pies tablero"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de pie tablero — Volumen de madera | BuildSite Calc",
+      "metaTitle": "Calculadora de pie tablero — Volumen de madera | BuildSiteCalc",
       "metaDescription": "Calcule pies tablero desde dimensiones de madera. Calculadora gratuita para madera dura y lumber."
     },
     "square-footage": {
@@ -1306,7 +1312,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "rooms": "Dimensiones de habitaciones"
       },
-      "metaTitle": "Calculadora de pies cuadrados — Área múltiple | BuildSite Calc",
+      "metaTitle": "Calculadora de pies cuadrados — Área múltiple | BuildSiteCalc",
       "metaDescription": "Calcule pies cuadrados totales de varias habitaciones. Calculadora gratuita con salida US y métrica."
     },
     "room-volume": {
@@ -1353,7 +1359,7 @@ export const es: Dictionary = {
         "volumeFt3": "Volumen de habitación (ft³)"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de volumen de habitación | BuildSite Calc",
+      "metaTitle": "Calculadora de volumen de habitación | BuildSiteCalc",
       "metaDescription": "Calcule volumen en pies cúbicos y metros cúbicos. Herramienta gratuita para HVAC y ventilación."
     },
     "labor-markup": {
@@ -1400,7 +1406,7 @@ export const es: Dictionary = {
         "sellingPrice": "Precio a cobrar"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de margen de mano de obra | BuildSite Calc",
+      "metaTitle": "Calculadora de margen de mano de obra | BuildSiteCalc",
       "metaDescription": "Calcule precio de venta desde costo con markup o margen. Ayuda gratuita de precios para contratistas."
     },
     "material-cost": {
@@ -1449,7 +1455,7 @@ export const es: Dictionary = {
       "inputLabels": {
         "lineItems": "Partidas de materiales"
       },
-      "metaTitle": "Calculadora de costo de materiales | BuildSite Calc",
+      "metaTitle": "Calculadora de costo de materiales | BuildSiteCalc",
       "metaDescription": "Sume partidas de materiales con impuesto opcional. Calculadora gratuita de lista de insumos."
     },
     "project-budget": {
@@ -1496,20 +1502,20 @@ export const es: Dictionary = {
         "grandTotal": "Presupuesto total del proyecto"
       },
       "inputLabels": {},
-      "metaTitle": "Calculadora de presupuesto de proyecto | BuildSite Calc",
+      "metaTitle": "Calculadora de presupuesto de proyecto | BuildSiteCalc",
       "metaDescription": "Arme presupuesto de renovación con materiales, mano de obra, permisos y contingencia. Hoja gratuita."
     }
   },
 
   pages: {
     "about": {
-      "title": "Acerca de BuildSite Calc",
-      "metaDescription": "BuildSite Calc ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
+      "title": "Acerca de BuildSiteCalc",
+      "metaDescription": "BuildSiteCalc ofrece calculadoras gratuitas y transparentes para mejoras del hogar. Conozca nuestra misión y cómo usar las herramientas responsablemente.",
       "sections": [
         {
           "heading": "Nuestra misión",
           "paragraphs": [
-            "BuildSite Calc existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
+            "BuildSiteCalc existe para hacer visible la matemática de la planificación de proyectos. Ya sea que vacíe una losa de patio, pida tejas o arme un presupuesto de renovación, cada calculadora muestra la fórmula, los supuestos y las unidades detrás del número.",
             "Servimos a propietarios en proyectos DIY y contratistas que necesitan una verificación rápida en obra — sin ocultar pasos en una caja negra."
           ]
         },
@@ -1537,7 +1543,7 @@ export const es: Dictionary = {
     },
     "methodology": {
       "title": "Metodología de cálculo",
-      "metaDescription": "Cómo funcionan las calculadoras de BuildSite Calc: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
+      "metaDescription": "Cómo funcionan las calculadoras de BuildSiteCalc: unidades, factores de desperdicio, reglas de redondeo y limitaciones.",
       "sections": [
         {
           "heading": "Cómo funcionan los cálculos",
@@ -1578,7 +1584,7 @@ export const es: Dictionary = {
     },
     "glossary": {
       "title": "Glosario de construcción",
-      "metaDescription": "Definiciones de términos comunes de construcción y mejoras del hogar usados en BuildSite Calc.",
+      "metaDescription": "Definiciones de términos comunes de construcción y mejoras del hogar usados en BuildSiteCalc.",
       "sections": [
         {
           "paragraphs": [
@@ -1659,7 +1665,7 @@ export const es: Dictionary = {
     },
     "contact": {
       "title": "Contáctenos",
-      "metaDescription": "Contacte a BuildSite Calc por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
+      "metaDescription": "Contacte a BuildSiteCalc por correo. Comentarios, correcciones e consultas de colaboración bienvenidos.",
       "sections": [
         {
           "heading": "Escríbanos",
@@ -1685,11 +1691,12 @@ export const es: Dictionary = {
     },
     "privacy": {
       "title": "Política de privacidad",
-      "metaDescription": "Política de privacidad de BuildSite Calc — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
+      "metaDescription": "Política de privacidad de BuildSiteCalc — recopilación de datos, cookies, analítica y sus derechos. Actualizado 28 jul 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Última actualización: 28 de julio de 2026. BuildSite Calc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio."
+            "Última actualización: 28 de julio de 2026. BuildSiteCalc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
+            "Revisión de abogado pendiente: esta política es una plantilla práctica que describe el producto actual. No es asesoría legal. Consulte a un abogado antes de confiar en ella para cumplimiento."
           ]
         },
         {
@@ -1729,11 +1736,12 @@ export const es: Dictionary = {
     },
     "terms": {
       "title": "Términos de servicio",
-      "metaDescription": "Términos de servicio de BuildSite Calc. Jurisdicción US. Actualizado 28 jul 2026.",
+      "metaDescription": "Términos de servicio de BuildSiteCalc. Jurisdicción US. Actualizado 28 jul 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Última actualización: 28 de julio de 2026. Al usar BuildSite Calc, acepta estos Términos de servicio."
+            "Última actualización: 28 de julio de 2026. Al usar BuildSiteCalc, acepta estos Términos de servicio.",
+            "Revisión de abogado pendiente: estos términos son una plantilla práctica. No son asesoría legal. Consulte a un abogado antes de lanzar."
           ]
         },
         {
@@ -1746,7 +1754,7 @@ export const es: Dictionary = {
         {
           "heading": "Propiedad intelectual",
           "paragraphs": [
-            "El nombre, marca y contenido original de BuildSite Calc nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución."
+            "El nombre, marca y contenido original de BuildSiteCalc nos pertenecen. Fórmulas expresadas como texto pueden citarse con atribución."
           ]
         },
         {
@@ -1758,20 +1766,20 @@ export const es: Dictionary = {
         {
           "heading": "Limitación de responsabilidad",
           "paragraphs": [
-            "En la máxima medida permitida por ley, BuildSite Calc no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio."
+            "En la máxima medida permitida por ley, BuildSiteCalc no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio."
           ]
         },
         {
           "heading": "Ley aplicable",
           "paragraphs": [
-            "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera BuildSite Calc, sin considerar reglas de conflicto de leyes."
+            "Estos términos se rigen por las leyes de los Estados Unidos y del estado donde opera BuildSiteCalc, sin considerar reglas de conflicto de leyes."
           ]
         }
       ]
     },
     "disclaimer": {
       "title": "Aviso legal",
-      "metaDescription": "Aviso importante: las calculadoras de BuildSite Calc son solo estimaciones, no asesoría de ingeniería ni de código.",
+      "metaDescription": "Aviso importante: las calculadoras de BuildSiteCalc son solo estimaciones, no asesoría de ingeniería ni de código.",
       "sections": [
         {
           "paragraphs": [
@@ -1806,11 +1814,11 @@ export const es: Dictionary = {
     },
     "accessibility": {
       "title": "Declaración de accesibilidad",
-      "metaDescription": "Compromiso de accesibilidad web de BuildSite Calc y cómo reportar barreras. Actualizado 28 jul 2026.",
+      "metaDescription": "Compromiso de accesibilidad web de BuildSiteCalc y cómo reportar barreras. Actualizado 28 jul 2026.",
       "sections": [
         {
           "paragraphs": [
-            "Última actualización: 28 de julio de 2026. Buscamos que BuildSite Calc sea usable para personas con diversas capacidades."
+            "Última actualización: 28 de julio de 2026. Buscamos que BuildSiteCalc sea usable para personas con diversas capacidades."
           ]
         },
         {
@@ -1835,7 +1843,7 @@ export const es: Dictionary = {
     },
     "cookies": {
       "title": "Política de cookies",
-      "metaDescription": "Cómo BuildSite Calc usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
+      "metaDescription": "Cómo BuildSiteCalc usa cookies y tecnologías similares. Actualizado 28 jul 2026.",
       "sections": [
         {
           "paragraphs": [

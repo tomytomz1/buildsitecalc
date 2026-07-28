@@ -723,7 +723,7 @@ function MulchForm(props: CalculatorFormProps) {
 }
 
 function GravelForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, setNum, locale, labels, setField } =
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
     useFormHelpers(props);
   return (
     <div className="space-y-4">
@@ -833,7 +833,7 @@ function TopsoilForm(props: CalculatorFormProps) {
 }
 
 function FenceMaterialForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, setStr, labels } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, setStr } = useFormHelpers(props);
   return (
     <div className="space-y-4">
       <FormGrid>
@@ -883,6 +883,13 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           step="any"
           onChange={setNum("picketWidth")}
         />
+        <UnitSelect
+          name="picketWidthUnit"
+          label={lbl("picketWidthUnit")}
+          value={String(props.inputs.picketWidthUnit ?? "in")}
+          kind="length"
+          onChange={setSelect("picketWidthUnit")}
+        />
         <Input
           name="picketGap"
           type="number"
@@ -892,6 +899,13 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           min={0}
           step="any"
           onChange={setNum("picketGap")}
+        />
+        <UnitSelect
+          name="picketGapUnit"
+          label={lbl("picketGapUnit")}
+          value={String(props.inputs.picketGapUnit ?? "in")}
+          kind="length"
+          onChange={setSelect("picketGapUnit")}
         />
         <Input
           name="postSizeNote"
@@ -946,6 +960,13 @@ function DeckBoardForm(props: CalculatorFormProps) {
           step="any"
           onChange={setNum("boardWidth")}
         />
+        <UnitSelect
+          name="boardWidthUnit"
+          label={lbl("boardWidthUnit")}
+          value={String(props.inputs.boardWidthUnit ?? "in")}
+          kind="length"
+          onChange={setSelect("boardWidthUnit")}
+        />
         <Input
           name="boardLength"
           type="number"
@@ -966,6 +987,13 @@ function DeckBoardForm(props: CalculatorFormProps) {
           step="any"
           onChange={setNum("gap")}
         />
+        <UnitSelect
+          name="gapUnit"
+          label={lbl("gapUnit")}
+          value={String(props.inputs.gapUnit ?? "in")}
+          kind="length"
+          onChange={setSelect("gapUnit")}
+        />
         <WasteField
           labels={labels}
           locale={props.locale}
@@ -981,7 +1009,7 @@ function DeckBoardForm(props: CalculatorFormProps) {
 }
 
 function StairForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum } = useFormHelpers(props);
   return (
     <FormGrid>
       <Input
@@ -1222,6 +1250,23 @@ function InsulationForm(props: CalculatorFormProps) {
           onChange={setSelect("battWidthUnit")}
         />
         <Input
+          name="battLength"
+          type="number"
+          label={lbl("battLength")}
+          value={num("battLength")}
+          error={err("battLength")}
+          min={0}
+          step="any"
+          onChange={setNum("battLength")}
+        />
+        <UnitSelect
+          name="battLengthUnit"
+          label={lbl("battLengthUnit")}
+          value={String(props.inputs.battLengthUnit ?? "in")}
+          kind="length"
+          onChange={setSelect("battLengthUnit")}
+        />
+        <Input
           name="rValue"
           type="number"
           label={lbl("rValue")}
@@ -1364,7 +1409,7 @@ function MovingTruckSizeForm(props: CalculatorFormProps) {
 }
 
 function DumpsterSizeForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum } = useFormHelpers(props);
   const isCustom = props.inputs.projectType === "custom";
 
   return (
@@ -1402,7 +1447,7 @@ function DumpsterSizeForm(props: CalculatorFormProps) {
 }
 
 function ProjectWasteFactorForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, locale, setField } = useFormHelpers(props);
   return (
     <FormGrid>
       <FractionalInput
@@ -1428,7 +1473,7 @@ function ProjectWasteFactorForm(props: CalculatorFormProps) {
 }
 
 function BoardFootForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum } = useFormHelpers(props);
   return (
     <FormGrid>
       <Input
@@ -1483,7 +1528,7 @@ function BoardFootForm(props: CalculatorFormProps) {
 }
 
 function SquareFootageForm(props: CalculatorFormProps) {
-  const { lbl, err, num, locale, labels, setField, setInputs } = useFormHelpers(props);
+  const { err, num, locale, labels, setField, setInputs } = useFormHelpers(props);
   return (
     <div className="space-y-4">
       <RoomListEditor
@@ -1530,7 +1575,7 @@ function RoomVolumeForm(props: CalculatorFormProps) {
 }
 
 function LaborMarkupForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, setField } = useFormHelpers(props);
   return (
     <FormGrid>
       <CurrencyInput

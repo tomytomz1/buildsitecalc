@@ -12,8 +12,12 @@ export interface DeckBoardInputs {
   deckWidth: number;
   lengthUnit: LengthUnit;
   boardWidth: number;
+  /** Unit for board face width (default inches). */
+  boardWidthUnit: LengthUnit;
   boardLength: number;
   gap: number;
+  /** Unit for gap between boards (default inches). */
+  gapUnit: LengthUnit;
   wastePercent: number;
 }
 
@@ -22,8 +26,10 @@ export const defaultInputs: DeckBoardInputs = {
   deckWidth: 12,
   lengthUnit: "ft",
   boardWidth: 5.5,
+  boardWidthUnit: "in",
   boardLength: 12,
   gap: 0.125,
+  gapUnit: "in",
   wastePercent: 10,
 };
 
@@ -35,6 +41,12 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
+function nonNegativeFinite(value: number, key: string, errors: Record<string, string>): void {
+  if (!Number.isFinite(value) || value < 0) {
+    errors[key] = "invalid";
+  }
+}
+
 export function calculate(inputs: DeckBoardInputs): CalcOutput<DeckBoardInputs> {
   const errors: Record<string, string> = {};
 
@@ -42,24 +54,21 @@ export function calculate(inputs: DeckBoardInputs): CalcOutput<DeckBoardInputs> 
   positive(inputs.deckWidth, "deckWidth", errors);
   positive(inputs.boardWidth, "boardWidth", errors);
   positive(inputs.boardLength, "boardLength", errors);
-
-  if (!Number.isFinite(inputs.gap) || inputs.gap < 0) {
-    errors.gap = "invalid";
-  }
-
-  if (Number.isFinite(inputs.wastePercent) && inputs.wastePercent < 0) {
-    errors.wastePercent = "invalid";
-  }
+  nonNegativeFinite(inputs.gap, "gap", errors);
+  nonNegativeFinite(inputs.wastePercent, "wastePercent", errors);
 
   if (Object.keys(errors).length > 0) {
     return fail(errors);
   }
 
+  const boardWidthUnit = inputs.boardWidthUnit ?? "in";
+  const gapUnit = inputs.gapUnit ?? "in";
+
   const deckLengthM = toMeters(inputs.deckLength, inputs.lengthUnit);
   const deckWidthM = toMeters(inputs.deckWidth, inputs.lengthUnit);
-  const boardWidthM = toMeters(inputs.boardWidth, inputs.lengthUnit);
+  const boardWidthM = toMeters(inputs.boardWidth, boardWidthUnit);
   const boardLengthM = toMeters(inputs.boardLength, inputs.lengthUnit);
-  const gapM = toMeters(inputs.gap, inputs.lengthUnit);
+  const gapM = toMeters(inputs.gap, gapUnit);
 
   const areaM2 = deckLengthM * deckWidthM;
   const effectiveBoardWidth = boardWidthM + gapM;

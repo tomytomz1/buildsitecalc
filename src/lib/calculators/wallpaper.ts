@@ -45,7 +45,7 @@ export const defaultInputs: WallpaperInputs = {
   rollCoverageUnit: "ft2",
   patternRepeat: 0,
   patternRepeatUnit: "in",
-  wastePercent: 15,
+  wastePercent: 10,
 };
 
 function positive(value: number, key: string, errors: Record<string, string>): void {
@@ -71,7 +71,7 @@ export function calculate(inputs: WallpaperInputs): CalcOutput<WallpaperInputs> 
   nonNegative(inputs.openingsArea, "openingsArea", errors);
   nonNegative(inputs.patternRepeat, "patternRepeat", errors);
 
-  if (Number.isFinite(inputs.wastePercent) && inputs.wastePercent < 0) {
+  if (!Number.isFinite(inputs.wastePercent) || inputs.wastePercent < 0) {
     errors.wastePercent = "invalid";
   }
 

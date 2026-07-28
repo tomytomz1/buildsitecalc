@@ -83,7 +83,6 @@ export function useFormHelpers(props: CalculatorFormProps) {
 
 export function WasteField({
   labels,
-  locale,
   value,
   error,
   onChange,
@@ -653,7 +652,6 @@ type WallRow = { length: number };
 
 export function WallListEditor({
   labels,
-  locale,
   walls,
   errors,
   setInputs,

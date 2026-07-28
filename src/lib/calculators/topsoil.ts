@@ -39,7 +39,7 @@ export function calculate(inputs: TopsoilInputs): CalcOutput<TopsoilInputs> {
   positive(inputs.area, "area", errors);
   positive(inputs.depth, "depth", errors);
 
-  if (Number.isFinite(inputs.wastePercent) && inputs.wastePercent < 0) {
+  if (!Number.isFinite(inputs.wastePercent) || inputs.wastePercent < 0) {
     errors.wastePercent = "invalid";
   }
 
