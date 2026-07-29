@@ -12,6 +12,20 @@ export interface WorkedExample {
   body: string;
 }
 
+export interface CalculatorDataTable {
+  title: string;
+  columns: string[];
+  rows: string[][];
+  note?: string;
+}
+
+export interface CalculatorReference {
+  label: string;
+  publisher: string;
+  year: string;
+  url: string;
+}
+
 export interface PageSection {
   heading?: string;
   paragraphs: string[];
@@ -44,9 +58,13 @@ export interface CalculatorContent {
   formula: string;
   assumptions: string[];
   workedExample: WorkedExample;
+  sections?: PageSection[];
   howToMeasure: string;
   commonMistakes: string[];
   faqs: FaqItem[];
+  dataTables?: CalculatorDataTable[];
+  references?: CalculatorReference[];
+  lastUpdated?: string;
   resultLabels: Record<string, string>;
   inputLabels: Record<string, string>;
   metaTitle: string;

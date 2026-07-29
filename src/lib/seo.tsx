@@ -143,7 +143,7 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]) {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: faq.answer.replace(/\*\*/g, ""),
       },
     })),
   };
@@ -154,6 +154,7 @@ export function webApplicationJsonLd(options: {
   description: string;
   url: string;
   locale: Locale;
+  dateModified?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -164,6 +165,7 @@ export function webApplicationJsonLd(options: {
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Any",
     inLanguage: options.locale,
+    ...(options.dateModified ? { dateModified: options.dateModified } : {}),
     offers: {
       "@type": "Offer",
       price: "0",

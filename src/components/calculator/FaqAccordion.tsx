@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { RichText } from "@/components/calculator/RichText";
 
 export type FaqItem = {
   question: string;
@@ -35,7 +36,11 @@ export function FaqAccordion({
               />
             </summary>
             <div className="border-t border-slate-100 px-4 py-3 text-sm leading-relaxed text-slate-700">
-              {item.answer}
+              {typeof item.answer === "string" ? (
+                <RichText text={item.answer} />
+              ) : (
+                item.answer
+              )}
             </div>
           </details>
         ))}

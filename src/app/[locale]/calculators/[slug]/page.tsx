@@ -5,6 +5,9 @@ import { AdPlaceholder } from "@/components/layout/AdPlaceholder";
 import { AssumptionsList } from "@/components/calculator/AssumptionsList";
 import { Breadcrumbs } from "@/components/calculator/Breadcrumbs";
 import { CalculatorPageClient } from "@/components/calculator/CalculatorPageClient";
+import { CalculatorDataTables } from "@/components/calculator/CalculatorDataTables";
+import { CalculatorReferences } from "@/components/calculator/CalculatorReferences";
+import { CalculatorSections } from "@/components/calculator/CalculatorSections";
 import { RoomDiagram, SlabDiagram, StairDiagram } from "@/components/calculator/Diagrams";
 import { CommonMistakes } from "@/components/calculator/CommonMistakes";
 import { FaqAccordion } from "@/components/calculator/FaqAccordion";
@@ -143,6 +146,7 @@ export default async function CalculatorPage({
             description: content.metaDescription,
             url: absoluteUrl(href),
             locale,
+            dateModified: content.lastUpdated,
           }),
           breadcrumbLd,
         ]}
@@ -215,6 +219,8 @@ export default async function CalculatorPage({
             <WorkedExample title={content.workedExample.title} steps={exampleSteps} />
           ) : null}
 
+          <CalculatorSections sections={content.sections ?? []} />
+
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-slate-900">
               {dict.common.labels.howToMeasure}
@@ -223,6 +229,8 @@ export default async function CalculatorPage({
               {content.howToMeasure}
             </p>
           </section>
+
+          <CalculatorDataTables tables={content.dataTables ?? []} />
 
           <CommonMistakes
             title={dict.common.labels.commonMistakes}
@@ -235,6 +243,14 @@ export default async function CalculatorPage({
               question: faq.question,
               answer: faq.answer,
             }))}
+          />
+
+          <CalculatorReferences
+            title={locale === "es" ? "Fuentes y referencias" : "Sources and references"}
+            updatedLabel={locale === "es" ? "Última actualización" : "Last updated"}
+            lastUpdated={content.lastUpdated}
+            references={content.references ?? []}
+            locale={locale}
           />
 
           <RelatedCalculators

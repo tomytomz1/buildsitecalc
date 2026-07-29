@@ -776,6 +776,43 @@ export const en: Dictionary = {
         title: "200 ft² bed, 3 in depth",
         body: "Depth 3 in = 0.25 ft. Volume = 200 × 0.25 = 50 ft³. Cubic yards = 50 ÷ 27 ≈ 1.85 yd³. With 10% waste ≈ 2.0 yd³.",
       },
+      sections: [
+        {
+          heading: "How do you calculate how much mulch you need?",
+          paragraphs: [
+            "Start with the net surface area, convert the mulch depth to feet, and multiply: area × depth = cubic feet. Divide cubic feet by 27 for cubic yards because one cubic yard contains 27 cubic feet. For example, 300 ft² at 3 in deep is 300 × 0.25 = 75 ft³, or 2.78 yd³ before an allowance. The same volume method works for bark mulch, arborist wood chips, shredded hardwood, pine bark, and other loose ground cover. Weight is not part of the formula because moisture, particle size, and wood species can change density.",
+            "Measure only the soil that will receive material. Subtract patios, stepping stones, ponds, and large unmulched planting zones. Add an allowance after finding net area: 5% can cover a clean rectangle, while 10–15% is more practical for sweeping curves, uneven grade, hand spreading, or uncertain depth. This allowance covers estimating uncertainty; it is not permission to pile material deeper than plants can tolerate.",
+          ],
+        },
+        {
+          heading: "How many bags of mulch are in a yard?",
+          paragraphs: [
+            "A cubic yard equals 27 ft³, so it contains 27 one-ft³ bags, 18 bags of 1.5 ft³, 14 bags of 2 ft³ when rounded up, or 9 bags of 3 ft³. Always use the volume printed on the bag. A 2-ft³ bag covers 24 ft² at 1 in, 12 ft² at 2 in, 8 ft² at 3 in, or 6 ft² at 4 in. Fourteen 2-ft³ bags provide 28 ft³, which is one cubic foot more than a yard.",
+            "Bagged mulch is easy to stage in small or inaccessible beds; bulk material avoids opening dozens of bags. Compare the delivered total, delivery minimum, and usable leftovers. At a hypothetical $2–$7 per 2-ft³ bag, a 14-bag cubic-yard equivalent costs about $28–$98 before tax. That is an arithmetic scenario, not a current market quote, so use local prices for the purchase decision.",
+          ],
+        },
+        {
+          heading: "How deep should mulch be around trees and plants?",
+          paragraphs: [
+            "EPA WaterSense says 3–4 inches provides suitable coverage for most plants and warns that excessive amounts can restrict water flow to roots [1]. USDA NRCS guidance for wood products specifies a 2-inch minimum in conservation applications where particles need to remain through heavy rain or wind [2]. Those figures serve different purposes. Plant type, existing material, drainage, climate, and mulch texture still matter.",
+            "Leave a clear gap around trunks and woody stems, keep the root flare visible, and spread a consistent layer instead of building a mulch volcano. If 2 inches remain and the target is 3 inches, calculate a 1-inch refresh, not another full 3-inch layer. Loosen matted mulch before topping it up so water can reach the soil. EPA also advises leaving space between organic mulch and woody plants to help prevent rot [1].",
+          ],
+        },
+        {
+          heading: "Is bulk mulch cheaper than bags?",
+          paragraphs: [
+            "Bulk often becomes attractive once a job reaches several cubic yards, but there is no universal break-even point. Compare bulk quote + delivery + tax against rounded-up bag count × current bag price. Ask whether the landscape yard sells half-yard increments, whether the quoted yard is a loose loading measurement, and where the truck can legally and safely dump.",
+            "Bags can still be the better workflow when a truck cannot reach the site, storage is limited, exact color matching matters, or the work spans several weekends. Bulk wood chips need a clean drop area and may need weather protection. This calculator estimates volume only; it does not select a horticultural product, predict decomposition, or guarantee that separate batches match.",
+          ],
+        },
+        {
+          heading: "How much mulch does an irregular 420 square foot yard need?",
+          paragraphs: [
+            "Split the yard into a 24 ft × 12 ft rectangle and a 12 ft × 11 ft rectangle: 288 + 132 = 420 ft². Subtract a 6 ft × 3 ft stone landing: 420 − 18 = 402 ft². At 3 in deep, depth is 0.25 ft, so volume is 402 × 0.25 = 100.5 ft³. Divide by 27 to get 3.72 yd³. With 12% for curves and low spots, 3.72 × 1.12 = 4.17 yd³. Order about 4.25–4.5 yd³ depending on supplier increments, or 57 whole 2-ft³ bags. This named result keeps the allowance separate and rounds only once at the end.",
+            "For a circular tree ring, use the same sequence with circle area. A ring with an outer radius of 6 ft and an unmulched inner radius of 1 ft has π × (6² − 1²) = about 110 ft². At 3 in deep that is 27.5 ft³, or 1.02 yd³ before an allowance. Measure radius from the center, not the diameter from edge to edge, and never count the protected opening around the trunk as mulched area.",
+          ],
+        },
+      ],
       howToMeasure:
         "Outline the bed and measure length × width, or break irregular beds into rectangles. Depth is the thickness you will spread after settling — not the piled height from the truck.",
       commonMistakes: [
@@ -785,25 +822,106 @@ export const en: Dictionary = {
       ],
       faqs: [
         {
-          question: "How deep should mulch be?",
+          question: "How deep should mulch be for flower beds?",
           answer:
-            "2–3 in for maintenance, 3–4 in for new beds. More than 4 in can harm plant stems.",
+            "**Three to four inches is a practical finished depth for many newly mulched flower beds.** EPA WaterSense recommends 3–4 inches for most plants and warns that excessive mulch can restrict water flow to roots. If sound mulch already remains, measure it and calculate only the top-up needed to reach the target.",
         },
         {
-          question: "Bags vs bulk delivery?",
+          question: "How many bags of mulch are in a cubic yard?",
           answer:
-            "Bulk by the cubic yard is economical above ~2 yd³. Bags are easier for small beds.",
+            "**Fourteen standard 2-cubic-foot bags provide at least one cubic yard of mulch.** One cubic yard equals 27 ft³, so the exact calculation is 27 ÷ 2 = 13.5 bags; because bags are sold whole, round up to 14. For 1.5-ft³ bags, buy 18; for 3-ft³ bags, buy 9.",
         },
         {
-          question: "Does mulch type change volume?",
+          question: "How many square feet does one cubic yard of mulch cover?",
           answer:
-            "Volume is the same; density varies. This calculator uses volume, not weight.",
+            "**One cubic yard covers about 108 square feet at a 3-inch depth.** The same yard covers 324 ft² at 1 inch, 162 ft² at 2 inches, or 81 ft² at 4 inches. These yields assume a uniform layer before adding an allowance for curves, low spots, or supplier rounding.",
         },
         {
-          question: "How often to refresh?",
-          answer: "Most beds need 1–2 in added annually as mulch decomposes.",
+          question: "How much does a bag of mulch weigh?",
+          answer:
+            "**A bag of mulch has no single standard weight, so order it by the cubic-foot volume printed on the package.** Moisture content, wood species, particle size, and product type can make equal-volume bags weigh very differently. Use weight only for handling or vehicle-load planning, and use volume for the coverage calculation.",
+        },
+        {
+          question: "How much mulch do I need for 100 square feet?",
+          answer:
+            "**You need about 0.93 cubic yard, or 13 two-cubic-foot bags, to cover 100 ft² at 3 inches deep before waste.** The calculation is 100 × 0.25 ÷ 27 = 0.926 yd³. With a 10% allowance, plan about 1.02 yd³, which rounds to 14 two-ft³ bags.",
+        },
+        {
+          question: "Is it cheaper to buy mulch in bags or by the cubic yard?",
+          answer:
+            "**Bulk mulch is often cheaper for multi-yard projects, but delivery charges determine the real break-even point.** Compare the delivered bulk total with the whole-bag count multiplied by the current bag price. Bags may still be preferable for small beds, limited storage, difficult access, or work spread across several weekends.",
+        },
+        {
+          question: "How often should you replace or refresh mulch?",
+          answer:
+            "**Refresh mulch when the existing layer has decomposed or settled below the intended depth, not automatically on a fixed calendar.** Measure several locations with a ruler and add only the missing depth. Rake apart matted material first, keep the finished layer away from trunks and woody stems, and remove unsuitable material when site conditions require it.",
         },
       ],
+      dataTables: [
+        {
+          title: "How many mulch bags equal one cubic yard?",
+          columns: [
+            "Bag volume",
+            "Exact bags per yd³",
+            "Whole bags to reach 1 yd³",
+            "Volume purchased",
+          ],
+          rows: [
+            ["1 ft³", "27", "27", "27 ft³"],
+            ["1.5 ft³", "18", "18", "27 ft³"],
+            ["2 ft³", "13.5", "14", "28 ft³"],
+            ["2.5 ft³", "10.8", "11", "27.5 ft³"],
+            ["3 ft³", "9", "9", "27 ft³"],
+          ],
+          note: "One cubic yard equals exactly 27 cubic feet. Round up only when buying individual bags.",
+        },
+        {
+          title: "How much area does mulch cover at each depth?",
+          columns: [
+            "Installed depth",
+            "1 yd³ covers",
+            "2-ft³ bag covers",
+            "Mulch for 100 ft²",
+          ],
+          rows: [
+            ["1 in", "324 ft²", "24 ft²", "0.31 yd³"],
+            ["2 in", "162 ft²", "12 ft²", "0.62 yd³"],
+            ["3 in", "108 ft²", "8 ft²", "0.93 yd³"],
+            ["4 in", "81 ft²", "6 ft²", "1.23 yd³"],
+          ],
+          note: "Coverage assumes an even installed layer before a project allowance or supplier rounding.",
+        },
+        {
+          title: "How much could bagged mulch cost per cubic yard?",
+          columns: [
+            "Price per 2-ft³ bag",
+            "14-bag equivalent",
+            "Cost per ft³",
+            "Scenario",
+          ],
+          rows: [
+            ["$2", "$28", "$1.00", "Budget sale example"],
+            ["$4", "$56", "$2.00", "Midrange example"],
+            ["$7", "$98", "$3.50", "Premium example"],
+          ],
+          note: "Illustrative arithmetic, not a market quote. Compare current local bag and delivered-bulk prices.",
+        },
+      ],
+      references: [
+        {
+          label: "Landscaping Tips: mulch depth and plant protection",
+          publisher: "U.S. Environmental Protection Agency WaterSense",
+          year: "2026",
+          url: "https://www.epa.gov/watersense/landscaping-tips",
+        },
+        {
+          label: "Conservation Practice Standard: Mulching (Code 484)",
+          publisher: "USDA Natural Resources Conservation Service",
+          year: "2017",
+          url: "https://www.nrcs.usda.gov/sites/default/files/2022-09/Mulching_CPS_484_Oct_2017.pdf",
+        },
+      ],
+      lastUpdated: "2026-07-29",
       resultLabels: {
         volumeYd3: "Mulch to order (yd³)",
       },
@@ -830,6 +948,44 @@ export const en: Dictionary = {
         title: "100 ft² path, 4 in crushed gravel",
         body: "Volume = 100 × (4/12) = 33.3 ft³ = 1.23 yd³. At ~100 lb/ft³ ≈ 3,330 lb ≈ 1.67 tons before waste.",
       },
+      sections: [
+        {
+          heading: "How do you calculate gravel in cubic yards and tons?",
+          paragraphs: [
+            "Multiply net area by compacted depth to get volume, keeping units consistent. A 600 ft² driveway at 4 in is 600 × 0.333 = about 200 ft³; divide by 27 for 7.41 yd³. Weight is volume × bulk density. Using the calculator's crushed-stone planning density of 1,600 kg/m³ (about 100 lb/ft³), that volume weighs roughly 20,000 lb or 10 US short tons before waste. Supplier scale tickets are more accurate because quarry source, grading, moisture, and compaction change bulk density.",
+            "Volume and weight answer different ordering questions. Cubic yards describe the space the aggregate occupies; tons describe mass. A landscape yard may quote pea gravel by the yard while a quarry quotes #57 stone, crusher run, or road base by the ton. Keep short tons (2,000 lb) separate from metric tonnes (1,000 kg, about 2,205 lb), and never convert between yards and tons without a stated density.",
+          ],
+        },
+        {
+          heading: "What depth of gravel do you need for a driveway or path?",
+          paragraphs: [
+            "A decorative path may use a 2–3 in surface layer, while a residential driveway commonly starts with a deeper compacted base and a separate surface course. The correct section depends on soil support, drainage, frost, vehicle loading, aggregate grading, and local practice. FHWA describes granular base as the load-bearing layer below pavement and notes that base materials are commonly spread in 6–8 in lifts before compaction on larger pavement work [3]. That is construction guidance, not a universal driveway prescription.",
+            "Calculate each layer separately when the design uses different materials. Four inches of compactable road base plus 2 inches of decorative gravel is not one 6-inch layer with one density. Run the base area and depth with its density, then run the surface course separately. ASTM D2940 covers quality-controlled graded aggregate for highway and airport bases and emphasizes spreading and compaction on prepared grade [1]; a local supplier or designer should specify the residential product.",
+          ],
+        },
+        {
+          heading: "What is the difference between gravel, crushed stone, and road base?",
+          paragraphs: [
+            "Natural gravel usually has rounded particles; crushed stone has angular fractured faces; road base or crusher run blends coarse particles with fines so the layer can knit together under compaction. Pea gravel drains and feels comfortable on paths but moves under tires. Clean #57 stone is a common washed or open-graded product name, yet gradations vary by region. Ask for the supplier's sieve specification and intended use instead of relying only on a nickname.",
+            "USGS reports that 1.5 billion metric tons of crushed stone were produced in the United States in 2024 and that about 72% was used as construction aggregate, mostly for roads [2]. The scale explains why aggregate is sold through local quarries with local names. Material type changes density and performance, not the geometric volume required to fill a measured space.",
+          ],
+        },
+        {
+          heading: "How much extra gravel should you order for compaction?",
+          paragraphs: [
+            "Enter the finished compacted depth, then use an allowance that reflects how the supplier quotes loose material. Five percent may cover a clean, contained area with reliable dimensions; 10–15% may be appropriate for irregular excavation, low spots, edge loss, and uncertain subgrade. Do not blindly add a generic compaction percentage if the supplier has already converted your compacted target to loose tons.",
+            "Prepare and verify the subgrade before delivery. Soft pockets and ruts can consume much more aggregate than a normal waste factor. Geotextile, drainage, edging, excavation, and unsuitable-soil replacement are separate design decisions and are not included. For load-bearing work, follow the project specification and compact in suitable lifts rather than placing the full depth at once.",
+          ],
+        },
+        {
+          heading: "How much gravel is needed for an irregular 750 square foot driveway?",
+          paragraphs: [
+            "Treat a 60 ft × 12 ft drive as 720 ft² and add a triangular flare 10 ft wide by 6 ft long: 10 × 6 ÷ 2 = 30 ft², for 750 ft² total. At a 4 in compacted depth, 750 × 0.333 = 250 ft³ = 9.26 yd³. At 100 lb/ft³, the estimate is 25,000 lb = 12.5 short tons. Add 10% for grade variation and handling: 10.19 yd³ or 13.75 tons. Ask the quarry whether to round to 14 tons and whether its product density changes the conversion.",
+            "If the quarry quotes 1.45 tons per cubic yard instead of the planning value of about 1.35, then 10.19 yd³ converts to 14.78 tons. The geometry did not change; the density input improved. Confirm truck payload, split-load fees, minimum charges, access width, overhead clearance, and a stable dump location. A large order may require several trucks.",
+            "For two layers, repeat the calculation at each depth. A 6 in base over 750 ft² equals 13.89 yd³ before allowance; a 2 in surface layer equals 4.63 yd³. Do not average densities when products are sold separately. Record material, compacted depth, allowance, density, and rounded order for each delivery.",
+          ],
+        },
+      ],
       howToMeasure:
         "Measure the paved area length and width. Depth should reflect the compacted layer specified for your use — ask your supplier for driveway base recommendations.",
       commonMistakes: [
@@ -839,26 +995,121 @@ export const en: Dictionary = {
       ],
       faqs: [
         {
-          question: "Pea gravel vs crushed stone?",
+          question: "What is the difference between pea gravel and crushed stone?",
           answer:
-            "Crushed stone compacts better for driveways. Pea gravel suits paths and decorative areas.",
+            "**Pea gravel is rounded and mobile, while crushed stone is angular and interlocks more effectively.** Pea gravel commonly suits contained decorative paths; crushed stone or a graded road-base product is generally more appropriate where compaction and load distribution matter. Confirm the locally available gradation and intended use with the supplier.",
         },
         {
-          question: "Order by ton or cubic yard?",
+          question: "Should I order gravel by the ton or cubic yard?",
           answer:
-            "Either works if density is known. This calculator shows both for comparison with supplier quotes.",
+            "**Order in the unit used by your supplier, using its product-specific density to compare tons with cubic yards.** Cubic yards measure volume; US short tons measure 2,000 lb of mass. The calculator shows both, but the quarry's scale ticket and stated tons-per-yard conversion are more reliable than a generic planning density.",
         },
         {
-          question: "What depth for a driveway?",
+          question: "How deep should gravel be for a driveway?",
           answer:
-            "Often 4 in base plus surface course. Heavy use may need 6–8 in compacted base.",
+            "**A driveway often uses multiple compacted aggregate layers rather than one universal gravel depth.** Soil strength, drainage, frost, vehicle loads, and local specifications determine the required section. Calculate the compactable base and surface course separately, and follow the project design or local supplier guidance instead of treating a general planning depth as structural approval.",
         },
         {
-          question: "Can I enter custom density?",
+          question: "How much does one cubic yard of gravel weigh?",
           answer:
-            "Yes. Use the custom density field if your supplier provides kg/m³ or lb/ft³.",
+            "**One cubic yard of crushed stone weighs about 1.35 US short tons at this calculator's planning density of 1,600 kg/m³.** Loose gravel is estimated near 1.28 tons per yard and compacted gravel near 1.48. Actual weight changes with moisture, source, and gradation, so replace the default with supplier data when available.",
+        },
+        {
+          question: "How much gravel do I need for 100 square feet?",
+          answer:
+            "**At 4 inches deep, 100 square feet requires about 1.23 cubic yards or 1.67 tons of crushed stone before waste.** At 2 inches the volume is about 0.62 yd³; at 6 inches it is about 1.85 yd³. Add an allowance only after confirming the compacted target depth and supplier conversion.",
+        },
+        {
+          question: "How many tons of gravel do I need for a 12-by-50-foot driveway?",
+          answer:
+            "**A 12-by-50-foot area at 4 inches deep needs about 10 tons at the calculator's crushed-stone density before waste.** The area is 600 ft², volume is about 200 ft³ or 7.41 yd³, and weight is approximately 20,000 lb. Verify density and layer design before ordering.",
+        },
+        {
+          question: "How much extra gravel should I order for compaction and waste?",
+          answer:
+            "**Five to fifteen percent is a practical estimating range when dimensions, subgrade, and supplier yield are not exact.** Use less for a contained, verified excavation and more for irregular edges or low spots. Do not add a generic compaction percentage if the quarry has already converted your compacted requirement to a loose delivered quantity.",
         },
       ],
+      dataTables: [
+        {
+          title: "How many cubic yards of gravel cover 100 square feet?",
+          columns: ["Compacted depth", "Volume", "At 100 lb/ft³", "With 10% allowance"],
+          rows: [
+            ["2 in", "0.62 yd³", "0.83 tons", "0.68 yd³"],
+            ["3 in", "0.93 yd³", "1.25 tons", "1.02 yd³"],
+            ["4 in", "1.23 yd³", "1.67 tons", "1.36 yd³"],
+            ["6 in", "1.85 yd³", "2.50 tons", "2.04 yd³"],
+            ["8 in", "2.47 yd³", "3.33 tons", "2.72 yd³"],
+          ],
+          note: "Weight uses the calculator's crushed-stone planning density; confirm actual tons per yard with the supplier.",
+        },
+        {
+          title: "How much does a cubic yard of gravel weigh?",
+          columns: [
+            "Calculator density choice",
+            "kg/m³",
+            "Approx. lb/ft³",
+            "Approx. tons/yd³",
+          ],
+          rows: [
+            ["Loose gravel", "1,520", "94.9", "1.28"],
+            ["Crushed stone", "1,600", "99.9", "1.35"],
+            ["Compacted gravel", "1,760", "109.9", "1.48"],
+          ],
+          note: "Planning values used by this calculator, not quarry certifications. Moisture and gradation change bulk density.",
+        },
+        {
+          title: "Which gravel should you use for each project?",
+          columns: [
+            "Material term",
+            "Particle behavior",
+            "Typical role",
+            "Ordering check",
+          ],
+          rows: [
+            ["Pea gravel", "Rounded; shifts", "Decorative paths", "Confirm containment"],
+            [
+              "#57 stone",
+              "Clean, angular",
+              "Drainage or surface",
+              "Confirm local gradation",
+            ],
+            [
+              "Crusher run / road base",
+              "Angular with fines",
+              "Compactable base",
+              "Ask for compacted yield",
+            ],
+            [
+              "Riprap",
+              "Large angular rock",
+              "Erosion protection",
+              "Requires engineered sizing",
+            ],
+          ],
+        },
+      ],
+      references: [
+        {
+          label: "ASTM D2940/D2940M-20: Graded Aggregate for Bases or Subbases",
+          publisher: "ASTM International",
+          year: "2020",
+          url: "https://store.astm.org/d2940_d2940m-20.html",
+        },
+        {
+          label: "Mineral Commodity Summaries 2025: Stone (Crushed)",
+          publisher: "U.S. Geological Survey",
+          year: "2025",
+          url: "https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-stone-crushed.pdf",
+        },
+        {
+          label: "Granular Base Application Description",
+          publisher: "Federal Highway Administration",
+          year: "2016",
+          url: "https://www.fhwa.dot.gov/publications/research/infrastructure/pavements/97148/073.cfm",
+        },
+      ],
+      lastUpdated: "2026-07-29",
       resultLabels: {
         tons: "Estimated weight (tons)",
       },
@@ -940,6 +1191,44 @@ export const en: Dictionary = {
         title: "100 ft fence, 8 ft post spacing, 5.5 in pickets",
         body: "Sections = 100 ÷ 8 = 12.5 → 13 sections. Posts = 14. Picket spacing ≈ 5.625 in each. ~17 pickets per 8 ft section × 13 ≈ 221 pickets. Rails = 13 × 3 = 39.",
       },
+      sections: [
+        {
+          heading: "How do you calculate fence posts, rails, and pickets?",
+          paragraphs: [
+            "Divide each straight run by the maximum post spacing and round up to get sections; add one post at the end. Count each direction separately because a corner post can serve two runs. Rails equal sections × rails per section. Pickets depend on the clear section length divided by actual picket width plus the intended gap, rounded up. The calculator applies that layout consistently, but field-built end sections may be shorter than the selected maximum spacing.",
+            "Create a line-by-line takeoff instead of entering the entire perimeter as one straight run. Mark end, corner, gate, and change-of-grade posts on a sketch. Shared corner posts should appear once in the final total, while both gate jambs must be present. Preassembled panels use their specified post-center dimension, which may differ from the nominal panel width because brackets and posts occupy space.",
+          ],
+        },
+        {
+          heading: "How far apart should fence posts be?",
+          paragraphs: [
+            "Six to eight feet on center is common for component-built wood privacy fences, and Lowe's current installation guidance gives that typical range [1]. Product instructions, panel width, rail length, fence height, soil, wind exposure, frost depth, and locally adopted rules can require a different spacing. Closer posts can reduce rail span but do not by themselves prove the fence is adequate for wind.",
+            "Measure spacing horizontally and from post center to post center unless the product says otherwise. Do not lay out every hole before confirming the actual gate frame and panel dimensions. On slopes, a stepped panel fence is measured horizontally; a component fence that follows grade may use sloped rails. This calculator assumes one spacing and a straight, level run, so calculate slope segments separately.",
+          ],
+        },
+        {
+          heading: "How many pickets do you need for a privacy fence?",
+          paragraphs: [
+            "For a 96 in section using actual 5.5 in pickets with a 1/8 in gap, each module is 5.625 in and 96 ÷ 5.625 = 17.07. Rounding up gives 18 pickets if the full clear width truly is 96 in. In practice, posts occupy part of an 8 ft center-to-center bay, so measure the clear rail span or use the calculator's resulting section length consistently. A board-on-board fence needs a separate overlap layout and more boards than a single flat row.",
+            "Use actual measured picket width, not the nominal label. For a spaced decorative fence, the chosen gap changes privacy and count. For a solid privacy line, allow the movement recommended for the wood or composite product instead of forcing wet boards tightly together. Count caps, trim boards, kick boards, lattice, and fasteners separately because they are not pickets.",
+          ],
+        },
+        {
+          heading: "How do gates and corners change a fence material estimate?",
+          paragraphs: [
+            "A gate replaces part of the ordinary picket-and-rail run and normally needs dedicated hinge and latch posts, framing, hinges, latch, stop, and clearance. Subtract the planned gate opening from the fence length before calculating ordinary sections, then add the gate assembly from its manufacturer's schedule. Wide or double gates may need engineered posts or hardware and should not be inferred from standard line posts.",
+            "Every change in direction needs a corner or terminal condition. End posts, corner posts, and gate posts may be larger or differently reinforced than line posts. Before digging, confirm property boundaries, easements, permits, setbacks, height restrictions, and utility marking. The national 811 service directs excavators to request utility marks before digging [2]; private lines may require separate locating.",
+          ],
+        },
+        {
+          heading: "How many materials are needed for a 164 foot fence with one gate?",
+          paragraphs: [
+            "Suppose the total line is 164 ft with one 4 ft gate, leaving 160 ft of ordinary fence. At an 8 ft maximum spacing, 160 ÷ 8 = 20 sections. A simple straight run needs 21 structural post positions, but the gate layout may replace two of them with specified gate posts; reconcile the sketch instead of adding blindly. With three rails per section, order 60 rails before waste. At 17 pickets per 8 ft section, the field needs 340 pickets; with 7% for damage and selection, round up to 364 pickets. Add the complete gate kit and hardware separately.",
+            "If the line turns one corner, calculate both legs and share the corner post once. Legs of 96 ft and 68 ft at 8 ft maximum produce 12 and 9 sections. Separately they suggest 13 and 10 posts, but the shared corner makes 22 unique positions before gate adjustments. Geometry determines which posts serve more than one section.",
+            "Convert the takeoff to a purchase list only after selecting products. Rails may come in 8 or 16 ft lengths, posts in different treatment categories, and pickets by piece or bundle. Add approved fasteners, specified concrete or backfill, caps, field-cut preservative, and temporary bracing. Those quantities cannot be inferred safely from post count alone.",
+          ],
+        },
+      ],
       howToMeasure:
         "Measure the fence line along the planned post centerline from end post to end post, following grade. Confirm post spacing matches your design and local wind-load habits.",
       commonMistakes: [
@@ -949,25 +1238,100 @@ export const en: Dictionary = {
       ],
       faqs: [
         {
-          question: "How far apart should posts be?",
+          question: "How far apart should wood fence posts be?",
           answer:
-            "6–8 ft is typical for wood privacy fences. Closer spacing handles wind loads better.",
+            "**Six to eight feet on center is a common planning range for component-built wood privacy fences.** Product instructions, panel width, rail length, height, soil, frost, wind exposure, and local rules can require closer spacing. Measure horizontally from post center to post center unless the selected system specifies another layout.",
         },
         {
-          question: "Does this include a gate?",
-          answer: "No. Plan gate width, posts, and hardware separately.",
+          question: "How many fence posts do I need for 100 feet of fence?",
+          answer:
+            "**A straight 100-foot run needs 14 posts when the maximum spacing is 8 feet.** Divide 100 by 8, round 12.5 up to 13 sections, and add one end post. At a 6-foot maximum, it needs 17 sections and 18 posts. Corners and gates must be reconciled from the actual layout.",
         },
         {
-          question: "Chain link vs wood?",
+          question: "How many fence pickets fit in an 8-foot section?",
           answer:
-            "This targets picket-style layout. Chain link uses fabric rolls and different post counts.",
+            "**About 18 actual 5.5-inch pickets fit across 96 inches with a 1/8-inch gap.** The module is 5.625 inches, and 96 ÷ 5.625 = 17.07, which rounds up. Because an 8-foot on-center bay has posts occupying part of that width, measure the clear section before purchasing.",
         },
         {
-          question: "Slope adjustments?",
+          question: "How many rails do I need for a privacy fence?",
           answer:
-            "Stepped or racked fences on slopes need longer posts and may change rail lengths.",
+            "**Multiply the number of fence sections by the specified rails per section.** A 100-foot run divided into 13 sections needs 39 rails when each section uses three. Convert that count to purchasable rail lengths only after checking where joints land, because longer rails may span multiple posts in an approved layout.",
+        },
+        {
+          question: "Does the fence calculator include a gate?",
+          answer:
+            "**No—the ordinary post, rail, and picket totals do not include a complete gate assembly.** Subtract the planned gate opening from the standard fence run, then add the specified hinge post, latch post, frame, hinges, latch, stop, clearance, and bracing. Wide or double gates may need a design beyond standard line-post assumptions.",
+        },
+        {
+          question: "How do I calculate fence materials for a corner?",
+          answer:
+            "**Calculate each straight leg separately and count the shared corner post only once.** For 96-foot and 68-foot legs at 8-foot spacing, the runs produce 12 and 9 sections. Their separate post totals are 13 and 10, but sharing the corner leaves 22 unique post positions before gate adjustments.",
+        },
+        {
+          question: "How do I calculate fence materials on a slope?",
+          answer:
+            "**Divide the slope into separately measured sections and choose either a stepped or racked layout before counting materials.** Stepped panels are measured horizontally and can leave varying ground gaps; racked or component-built fences follow grade and change rail and picket cuts. The calculator's flat straight-run result remains a planning baseline, not a slope design.",
         },
       ],
+      dataTables: [
+        {
+          title: "How many fence posts are needed by length?",
+          columns: [
+            "Straight run",
+            "6 ft max spacing",
+            "8 ft max spacing",
+            "Posts at 8 ft",
+          ],
+          rows: [
+            ["50 ft", "9 sections", "7 sections", "8 posts"],
+            ["100 ft", "17 sections", "13 sections", "14 posts"],
+            ["150 ft", "25 sections", "19 sections", "20 posts"],
+            ["200 ft", "34 sections", "25 sections", "26 posts"],
+          ],
+          note: "Simple straight run only: posts = rounded-up sections + 1. Add or reconcile corners and gates from a plan.",
+        },
+        {
+          title: "How many pickets fit in an 8 foot section?",
+          columns: [
+            "Actual picket width",
+            "Gap",
+            "Width per picket",
+            "Count across 96 in",
+          ],
+          rows: [
+            ["3.5 in", "0.125 in", "3.625 in", "27"],
+            ["3.5 in", "0.5 in", "4.0 in", "24"],
+            ["5.5 in", "0.125 in", "5.625 in", "18"],
+            ["5.5 in", "0.25 in", "5.75 in", "17"],
+          ],
+          note: "The clear space between posts may be less than 96 in on an 8 ft on-center layout; measure the actual section.",
+        },
+        {
+          title: "What fence materials should be counted separately?",
+          columns: ["Condition", "Extra count", "Why", "Verify"],
+          rows: [
+            ["End", "Terminal post", "Finishes a run", "Cap and bracing"],
+            ["Corner", "Corner post", "Serves two directions", "Rail attachment"],
+            ["Gate", "Two gate posts + kit", "Hinge/latch loads", "Opening clearance"],
+            ["Slope", "Segment-specific rails", "Step or rack geometry", "Post length"],
+          ],
+        },
+      ],
+      references: [
+        {
+          label: "How to Build a Wood Fence",
+          publisher: "Lowe's",
+          year: "2025",
+          url: "https://www.lowes.com/n/how-to/install-a-wood-fence",
+        },
+        {
+          label: "811 Before You Dig",
+          publisher: "Common Ground Alliance",
+          year: "2026",
+          url: "https://call811.com/Before-You-Dig",
+        },
+      ],
+      lastUpdated: "2026-07-29",
       resultLabels: {
         posts: "Posts",
         pickets: "Pickets",
@@ -996,6 +1360,44 @@ export const en: Dictionary = {
         title: "16 × 12 ft deck, 5.5 in boards, 12 ft lengths",
         body: "Rows = 12 ft ÷ (5.5/12 + 0.125/12) ≈ 25 rows. Boards per row = 16 ÷ 12 → 2 boards. Base = 50 boards. With 10% waste = 55 boards.",
       },
+      sections: [
+        {
+          heading: "How do you calculate how many deck boards you need?",
+          paragraphs: [
+            "Choose the direction the boards will run. Divide the deck dimension perpendicular to the boards by actual board width plus the side gap, then round up for the number of rows. Divide the parallel dimension by purchasable board length and round up for pieces per row. Multiply rows × pieces per row, then add waste once. A nominal 2×6 wood board is commonly about 5.5 in wide, so using the nominal 6 in understates the row count.",
+            "This piece-count method is more useful than dividing square footage by board face area because it exposes butt joints. A 16 ft run made from 12 ft stock needs two pieces in every row even though four feet of the second piece remains. Efficient cut planning may reuse offcuts in staggered rows, but that depends on joist positions, minimum bearing, fastener zones, and the approved layout.",
+          ],
+        },
+        {
+          heading: "What gap should you leave between deck boards?",
+          paragraphs: [
+            "Use the decking manufacturer's current installation instructions. Trex specifies 3/16 in side-to-side spacing for its composite boards and temperature-dependent end gaps, including 1/8 in above 40°F and 3/16 in below 40°F [1]. Those dimensions apply to that product system, not every wood, PVC, or composite board. Hidden-fastener clips may establish their own gap.",
+            "Wood moisture content changes after installation, so green pressure-treated boards may shrink while dry boards can swell when wet. Species, treatment, season, ventilation, and exposure all matter. The calculator treats the entered gap as uniform across the width and does not model expansion at butt joints or against walls. Confirm both side and end spacing before ordering or fastening.",
+          ],
+        },
+        {
+          heading: "How much waste should you add for deck boards?",
+          paragraphs: [
+            "For straight boards on a simple rectangle, 5–10% is a common planning range for end trimming, defects, and layout. Complex borders, short stock, many penetrations, or selective color blending may justify more. A 45-degree diagonal pattern creates repeated angled offcuts at both edges and often needs 15% or a project-specific cut plan. Waste is not a substitute for counting picture-frame boards separately.",
+            "Check available lengths before choosing the percentage. Stock that spans the full deck length can eliminate field butt joints but may cost more, require special delivery, and be difficult to carry. Compare 12, 16, and 20 ft purchase plans by whole pieces, not just price per linear foot. Keep a few full-length spares only if future color and product availability matter to the owner.",
+          ],
+        },
+        {
+          heading: "Do deck boards run parallel or perpendicular to the house?",
+          paragraphs: [
+            "Decking normally crosses joists, so board direction follows framing rather than appearance alone. The American Wood Council's DCA 6 guide provides prescriptive residential wood-deck framing information and emphasizes code-compliant structural connections [2]. This calculator counts surface boards only and cannot verify joist span, spacing, cantilever, ledger, beam, footing, guard, or fastening design.",
+            "If boards run diagonally, the joist spacing allowed by the decking manufacturer may be tighter than for perpendicular installation. Picture-frame borders also require blocking and change field dimensions. Enter the clear field width and length for one orientation, count border and fascia boards separately by linear feet, and have the framing reviewed under the locally adopted code.",
+          ],
+        },
+        {
+          heading: "How many boards are needed for a 20 by 14 foot deck?",
+          paragraphs: [
+            "Assume 5.5 in boards with a 1/8 in gap running along the 20 ft direction, purchased in 12 ft lengths. Each row occupies 5.625 in, and the 14 ft width is 168 in: 168 ÷ 5.625 = 29.87, so use 30 rows. Each 20 ft row requires two 12 ft pieces, giving 60 pieces. Add 10% and round up: 60 × 1.10 = 66 deck boards. The order represents 792 linear feet; a cut layout may reuse some 4 ft remainders, but do not reduce the count until joint locations and offcut reuse are proven.",
+            "With 20 ft stock, 30 pieces span the field; with 10% the order is 33 boards, or 660 linear feet. That appears more efficient, but price, freight, handling, crown, and availability may offset reduced waste. A mixed-length plan works only when joints land on approved framing. Sketch every row and label reusable offcuts before reducing the conservative count.",
+            "A picture-frame border consumes separate pieces, reduces both field dimensions, and needs blocking and approved fastening. Calculate the inside field after fixing the border, then add border linear feet, fascia, stair treads, risers, breaker boards, and bench cladding separately. Surface square footage alone cannot capture these details.",
+          ],
+        },
+      ],
       howToMeasure:
         "Measure deck frame length and width at the outer joists. Use actual board width (5.5 in for a 2×6) and planned gap. Confirm board lengths available from your supplier.",
       commonMistakes: [
@@ -1005,26 +1407,103 @@ export const en: Dictionary = {
       ],
       faqs: [
         {
-          question: "Composite vs wood spacing?",
+          question: "What gap should I leave between composite deck boards?",
           answer:
-            "Composite often specifies 3/16 in or hidden fasteners — follow manufacturer gap requirements.",
+            "**Use the current spacing specified by the exact decking manufacturer and fastener system.** Trex, for example, specifies a 3/16-inch side gap for its composite boards and temperature-dependent end gaps. Those dimensions do not automatically apply to every composite, PVC, or wood product, and hidden fasteners may establish their own spacing.",
         },
         {
-          question: "Should boards run parallel or perpendicular to the house?",
+          question: "How many deck boards do I need for a 12x16 deck?",
           answer:
-            "Either works structurally. Running parallel to the house often looks best — adjust which dimension you call length vs width.",
+            "**A 12-by-16-foot deck needs about 52 twelve-foot boards before waste when 5.5-inch boards run across the 12-foot direction.** A 1/8-inch gap produces 26 rows, and each 16-foot row needs two 12-foot pieces. With a 10% allowance, the calculator rounds the purchase to 58 boards.",
         },
         {
-          question: "Does this include fascia?",
+          question: "Should deck boards run parallel or perpendicular to the house?",
           answer:
-            "No. Fascia and risers for stairs need separate linear-foot calculations.",
+            "**Deck boards must follow the approved framing layout and normally run across the joists.** Their relationship to the house is therefore determined by joist direction, not appearance alone. If a different direction or diagonal pattern is desired, verify joist spacing, blocking, spans, fasteners, and manufacturer requirements before using that orientation.",
         },
         {
-          question: "16 ft or 12 ft boards?",
+          question: "Should I buy 12-foot or 16-foot deck boards?",
           answer:
-            "Fewer joints with longer boards, but verify they fit your transport and staging area.",
+            "**Choose the length that minimizes unusable offcuts while keeping every butt joint on approved framing.** Sixteen-foot boards can eliminate joints on a 16-foot run, while 12-foot boards may be easier to transport but require two pieces per row. Compare whole-board counts, freight, handling, availability, and a drawn cut plan—not price per linear foot alone.",
+        },
+        {
+          question: "How much waste should I add for deck boards?",
+          answer:
+            "**Plan roughly 5–10% for straight decking on a simple rectangle and about 15% or more for diagonal or complex layouts.** Borders, posts, openings, defects, color selection, and short stock can increase waste. Expensive composite decking deserves a row-by-row cut plan before reducing or increasing the allowance.",
+        },
+        {
+          question: "Does the deck board calculator include fascia and stairs?",
+          answer:
+            "**No—the result covers the rectangular deck field only.** Count picture-frame borders, fascia, stair treads, risers, breaker boards, benches, and skirting separately by their actual layout. These features also change the field dimensions and may require blocking, so define them before finalizing the surface-board order.",
+        },
+        {
+          question: "How many deck boards fit across a 12-foot-wide deck?",
+          answer:
+            "**Twenty-six rows of 5.5-inch boards fit across a 12-foot width when the side gap is 1/8 inch.** The width is 144 inches and each row occupies 5.625 inches; 144 ÷ 5.625 = 25.6, which rounds up. The last board may need to be ripped for the exact finished width.",
         },
       ],
+      dataTables: [
+        {
+          title: "How many deck-board rows fit each deck width?",
+          columns: [
+            "Deck width",
+            "5.5 in board + 1/8 in gap",
+            "5.5 in board + 3/16 in gap",
+            "Actual covered width at 1/8 in",
+          ],
+          rows: [
+            ["8 ft", "18 rows", "17 rows", "101.25 in"],
+            ["10 ft", "22 rows", "22 rows", "123.75 in"],
+            ["12 ft", "26 rows", "26 rows", "146.25 in"],
+            ["14 ft", "30 rows", "30 rows", "168.75 in"],
+            ["16 ft", "35 rows", "34 rows", "196.88 in"],
+          ],
+          note: "Rows are rounded up; the last board may need ripping to fit the exact frame width.",
+        },
+        {
+          title: "How many deck boards are needed by deck size?",
+          columns: ["Deck size", "Board direction", "Rows", "12-ft pieces before waste"],
+          rows: [
+            ["10 × 10 ft", "Along 10 ft", "22", "22"],
+            ["12 × 12 ft", "Along 12 ft", "26", "26"],
+            ["16 × 12 ft", "Along 16 ft", "26", "52"],
+            ["20 × 14 ft", "Along 20 ft", "30", "60"],
+            ["24 × 16 ft", "Along 24 ft", "35", "70"],
+          ],
+          note: "Uses 5.5 in boards, 1/8 in side gap, and 12 ft stock. Add the chosen waste factor afterward.",
+        },
+        {
+          title: "What waste factor should you use for deck boards?",
+          columns: ["Layout", "Planning range", "Why waste changes", "Count separately"],
+          rows: [
+            ["Straight rectangle", "5–10%", "End cuts and defects", "Fascia"],
+            ["Many posts or openings", "10–15%", "More short cuts", "Blocking"],
+            ["45° diagonal", "About 15%+", "Angled edge offcuts", "Extra framing"],
+            [
+              "Picture frame",
+              "Project cut plan",
+              "Borders shorten field",
+              "Border boards",
+            ],
+          ],
+          note: "Planning ranges are not manufacturer guarantees; create a cut list for expensive composite decking.",
+        },
+      ],
+      references: [
+        {
+          label: "How to Space Deck Boards",
+          publisher: "Trex Company",
+          year: "2025",
+          url: "https://www.trex.com/deck-ideas/how-to-space-deck-boards/",
+        },
+        {
+          label: "DCA 6 Prescriptive Residential Wood Deck Construction Guide",
+          publisher: "American Wood Council",
+          year: "2015",
+          url: "https://awc.org/topic/decks/",
+        },
+      ],
+      lastUpdated: "2026-07-29",
       resultLabels: {
         boardsNeeded: "Deck boards",
       },
@@ -1499,6 +1978,46 @@ export const en: Dictionary = {
         title: "Two rooms: 12×10 and 10×10",
         body: "Room 1 = 120 ft². Room 2 = 100 ft². Total = 220 ft². With 10% waste = 242 ft².",
       },
+      sections: [
+        {
+          heading: "How do you calculate square footage?",
+          paragraphs: [
+            "For a rectangle, multiply length by width in the same unit. A room 12 ft 6 in by 10 ft is 12.5 × 10 = 125 ft², not 12.6 × 10; six inches is 0.5 ft, not 0.6 ft. Add each nonoverlapping area once. The calculator also converts the total to square meters using the exact NIST factor: 1 ft² = 0.09290304 m² [1].",
+            "Square footage is two-dimensional area. Linear feet measure length, and cubic feet measure volume. Flooring, roofing, paint, heating loads, rentable area, appraisals, and permit plans can all use different surfaces or definitions, so a mathematically correct floor area is not automatically the right quantity for another purpose.",
+          ],
+        },
+        {
+          heading: "How do you measure an L-shaped or irregular room?",
+          paragraphs: [
+            "Divide an L shape into two rectangles along an inside corner, measure each, and add them. For a triangle use base × perpendicular height ÷ 2; for a circle use π × radius². Avoid creating overlapping shapes. A quick check is to calculate the large bounding rectangle and subtract the missing corner; both methods should agree when measurements are correct.",
+            "Measure at floor level from consistent finished surfaces for a material takeoff. Sketch doors, alcoves, cabinets, islands, fireplaces, stairs, and closets, then decide which receive the same finish. For curved walls, split the area into manageable shapes or use plan/CAD dimensions. Record dimensions to at least the nearest inch, convert once, and round the final area rather than every intermediate rectangle.",
+          ],
+        },
+        {
+          heading: "How much extra square footage should you add for flooring?",
+          paragraphs: [
+            "A simple straight-laid floor may use 5–10% planning waste; diagonal layouts, patterned tile, herringbone, many small rooms, or selective boards can require 10–20% or a manufacturer-specific amount. Waste covers cuts, breakage, defects, and future repairs. It should be applied to the net installed area once, then the purchase must be rounded to full cartons using the coverage printed on the package.",
+            "Example: 520 ft² × 1.10 = 572 ft². If each carton covers 23.5 ft², 572 ÷ 23.5 = 24.34, so buy 25 cartons providing 587.5 ft². Do not add 10% in this calculator and another 10% in a flooring calculator. Also confirm whether the seller accepts unopened returns and whether dye-lot matching justifies keeping spare material.",
+          ],
+        },
+        {
+          heading: "Is room square footage the same as appraisal square footage?",
+          paragraphs: [
+            "No. This tool totals user-entered rectangles for planning materials. ANSI Z765-2021 is a formal method for calculating and reporting square footage of detached and attached single-family houses; Home Innovation Research Labs describes its purpose as uniform residential reporting [2]. Fannie Mae adopted that standard for relevant appraisals and distinguishes above-grade and below-grade finished areas [3].",
+            "An appraiser may use exterior dimensions, ceiling-height rules, level classifications, and separate reporting that differ from an interior flooring takeoff. Condominiums, local tax records, builders, listing services, and permits may follow other definitions. Do not use this calculator to certify gross living area, property value, occupancy, egress, or code compliance.",
+          ],
+        },
+        {
+          heading: "What is the square footage of an irregular three-room project?",
+          paragraphs: [
+            "Room A is 15 ft × 12 ft = 180 ft². Room B is an L shape made from 11 ft × 10 ft plus 5 ft × 4 ft: 110 + 20 = 130 ft². Room C is 9 ft 6 in × 8 ft; convert 9 ft 6 in to 9.5 ft, so area is 76 ft². Add a 6 ft × 3 ft closet = 18 ft². The named net result is 180 + 130 + 76 + 18 = 404 ft². With 12% pattern waste, order for 452.48 ft² before carton rounding. In metric, 404 ft² is about 37.53 m².",
+            "At 22.4 ft² per carton, 452.48 ÷ 22.4 = 20.2 cartons. Round up to 21, supplying 470.4 ft². Effective overage becomes 66.4 ft², or 16.4% above net, because carton rounding follows the 12% allowance. Record net area and purchased coverage so the difference is explainable.",
+            "Wall area is separate. A 12 × 10 ft room with an 8 ft ceiling has a 44 ft perimeter and 352 ft² of gross wall before openings; its ceiling is 120 ft². Adding those faces to floor area creates a meaningless ordering total. Identify material and surface first.",
+            "Exterior footprint also differs from interior room totals because walls and shafts occupy space. Use interior measurements for finish takeoffs; use the applicable standard and a qualified professional for appraisal reporting. Preserve the sketch, date, instrument, rounding convention, and inclusions so another person can reproduce the result.",
+            "Check each room independently and compare the sum with a rough overall bounding rectangle. A large unexplained difference can reveal a missing closet, duplicated hallway, transposed dimension, or inches entered as decimal feet. Recheck the sketch before applying waste because a percentage allowance magnifies every measurement error. Keep the original measurements beside the rounded ordering total for later review.",
+          ],
+        },
+      ],
       howToMeasure:
         "Measure each room at the longest points on the floor. For open floor plans, divide visually at logical boundaries or use plan dimensions.",
       commonMistakes: [
@@ -1508,23 +2027,113 @@ export const en: Dictionary = {
       ],
       faqs: [
         {
-          question: "How do I measure L-shaped rooms?",
-          answer: "Split into two rectangles, calculate each, and add.",
-        },
-        {
-          question: "Convert to square meters?",
-          answer: "Results include m² automatically from the same inputs.",
-        },
-        {
-          question: "Include waste here or in the flooring calculator?",
-          answer: "Use waste in one place only to avoid double-counting.",
-        },
-        {
-          question: "Appraisal vs material area?",
+          question: "How do I calculate square footage for an L-shaped room?",
           answer:
-            "GLA for appraisals follows specific rules — this is a general area tool.",
+            "**Divide the L-shaped room into two nonoverlapping rectangles, calculate each area, and add the results.** You can verify the number by calculating the large outer rectangle and subtracting the missing corner. Both methods should agree when the measurements and shape boundaries are correct.",
+        },
+        {
+          question: "How do I convert square meters to square feet?",
+          answer:
+            "**Multiply square meters by approximately 10.7639 to convert them to square feet.** For example, 20 m² × 10.7639 = about 215.28 ft². To convert the other direction, multiply square feet by the exact NIST factor 0.09290304; the calculator displays both units from the same dimensions.",
+        },
+        {
+          question: "How much extra square footage should I add for flooring waste?",
+          answer:
+            "**Add about 5–10% for a straightforward layout and 10–20% or more for diagonal, herringbone, or complex patterns.** Product instructions and a room-specific cut plan take priority over general ranges. Apply the allowance once to net area, then round up to complete cartons using the coverage printed on the exact product.",
+        },
+        {
+          question: "Is flooring square footage the same as appraisal square footage?",
+          answer:
+            "**No—an interior flooring takeoff is not a certified appraisal measurement.** ANSI Z765-2021 uses formal rules for calculating and reporting residential square footage, including distinctions that may not match room-by-room material measurements. Use this calculator for planning surfaces, and use the applicable standard and a qualified professional for appraisal reporting.",
+        },
+        {
+          question: "How many square feet is a 12x12 room?",
+          answer:
+            "**A 12-by-12-foot room contains 144 square feet.** Multiply 12 ft × 12 ft to get the net rectangular floor area. With a 10% material allowance, plan for 158.4 ft² before rounding to full cartons, boards, tiles, or other purchasable units.",
+        },
+        {
+          question: "How do I convert feet and inches to decimal feet for area?",
+          answer:
+            "**Divide the inches by 12 and add that decimal to the whole feet.** For example, 12 ft 6 in becomes 12 + 6 ÷ 12 = 12.5 ft, not 12.6 ft. Multiply the converted decimal dimensions, retain precision through the calculation, and round the final area rather than each dimension.",
+        },
+        {
+          question: "Should closets and hallways be included in square footage?",
+          answer:
+            "**Include every closet and hallway that will receive the same material, and exclude surfaces that will not.** Sketch each space so it is counted once and decide whether flooring runs beneath cabinets, islands, or appliances. Formal living-area reporting follows different rules, so do not transfer a material inclusion decision into an appraisal calculation.",
         },
       ],
+      dataTables: [
+        {
+          title: "How do feet and inches convert for square footage?",
+          columns: ["Dimension", "Decimal feet", "Example multiplied by 10 ft", "Area"],
+          rows: [
+            ["6 in", "0.5 ft", "0.5 × 10", "5 ft²"],
+            ["9 ft 3 in", "9.25 ft", "9.25 × 10", "92.5 ft²"],
+            ["10 ft 6 in", "10.5 ft", "10.5 × 10", "105 ft²"],
+            ["12 ft 9 in", "12.75 ft", "12.75 × 10", "127.5 ft²"],
+          ],
+          note: "Divide inches by 12, then add the whole feet. Do not write 6 inches as 0.6 feet.",
+        },
+        {
+          title: "How many square feet are common room sizes?",
+          columns: ["Room dimensions", "Square feet", "Square meters", "With 10% waste"],
+          rows: [
+            ["8 × 10 ft", "80", "7.43", "88 ft²"],
+            ["10 × 12 ft", "120", "11.15", "132 ft²"],
+            ["12 × 15 ft", "180", "16.72", "198 ft²"],
+            ["15 × 20 ft", "300", "27.87", "330 ft²"],
+            ["20 × 25 ft", "500", "46.45", "550 ft²"],
+          ],
+          note: "Metric values use 0.09290304 m² per ft² and are rounded for display.",
+        },
+        {
+          title: "What waste factor should you use for flooring?",
+          columns: [
+            "Layout",
+            "Planning range",
+            "Main source of waste",
+            "Before ordering",
+          ],
+          rows: [
+            ["Straight plank, simple room", "5–10%", "End cuts", "Check board defects"],
+            ["Tile grid", "10%", "Edge cuts/breakage", "Check tile caliber"],
+            [
+              "Diagonal plank/tile",
+              "10–15%",
+              "Angled perimeter cuts",
+              "Dry-layout pattern",
+            ],
+            [
+              "Herringbone/complex",
+              "15–20%+",
+              "Pattern matching",
+              "Use manufacturer plan",
+            ],
+          ],
+          note: "General planning ranges only. Product instructions and a room-specific cut plan take priority.",
+        },
+      ],
+      references: [
+        {
+          label: "NIST Guide to the SI: Area Conversion Factors",
+          publisher: "National Institute of Standards and Technology",
+          year: "2026",
+          url: "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9",
+        },
+        {
+          label: "ANSI Z765-2021 Square Footage Standard Announcement",
+          publisher: "Home Innovation Research Labs",
+          year: "2021",
+          url: "https://www.homeinnovation.com/insights/company_news/consensus-committee-approves-latest-version-of-ansi-square-footage-standard/44317",
+        },
+        {
+          label: "Selling Guide Announcement SEL-2021-11",
+          publisher: "Fannie Mae",
+          year: "2021",
+          url: "https://singlefamily.fanniemae.com/media/30296/display",
+        },
+      ],
+      lastUpdated: "2026-07-29",
       resultLabels: {
         totalAreaFt2: "Combined area (ft²)",
       },

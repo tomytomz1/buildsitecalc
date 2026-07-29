@@ -58,6 +58,7 @@ export function useCalculatorState(
     const output = engine.calculate(merged as never);
     // Apply URL overrides synchronously so shareable links hydrate before paint
     // (startTransition can leave defaults visible under test / slow hydration).
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- URL hydration must finish before the first painted result.
     setInputsState(merged);
     setHasCalculated(true);
     if (!output.ok) {
