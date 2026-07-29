@@ -5,11 +5,7 @@ import { AdPlaceholder } from "@/components/layout/AdPlaceholder";
 import { AssumptionsList } from "@/components/calculator/AssumptionsList";
 import { Breadcrumbs } from "@/components/calculator/Breadcrumbs";
 import { CalculatorPageClient } from "@/components/calculator/CalculatorPageClient";
-import {
-  RoomDiagram,
-  SlabDiagram,
-  StairDiagram,
-} from "@/components/calculator/Diagrams";
+import { RoomDiagram, SlabDiagram, StairDiagram } from "@/components/calculator/Diagrams";
 import { CommonMistakes } from "@/components/calculator/CommonMistakes";
 import { FaqAccordion } from "@/components/calculator/FaqAccordion";
 import { FormulaBlock } from "@/components/calculator/FormulaBlock";
@@ -22,6 +18,8 @@ import {
   getCalculatorBySlug,
   getRelatedCalculators,
 } from "@/lib/calculators/registry";
+import { getCalculatorEngine } from "@/lib/calculators/engine";
+import type { CalcSuccess } from "@/lib/calculators/types";
 import {
   buildCalculatorLabels,
   getCalculatorSlug,
@@ -65,6 +63,12 @@ export async function generateMetadata({
     title: content.metaTitle,
     description: content.metaDescription,
     pathWithoutLocale: `calculators/${slug}`,
+    // Calculator slugs are localized, so hreflang must point at the
+    // translated slug rather than reusing this locale's.
+    pathsByLocale: {
+      en: `calculators/${calc.slugEn}`,
+      es: `calculators/${calc.slugEs}`,
+    },
   });
 }
 
@@ -83,9 +87,7 @@ export default async function CalculatorPage({
 
   const dict = getDictionary(locale);
   const content = dict.calculators[calc.id];
-  const categoryEntry = getAllCategories().find(
-    (entry) => entry.id === calc.categoryId,
-  );
+  const categoryEntry = getAllCategories().find((entry) => entry.id === calc.categoryId);
 
   if (!categoryEntry) notFound();
   const categoryTitle = dict.categories[calc.categoryId].title;
@@ -93,6 +95,12 @@ export default async function CalculatorPage({
   const labels = buildCalculatorLabels(dict, calc.id);
   const related = getRelatedCalculators(calc.id);
   const exampleSteps = parseWorkedExampleSteps(content.workedExample.body);
+
+  // Server-compute the default result so crawlers see numbers in the HTML
+  // (not the empty-state placeholder). Client hydrates with the same payload.
+  const engine = getCalculatorEngine(calc.id);
+  const defaultOutput = engine.calculate(engine.defaultInputs);
+  const initialResult: CalcSuccess | null = defaultOutput.ok ? defaultOutput : null;
 
   const breadcrumbItems = [
     {
@@ -140,7 +148,7 @@ export default async function CalculatorPage({
         ]}
       />
 
-      <article className="mx-auto max-w-3xl px-4 py-8 animate-fade-up">
+      <article className="animate-fade-up mx-auto max-w-3xl px-4 py-8">
         <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
         <header className="mb-8">
@@ -191,6 +199,7 @@ export default async function CalculatorPage({
           title={content.title}
           href={href}
           labels={labels}
+          initialResult={initialResult}
           className="mb-10"
         />
 
@@ -200,16 +209,10 @@ export default async function CalculatorPage({
             items={content.assumptions}
           />
 
-          <FormulaBlock
-            formula={content.formula}
-            label={dict.common.labels.formula}
-          />
+          <FormulaBlock formula={content.formula} label={dict.common.labels.formula} />
 
           {exampleSteps.length > 0 ? (
-            <WorkedExample
-              title={content.workedExample.title}
-              steps={exampleSteps}
-            />
+            <WorkedExample title={content.workedExample.title} steps={exampleSteps} />
           ) : null}
 
           <section className="space-y-3">
@@ -239,8 +242,7 @@ export default async function CalculatorPage({
             items={related.map((relatedCalc) => ({
               href: calculatorPath(locale, relatedCalc),
               title: dict.calculators[relatedCalc.id].title,
-              description:
-                dict.calculators[relatedCalc.id].shortDescription,
+              description: dict.calculators[relatedCalc.id].shortDescription,
             }))}
           />
 

@@ -8,7 +8,7 @@ import {
 import { PrintCopyShare } from "@/components/calculator/PrintCopyShare";
 import type { CalculatorLabels } from "@/components/calculator/forms/types";
 import { recordRecentCalculator } from "@/components/layout/RecentlyViewed";
-import type { CalculatorId } from "@/lib/calculators/types";
+import type { CalcSuccess, CalculatorId } from "@/lib/calculators/types";
 
 export type CalculatorPageClientProps = {
   calculatorId: CalculatorId;
@@ -17,6 +17,7 @@ export type CalculatorPageClientProps = {
   href: string;
   labels: CalculatorLabels;
   className?: string;
+  initialResult?: CalcSuccess | null;
 };
 
 export function CalculatorPageClient({
@@ -26,6 +27,7 @@ export function CalculatorPageClient({
   href,
   labels,
   className,
+  initialResult = null,
 }: CalculatorPageClientProps) {
   const [shareHelpers, setShareHelpers] = useState<ShareHelpers | null>(null);
 
@@ -40,6 +42,7 @@ export function CalculatorPageClient({
       locale={locale}
       labels={labels}
       className={className}
+      initialResult={initialResult}
       onShareHelpersChange={setShareHelpers}
       actions={
         shareHelpers ? (

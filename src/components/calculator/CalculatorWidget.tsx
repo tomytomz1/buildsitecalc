@@ -16,6 +16,8 @@ export type CalculatorWidgetProps = {
   actions?: React.ReactNode;
   className?: string;
   onShareHelpersChange?: (helpers: ShareHelpers | null) => void;
+  /** SSR-computed default result so initial HTML includes numbers for crawlers. */
+  initialResult?: CalcSuccess | null;
 };
 
 export type ShareHelpers = {
@@ -73,17 +75,10 @@ export function CalculatorWidget({
   actions,
   className,
   onShareHelpersChange,
+  initialResult = null,
 }: CalculatorWidgetProps) {
-  const {
-    inputs,
-    result,
-    errors,
-    calculate,
-    reset,
-    setField,
-    setInputs,
-    hasCalculated,
-  } = useCalculatorState(calculatorId);
+  const { inputs, result, errors, calculate, reset, setField, setInputs, hasCalculated } =
+    useCalculatorState(calculatorId, { initialResult });
 
   const getShareUrl = useCallback(() => {
     if (typeof window === "undefined") return "";
@@ -114,9 +109,7 @@ export function CalculatorWidget({
     calculate();
   };
 
-  const primaryResults = result
-    ? mapResultFields(result.primary, labels.results)
-    : [];
+  const primaryResults = result ? mapResultFields(result.primary, labels.results) : [];
   const secondaryResults = result
     ? mapResultFields(result.secondary, labels.results)
     : [];
@@ -155,7 +148,9 @@ export function CalculatorWidget({
             primary={primaryResults}
             secondary={secondaryResults}
             locale={locale}
-            emptyMessage={labels.ui.emptyResults ?? "Enter values and calculate to see results."}
+            emptyMessage={
+              labels.ui.emptyResults ?? "Enter values and calculate to see results."
+            }
           />
           {result?.meta ? (
             <div className="space-y-2">

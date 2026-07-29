@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, startTransition } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getCalculatorEngine } from "@/lib/calculators/engine";
 import type { CalcSuccess, CalculatorId } from "@/lib/calculators/types";
 import {
@@ -8,6 +8,11 @@ import {
   mergeInputsFromSearchParams,
   syncInputsToUrl,
 } from "@/lib/calculators/url-state";
+
+export interface UseCalculatorStateOptions {
+  /** Precomputed default success from the server so Googlebot sees results in HTML. */
+  initialResult?: CalcSuccess | null;
+}
 
 export interface UseCalculatorStateResult {
   inputs: Record<string, unknown>;
@@ -28,7 +33,11 @@ function cloneDefaultInputs(defaults: Record<string, unknown>): Record<string, u
   return JSON.parse(JSON.stringify(defaults)) as Record<string, unknown>;
 }
 
-export function useCalculatorState(calculatorId: CalculatorId): UseCalculatorStateResult {
+export function useCalculatorState(
+  calculatorId: CalculatorId,
+  options: UseCalculatorStateOptions = {},
+): UseCalculatorStateResult {
+  const { initialResult = null } = options;
   const engine = useMemo(() => getCalculatorEngine(calculatorId), [calculatorId]);
   const defaultInputs = useMemo(
     () => cloneDefaultInputs(engine.defaultInputs as Record<string, unknown>),
@@ -36,19 +45,29 @@ export function useCalculatorState(calculatorId: CalculatorId): UseCalculatorSta
   );
 
   // Always seed with defaults so SSR and first client render match.
+  // Seed result from initialResult (SSR default compute) so hydration matches.
   const [inputs, setInputsState] = useState<Record<string, unknown>>(defaultInputs);
-  const [result, setResult] = useState<CalcSuccess | null>(null);
+  const [result, setResult] = useState<CalcSuccess | null>(initialResult);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [hasCalculated, setHasCalculated] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(Boolean(initialResult));
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if ([...params.keys()].length === 0) return;
     const merged = mergeInputsFromSearchParams(defaultInputs, params);
-    startTransition(() => {
-      setInputsState(merged);
-    });
-  }, [calculatorId, defaultInputs]);
+    const output = engine.calculate(merged as never);
+    // Apply URL overrides synchronously so shareable links hydrate before paint
+    // (startTransition can leave defaults visible under test / slow hydration).
+    setInputsState(merged);
+    setHasCalculated(true);
+    if (!output.ok) {
+      setErrors(output.errors);
+      setResult(null);
+      return;
+    }
+    setErrors({});
+    setResult(output);
+  }, [calculatorId, defaultInputs, engine]);
 
   const setInputs = useCallback(
     (
@@ -87,11 +106,18 @@ export function useCalculatorState(calculatorId: CalculatorId): UseCalculatorSta
     const nextDefaults = cloneDefaultInputs(
       engine.defaultInputs as Record<string, unknown>,
     );
+    const output = engine.calculate(nextDefaults as never);
     setInputsState(nextDefaults);
-    setResult(null);
     setErrors({});
-    setHasCalculated(false);
     clearInputsFromUrl();
+    if (!output.ok) {
+      setResult(null);
+      setHasCalculated(false);
+      return;
+    }
+    // Restore SSR-style default result so reset does not flash the empty state.
+    setResult(output);
+    setHasCalculated(true);
   }, [engine]);
 
   return {
