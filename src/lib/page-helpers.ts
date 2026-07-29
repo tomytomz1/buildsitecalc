@@ -52,10 +52,7 @@ export function getCategoryTitle(
   return dict.categories[category.id].title;
 }
 
-export function getCalculatorSlug(
-  locale: Locale,
-  calc: CalculatorRegistryEntry,
-): string {
+export function getCalculatorSlug(locale: Locale, calc: CalculatorRegistryEntry): string {
   return locale === "es" ? calc.slugEs : calc.slugEn;
 }
 
@@ -71,6 +68,8 @@ export function buildCalculatorLabels(
     results: { ...common.resultLabels, ...calc.resultLabels },
     errors: common.errors,
     ui: {
+      // Spread first so explicit buttons/labels below always win.
+      ...common.uiLabels,
       calculate: common.buttons.calculate,
       reset: common.buttons.reset,
       results: common.labels.results,

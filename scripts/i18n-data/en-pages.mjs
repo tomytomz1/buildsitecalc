@@ -89,23 +89,81 @@ export const enPages = {
       },
     ],
     terms: [
-      { term: "Board foot", definition: "A lumber volume unit equal to 144 cubic inches — commonly used for hardwood pricing." },
-      { term: "Bundle (roofing)", definition: "A packaged unit of asphalt shingles; typically three bundles cover one roofing square." },
-      { term: "Coverage rate", definition: "Area a material covers per unit (e.g., square feet per gallon of paint)." },
-      { term: "Cubic yard (yd³)", definition: "US volume measure equal to 27 cubic feet; common for concrete, mulch, and bulk soil." },
-      { term: "On center (OC)", definition: "Spacing measured from the center of one framing member to the next (e.g., 16 in OC studs)." },
-      { term: "Pitch (roof)", definition: "Roof slope expressed as rise over run (4/12 means 4 in rise per 12 in horizontal run)." },
-      { term: "R-value", definition: "Thermal resistance of insulation; higher numbers mean better resistance to heat flow." },
+      {
+        term: "Board foot",
+        definition:
+          "A lumber volume unit equal to 144 cubic inches — commonly used for hardwood pricing.",
+      },
+      {
+        term: "Bundle (roofing)",
+        definition:
+          "A packaged unit of asphalt shingles; typically three bundles cover one roofing square.",
+      },
+      {
+        term: "Coverage rate",
+        definition:
+          "Area a material covers per unit (e.g., square feet per gallon of paint).",
+      },
+      {
+        term: "Cubic yard (yd³)",
+        definition:
+          "US volume measure equal to 27 cubic feet; common for concrete, mulch, and bulk soil.",
+      },
+      {
+        term: "On center (OC)",
+        definition:
+          "Spacing measured from the center of one framing member to the next (e.g., 16 in OC studs).",
+      },
+      {
+        term: "Pitch (roof)",
+        definition:
+          "Roof slope expressed as rise over run (4/12 means 4 in rise per 12 in horizontal run).",
+      },
+      {
+        term: "R-value",
+        definition:
+          "Thermal resistance of insulation; higher numbers mean better resistance to heat flow.",
+      },
       { term: "Riser", definition: "Vertical face of a stair step between treads." },
-      { term: "Roofing square", definition: "100 square feet of roof area; shingle orders often reference squares." },
+      {
+        term: "Roofing square",
+        definition:
+          "100 square feet of roof area; shingle orders often reference squares.",
+      },
       { term: "Tread", definition: "Horizontal walking surface of a stair step." },
-      { term: "Waste factor", definition: "Extra material percentage added to net quantity to cover cuts, breakage, and errors." },
-      { term: "Markup", definition: "Percentage added to cost to reach selling price (markup% of cost)." },
-      { term: "Margin", definition: "Profit as a percentage of selling price (different from markup)." },
-      { term: "BTU", definition: "British Thermal Unit — heat energy rate used to size heating and cooling equipment." },
-      { term: "Manual J", definition: "ACCA standard for residential HVAC load calculation; more detailed than rule-of-thumb sizing." },
-      { term: "Premix concrete", definition: "Dry concrete mix in bags requiring water on site; yield varies by bag weight." },
-      { term: "Roll-off dumpster", definition: "Open-top waste container delivered for construction debris; sized in cubic yards." },
+      {
+        term: "Waste factor",
+        definition:
+          "Extra material percentage added to net quantity to cover cuts, breakage, and errors.",
+      },
+      {
+        term: "Markup",
+        definition: "Percentage added to cost to reach selling price (markup% of cost).",
+      },
+      {
+        term: "Margin",
+        definition: "Profit as a percentage of selling price (different from markup).",
+      },
+      {
+        term: "BTU",
+        definition:
+          "British Thermal Unit — heat energy rate used to size heating and cooling equipment.",
+      },
+      {
+        term: "Manual J",
+        definition:
+          "ACCA standard for residential HVAC load calculation; more detailed than rule-of-thumb sizing.",
+      },
+      {
+        term: "Premix concrete",
+        definition:
+          "Dry concrete mix in bags requiring water on site; yield varies by bag weight.",
+      },
+      {
+        term: "Roll-off dumpster",
+        definition:
+          "Open-top waste container delivered for construction debris; sized in cubic yards.",
+      },
     ],
   },
 
@@ -144,7 +202,7 @@ export const enPages = {
     sections: [
       {
         paragraphs: [
-          "Last updated: July 28, 2026. BuildSiteCalc (\"we,\" \"us\") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website.",
+          'Last updated: July 28, 2026. BuildSiteCalc ("we," "us") operates https://buildsitecalc.com. This policy describes how we handle information when you use our website.',
         ],
       },
       {
@@ -177,7 +235,7 @@ export const enPages = {
       {
         heading: "Changes",
         paragraphs: [
-          "We may update this policy. The \"Last updated\" date will change when revisions are posted.",
+          'We may update this policy. The "Last updated" date will change when revisions are posted.',
         ],
       },
     ],
@@ -209,7 +267,7 @@ export const enPages = {
       {
         heading: "Disclaimer of warranties",
         paragraphs: [
-          "The site is provided \"as is\" without warranties of any kind. See our Disclaimer for calculation and professional advice limitations.",
+          'The site is provided "as is" without warranties of any kind. See our Disclaimer for calculation and professional advice limitations.',
         ],
       },
       {
@@ -233,9 +291,7 @@ export const enPages = {
       "Important disclaimer: BuildSiteCalc calculators are estimates only, not professional engineering or code advice.",
     sections: [
       {
-        paragraphs: [
-          "Last updated: July 28, 2026.",
-        ],
+        paragraphs: ["Last updated: July 28, 2026."],
       },
       {
         heading: "Estimates only",
@@ -301,9 +357,7 @@ export const enPages = {
       "How BuildSiteCalc uses cookies and similar technologies. Last updated July 28, 2026.",
     sections: [
       {
-        paragraphs: [
-          "Last updated: July 28, 2026.",
-        ],
+        paragraphs: ["Last updated: July 28, 2026."],
       },
       {
         heading: "What cookies are",
@@ -327,9 +381,7 @@ export const enPages = {
       },
       {
         heading: "Contact",
-        paragraphs: [
-          "Questions about this policy: hello@buildsitecalc.com.",
-        ],
+        paragraphs: ["Questions about this policy: hello@buildsitecalc.com."],
       },
     ],
   },

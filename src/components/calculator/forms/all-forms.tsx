@@ -7,10 +7,7 @@ import { PercentInput } from "@/components/ui/PercentInput";
 import { Select } from "@/components/ui/Select";
 import { UnitSelect } from "@/components/ui/UnitSelect";
 import { CurrencyInput } from "@/components/ui/CurrencyInput";
-import {
-  convertPaintAreaInput,
-  convertStairInputsOnUnitChange,
-} from "@/lib/calculators";
+import { convertPaintAreaInput, convertStairInputsOnUnitChange } from "@/lib/calculators";
 import type { CalculatorId } from "@/lib/calculators/types";
 import type { AreaUnit, LengthUnit } from "@/lib/calculators/units";
 import type { StairInputs } from "@/lib/calculators/stair";
@@ -64,7 +61,10 @@ function ConcreteSlabForm(props: CalculatorFormProps) {
         value={num("wastePercent")}
         error={err("wastePercent")}
         onChange={(e) =>
-          props.setField("wastePercent", e.target.value === "" ? "" : Number(e.target.value))
+          props.setField(
+            "wastePercent",
+            e.target.value === "" ? "" : Number(e.target.value),
+          )
         }
       />
     </div>
@@ -72,7 +72,8 @@ function ConcreteSlabForm(props: CalculatorFormProps) {
 }
 
 function ConcreteBagsForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
+    useFormHelpers(props);
   const useVolume = props.inputs.volume !== undefined && props.inputs.volume !== "";
 
   return (
@@ -108,7 +109,7 @@ function ConcreteBagsForm(props: CalculatorFormProps) {
             onChange={setFrac("volume")}
           />
           <UnitSelect
-            name="volumeUnit"
+            locale={locale} name="volumeUnit"
             label={lbl("volumeUnit")}
             value={String(props.inputs.volumeUnit ?? "ft3")}
             kind="volume"
@@ -174,11 +175,7 @@ function PaintForm(props: CalculatorFormProps) {
     useFormHelpers(props);
   const useWallArea = props.inputs.wallArea !== undefined && props.inputs.wallArea !== "";
 
-  const convertAreaField = (
-    valueKey: string,
-    unitKey: string,
-    nextUnit: string,
-  ) => {
+  const convertAreaField = (valueKey: string, unitKey: string, nextUnit: string) => {
     const from = String(props.inputs[unitKey] ?? "ft2") as AreaUnit;
     const to = nextUnit as AreaUnit;
     if (from === to) {
@@ -187,8 +184,7 @@ function PaintForm(props: CalculatorFormProps) {
     }
     const raw = props.inputs[valueKey];
     if (raw !== undefined && raw !== "") {
-      const parsed =
-        typeof raw === "number" ? raw : Number.parseFloat(String(raw));
+      const parsed = typeof raw === "number" ? raw : Number.parseFloat(String(raw));
       if (Number.isFinite(parsed) && parsed >= 0) {
         setField(valueKey, convertPaintAreaInput(parsed, from, to));
       }
@@ -203,8 +199,17 @@ function PaintForm(props: CalculatorFormProps) {
         label={lbl("entryMode")}
         value={useWallArea ? "area" : "room"}
         options={[
-          { value: "room", label: labels.ui.modeDimensions ?? "Room dimensions" },
-          { value: "area", label: labels.ui.modeArea ?? "Wall area" },
+          {
+            value: "room",
+            label:
+              labels.ui.modeRoomDimensions ??
+              labels.ui.modeDimensions ??
+              "Room dimensions",
+          },
+          {
+            value: "area",
+            label: labels.ui.modeWallArea ?? labels.ui.modeArea ?? "Wall area",
+          },
         ]}
         onChange={(e) => {
           if (e.target.value === "area") {
@@ -278,13 +283,11 @@ function PaintForm(props: CalculatorFormProps) {
             onChange={setFrac("doorArea")}
           />
           <UnitSelect
-            name="doorAreaUnit"
+            locale={locale} name="doorAreaUnit"
             label={lbl("doorAreaUnit")}
             value={String(props.inputs.doorAreaUnit ?? "ft2")}
             kind="area"
-            onChange={(e) =>
-              convertAreaField("doorArea", "doorAreaUnit", e.target.value)
-            }
+            onChange={(e) => convertAreaField("doorArea", "doorAreaUnit", e.target.value)}
           />
           <FractionalInput
             name="windowArea"
@@ -295,7 +298,7 @@ function PaintForm(props: CalculatorFormProps) {
             onChange={setFrac("windowArea")}
           />
           <UnitSelect
-            name="windowAreaUnit"
+            locale={locale} name="windowAreaUnit"
             label={lbl("windowAreaUnit")}
             value={String(props.inputs.windowAreaUnit ?? "ft2")}
             kind="area"
@@ -325,7 +328,7 @@ function PaintForm(props: CalculatorFormProps) {
           onChange={setNum("coverageRate")}
         />
         <UnitSelect
-          name="coverageRateUnit"
+          locale={locale} name="coverageRateUnit"
           label={lbl("coverageRateUnit")}
           value={String(props.inputs.coverageRateUnit ?? "ft2")}
           kind="area"
@@ -349,7 +352,8 @@ function PaintForm(props: CalculatorFormProps) {
 }
 
 function FlooringForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
+    useFormHelpers(props);
   const useArea = props.inputs.area !== undefined && props.inputs.area !== "";
 
   return (
@@ -410,7 +414,7 @@ function FlooringForm(props: CalculatorFormProps) {
             onChange={setFrac("packCoverage")}
           />
           <UnitSelect
-            name="packCoverageUnit"
+            locale={locale} name="packCoverageUnit"
             label={lbl("packCoverageUnit")}
             value={String(props.inputs.packCoverageUnit ?? "ft2")}
             kind="area"
@@ -432,7 +436,8 @@ function FlooringForm(props: CalculatorFormProps) {
 }
 
 function TileForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
+    useFormHelpers(props);
   const useArea = props.inputs.area !== undefined && props.inputs.area !== "";
 
   return (
@@ -491,7 +496,7 @@ function TileForm(props: CalculatorFormProps) {
             onChange={setFrac("tileLength")}
           />
           <UnitSelect
-            name="tileLengthUnit"
+            locale={locale} name="tileLengthUnit"
             label={lbl("tileLengthUnit")}
             value={String(props.inputs.tileLengthUnit ?? "in")}
             kind="length"
@@ -506,7 +511,7 @@ function TileForm(props: CalculatorFormProps) {
             onChange={setFrac("tileWidth")}
           />
           <UnitSelect
-            name="tileWidthUnit"
+            locale={locale} name="tileWidthUnit"
             label={lbl("tileWidthUnit")}
             value={String(props.inputs.tileWidthUnit ?? "in")}
             kind="length"
@@ -524,7 +529,7 @@ function TileForm(props: CalculatorFormProps) {
           onChange={setFrac("groutGap")}
         />
         <UnitSelect
-          name="groutGapUnit"
+          locale={locale} name="groutGapUnit"
           label={lbl("groutGapUnit")}
           value={String(props.inputs.groutGapUnit ?? "in")}
           kind="length"
@@ -545,7 +550,8 @@ function TileForm(props: CalculatorFormProps) {
 }
 
 function DrywallForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
+    useFormHelpers(props);
   const useArea = props.inputs.area !== undefined && props.inputs.area !== "";
 
   return (
@@ -600,9 +606,9 @@ function DrywallForm(props: CalculatorFormProps) {
           value={String(props.inputs.sheetSize ?? "4x8")}
           error={err("sheetSize")}
           options={[
-            { value: "4x8", label: '4×8 (32 ft²)' },
-            { value: "4x10", label: '4×10 (40 ft²)' },
-            { value: "4x12", label: '4×12 (48 ft²)' },
+            { value: "4x8", label: "4×8 (32 ft²)" },
+            { value: "4x10", label: "4×10 (40 ft²)" },
+            { value: "4x12", label: "4×12 (48 ft²)" },
           ]}
           onChange={setSelect("sheetSize")}
         />
@@ -632,8 +638,17 @@ function RoofingShingleForm(props: CalculatorFormProps) {
         label={lbl("entryMode")}
         value={useRoofArea ? "area" : "dimensions"}
         options={[
-          { value: "dimensions", label: labels.ui.modeDimensions ?? "Footprint + pitch" },
-          { value: "area", label: labels.ui.modeArea ?? "Roof area" },
+          {
+            value: "dimensions",
+            label:
+              labels.ui.modeFootprintPitch ??
+              labels.ui.modeDimensions ??
+              "Footprint + pitch",
+          },
+          {
+            value: "area",
+            label: labels.ui.modeRoofArea ?? labels.ui.modeArea ?? "Roof area",
+          },
         ]}
         onChange={(e) => {
           if (e.target.value === "area") {
@@ -728,7 +743,8 @@ function RoofingShingleForm(props: CalculatorFormProps) {
 }
 
 function MulchForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setFrac, setSelect, locale, labels, setField } =
+    useFormHelpers(props);
   return (
     <div className="space-y-4">
       <AreaWithUnitFields
@@ -750,7 +766,7 @@ function MulchForm(props: CalculatorFormProps) {
           onChange={setFrac("depth")}
         />
         <UnitSelect
-          name="depthUnit"
+          locale={locale} name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -802,7 +818,7 @@ function GravelForm(props: CalculatorFormProps) {
           onChange={setFrac("depth")}
         />
         <UnitSelect
-          name="depthUnit"
+          locale={locale} name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -868,7 +884,7 @@ function TopsoilForm(props: CalculatorFormProps) {
           onChange={setNum("depth")}
         />
         <UnitSelect
-          name="depthUnit"
+          locale={locale} name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -889,7 +905,7 @@ function TopsoilForm(props: CalculatorFormProps) {
 }
 
 function FenceMaterialForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, setStr } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, setStr, locale } = useFormHelpers(props);
   return (
     <div className="space-y-4">
       <FormGrid>
@@ -904,7 +920,7 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("fenceLength")}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -940,7 +956,7 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("picketWidth")}
         />
         <UnitSelect
-          name="picketWidthUnit"
+          locale={locale} name="picketWidthUnit"
           label={lbl("picketWidthUnit")}
           value={String(props.inputs.picketWidthUnit ?? "in")}
           kind="length"
@@ -957,7 +973,7 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("picketGap")}
         />
         <UnitSelect
-          name="picketGapUnit"
+          locale={locale} name="picketGapUnit"
           label={lbl("picketGapUnit")}
           value={String(props.inputs.picketGapUnit ?? "in")}
           kind="length"
@@ -975,7 +991,8 @@ function FenceMaterialForm(props: CalculatorFormProps) {
 }
 
 function DeckBoardForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, labels, setField, locale } =
+    useFormHelpers(props);
   return (
     <div className="space-y-4">
       <FormGrid>
@@ -1000,7 +1017,7 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("deckWidth")}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -1017,7 +1034,7 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("boardWidth")}
         />
         <UnitSelect
-          name="boardWidthUnit"
+          locale={locale} name="boardWidthUnit"
           label={lbl("boardWidthUnit")}
           value={String(props.inputs.boardWidthUnit ?? "in")}
           kind="length"
@@ -1044,7 +1061,7 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("gap")}
         />
         <UnitSelect
-          name="gapUnit"
+          locale={locale} name="gapUnit"
           label={lbl("gapUnit")}
           value={String(props.inputs.gapUnit ?? "in")}
           kind="length"
@@ -1084,18 +1101,19 @@ function StairForm(props: CalculatorFormProps) {
           onChange={setFrac("totalRise")}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={lbl("lengthUnit")}
           value={lengthUnit}
           kind="length"
           onChange={(e) => {
             const next = e.target.value as LengthUnit;
-            setInputs((prev) =>
-              convertStairInputsOnUnitChange(
-                prev as unknown as StairInputs,
-                lengthUnit,
-                next,
-              ) as unknown as Record<string, unknown>,
+            setInputs(
+              (prev) =>
+                convertStairInputsOnUnitChange(
+                  prev as unknown as StairInputs,
+                  lengthUnit,
+                  next,
+                ) as unknown as Record<string, unknown>,
             );
           }}
         />
@@ -1129,7 +1147,8 @@ function StairForm(props: CalculatorFormProps) {
 }
 
 function WallpaperForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, locale, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, locale, labels, setField } =
+    useFormHelpers(props);
   const { setInputs } = props;
   const useWalls = Array.isArray(props.inputs.walls) && props.inputs.walls.length > 0;
 
@@ -1185,7 +1204,7 @@ function WallpaperForm(props: CalculatorFormProps) {
           onChange={setNum("wallHeight")}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -1205,7 +1224,7 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("openingsArea")}
           />
           <UnitSelect
-            name="openingsAreaUnit"
+            locale={locale} name="openingsAreaUnit"
             label={lbl("openingsAreaUnit")}
             value={String(props.inputs.openingsAreaUnit ?? "ft2")}
             kind="area"
@@ -1226,7 +1245,7 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("rollCoverage")}
           />
           <UnitSelect
-            name="rollCoverageUnit"
+            locale={locale} name="rollCoverageUnit"
             label={lbl("rollCoverageUnit")}
             value={String(props.inputs.rollCoverageUnit ?? "ft2")}
             kind="area"
@@ -1253,7 +1272,7 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("rollLength")}
           />
           <UnitSelect
-            name="rollLengthUnit"
+            locale={locale} name="rollLengthUnit"
             label={lbl("rollLengthUnit")}
             value={String(props.inputs.rollLengthUnit ?? "ft")}
             kind="length"
@@ -1273,7 +1292,7 @@ function WallpaperForm(props: CalculatorFormProps) {
           onChange={setNum("patternRepeat")}
         />
         <UnitSelect
-          name="patternRepeatUnit"
+          locale={locale} name="patternRepeatUnit"
           label={lbl("patternRepeatUnit")}
           value={String(props.inputs.patternRepeatUnit ?? "in")}
           kind="length"
@@ -1294,7 +1313,8 @@ function WallpaperForm(props: CalculatorFormProps) {
 }
 
 function InsulationForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum, labels, setField } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, labels, setField, locale } =
+    useFormHelpers(props);
   return (
     <div className="space-y-4">
       <AreaWithUnitFields
@@ -1303,7 +1323,9 @@ function InsulationForm(props: CalculatorFormProps) {
         area={num("area")}
         areaUnit={String(props.inputs.areaUnit ?? "ft2")}
         areaError={err("area")}
-        onArea={(e) => setField("area", e.target.value === "" ? "" : Number(e.target.value))}
+        onArea={(e) =>
+          setField("area", e.target.value === "" ? "" : Number(e.target.value))
+        }
         onUnit={setSelect("areaUnit")}
       />
       <FormGrid>
@@ -1318,7 +1340,7 @@ function InsulationForm(props: CalculatorFormProps) {
           onChange={setNum("battWidth")}
         />
         <UnitSelect
-          name="battWidthUnit"
+          locale={locale} name="battWidthUnit"
           label={lbl("battWidthUnit")}
           value={String(props.inputs.battWidthUnit ?? "in")}
           kind="length"
@@ -1335,7 +1357,7 @@ function InsulationForm(props: CalculatorFormProps) {
           onChange={setNum("battLength")}
         />
         <UnitSelect
-          name="battLengthUnit"
+          locale={locale} name="battLengthUnit"
           label={lbl("battLengthUnit")}
           value={String(props.inputs.battLengthUnit ?? "in")}
           kind="length"
@@ -1379,9 +1401,15 @@ function HvacBtuForm(props: CalculatorFormProps) {
         widthUnit={String(props.inputs.lengthUnit ?? "ft")}
         heightUnit={String(props.inputs.lengthUnit ?? "ft")}
         errors={props.errors}
-        onLength={(e) => props.setField("length", e.target.value === "" ? "" : Number(e.target.value))}
-        onWidth={(e) => props.setField("width", e.target.value === "" ? "" : Number(e.target.value))}
-        onHeight={(e) => props.setField("height", e.target.value === "" ? "" : Number(e.target.value))}
+        onLength={(e) =>
+          props.setField("length", e.target.value === "" ? "" : Number(e.target.value))
+        }
+        onWidth={(e) =>
+          props.setField("width", e.target.value === "" ? "" : Number(e.target.value))
+        }
+        onHeight={(e) =>
+          props.setField("height", e.target.value === "" ? "" : Number(e.target.value))
+        }
         onLengthUnit={setSelect("lengthUnit")}
         onWidthUnit={setSelect("lengthUnit")}
         onHeightUnit={setSelect("lengthUnit")}
@@ -1434,7 +1462,8 @@ function HvacBtuForm(props: CalculatorFormProps) {
 
 function MovingTruckSizeForm(props: CalculatorFormProps) {
   const { lbl, err, num, setNum, labels, setField } = useFormHelpers(props);
-  const useCubicFeet = props.inputs.cubicFeet !== undefined && props.inputs.cubicFeet !== "";
+  const useCubicFeet =
+    props.inputs.cubicFeet !== undefined && props.inputs.cubicFeet !== "";
 
   return (
     <div className="space-y-4">
@@ -1496,11 +1525,20 @@ function DumpsterSizeForm(props: CalculatorFormProps) {
         error={err("projectType")}
         options={[
           { value: "garageCleanout", label: lbl("garageCleanout") || "Garage cleanout" },
-          { value: "bathroomRemodel", label: lbl("bathroomRemodel") || "Bathroom remodel" },
+          {
+            value: "bathroomRemodel",
+            label: lbl("bathroomRemodel") || "Bathroom remodel",
+          },
           { value: "kitchenRemodel", label: lbl("kitchenRemodel") || "Kitchen remodel" },
           { value: "deckRemoval", label: lbl("deckRemoval") || "Deck removal" },
-          { value: "roofingShingles", label: lbl("roofingShingles") || "Roofing shingles" },
-          { value: "wholeHouseCleanout", label: lbl("wholeHouseCleanout") || "Whole house cleanout" },
+          {
+            value: "roofingShingles",
+            label: lbl("roofingShingles") || "Roofing shingles",
+          },
+          {
+            value: "wholeHouseCleanout",
+            label: lbl("wholeHouseCleanout") || "Whole house cleanout",
+          },
           { value: "custom", label: lbl("custom") || "Custom" },
         ]}
         onChange={setSelect("projectType")}
@@ -1548,7 +1586,7 @@ function ProjectWasteFactorForm(props: CalculatorFormProps) {
 }
 
 function BoardFootForm(props: CalculatorFormProps) {
-  const { lbl, err, num, setSelect, setNum } = useFormHelpers(props);
+  const { lbl, err, num, setSelect, setNum, locale } = useFormHelpers(props);
   return (
     <FormGrid>
       <Input
@@ -1582,7 +1620,7 @@ function BoardFootForm(props: CalculatorFormProps) {
         onChange={setNum("length")}
       />
       <UnitSelect
-        name="lengthUnit"
+        locale={locale} name="lengthUnit"
         label={lbl("lengthUnit")}
         value={String(props.inputs.lengthUnit ?? "in")}
         kind="length"
@@ -1748,7 +1786,10 @@ function ProjectBudgetForm(props: CalculatorFormProps) {
           error={err("contingencyPercent")}
           min={0}
           onChange={(e) =>
-            setField("contingencyPercent", e.target.value === "" ? "" : Number(e.target.value))
+            setField(
+              "contingencyPercent",
+              e.target.value === "" ? "" : Number(e.target.value),
+            )
           }
         />
       </FormGrid>

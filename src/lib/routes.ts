@@ -19,10 +19,7 @@ export function categoryPath(locale: Locale, category: CategoryDefinition): stri
   return localePath(locale, `categories/${slug}`);
 }
 
-export function calculatorPath(
-  locale: Locale,
-  calc: CalculatorRegistryEntry,
-): string {
+export function calculatorPath(locale: Locale, calc: CalculatorRegistryEntry): string {
   const slug = locale === "es" ? calc.slugEs : calc.slugEn;
   return localePath(locale, `calculators/${slug}`);
 }
@@ -33,24 +30,19 @@ export function calculatorPathById(locale: Locale, id: CalculatorId): string {
   return calculatorPath(locale, calc);
 }
 
-export function categoryPathById(
-  locale: Locale,
-  id: CalculatorCategoryId,
-): string {
+export function categoryPathById(locale: Locale, id: CalculatorCategoryId): string {
   const category = getAllCategories().find((c) => c.id === id);
   if (!category) return localePath(locale, "calculators");
   return categoryPath(locale, category);
 }
 
-export function switchLocalePath(
-  currentPath: string,
-  targetLocale: Locale,
-): string {
+export function switchLocalePath(currentPath: string, targetLocale: Locale): string {
   const parts = currentPath.split("/").filter(Boolean);
   if (parts.length === 0) return `/${targetLocale}`;
 
   const currentLocale = parts[0] === "es" ? "es" : "en";
-  if (currentLocale === targetLocale) return currentPath.startsWith("/") ? currentPath : `/${currentPath}`;
+  if (currentLocale === targetLocale)
+    return currentPath.startsWith("/") ? currentPath : `/${currentPath}`;
 
   const rest = parts.slice(1);
   if (rest.length === 0) return `/${targetLocale}`;
@@ -58,8 +50,7 @@ export function switchLocalePath(
   // Map calculator slugs across locales
   if (rest[0] === "calculators" && rest[1]) {
     const calc = getAllCalculators().find(
-      (c) =>
-        (currentLocale === "es" ? c.slugEs : c.slugEn) === rest[1],
+      (c) => (currentLocale === "es" ? c.slugEs : c.slugEn) === rest[1],
     );
     if (calc) {
       return calculatorPath(targetLocale, calc);

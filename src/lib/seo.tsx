@@ -6,18 +6,37 @@ import {
   type Locale,
 } from "@/config/site";
 
+/**
+ * Per-locale paths (without the locale prefix) for pages whose slug differs
+ * between locales — e.g. `calculators/concrete-slab` in EN is
+ * `calculators/losa-de-concreto` in ES. Omit for pages that share a slug.
+ */
+export type LocalizedPaths = Record<Locale, string>;
+
+function normalizePaths(
+  pathWithoutLocale: string,
+  pathsByLocale?: LocalizedPaths,
+): LocalizedPaths {
+  const fallback = pathWithoutLocale.replace(/^\//, "");
+  return {
+    en: (pathsByLocale?.en ?? fallback).replace(/^\//, ""),
+    es: (pathsByLocale?.es ?? fallback).replace(/^\//, ""),
+  };
+}
+
 export function buildAlternates(
   locale: Locale,
   pathWithoutLocale: string,
+  pathsByLocale?: LocalizedPaths,
 ): Metadata["alternates"] {
-  const clean = pathWithoutLocale.replace(/^\//, "");
-  const enPath = clean ? `/en/${clean}` : "/en";
-  const esPath = clean ? `/es/${clean}` : "/es";
+  const paths = normalizePaths(pathWithoutLocale, pathsByLocale);
+  const enPath = paths.en ? `/en/${paths.en}` : "/en";
+  const esPath = paths.es ? `/es/${paths.es}` : "/es";
   return {
     canonical: absoluteUrl(locale === "es" ? esPath : enPath),
     languages: {
-      en: absoluteUrl(enPath),
-      es: absoluteUrl(esPath),
+      "en-US": absoluteUrl(enPath),
+      "es-ES": absoluteUrl(esPath),
       "x-default": absoluteUrl(enPath),
     },
   };
@@ -28,21 +47,35 @@ export function buildPageMetadata(options: {
   title: string;
   description: string;
   pathWithoutLocale: string;
+  /** Supply when the slug differs per locale, so hreflang targets resolve. */
+  pathsByLocale?: LocalizedPaths;
   ogType?: "website" | "article";
 }): Metadata {
-  const { locale, title, description, pathWithoutLocale, ogType = "website" } =
-    options;
+  const {
+    locale,
+    title,
+    description,
+    pathWithoutLocale,
+    pathsByLocale,
+    ogType = "website",
+  } = options;
   const fullTitle = title.includes(siteConfig.brand.name)
     ? title
     : `${title} | ${siteConfig.brand.name}`;
-  const clean = pathWithoutLocale.replace(/^\//, "");
-  const path = clean ? `/${locale}/${clean}` : `/${locale}`;
+  const paths = normalizePaths(pathWithoutLocale, pathsByLocale);
+  const localePath = paths[locale];
+  const path = localePath ? `/${locale}/${localePath}` : `/${locale}`;
   const url = absoluteUrl(path);
+  const ogImage = absoluteUrl(
+    `/api/og?title=${encodeURIComponent(title)}&locale=${locale}`,
+  );
 
   return {
-    title: fullTitle,
+    // `absolute` bypasses the root layout's `%s | BuildSiteCalc` template.
+    // Without it the brand is appended twice.
+    title: { absolute: fullTitle },
     description,
-    alternates: buildAlternates(locale, pathWithoutLocale),
+    alternates: buildAlternates(locale, pathWithoutLocale, pathsByLocale),
     openGraph: {
       title: fullTitle,
       description,
@@ -51,15 +84,20 @@ export function buildPageMetadata(options: {
       locale: locale === "es" ? "es_ES" : "en_US",
       alternateLocale: locale === "es" ? ["en_US"] : ["es_ES"],
       type: ogType,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [ogImage],
     },
     robots: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   };
 }
@@ -134,9 +172,7 @@ export function webApplicationJsonLd(options: {
   };
 }
 
-export function breadcrumbJsonLd(
-  items: { name: string; url: string }[],
-) {
+export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -149,10 +185,7 @@ export function breadcrumbJsonLd(
   };
 }
 
-export function itemListJsonLd(
-  name: string,
-  items: { name: string; url: string }[],
-) {
+export function itemListJsonLd(name: string, items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -166,7 +199,11 @@ export function itemListJsonLd(
   };
 }
 
-export function JsonLd({ data }: { data: Record<string, unknown> | Record<string, unknown>[] }) {
+export function JsonLd({
+  data,
+}: {
+  data: Record<string, unknown> | Record<string, unknown>[];
+}) {
   return (
     <script
       type="application/ld+json"

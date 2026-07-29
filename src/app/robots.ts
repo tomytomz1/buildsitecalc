@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: `${siteConfig.domain.replace(/\/$/, "")}/sitemap.xml`,
-    host: siteConfig.domain.replace(/\/$/, ""),
+    // No `host` directive: it is Yandex-only and ignored by Google and Bing.
   };
 }

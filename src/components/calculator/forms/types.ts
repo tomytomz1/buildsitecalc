@@ -20,9 +20,17 @@ export type CalculatorUiLabels = {
   copied?: string;
   shareFailed?: string;
   parsedValue?: string;
+  addRowRoom?: string;
+  addRowWall?: string;
+  addRowLineItem?: string;
+  addRowMaterial?: string;
   modeVolume?: string;
   modeDimensions?: string;
+  modeRoomDimensions?: string;
+  modeFootprintPitch?: string;
   modeArea?: string;
+  modeWallArea?: string;
+  modeRoofArea?: string;
   modePerimeter?: string;
   modeWalls?: string;
   modeBedrooms?: string;

@@ -34,15 +34,18 @@ export const esCalculators = {
       },
       {
         question: "¿Debo agregar extra por un borde engrosado?",
-        answer: "Sí. Esta calculadora asume espesor uniforme. Sume un volumen aparte para zapatas o vigas perimetrales.",
+        answer:
+          "Sí. Esta calculadora asume espesor uniforme. Sume un volumen aparte para zapatas o vigas perimetrales.",
       },
       {
         question: "¿Qué porcentaje de desperdicio usar?",
-        answer: "10% es habitual en losas. Use 5% en rectángulos simples o 15% en formas irregulares.",
+        answer:
+          "10% es habitual en losas. Use 5% en rectángulos simples o 15% en formas irregulares.",
       },
       {
         question: "¿Incluye la base de grava?",
-        answer: "No. Use las calculadoras de grava o tierra vegetal para la base por separado.",
+        answer:
+          "No. Use las calculadoras de grava o tierra vegetal para la base por separado.",
       },
     ],
     resultLabels: { volumeYd3: "Concreto a pedir (yd³)" },
@@ -80,19 +83,23 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Sacos de 40 lb o 80 lb?",
-        answer: "Los de 80 lb cubren más volumen por saco y suelen costar menos por pie cúbico, pero los de 40 lb son más fáciles de manejar solo.",
+        answer:
+          "Los de 80 lb cubren más volumen por saco y suelen costar menos por pie cúbico, pero los de 40 lb son más fáciles de manejar solo.",
       },
       {
         question: "¿Puedo ingresar volumen en yardas cúbicas?",
-        answer: "Sí. Cambie la unidad de volumen y la calculadora convierte internamente.",
+        answer:
+          "Sí. Cambie la unidad de volumen y la calculadora convierte internamente.",
       },
       {
         question: "¿Cuánta agua por saco?",
-        answer: "Siga la etiqueta — típicamente unos 3 qt para 80 lb. Exceso de agua debilita la mezcla.",
+        answer:
+          "Siga la etiqueta — típicamente unos 3 qt para 80 lb. Exceso de agua debilita la mezcla.",
       },
       {
         question: "¿Sirve para un sonotube?",
-        answer: "Mida diámetro interior y profundidad del tubo. Agujeros cilíndricos pueden ingresarse como volumen directo.",
+        answer:
+          "Mida diámetro interior y profundidad del tubo. Agujeros cilíndricos pueden ingresarse como volumen directo.",
       },
     ],
     resultLabels: { bagsNeeded: "Sacos premix a comprar" },
@@ -131,7 +138,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Necesito imprimador?",
-        answer: "Tablaroca nueva, manchas o cambios de color oscuro a claro suelen requerir imprimador. Calcúlelo como mano aparte.",
+        answer:
+          "Tablaroca nueva, manchas o cambios de color oscuro a claro suelen requerir imprimador. Calcúlelo como mano aparte.",
       },
       {
         question: "¿Qué rendimiento usar?",
@@ -144,7 +152,8 @@ export const esCalculators = {
       },
       {
         question: "¿Por qué redondear a cuartos de galón?",
-        answer: "La pintura se vende en incrementos de cuarto de galón. Evita quedarse corto a mitad del trabajo.",
+        answer:
+          "La pintura se vende en incrementos de cuarto de galón. Evita quedarse corto a mitad del trabajo.",
       },
     ],
     resultLabels: { gallons: "Galones a comprar" },
@@ -195,7 +204,8 @@ export const esCalculators = {
       },
       {
         question: "¿Compro extra para reparaciones?",
-        answer: "Guarde una caja si puede — los lotes de color cambian y los modelos se descontinúan.",
+        answer:
+          "Guarde una caja si puede — los lotes de color cambian y los modelos se descontinúan.",
       },
       {
         question: "¿Habitaciones en metros?",
@@ -236,11 +246,13 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Cuánto extra en diagonal?",
-        answer: "Mínimo 15% de desperdicio. Los cortes diagonales consumen más en el perímetro.",
+        answer:
+          "Mínimo 15% de desperdicio. Los cortes diagonales consumen más en el perímetro.",
       },
       {
         question: "¿Necesito piezas de remate?",
-        answer: "Esto cuenta azulejo de campo. Mida pies lineales de bordes expuestos para bullnose aparte.",
+        answer:
+          "Esto cuenta azulejo de campo. Mida pies lineales de bordes expuestos para bullnose aparte.",
       },
       {
         question: "¿Desperdicio en formato grande?",
@@ -285,7 +297,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Placas 4×8 o 4×12?",
-        answer: "4×12 reduce juntas en muros largos pero pesa más. 4×8 es estándar para bricolaje.",
+        answer:
+          "4×12 reduce juntas en muros largos pero pesa más. 4×8 es estándar para bricolaje.",
       },
       {
         question: "¿Más desperdicio con muchas ventanas?",
@@ -293,7 +306,8 @@ export const esCalculators = {
       },
       {
         question: "¿Incluye compuesto para juntas?",
-        answer: "No. Solo conteo de placas. Compuesto y cinta dependen de juntas lineales.",
+        answer:
+          "No. Solo conteo de placas. Compuesto y cinta dependen de juntas lineales.",
       },
       {
         question: "¿Placa ignífuga o acústica?",
@@ -335,15 +349,18 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Qué es un cuadrado de techo?",
-        answer: "Cubre 100 ft² de área inclinada. Las tejas se venden por paquete; típicamente 3 paquetes = 1 cuadrado.",
+        answer:
+          "Cubre 100 ft² de área inclinada. Las tejas se venden por paquete; típicamente 3 paquetes = 1 cuadrado.",
       },
       {
         question: "¿Cómo obtengo el factor de inclinación?",
-        answer: "Ingrese subida y recorrido (ej. 4 y 12) o el factor directo si lo conoce.",
+        answer:
+          "Ingrese subida y recorrido (ej. 4 y 12) o el factor directo si lo conoce.",
       },
       {
         question: "¿Techo de varias aguas?",
-        answer: "Techos complejos necesitan más desperdicio. Use 12–15% y verifique con profesional.",
+        answer:
+          "Techos complejos necesitan más desperdicio. Use 12–15% y verifique con profesional.",
       },
       {
         question: "¿Paquetes en tejas 3-tab vs arquitectónicas?",
@@ -384,15 +401,18 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Qué profundidad de mantillo?",
-        answer: "2–3 in para mantenimiento, 3–4 in en camas nuevas. Más de 4 in puede dañar tallos.",
+        answer:
+          "2–3 in para mantenimiento, 3–4 in en camas nuevas. Más de 4 in puede dañar tallos.",
       },
       {
         question: "¿Sacos o entrega a granel?",
-        answer: "Granel por yarda cúbica conviene arriba de ~2 yd³. Sacos son prácticos en camas pequeñas.",
+        answer:
+          "Granel por yarda cúbica conviene arriba de ~2 yd³. Sacos son prácticos en camas pequeñas.",
       },
       {
         question: "¿El tipo de mantillo cambia el volumen?",
-        answer: "El volumen es igual; la densidad varía. Esta calculadora usa volumen, no peso.",
+        answer:
+          "El volumen es igual; la densidad varía. Esta calculadora usa volumen, no peso.",
       },
       {
         question: "¿Con qué frecuencia repongo?",
@@ -433,15 +453,18 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Grava de río vs triturada?",
-        answer: "Triturada compacta mejor en entradas. Grava de río sirve en senderos decorativos.",
+        answer:
+          "Triturada compacta mejor en entradas. Grava de río sirve en senderos decorativos.",
       },
       {
         question: "¿Pedir por tonelada o yarda cúbica?",
-        answer: "Ambos sirven si conoce la densidad. La calculadora muestra ambos para comparar cotizaciones.",
+        answer:
+          "Ambos sirven si conoce la densidad. La calculadora muestra ambos para comparar cotizaciones.",
       },
       {
         question: "¿Qué profundidad para entrada vehicular?",
-        answer: "A menudo 4 in de base más capa superficial. Uso pesado puede requerir 6–8 in compactados.",
+        answer:
+          "A menudo 4 in de base más capa superficial. Uso pesado puede requerir 6–8 in compactados.",
       },
       {
         question: "¿Densidad personalizada?",
@@ -460,7 +483,8 @@ export const esCalculators = {
     description:
       "Calcule yardas cúbicas de tierra vegetal o relleno para nivelación de césped, camas elevadas y jardines nuevos.",
     shortDescription: "Volumen de tierra vegetal para jardín y césped.",
-    formula: "Volumen = área × profundidad, convertido a yardas cúbicas con margen opcional de desperdicio.",
+    formula:
+      "Volumen = área × profundidad, convertido a yardas cúbicas con margen opcional de desperdicio.",
     assumptions: [
       "Tierra extendida a profundidad uniforme tras nivelación inicial.",
       "4–6 in es común para césped nuevo; camas elevadas pueden requerir 12+ in.",
@@ -482,7 +506,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Tierra vegetal vs relleno?",
-        answer: "Vegetal tiene materia orgánica para plantas. Relleno es para nivelación bajo estructuras.",
+        answer:
+          "Vegetal tiene materia orgánica para plantas. Relleno es para nivelación bajo estructuras.",
       },
       {
         question: "¿Cuánto para preparar césped?",
@@ -531,7 +556,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Separación entre postes?",
-        answer: "6–8 ft es típico en cercas de privacidad. Más cerca aguanta mejor el viento.",
+        answer:
+          "6–8 ft es típico en cercas de privacidad. Más cerca aguanta mejor el viento.",
       },
       {
         question: "¿Incluye portón?",
@@ -539,11 +565,13 @@ export const esCalculators = {
       },
       {
         question: "¿Malla ciclón vs madera?",
-        answer: "Esta calculadora es para pickets. Malla ciclón usa rollos y conteo distinto.",
+        answer:
+          "Esta calculadora es para pickets. Malla ciclón usa rollos y conteo distinto.",
       },
       {
         question: "¿Pendiente?",
-        answer: "Cercas escalonadas o inclinadas necesitan postes más largos y rieles distintos.",
+        answer:
+          "Cercas escalonadas o inclinadas necesitan postes más largos y rieles distintos.",
       },
     ],
     resultLabels: { posts: "Postes", pickets: "Tablillas", rails: "Rieles" },
@@ -584,7 +612,8 @@ export const esCalculators = {
       },
       {
         question: "¿Tablas paralelas o perpendiculares a la casa?",
-        answer: "Ambas funcionan. Paralelas a la fachada suele verse mejor — ajuste qué dimensión es largo vs ancho.",
+        answer:
+          "Ambas funcionan. Paralelas a la fachada suele verse mejor — ajuste qué dimensión es largo vs ancho.",
       },
       {
         question: "¿Incluye fascia?",
@@ -631,15 +660,18 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Altura cómoda de contrahuella?",
-        answer: "7–7,75 in es típico en casas US. Escaleras exteriores de deck suelen usar 7–7,25 in.",
+        answer:
+          "7–7,75 in es típico en casas US. Escaleras exteriores de deck suelen usar 7–7,25 in.",
       },
       {
         question: "¿Cumple código?",
-        answer: "No. Verifique siempre código local para contrahuella, huella, barandal y descansos.",
+        answer:
+          "No. Verifique siempre código local para contrahuella, huella, barandal y descansos.",
       },
       {
         question: "¿Y el nariz de huella?",
-        answer: "La profundidad aquí es recorrido horizontal. Algunos códigos exigen proyección del nariz.",
+        answer:
+          "La profundidad aquí es recorrido horizontal. Algunos códigos exigen proyección del nariz.",
       },
       {
         question: "¿Tramos con descanso?",
@@ -692,19 +724,23 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Autoadhesivo vs pasta tradicional?",
-        answer: "Cobertura similar por área, pero verifique pies cuadrados útiles en la etiqueta.",
+        answer:
+          "Cobertura similar por área, pero verifique pies cuadrados útiles en la etiqueta.",
       },
       {
         question: "¿Cómo afecta la repetición?",
-        answer: "Repeticiones largas desperdician más al alinear cada tira. Ingrese la distancia en pulgadas.",
+        answer:
+          "Repeticiones largas desperdician más al alinear cada tira. Ingrese la distancia en pulgadas.",
       },
       {
         question: "¿Compro un rollo extra?",
-        answer: "Sí — guarde uno para reparaciones. Los lotes de tinte cambian entre tandas.",
+        answer:
+          "Sí — guarde uno para reparaciones. Los lotes de tinte cambian entre tandas.",
       },
       {
         question: "¿Paredes texturizadas?",
-        answer: "Textura fuerte reduce cobertura efectiva. Agregue desperdicio o consulte al fabricante.",
+        answer:
+          "Textura fuerte reduce cobertura efectiva. Agregue desperdicio o consulte al fabricante.",
       },
     ],
     resultLabels: { rollsNeeded: "Rollos de papel tapiz" },
@@ -745,11 +781,13 @@ export const esCalculators = {
       },
       {
         question: "¿Soplado vs paneles?",
-        answer: "Esta calculadora es para paneles. Soplado usa cobertura por saco según profundidad.",
+        answer:
+          "Esta calculadora es para paneles. Soplado usa cobertura por saco según profundidad.",
       },
       {
         question: "¿Barrera de vapor?",
-        answer: "Depende de zona climática y ensamble — aquí solo cantidad de aislamiento.",
+        answer:
+          "Depende de zona climática y ensamble — aquí solo cantidad de aislamiento.",
       },
       {
         question: "¿Capas para más valor R?",
@@ -790,7 +828,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Cuántos BTU por pie cuadrado?",
-        answer: "Reglas generales: 15–25 BTU/ft² según clima. Zonas cálidas húmedas tienden más alto.",
+        answer:
+          "Reglas generales: 15–25 BTU/ft² según clima. Zonas cálidas húmedas tienden más alto.",
       },
       {
         question: "¿Qué es una tonelada de frío?",
@@ -798,14 +837,19 @@ export const esCalculators = {
       },
       {
         question: "¿Importa altura de cielo?",
-        answer: "Sí para volumen. Esta herramienta usa área de piso con factores — cielos altos pueden necesitar más BTU/ft².",
+        answer:
+          "Sí para volumen. Esta herramienta usa área de piso con factores — cielos altos pueden necesitar más BTU/ft².",
       },
       {
         question: "¿Dimensionar bomba de calor?",
-        answer: "Bombas requieren balance calefacción/refrigeración. Consulte profesional para modo dual.",
+        answer:
+          "Bombas requieren balance calefacción/refrigeración. Consulte profesional para modo dual.",
       },
     ],
-    resultLabels: { estimatedBtu: "Carga estimada (BTU/h)", tonnage: "Toneladas de frío" },
+    resultLabels: {
+      estimatedBtu: "Carga estimada (BTU/h)",
+      tonnage: "Toneladas de frío",
+    },
     metaTitle: "Calculadora BTU HVAC — Tamaño de AC | BuildSiteCalc",
     metaDescription:
       "Estime BTU y toneladas desde tamaño de cuarto y factores climáticos. Herramienta gratuita — no sustituye Manual J.",
@@ -839,11 +883,13 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Camión para departamento 2 habitaciones?",
-        answer: "A menudo 15–20 ft o furgoneta si está poco amueblado; 20 ft si está completo.",
+        answer:
+          "A menudo 15–20 ft o furgoneta si está poco amueblado; 20 ft si está completo.",
       },
       {
         question: "¿Puedo ingresar ft³ directamente?",
-        answer: "Sí. Reemplace la estimación por habitaciones con su total de inventario.",
+        answer:
+          "Sí. Reemplace la estimación por habitaciones con su total de inventario.",
       },
       {
         question: "¿Remolcar auto detrás?",
@@ -888,7 +934,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Contenedor 10 vs 20 yardas?",
-        answer: "10 yd³ para baño pequeño o garaje. 20 yd³ es el más común en remodelación completa.",
+        answer:
+          "10 yd³ para baño pequeño o garaje. 20 yd³ es el más común en remodelación completa.",
       },
       {
         question: "¿Cuánto tiempo puedo tenerlo?",
@@ -896,7 +943,8 @@ export const esCalculators = {
       },
       {
         question: "¿Qué no va al contenedor?",
-        answer: "Pintura, químicos, llantas y electrodomésticos suelen requerir disposición especial.",
+        answer:
+          "Pintura, químicos, llantas y electrodomésticos suelen requerir disposición especial.",
       },
       {
         question: "¿Retiro de techo?",
@@ -946,11 +994,13 @@ export const esCalculators = {
       },
       {
         question: "¿Desperdicio vs contracción?",
-        answer: "No. Contracción es curado del concreto o humedad de madera — desperdicio es pérdida por corte.",
+        answer:
+          "No. Contracción es curado del concreto o humedad de madera — desperdicio es pérdida por corte.",
       },
       {
         question: "¿Contratistas agregan desperdicio oculto?",
-        answer: "Estimaciones transparentes muestran desperdicio explícito para que el cliente entienda el pedido.",
+        answer:
+          "Estimaciones transparentes muestran desperdicio explícito para que el cliente entienda el pedido.",
       },
     ],
     resultLabels: { adjustedQuantity: "Cantidad a pedir" },
@@ -987,11 +1037,13 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Qué es un pie tablero?",
-        answer: "144 pulgadas cúbicas de madera — equivalente a tabla 1×12 de un pie de largo.",
+        answer:
+          "144 pulgadas cúbicas de madera — equivalente a tabla 1×12 de un pie de largo.",
       },
       {
         question: "¿Nominal vs real?",
-        answer: "Precio por pie tablero tradicionalmente usa dimensiones nominales antes de cepillar.",
+        answer:
+          "Precio por pie tablero tradicionalmente usa dimensiones nominales antes de cepillar.",
       },
       {
         question: "¿Sirve para triplay?",
@@ -1048,7 +1100,8 @@ export const esCalculators = {
       },
       {
         question: "¿Área de avalúo vs material?",
-        answer: "GLA para avalúos sigue reglas específicas — esta es herramienta general de área.",
+        answer:
+          "GLA para avalúos sigue reglas específicas — esta es herramienta general de área.",
       },
     ],
     resultLabels: { totalAreaFt2: "Área combinada (ft²)" },
@@ -1085,7 +1138,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Por qué importa el volumen para HVAC?",
-        answer: "Los equipos mueven aire por el espacio. El volumen ayuda a estimar cambios de aire por hora.",
+        answer:
+          "Los equipos mueven aire por el espacio. El volumen ayuda a estimar cambios de aire por hora.",
       },
       {
         question: "¿Dimensionar purificador CADR?",
@@ -1093,7 +1147,8 @@ export const esCalculators = {
       },
       {
         question: "¿Plano abierto?",
-        answer: "Use dimensiones combinadas del espacio conectado o dimensione cada zona.",
+        answer:
+          "Use dimensiones combinadas del espacio conectado o dimensione cada zona.",
       },
       {
         question: "¿Salida métrica?",
@@ -1134,7 +1189,8 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Markup o margen?",
-        answer: "Markup suma sobre costo; margen es utilidad sobre precio. Elija un método y sea consistente.",
+        answer:
+          "Markup suma sobre costo; margen es utilidad sobre precio. Elija un método y sea consistente.",
       },
       {
         question: "¿Markup típico de contratista?",
@@ -1142,11 +1198,13 @@ export const esCalculators = {
       },
       {
         question: "¿Incluir overhead?",
-        answer: "El costo debe reflejar tarifas cargadas si busca utilidad más allá del salario base.",
+        answer:
+          "El costo debe reflejar tarifas cargadas si busca utilidad más allá del salario base.",
       },
       {
         question: "¿Precios escalonados?",
-        answer: "Ingrese costo combinado o use partidas separadas en calculadora de materiales.",
+        answer:
+          "Ingrese costo combinado o use partidas separadas en calculadora de materiales.",
       },
     ],
     resultLabels: { sellingPrice: "Precio a cobrar" },
@@ -1183,11 +1241,13 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Agrego desperdicio a cantidades primero?",
-        answer: "Sí. Use la calculadora de desperdicio y luego ingrese cantidades ajustadas aquí.",
+        answer:
+          "Sí. Use la calculadora de desperdicio y luego ingrese cantidades ajustadas aquí.",
       },
       {
         question: "¿Puedo exportar la lista?",
-        answer: "Copie resultados de la página para su hoja de cálculo o plantilla de cotización.",
+        answer:
+          "Copie resultados de la página para su hoja de cálculo o plantilla de cotización.",
       },
       {
         question: "¿Descuentos por volumen?",
@@ -1195,7 +1255,8 @@ export const esCalculators = {
       },
       {
         question: "¿Incluir mano de obra?",
-        answer: "Esto es solo materiales. Use margen de mano de obra o presupuesto de proyecto para cotización completa.",
+        answer:
+          "Esto es solo materiales. Use margen de mano de obra o presupuesto de proyecto para cotización completa.",
       },
     ],
     resultLabels: { total: "Total materiales" },
@@ -1233,15 +1294,18 @@ export const esCalculators = {
     faqs: [
       {
         question: "¿Cuánta contingencia reservar?",
-        answer: "10% en trabajo cosmético, 15–20% al abrir muros o tocar plomería/eléctrico antiguo.",
+        answer:
+          "10% en trabajo cosmético, 15–20% al abrir muros o tocar plomería/eléctrico antiguo.",
       },
       {
         question: "¿Presupuesto dueño vs contratista?",
-        answer: "Dueños pueden excluir markup; contratistas deben incluir mano de obra cargada y utilidad.",
+        answer:
+          "Dueños pueden excluir markup; contratistas deben incluir mano de obra cargada y utilidad.",
       },
       {
         question: "¿Proyectos por fases?",
-        answer: "Presupuestos separados por fase o sume fases en una lista de materiales.",
+        answer:
+          "Presupuestos separados por fase o sume fases en una lista de materiales.",
       },
       {
         question: "¿Incluir electrodomésticos?",

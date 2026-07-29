@@ -89,23 +89,85 @@ export const esPages = {
       },
     ],
     terms: [
-      { term: "Pie tablero", definition: "Unidad de volumen de madera igual a 144 pulgadas cúbicas — común en precio de madera dura." },
-      { term: "Paquete (techo)", definition: "Unidad empaquetada de tejas asfálticas; típicamente tres paquetes cubren un cuadrado de techo." },
-      { term: "Rendimiento", definition: "Área que cubre un material por unidad (ej. ft² por galón de pintura)." },
-      { term: "Yarda cúbica (yd³)", definition: "Medida de volumen US igual a 27 ft³; común en concreto, mantillo y tierra a granel." },
-      { term: "Separación al centro (OC)", definition: "Distancia del centro de un elemento estructural al siguiente (ej. montantes 16 in OC)." },
-      { term: "Inclinación (techo)", definition: "Pendiente expresada como subida sobre recorrido (4/12 = 4 in de subida por 12 in horizontal)." },
-      { term: "Valor R", definition: "Resistencia térmica del aislamiento; números mayores indican mejor resistencia al flujo de calor." },
+      {
+        term: "Pie tablero",
+        definition:
+          "Unidad de volumen de madera igual a 144 pulgadas cúbicas — común en precio de madera dura.",
+      },
+      {
+        term: "Paquete (techo)",
+        definition:
+          "Unidad empaquetada de tejas asfálticas; típicamente tres paquetes cubren un cuadrado de techo.",
+      },
+      {
+        term: "Rendimiento",
+        definition:
+          "Área que cubre un material por unidad (ej. ft² por galón de pintura).",
+      },
+      {
+        term: "Yarda cúbica (yd³)",
+        definition:
+          "Medida de volumen US igual a 27 ft³; común en concreto, mantillo y tierra a granel.",
+      },
+      {
+        term: "Separación al centro (OC)",
+        definition:
+          "Distancia del centro de un elemento estructural al siguiente (ej. montantes 16 in OC).",
+      },
+      {
+        term: "Inclinación (techo)",
+        definition:
+          "Pendiente expresada como subida sobre recorrido (4/12 = 4 in de subida por 12 in horizontal).",
+      },
+      {
+        term: "Valor R",
+        definition:
+          "Resistencia térmica del aislamiento; números mayores indican mejor resistencia al flujo de calor.",
+      },
       { term: "Contrahuella", definition: "Parte vertical de un escalón entre huellas." },
-      { term: "Cuadrado de techo", definition: "100 ft² de área inclinada de techo; pedidos de tejas suelen referirse a cuadrados." },
-      { term: "Huella", definition: "Superficie horizontal donde se pisa en un escalón." },
-      { term: "Factor de desperdicio", definition: "Porcentaje extra de material sobre cantidad neta para cubrir cortes, roturas y errores." },
-      { term: "Markup", definition: "Porcentaje añadido al costo para llegar al precio de venta (% sobre costo)." },
-      { term: "Margen", definition: "Utilidad como porcentaje del precio de venta (distinto del markup)." },
-      { term: "BTU", definition: "Unidad térmica británica — tasa de energía calorífica para dimensionar calefacción y refrigeración." },
-      { term: "Manual J", definition: "Estándar ACCA para carga térmica residencial; más detallado que reglas generales." },
-      { term: "Concreto premix", definition: "Mezcla seca en sacos que requiere agua en obra; rendimiento varía por peso del saco." },
-      { term: "Contenedor roll-off", definition: "Contenedor abierto de escombros entregado para obra; dimensionado en yardas cúbicas." },
+      {
+        term: "Cuadrado de techo",
+        definition:
+          "100 ft² de área inclinada de techo; pedidos de tejas suelen referirse a cuadrados.",
+      },
+      {
+        term: "Huella",
+        definition: "Superficie horizontal donde se pisa en un escalón.",
+      },
+      {
+        term: "Factor de desperdicio",
+        definition:
+          "Porcentaje extra de material sobre cantidad neta para cubrir cortes, roturas y errores.",
+      },
+      {
+        term: "Markup",
+        definition:
+          "Porcentaje añadido al costo para llegar al precio de venta (% sobre costo).",
+      },
+      {
+        term: "Margen",
+        definition: "Utilidad como porcentaje del precio de venta (distinto del markup).",
+      },
+      {
+        term: "BTU",
+        definition:
+          "Unidad térmica británica — tasa de energía calorífica para dimensionar calefacción y refrigeración.",
+      },
+      {
+        term: "Manual J",
+        definition:
+          "Estándar ACCA para carga térmica residencial; más detallado que reglas generales.",
+      },
+      {
+        term: "Concreto premix",
+        definition:
+          "Mezcla seca en sacos que requiere agua en obra; rendimiento varía por peso del saco.",
+      },
+      {
+        term: "Contenedor roll-off",
+        definition:
+          "Contenedor abierto de escombros entregado para obra; dimensionado en yardas cúbicas.",
+      },
     ],
   },
 
@@ -144,7 +206,7 @@ export const esPages = {
     sections: [
       {
         paragraphs: [
-          "Última actualización: 28 de julio de 2026. BuildSiteCalc (\"nosotros\") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.",
+          'Última actualización: 28 de julio de 2026. BuildSiteCalc ("nosotros") opera https://buildsitecalc.com. Esta política describe cómo manejamos información al usar nuestro sitio.',
         ],
       },
       {
@@ -177,7 +239,7 @@ export const esPages = {
       {
         heading: "Cambios",
         paragraphs: [
-          "Podemos actualizar esta política. La fecha \"Última actualización\" cambiará al publicar revisiones.",
+          'Podemos actualizar esta política. La fecha "Última actualización" cambiará al publicar revisiones.',
         ],
       },
     ],
@@ -209,7 +271,7 @@ export const esPages = {
       {
         heading: "Exclusión de garantías",
         paragraphs: [
-          "El sitio se ofrece \"tal cual\" sin garantías de ningún tipo. Vea nuestro Aviso legal sobre limitaciones de cálculo y asesoría profesional.",
+          'El sitio se ofrece "tal cual" sin garantías de ningún tipo. Vea nuestro Aviso legal sobre limitaciones de cálculo y asesoría profesional.',
         ],
       },
       {

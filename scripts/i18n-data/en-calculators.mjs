@@ -44,7 +44,8 @@ export const enCalculators = {
       },
       {
         question: "Does this include the gravel base?",
-        answer: "No. Use the gravel or topsoil calculators for base material volume separately.",
+        answer:
+          "No. Use the gravel or topsoil calculators for base material volume separately.",
       },
     ],
     resultLabels: { volumeYd3: "Concrete to order (yd³)" },
@@ -87,15 +88,18 @@ export const enCalculators = {
       },
       {
         question: "Can I enter volume in cubic yards?",
-        answer: "Yes. Switch the volume unit to cubic yards and the calculator converts internally.",
+        answer:
+          "Yes. Switch the volume unit to cubic yards and the calculator converts internally.",
       },
       {
         question: "How much water per bag?",
-        answer: "Follow the label — typically about 3 qt for 80 lb. Too much water weakens the mix.",
+        answer:
+          "Follow the label — typically about 3 qt for 80 lb. Too much water weakens the mix.",
       },
       {
         question: "Is this enough for a sonotube?",
-        answer: "Measure the tube inside diameter and depth. Cylindrical holes can be entered as equivalent square dimensions or direct volume.",
+        answer:
+          "Measure the tube inside diameter and depth. Cylindrical holes can be entered as equivalent square dimensions or direct volume.",
       },
     ],
     resultLabels: { bagsNeeded: "Premix bags to buy" },
@@ -144,11 +148,13 @@ export const enCalculators = {
       },
       {
         question: "Should I include the ceiling?",
-        answer: "Add ceiling square footage to your wall area, or calculate the ceiling as a separate rectangle.",
+        answer:
+          "Add ceiling square footage to your wall area, or calculate the ceiling as a separate rectangle.",
       },
       {
         question: "Why round to quarter gallons?",
-        answer: "Retail paint is sold in quart increments above 1 gallon. Rounding avoids coming up short mid-project.",
+        answer:
+          "Retail paint is sold in quart increments above 1 gallon. Rounding avoids coming up short mid-project.",
       },
     ],
     resultLabels: { gallons: "Gallons to purchase" },
@@ -191,7 +197,8 @@ export const enCalculators = {
     faqs: [
       {
         question: "How much waste for herringbone or diagonal?",
-        answer: "Plan 12–15% waste for diagonal layouts and 15–20% for complex herringbone patterns.",
+        answer:
+          "Plan 12–15% waste for diagonal layouts and 15–20% for complex herringbone patterns.",
       },
       {
         question: "Does this work for tile?",
@@ -199,7 +206,8 @@ export const enCalculators = {
       },
       {
         question: "Should I buy extra for future repairs?",
-        answer: "Keep one spare carton when possible — dye lots change and styles discontinue.",
+        answer:
+          "Keep one spare carton when possible — dye lots change and styles discontinue.",
       },
       {
         question: "Metric rooms?",
@@ -240,19 +248,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "How much extra for a diagonal layout?",
-        answer: "Add 15% waste minimum. Diagonal cuts consume more tile at the perimeter.",
+        answer:
+          "Add 15% waste minimum. Diagonal cuts consume more tile at the perimeter.",
       },
       {
         question: "Do I need trim tile?",
-        answer: "This counts field tile only. Measure linear feet of exposed edges for bullnose or pencil trim separately.",
+        answer:
+          "This counts field tile only. Measure linear feet of exposed edges for bullnose or pencil trim separately.",
       },
       {
         question: "Large format tile waste?",
-        answer: "Large tiles have fewer cuts but break more often — 10–12% waste is still wise.",
+        answer:
+          "Large tiles have fewer cuts but break more often — 10–12% waste is still wise.",
       },
       {
         question: "Can I include a grout gap?",
-        answer: "Yes. Enter the grout gap and the calculator expands each tile footprint accordingly.",
+        answer:
+          "Yes. Enter the grout gap and the calculator expands each tile footprint accordingly.",
       },
     ],
     resultLabels: { tilesNeeded: "Field tiles to order" },
@@ -298,11 +310,13 @@ export const enCalculators = {
       },
       {
         question: "Does this include joint compound?",
-        answer: "No. This is sheet count only. Compound and tape depend on joint linear feet.",
+        answer:
+          "No. This is sheet count only. Compound and tape depend on joint linear feet.",
       },
       {
         question: "Fire-rated or soundboard?",
-        answer: "Sheet count is the same by area; order the correct board type for your code requirements.",
+        answer:
+          "Sheet count is the same by area; order the correct board type for your code requirements.",
       },
     ],
     resultLabels: { sheetsNeeded: "Drywall sheets" },
@@ -340,19 +354,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "What is a roofing square?",
-        answer: "One square covers 100 ft² of roof area. Shingles are sold by the bundle; typically 3 bundles make one square.",
+        answer:
+          "One square covers 100 ft² of roof area. Shingles are sold by the bundle; typically 3 bundles make one square.",
       },
       {
         question: "How do I find pitch factor?",
-        answer: "Enter rise and run (e.g., 4 and 12) and the calculator computes the multiplier, or enter the factor directly if you know it.",
+        answer:
+          "Enter rise and run (e.g., 4 and 12) and the calculator computes the multiplier, or enter the factor directly if you know it.",
       },
       {
         question: "Hip roof vs gable?",
-        answer: "Complex roofs need more waste. Use 12–15% and verify with a roof measurement app or contractor.",
+        answer:
+          "Complex roofs need more waste. Use 12–15% and verify with a roof measurement app or contractor.",
       },
       {
         question: "Architectural vs 3-tab bundles?",
-        answer: "Bundles per square varies by product line — check your shingle packaging.",
+        answer:
+          "Bundles per square varies by product line — check your shingle packaging.",
       },
     ],
     resultLabels: { squares: "Roofing squares", bundles: "Shingle bundles" },
@@ -389,15 +407,18 @@ export const enCalculators = {
     faqs: [
       {
         question: "How deep should mulch be?",
-        answer: "2–3 in for maintenance, 3–4 in for new beds. More than 4 in can harm plant stems.",
+        answer:
+          "2–3 in for maintenance, 3–4 in for new beds. More than 4 in can harm plant stems.",
       },
       {
         question: "Bags vs bulk delivery?",
-        answer: "Bulk by the cubic yard is economical above ~2 yd³. Bags are easier for small beds.",
+        answer:
+          "Bulk by the cubic yard is economical above ~2 yd³. Bags are easier for small beds.",
       },
       {
         question: "Does mulch type change volume?",
-        answer: "Volume is the same; density varies. This calculator uses volume, not weight.",
+        answer:
+          "Volume is the same; density varies. This calculator uses volume, not weight.",
       },
       {
         question: "How often to refresh?",
@@ -438,19 +459,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "Pea gravel vs crushed stone?",
-        answer: "Crushed stone compacts better for driveways. Pea gravel suits paths and decorative areas.",
+        answer:
+          "Crushed stone compacts better for driveways. Pea gravel suits paths and decorative areas.",
       },
       {
         question: "Order by ton or cubic yard?",
-        answer: "Either works if density is known. This calculator shows both for comparison with supplier quotes.",
+        answer:
+          "Either works if density is known. This calculator shows both for comparison with supplier quotes.",
       },
       {
         question: "What depth for a driveway?",
-        answer: "Often 4 in base plus surface course. Heavy use may need 6–8 in compacted base.",
+        answer:
+          "Often 4 in base plus surface course. Heavy use may need 6–8 in compacted base.",
       },
       {
         question: "Can I enter custom density?",
-        answer: "Yes. Use the custom density field if your supplier provides kg/m³ or lb/ft³.",
+        answer:
+          "Yes. Use the custom density field if your supplier provides kg/m³ or lb/ft³.",
       },
     ],
     resultLabels: { tons: "Estimated weight (tons)" },
@@ -465,7 +490,8 @@ export const enCalculators = {
     description:
       "Calculate cubic yards of topsoil or garden fill for lawn grading, raised beds, and new landscaping.",
     shortDescription: "Topsoil volume for lawns and garden beds.",
-    formula: "Volume = area × depth, converted to cubic yards with optional waste allowance.",
+    formula:
+      "Volume = area × depth, converted to cubic yards with optional waste allowance.",
     assumptions: [
       "Soil is spread at uniform depth after rough grading.",
       "4–6 in is common for lawn establishment; raised beds may need 12+ in.",
@@ -487,11 +513,13 @@ export const enCalculators = {
     faqs: [
       {
         question: "Topsoil vs fill dirt?",
-        answer: "Topsoil has organic matter for planting. Fill dirt is for grading and compaction under structures.",
+        answer:
+          "Topsoil has organic matter for planting. Fill dirt is for grading and compaction under structures.",
       },
       {
         question: "How much for sod prep?",
-        answer: "Often 2–4 in of topsoil tilled into the existing grade before sod or seed.",
+        answer:
+          "Often 2–4 in of topsoil tilled into the existing grade before sod or seed.",
       },
       {
         question: "Raised bed calculation?",
@@ -536,7 +564,8 @@ export const enCalculators = {
     faqs: [
       {
         question: "How far apart should posts be?",
-        answer: "6–8 ft is typical for wood privacy fences. Closer spacing handles wind loads better.",
+        answer:
+          "6–8 ft is typical for wood privacy fences. Closer spacing handles wind loads better.",
       },
       {
         question: "Does this include a gate?",
@@ -544,11 +573,13 @@ export const enCalculators = {
       },
       {
         question: "Chain link vs wood?",
-        answer: "This targets picket-style layout. Chain link uses fabric rolls and different post counts.",
+        answer:
+          "This targets picket-style layout. Chain link uses fabric rolls and different post counts.",
       },
       {
         question: "Slope adjustments?",
-        answer: "Stepped or racked fences on slopes need longer posts and may change rail lengths.",
+        answer:
+          "Stepped or racked fences on slopes need longer posts and may change rail lengths.",
       },
     ],
     resultLabels: { posts: "Posts", pickets: "Pickets", rails: "Rails" },
@@ -585,19 +616,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "Composite vs wood spacing?",
-        answer: "Composite often specifies 3/16 in or hidden fasteners — follow manufacturer gap requirements.",
+        answer:
+          "Composite often specifies 3/16 in or hidden fasteners — follow manufacturer gap requirements.",
       },
       {
         question: "Should boards run parallel or perpendicular to the house?",
-        answer: "Either works structurally. Running parallel to the house often looks best — adjust which dimension you call length vs width.",
+        answer:
+          "Either works structurally. Running parallel to the house often looks best — adjust which dimension you call length vs width.",
       },
       {
         question: "Does this include fascia?",
-        answer: "No. Fascia and risers for stairs need separate linear-foot calculations.",
+        answer:
+          "No. Fascia and risers for stairs need separate linear-foot calculations.",
       },
       {
         question: "16 ft or 12 ft boards?",
-        answer: "Fewer joints with longer boards, but verify they fit your transport and staging area.",
+        answer:
+          "Fewer joints with longer boards, but verify they fit your transport and staging area.",
       },
     ],
     resultLabels: { boardsNeeded: "Deck boards" },
@@ -636,15 +671,18 @@ export const enCalculators = {
     faqs: [
       {
         question: "What is a comfortable riser height?",
-        answer: "7–7.75 in is typical in US homes. Outdoor deck stairs often use 7–7.25 in.",
+        answer:
+          "7–7.75 in is typical in US homes. Outdoor deck stairs often use 7–7.25 in.",
       },
       {
         question: "Is this code-compliant?",
-        answer: "No. Always check local building code for riser, tread, handrail, and landing rules.",
+        answer:
+          "No. Always check local building code for riser, tread, handrail, and landing rules.",
       },
       {
         question: "What about the nosing?",
-        answer: "Tread depth here is horizontal run. Some codes require nosing projection beyond the riser.",
+        answer:
+          "Tread depth here is horizontal run. Some codes require nosing projection beyond the riser.",
       },
       {
         question: "Split flights with a landing?",
@@ -697,19 +735,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "Peel-and-stick vs traditional paste?",
-        answer: "Roll coverage is similar by area, but check if your product lists usable square feet after trimming.",
+        answer:
+          "Roll coverage is similar by area, but check if your product lists usable square feet after trimming.",
       },
       {
         question: "How does pattern repeat affect rolls?",
-        answer: "Larger repeats mean more waste aligning each strip. Enter your repeat distance in inches.",
+        answer:
+          "Larger repeats mean more waste aligning each strip. Enter your repeat distance in inches.",
       },
       {
         question: "Should I buy an extra roll?",
-        answer: "Yes — keep one roll for future repairs. Dye lots change between batches.",
+        answer:
+          "Yes — keep one roll for future repairs. Dye lots change between batches.",
       },
       {
         question: "Textured walls?",
-        answer: "Heavy texture reduces effective coverage. Add extra waste or consult the manufacturer.",
+        answer:
+          "Heavy texture reduces effective coverage. Add extra waste or consult the manufacturer.",
       },
     ],
     resultLabels: { rollsNeeded: "Wallpaper rolls" },
@@ -746,11 +788,13 @@ export const enCalculators = {
     faqs: [
       {
         question: "15 in or 23 in batts?",
-        answer: "15 in fits 16 in on-center framing. 23 in fits 24 in on-center (common in attics).",
+        answer:
+          "15 in fits 16 in on-center framing. 23 in fits 24 in on-center (common in attics).",
       },
       {
         question: "Blown-in vs batts?",
-        answer: "This calculator is for batts. Blown insulation uses bag coverage by depth, not batt count.",
+        answer:
+          "This calculator is for batts. Blown insulation uses bag coverage by depth, not batt count.",
       },
       {
         question: "Do I need a vapor barrier?",
@@ -795,7 +839,8 @@ export const enCalculators = {
     faqs: [
       {
         question: "How many BTU per square foot?",
-        answer: "Rules of thumb range 15–25 BTU/ft² depending on climate. Hot humid zones trend higher.",
+        answer:
+          "Rules of thumb range 15–25 BTU/ft² depending on climate. Hot humid zones trend higher.",
       },
       {
         question: "What is a ton of cooling?",
@@ -803,11 +848,13 @@ export const enCalculators = {
       },
       {
         question: "Does ceiling height matter?",
-        answer: "Yes for volume. This tool uses floor area with factors — high ceilings may need higher BTU/ft².",
+        answer:
+          "Yes for volume. This tool uses floor area with factors — high ceilings may need higher BTU/ft².",
       },
       {
         question: "Heat pump sizing?",
-        answer: "Heat pumps need balance of heating and cooling loads. Consult a professional for dual-mode sizing.",
+        answer:
+          "Heat pumps need balance of heating and cooling loads. Consult a professional for dual-mode sizing.",
       },
     ],
     resultLabels: { estimatedBtu: "Estimated load (BTU/hr)", tonnage: "Cooling tons" },
@@ -844,19 +891,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "What size truck for a 2-bedroom apartment?",
-        answer: "Often a 15–20 ft truck or cargo van for a lightly furnished apartment; 20 ft if well furnished.",
+        answer:
+          "Often a 15–20 ft truck or cargo van for a lightly furnished apartment; 20 ft if well furnished.",
       },
       {
         question: "Can I enter cubic feet directly?",
-        answer: "Yes. Override the bedroom estimate with your inventory total for better accuracy.",
+        answer:
+          "Yes. Override the bedroom estimate with your inventory total for better accuracy.",
       },
       {
         question: "Tow a car behind the truck?",
-        answer: "Tow capacity reduces usable cargo considerations — ask the rental company.",
+        answer:
+          "Tow capacity reduces usable cargo considerations — ask the rental company.",
       },
       {
         question: "Is this for commercial moves?",
-        answer: "No. Office and warehouse moves need pallet-level cubic footage analysis.",
+        answer:
+          "No. Office and warehouse moves need pallet-level cubic footage analysis.",
       },
     ],
     resultLabels: { recommendedTruck: "Suggested truck" },
@@ -893,7 +944,8 @@ export const enCalculators = {
     faqs: [
       {
         question: "10 vs 20 yard dumpster?",
-        answer: "10 yd³ suits small bath or garage cleanouts. 20 yd³ is the most common full remodel size.",
+        answer:
+          "10 yd³ suits small bath or garage cleanouts. 20 yd³ is the most common full remodel size.",
       },
       {
         question: "How long can I keep it?",
@@ -905,7 +957,8 @@ export const enCalculators = {
       },
       {
         question: "Roofing tear-off?",
-        answer: "Use the roofing shingles preset or measure tear-off squares × debris factor.",
+        answer:
+          "Use the roofing shingles preset or measure tear-off squares × debris factor.",
       },
     ],
     resultLabels: { recommendedDumpster: "Recommended dumpster size" },
@@ -951,11 +1004,13 @@ export const enCalculators = {
       },
       {
         question: "Is waste the same as shrinkage?",
-        answer: "No. Shrinkage applies to concrete curing or wood moisture — waste is cutting loss.",
+        answer:
+          "No. Shrinkage applies to concrete curing or wood moisture — waste is cutting loss.",
       },
       {
         question: "Should contractors add hidden waste?",
-        answer: "Transparent estimates show waste explicitly so clients understand ordering needs.",
+        answer:
+          "Transparent estimates show waste explicitly so clients understand ordering needs.",
       },
     ],
     resultLabels: { adjustedQuantity: "Quantity to order" },
@@ -996,11 +1051,13 @@ export const enCalculators = {
       },
       {
         question: "Why nominal vs actual size?",
-        answer: "Board-foot pricing traditionally uses nominal dimensions before surfacing.",
+        answer:
+          "Board-foot pricing traditionally uses nominal dimensions before surfacing.",
       },
       {
         question: "Does this work for plywood?",
-        answer: "Plywood is usually sold by the sheet, not board foot. Use for solid lumber.",
+        answer:
+          "Plywood is usually sold by the sheet, not board foot. Use for solid lumber.",
       },
       {
         question: "Random width hardwood?",
@@ -1053,7 +1110,8 @@ export const enCalculators = {
       },
       {
         question: "Appraisal vs material area?",
-        answer: "GLA for appraisals follows specific rules — this is a general area tool.",
+        answer:
+          "GLA for appraisals follows specific rules — this is a general area tool.",
       },
     ],
     resultLabels: { totalAreaFt2: "Combined area (ft²)" },
@@ -1090,7 +1148,8 @@ export const enCalculators = {
     faqs: [
       {
         question: "Why does volume matter for HVAC?",
-        answer: "Air handlers move air through space. Volume helps estimate air changes per hour.",
+        answer:
+          "Air handlers move air through space. Volume helps estimate air changes per hour.",
       },
       {
         question: "Air purifier CADR sizing?",
@@ -1098,7 +1157,8 @@ export const enCalculators = {
       },
       {
         question: "Open floor plan?",
-        answer: "Use combined dimensions of the connected space or size each zone separately.",
+        answer:
+          "Use combined dimensions of the connected space or size each zone separately.",
       },
       {
         question: "Metric output?",
@@ -1139,19 +1199,23 @@ export const enCalculators = {
     faqs: [
       {
         question: "Markup vs margin — which should I use?",
-        answer: "Markup adds on cost; margin is profit as a share of price. Pick one method and stay consistent.",
+        answer:
+          "Markup adds on cost; margin is profit as a share of price. Pick one method and stay consistent.",
       },
       {
         question: "Typical contractor markup?",
-        answer: "Varies widely — 20–50% on labor plus separate material markup is common.",
+        answer:
+          "Varies widely — 20–50% on labor plus separate material markup is common.",
       },
       {
         question: "Include overhead?",
-        answer: "Job cost should reflect burdened rates if you want profit beyond base wage.",
+        answer:
+          "Job cost should reflect burdened rates if you want profit beyond base wage.",
       },
       {
         question: "Does this handle tiered pricing?",
-        answer: "Enter blended job cost or run separate line items in the material cost calculator.",
+        answer:
+          "Enter blended job cost or run separate line items in the material cost calculator.",
       },
     ],
     resultLabels: { sellingPrice: "Price to charge" },
@@ -1188,11 +1252,13 @@ export const enCalculators = {
     faqs: [
       {
         question: "Should I add waste to quantities first?",
-        answer: "Yes. Use the waste factor calculator, then enter adjusted quantities here.",
+        answer:
+          "Yes. Use the waste factor calculator, then enter adjusted quantities here.",
       },
       {
         question: "Can I export the list?",
-        answer: "Copy results from the calculator page for your spreadsheet or bid template.",
+        answer:
+          "Copy results from the calculator page for your spreadsheet or bid template.",
       },
       {
         question: "Bulk discount tiers?",
@@ -1200,7 +1266,8 @@ export const enCalculators = {
       },
       {
         question: "Include labor?",
-        answer: "This is materials only. Use labor markup or project budget for full bids.",
+        answer:
+          "This is materials only. Use labor markup or project budget for full bids.",
       },
     ],
     resultLabels: { total: "Materials total" },
@@ -1238,11 +1305,13 @@ export const enCalculators = {
     faqs: [
       {
         question: "How much contingency should I hold?",
-        answer: "10% for cosmetic work, 15–20% when opening walls or dealing with old plumbing/electrical.",
+        answer:
+          "10% for cosmetic work, 15–20% when opening walls or dealing with old plumbing/electrical.",
       },
       {
         question: "Owner vs contractor budget?",
-        answer: "Owners might exclude markup; contractors should include burdened labor and profit in labor totals.",
+        answer:
+          "Owners might exclude markup; contractors should include burdened labor and profit in labor totals.",
       },
       {
         question: "Phased projects?",

@@ -8,11 +8,7 @@ import {
   getCalculatorsByCategory,
   getCategoryBySlug,
 } from "@/lib/calculators/registry";
-import {
-  buildPageMetadata,
-  itemListJsonLd,
-  JsonLd,
-} from "@/lib/seo";
+import { buildPageMetadata, itemListJsonLd, JsonLd } from "@/lib/seo";
 import { calculatorPath, localePath } from "@/lib/routes";
 
 function getCategorySlug(locale: Locale, category: { slugEn: string; slugEs: string }) {
@@ -48,6 +44,12 @@ export async function generateMetadata({
     title: content.title,
     description: content.description,
     pathWithoutLocale: `categories/${slug}`,
+    // Category slugs are localized, so hreflang must point at the
+    // translated slug rather than reusing this locale's.
+    pathsByLocale: {
+      en: `categories/${category.slugEn}`,
+      es: `categories/${category.slugEs}`,
+    },
   });
 }
 
@@ -75,16 +77,11 @@ export default async function CategoryPage({
 
   return (
     <>
-      <JsonLd
-        data={itemListJsonLd(content.title, listItems)}
-      />
+      <JsonLd data={itemListJsonLd(content.title, listItems)} />
 
-      <div className="mx-auto max-w-6xl px-4 py-8 animate-fade-up">
+      <div className="animate-fade-up mx-auto max-w-6xl px-4 py-8">
         <nav className="mb-4 text-sm">
-          <Link
-            href={localePath(locale)}
-            className="text-slate-600 hover:text-amber-700"
-          >
+          <Link href={localePath(locale)} className="text-slate-600 hover:text-amber-700">
             {dict.common.nav.home}
           </Link>
           <span className="mx-2 text-slate-400">/</span>
@@ -108,11 +105,9 @@ export default async function CategoryPage({
               <li key={calc.id}>
                 <Link
                   href={calculatorPath(locale, calc)}
-                  className="block px-5 py-4 transition-colors hover:bg-amber-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500"
+                  className="block px-5 py-4 transition-colors hover:bg-amber-50/40 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
                 >
-                  <span className="font-medium text-slate-900">
-                    {calcContent.title}
-                  </span>
+                  <span className="font-medium text-slate-900">{calcContent.title}</span>
                   <span className="mt-1 block text-sm text-slate-600">
                     {calcContent.description}
                   </span>

@@ -96,6 +96,8 @@ export interface CommonDictionary {
   };
   resultLabels: Record<string, string>;
   inputLabels: Record<string, string>;
+  /** Shared widget chrome: empty state, row controls, entry-mode options. */
+  uiLabels: Record<string, string>;
 }
 
 export interface HomeDictionary {

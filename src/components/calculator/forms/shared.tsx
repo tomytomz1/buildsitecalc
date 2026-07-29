@@ -149,7 +149,7 @@ export function LengthWidthFieldset({
           onChange={onLength}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={fieldLabel(labels, "lengthUnit")}
           value={lengthUnit}
           error={lengthUnitError}
@@ -166,7 +166,7 @@ export function LengthWidthFieldset({
           onChange={onWidth}
         />
         <UnitSelect
-          name="widthUnit"
+          locale={locale} name="widthUnit"
           label={fieldLabel(labels, "widthUnit")}
           value={widthUnit}
           error={widthUnitError}
@@ -226,7 +226,7 @@ export function RoomDimensionsFieldset({
           onChange={onLength}
         />
         <UnitSelect
-          name="lengthUnit"
+          locale={locale} name="lengthUnit"
           label={fieldLabel(labels, "lengthUnit")}
           value={lengthUnit}
           error={err("lengthUnit")}
@@ -243,7 +243,7 @@ export function RoomDimensionsFieldset({
           onChange={onWidth}
         />
         <UnitSelect
-          name="widthUnit"
+          locale={locale} name="widthUnit"
           label={fieldLabel(labels, "widthUnit")}
           value={widthUnit}
           error={err("widthUnit")}
@@ -260,7 +260,7 @@ export function RoomDimensionsFieldset({
           onChange={onHeight}
         />
         <UnitSelect
-          name="heightUnit"
+          locale={locale} name="heightUnit"
           label={fieldLabel(labels, "heightUnit")}
           value={heightUnit}
           error={err("heightUnit")}
@@ -307,7 +307,7 @@ export function AreaWithUnitFields({
         onChange={onArea}
       />
       <UnitSelect
-        name={unitKey}
+        locale={locale} name={unitKey}
         label={fieldLabel(labels, unitKey)}
         value={areaUnit}
         error={unitError}
@@ -340,7 +340,7 @@ export function RoomListEditor({
   setInputs: CalculatorFormProps["setInputs"];
 }) {
   const err = (key: string) => resolveFieldError(key, errors, labels.errors);
-  const addLabel = labels.ui.addRow ?? "Add room";
+  const addLabel = labels.ui.addRowRoom ?? labels.ui.addRow ?? "Add room";
   const removeLabel = labels.ui.removeRow ?? "Remove";
   const roomLabel = labels.ui.room ?? "Room";
 
@@ -370,7 +370,20 @@ export function RoomListEditor({
     setInputs((prev) => {
       const list = [...((prev.rooms as RoomRow[]) ?? [])];
       list.splice(index, 1);
-      return { ...prev, rooms: list.length ? list : [{ name: roomLabel, length: 10, width: 10, lengthUnit: "ft", widthUnit: "ft" }] };
+      return {
+        ...prev,
+        rooms: list.length
+          ? list
+          : [
+              {
+                name: roomLabel,
+                length: 10,
+                width: 10,
+                lengthUnit: "ft",
+                widthUnit: "ft",
+              },
+            ],
+      };
     });
   };
 
@@ -398,7 +411,7 @@ export function RoomListEditor({
               onChange={(e) => updateRoom(index, { length: e.target.value })}
             />
             <UnitSelect
-              name={`rooms.${index}.lengthUnit`}
+              locale={locale} name={`rooms.${index}.lengthUnit`}
               label={fieldLabel(labels, "lengthUnit")}
               value={room.lengthUnit}
               kind="length"
@@ -416,7 +429,7 @@ export function RoomListEditor({
               onChange={(e) => updateRoom(index, { width: e.target.value })}
             />
             <UnitSelect
-              name={`rooms.${index}.widthUnit`}
+              locale={locale} name={`rooms.${index}.widthUnit`}
               label={fieldLabel(labels, "widthUnit")}
               value={room.widthUnit}
               kind="length"
@@ -467,7 +480,7 @@ export function LineItemListEditor({
   setInputs: CalculatorFormProps["setInputs"];
 }) {
   const err = (key: string) => resolveFieldError(key, errors, labels.errors);
-  const addLabel = labels.ui.addRow ?? "Add line item";
+  const addLabel = labels.ui.addRowLineItem ?? labels.ui.addRow ?? "Add line item";
   const removeLabel = labels.ui.removeRow ?? "Remove";
   const itemLabel = labels.ui.lineItem ?? "Item";
 
@@ -569,7 +582,7 @@ export function MaterialListEditor({
   setInputs: CalculatorFormProps["setInputs"];
 }) {
   const err = (key: string) => resolveFieldError(key, errors, labels.errors);
-  const addLabel = labels.ui.addRow ?? "Add material";
+  const addLabel = labels.ui.addRowMaterial ?? labels.ui.addRow ?? "Add material";
   const removeLabel = labels.ui.removeRow ?? "Remove";
   const materialLabel = labels.ui.material ?? "Material";
 
@@ -663,7 +676,7 @@ export function WallListEditor({
   setInputs: CalculatorFormProps["setInputs"];
 }) {
   const err = (key: string) => resolveFieldError(key, errors, labels.errors);
-  const addLabel = labels.ui.addRow ?? "Add wall";
+  const addLabel = labels.ui.addRowWall ?? labels.ui.addRow ?? "Add wall";
   const removeLabel = labels.ui.removeRow ?? "Remove";
   const wallLabel = labels.ui.wall ?? "Wall";
 
@@ -760,7 +773,7 @@ export function ThicknessFields({
         onChange={onThickness}
       />
       <UnitSelect
-        name="thicknessUnit"
+        locale={locale} name="thicknessUnit"
         label={fieldLabel(labels, "thicknessUnit")}
         value={thicknessUnit}
         error={thicknessUnitError}

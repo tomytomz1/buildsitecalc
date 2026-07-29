@@ -1,6 +1,12 @@
 /**
  * Assembles complete en.ts and es.ts from structured data modules.
  * Run: node scripts/assemble-i18n.mjs
+ *
+ * IMPORTANT: Only replaces top-level `calculators` and `pages`.
+ * Hand-maintained `common` (including inputLabels / uiLabels) is preserved.
+ * If you need calculator-specific labels regenerated, put them in
+ * scripts/i18n-data/*-calculators.mjs -- never rely on assembling to keep
+ * edits made only under `calculators` in en.ts/es.ts.
  */
 import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
