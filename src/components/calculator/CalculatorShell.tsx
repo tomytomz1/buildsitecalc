@@ -37,9 +37,7 @@ export function CalculatorShell({
           {title}
         </h1>
         {description ? (
-          <p className="mt-3 text-base leading-relaxed text-slate-600">
-            {description}
-          </p>
+          <p className="mt-3 text-base leading-relaxed text-slate-600">{description}</p>
         ) : null}
       </header>
 
@@ -55,9 +53,7 @@ export function CalculatorShell({
             {form}
           </section>
 
-          {children ? (
-            <div className="space-y-10">{children}</div>
-          ) : null}
+          {children ? <div className="space-y-10">{children}</div> : null}
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-6">

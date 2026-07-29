@@ -109,7 +109,8 @@ function ConcreteBagsForm(props: CalculatorFormProps) {
             onChange={setFrac("volume")}
           />
           <UnitSelect
-            locale={locale} name="volumeUnit"
+            locale={locale}
+            name="volumeUnit"
             label={lbl("volumeUnit")}
             value={String(props.inputs.volumeUnit ?? "ft3")}
             kind="volume"
@@ -283,7 +284,8 @@ function PaintForm(props: CalculatorFormProps) {
             onChange={setFrac("doorArea")}
           />
           <UnitSelect
-            locale={locale} name="doorAreaUnit"
+            locale={locale}
+            name="doorAreaUnit"
             label={lbl("doorAreaUnit")}
             value={String(props.inputs.doorAreaUnit ?? "ft2")}
             kind="area"
@@ -298,7 +300,8 @@ function PaintForm(props: CalculatorFormProps) {
             onChange={setFrac("windowArea")}
           />
           <UnitSelect
-            locale={locale} name="windowAreaUnit"
+            locale={locale}
+            name="windowAreaUnit"
             label={lbl("windowAreaUnit")}
             value={String(props.inputs.windowAreaUnit ?? "ft2")}
             kind="area"
@@ -328,7 +331,8 @@ function PaintForm(props: CalculatorFormProps) {
           onChange={setNum("coverageRate")}
         />
         <UnitSelect
-          locale={locale} name="coverageRateUnit"
+          locale={locale}
+          name="coverageRateUnit"
           label={lbl("coverageRateUnit")}
           value={String(props.inputs.coverageRateUnit ?? "ft2")}
           kind="area"
@@ -414,7 +418,8 @@ function FlooringForm(props: CalculatorFormProps) {
             onChange={setFrac("packCoverage")}
           />
           <UnitSelect
-            locale={locale} name="packCoverageUnit"
+            locale={locale}
+            name="packCoverageUnit"
             label={lbl("packCoverageUnit")}
             value={String(props.inputs.packCoverageUnit ?? "ft2")}
             kind="area"
@@ -496,7 +501,8 @@ function TileForm(props: CalculatorFormProps) {
             onChange={setFrac("tileLength")}
           />
           <UnitSelect
-            locale={locale} name="tileLengthUnit"
+            locale={locale}
+            name="tileLengthUnit"
             label={lbl("tileLengthUnit")}
             value={String(props.inputs.tileLengthUnit ?? "in")}
             kind="length"
@@ -511,7 +517,8 @@ function TileForm(props: CalculatorFormProps) {
             onChange={setFrac("tileWidth")}
           />
           <UnitSelect
-            locale={locale} name="tileWidthUnit"
+            locale={locale}
+            name="tileWidthUnit"
             label={lbl("tileWidthUnit")}
             value={String(props.inputs.tileWidthUnit ?? "in")}
             kind="length"
@@ -529,7 +536,8 @@ function TileForm(props: CalculatorFormProps) {
           onChange={setFrac("groutGap")}
         />
         <UnitSelect
-          locale={locale} name="groutGapUnit"
+          locale={locale}
+          name="groutGapUnit"
           label={lbl("groutGapUnit")}
           value={String(props.inputs.groutGapUnit ?? "in")}
           kind="length"
@@ -766,7 +774,8 @@ function MulchForm(props: CalculatorFormProps) {
           onChange={setFrac("depth")}
         />
         <UnitSelect
-          locale={locale} name="depthUnit"
+          locale={locale}
+          name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -818,7 +827,8 @@ function GravelForm(props: CalculatorFormProps) {
           onChange={setFrac("depth")}
         />
         <UnitSelect
-          locale={locale} name="depthUnit"
+          locale={locale}
+          name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -884,7 +894,8 @@ function TopsoilForm(props: CalculatorFormProps) {
           onChange={setNum("depth")}
         />
         <UnitSelect
-          locale={locale} name="depthUnit"
+          locale={locale}
+          name="depthUnit"
           label={lbl("depthUnit")}
           value={String(props.inputs.depthUnit ?? "in")}
           kind="length"
@@ -920,7 +931,8 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("fenceLength")}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -956,7 +968,8 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("picketWidth")}
         />
         <UnitSelect
-          locale={locale} name="picketWidthUnit"
+          locale={locale}
+          name="picketWidthUnit"
           label={lbl("picketWidthUnit")}
           value={String(props.inputs.picketWidthUnit ?? "in")}
           kind="length"
@@ -973,7 +986,8 @@ function FenceMaterialForm(props: CalculatorFormProps) {
           onChange={setNum("picketGap")}
         />
         <UnitSelect
-          locale={locale} name="picketGapUnit"
+          locale={locale}
+          name="picketGapUnit"
           label={lbl("picketGapUnit")}
           value={String(props.inputs.picketGapUnit ?? "in")}
           kind="length"
@@ -1017,7 +1031,8 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("deckWidth")}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -1034,7 +1049,8 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("boardWidth")}
         />
         <UnitSelect
-          locale={locale} name="boardWidthUnit"
+          locale={locale}
+          name="boardWidthUnit"
           label={lbl("boardWidthUnit")}
           value={String(props.inputs.boardWidthUnit ?? "in")}
           kind="length"
@@ -1061,7 +1077,8 @@ function DeckBoardForm(props: CalculatorFormProps) {
           onChange={setNum("gap")}
         />
         <UnitSelect
-          locale={locale} name="gapUnit"
+          locale={locale}
+          name="gapUnit"
           label={lbl("gapUnit")}
           value={String(props.inputs.gapUnit ?? "in")}
           kind="length"
@@ -1101,7 +1118,8 @@ function StairForm(props: CalculatorFormProps) {
           onChange={setFrac("totalRise")}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={lbl("lengthUnit")}
           value={lengthUnit}
           kind="length"
@@ -1204,7 +1222,8 @@ function WallpaperForm(props: CalculatorFormProps) {
           onChange={setNum("wallHeight")}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={lbl("lengthUnit")}
           value={String(props.inputs.lengthUnit ?? "ft")}
           kind="length"
@@ -1224,7 +1243,8 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("openingsArea")}
           />
           <UnitSelect
-            locale={locale} name="openingsAreaUnit"
+            locale={locale}
+            name="openingsAreaUnit"
             label={lbl("openingsAreaUnit")}
             value={String(props.inputs.openingsAreaUnit ?? "ft2")}
             kind="area"
@@ -1245,7 +1265,8 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("rollCoverage")}
           />
           <UnitSelect
-            locale={locale} name="rollCoverageUnit"
+            locale={locale}
+            name="rollCoverageUnit"
             label={lbl("rollCoverageUnit")}
             value={String(props.inputs.rollCoverageUnit ?? "ft2")}
             kind="area"
@@ -1272,7 +1293,8 @@ function WallpaperForm(props: CalculatorFormProps) {
             onChange={setNum("rollLength")}
           />
           <UnitSelect
-            locale={locale} name="rollLengthUnit"
+            locale={locale}
+            name="rollLengthUnit"
             label={lbl("rollLengthUnit")}
             value={String(props.inputs.rollLengthUnit ?? "ft")}
             kind="length"
@@ -1292,7 +1314,8 @@ function WallpaperForm(props: CalculatorFormProps) {
           onChange={setNum("patternRepeat")}
         />
         <UnitSelect
-          locale={locale} name="patternRepeatUnit"
+          locale={locale}
+          name="patternRepeatUnit"
           label={lbl("patternRepeatUnit")}
           value={String(props.inputs.patternRepeatUnit ?? "in")}
           kind="length"
@@ -1340,7 +1363,8 @@ function InsulationForm(props: CalculatorFormProps) {
           onChange={setNum("battWidth")}
         />
         <UnitSelect
-          locale={locale} name="battWidthUnit"
+          locale={locale}
+          name="battWidthUnit"
           label={lbl("battWidthUnit")}
           value={String(props.inputs.battWidthUnit ?? "in")}
           kind="length"
@@ -1357,7 +1381,8 @@ function InsulationForm(props: CalculatorFormProps) {
           onChange={setNum("battLength")}
         />
         <UnitSelect
-          locale={locale} name="battLengthUnit"
+          locale={locale}
+          name="battLengthUnit"
           label={lbl("battLengthUnit")}
           value={String(props.inputs.battLengthUnit ?? "in")}
           kind="length"
@@ -1620,7 +1645,8 @@ function BoardFootForm(props: CalculatorFormProps) {
         onChange={setNum("length")}
       />
       <UnitSelect
-        locale={locale} name="lengthUnit"
+        locale={locale}
+        name="lengthUnit"
         label={lbl("lengthUnit")}
         value={String(props.inputs.lengthUnit ?? "in")}
         kind="length"

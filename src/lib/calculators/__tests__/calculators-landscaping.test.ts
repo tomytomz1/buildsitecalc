@@ -14,7 +14,7 @@ describe("calculateMulch", () => {
   it("computes cubic yards for bed area and depth", () => {
     const result = calculateMulch(mulchDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "volumeYd3") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "volumeYd3") as number).toBeGreaterThan(0);
     expect(fieldValue(result, "bagsNeeded")).toBeGreaterThan(0);
   });
 
@@ -27,7 +27,7 @@ describe("calculateGravel", () => {
   it("computes tons with density disclosure in meta", () => {
     const result = calculateGravel(gravelDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "tons") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "tons") as number).toBeGreaterThan(0);
     expect(result.meta?.disclosure).toContain("Bulk density");
     expect(result.meta?.densityKgM3).toBe(GRAVEL_DENSITIES_KG_M3.crushed);
   });
@@ -47,7 +47,7 @@ describe("calculateTopsoil", () => {
   it("computes volume for area and depth", () => {
     const result = calculateTopsoil(topsoilDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "volumeYd3") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "volumeYd3") as number).toBeGreaterThan(0);
   });
 
   it("rejects negative area", () => {

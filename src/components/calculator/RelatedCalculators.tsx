@@ -29,7 +29,7 @@ export function RelatedCalculators({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-colors hover:border-amber-300 hover:bg-amber-50/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-colors hover:border-amber-300 hover:bg-amber-50/30 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
             >
               <span className="flex items-center justify-between gap-2 font-medium text-slate-900 group-hover:text-amber-800">
                 {item.title}
@@ -39,9 +39,7 @@ export function RelatedCalculators({
                 />
               </span>
               {item.description ? (
-                <span className="mt-1 text-sm text-slate-600">
-                  {item.description}
-                </span>
+                <span className="mt-1 text-sm text-slate-600">{item.description}</span>
               ) : null}
             </Link>
           </li>

@@ -11,11 +11,7 @@ type HomeSearchProps = {
   calculators: SearchCalculator[];
 };
 
-export function HomeSearch({
-  locale,
-  placeholder,
-  calculators,
-}: HomeSearchProps) {
+export function HomeSearch({ locale, placeholder, calculators }: HomeSearchProps) {
   const lookup = useMemo(
     () => new Map(calculators.map((item) => [item.id, item])),
     [calculators],

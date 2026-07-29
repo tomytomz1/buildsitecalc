@@ -60,8 +60,7 @@ function assertCanonical(text, label) {
   {
     const res = await fetch(BASE + "/", { redirect: "manual" });
     const loc = res.headers.get("location") || "";
-    const ok =
-      [301, 302, 307, 308].includes(res.status) && /\/en\/?$|\/en\b/.test(loc);
+    const ok = [301, 302, 307, 308].includes(res.status) && /\/en\/?$|\/en\b/.test(loc);
     record("GET / redirects to /en", ok, `status=${res.status} loc=${loc}`);
   }
 
@@ -72,11 +71,7 @@ function assertCanonical(text, label) {
     assertNoBadBrand(text, `/${locale}`);
     assertCanonical(text, `/${locale}`);
     if (locale === "en") {
-      record(
-        "/en contains BuildSiteCalc",
-        /BuildSiteCalc/.test(text),
-        "",
-      );
+      record("/en contains BuildSiteCalc", /BuildSiteCalc/.test(text), "");
     }
   }
 
@@ -129,11 +124,7 @@ function assertCanonical(text, label) {
   {
     const { res, text } = await fetchText("/sitemap.xml");
     record("sitemap.xml 200", res.status === 200);
-    record(
-      "sitemap uses buildsitecalc.com",
-      text.includes("buildsitecalc.com"),
-      "",
-    );
+    record("sitemap uses buildsitecalc.com", text.includes("buildsitecalc.com"), "");
     record(
       "sitemap has no localhost / old brand",
       !/localhost|projectcalchub/i.test(text),
@@ -178,9 +169,7 @@ function assertCanonical(text, label) {
   }
 
   const failed = checks.filter((c) => !c.ok);
-  console.log(
-    `\nSummary: ${checks.length - failed.length}/${checks.length} passed`,
-  );
+  console.log(`\nSummary: ${checks.length - failed.length}/${checks.length} passed`);
   if (failed.length) {
     console.error("Failures:");
     for (const f of failed) {

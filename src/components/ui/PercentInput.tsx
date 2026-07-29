@@ -3,10 +3,7 @@ import { cn } from "@/lib/utils";
 import { ErrorMessage } from "./ErrorMessage";
 import { inputClassName } from "./Input";
 
-export type PercentInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "type"
-> & {
+export type PercentInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
   label: string;
   hint?: string;
   error?: string;
@@ -62,18 +59,12 @@ export const PercentInput = forwardRef<HTMLInputElement, PercentInputProps>(
             min={props.min ?? 0}
             required={required}
             aria-invalid={error ? true : undefined}
-            aria-describedby={
-              [hintId, errorId].filter(Boolean).join(" ") || undefined
-            }
-            className={cn(
-              inputClassName(Boolean(error)),
-              "pr-10",
-              className,
-            )}
+            aria-describedby={[hintId, errorId].filter(Boolean).join(" ") || undefined}
+            className={cn(inputClassName(Boolean(error)), "pr-10", className)}
             {...props}
           />
           <span
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-slate-500"
+            className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-sm text-slate-500"
             aria-hidden="true"
           >
             {suffix}

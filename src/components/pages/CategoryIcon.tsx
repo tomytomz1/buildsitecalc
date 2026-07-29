@@ -62,19 +62,8 @@ const ICONS: Record<string, LucideIcon> = {
   Wallet,
 };
 
-export function CategoryIcon({
-  name,
-  className,
-}: {
-  name: string;
-  className?: string;
-}) {
+export function CategoryIcon({ name, className }: { name: string; className?: string }) {
   const Icon = ICONS[name] ?? Ruler;
 
-  return (
-    <Icon
-      className={cn("h-5 w-5 text-amber-700", className)}
-      aria-hidden="true"
-    />
-  );
+  return <Icon className={cn("h-5 w-5 text-amber-700", className)} aria-hidden="true" />;
 }

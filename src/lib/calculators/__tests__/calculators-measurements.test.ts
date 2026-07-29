@@ -16,7 +16,7 @@ describe("calculateSquareFootage", () => {
   it("sums room areas", () => {
     const result = calculateSquareFootage(squareFootageDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "totalAreaFt2") as number)).toBeCloseTo(120, 0);
+    expect(fieldValue(result, "totalAreaFt2") as number).toBeCloseTo(120, 0);
   });
 
   it("rejects empty rooms", () => {
@@ -28,7 +28,7 @@ describe("calculateRoomVolume", () => {
   it("computes cubic feet for 12×10×8 ft room", () => {
     const result = calculateRoomVolume(roomVolumeDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "volumeFt3") as number)).toBeCloseTo(960, 0);
+    expect(fieldValue(result, "volumeFt3") as number).toBeCloseTo(960, 0);
   });
 
   it("rejects negative height", () => {
@@ -40,7 +40,7 @@ describe("calculateBoardFoot", () => {
   it("computes board feet from lumber dimensions", () => {
     const result = calculateBoardFoot(boardFootDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "boardFeet") as number)).toBeCloseTo(480, 0);
+    expect(fieldValue(result, "boardFeet") as number).toBeCloseTo(480, 0);
   });
 });
 

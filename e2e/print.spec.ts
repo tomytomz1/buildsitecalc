@@ -14,7 +14,8 @@ test.describe("Print support", () => {
       return Array.from(document.styleSheets).some((sheet) => {
         try {
           return Array.from(sheet.cssRules ?? []).some(
-            (rule) => rule instanceof CSSMediaRule && rule.conditionText.includes("print"),
+            (rule) =>
+              rule instanceof CSSMediaRule && rule.conditionText.includes("print"),
           );
         } catch {
           return false;

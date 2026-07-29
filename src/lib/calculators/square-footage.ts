@@ -1,11 +1,6 @@
 import { parseFraction } from "./fractions";
 import { fail, ok, type CalcOutput, type CalcResultField } from "./types";
-import {
-  applyWaste,
-  fromSquareMeters,
-  toMeters,
-  type LengthUnit,
-} from "./units";
+import { applyWaste, fromSquareMeters, toMeters, type LengthUnit } from "./units";
 import { round } from "../utils";
 
 export interface RoomInput {
@@ -35,8 +30,7 @@ export const defaultInputs: SquareFootageInputs = {
 };
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null) return null;
   if (!Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;

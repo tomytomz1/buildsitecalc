@@ -56,8 +56,20 @@ export function calculate(inputs: TopsoilInputs): CalcOutput<TopsoilInputs> {
   return ok(
     inputs,
     [
-      { key: "volumeYd3", value: round(volumeYd3, 2), unit: "yd³", primary: true, format: "number" },
-      { key: "volumeM3", value: round(volumeM3, 2), unit: "m³", primary: true, format: "number" },
+      {
+        key: "volumeYd3",
+        value: round(volumeYd3, 2),
+        unit: "yd³",
+        primary: true,
+        format: "number",
+      },
+      {
+        key: "volumeM3",
+        value: round(volumeM3, 2),
+        unit: "m³",
+        primary: true,
+        format: "number",
+      },
     ],
     [
       { key: "volumeFt3", value: round(volumeFt3, 2), unit: "ft³", format: "number" },

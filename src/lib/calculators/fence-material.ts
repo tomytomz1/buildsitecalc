@@ -71,17 +71,42 @@ export function calculate(inputs: FenceMaterialInputs): CalcOutput<FenceMaterial
 
   const picketPitch = picketWidthM + picketGapM;
   const pickets =
-    picketPitch > 0 ? Math.ceil(lengthM / picketPitch) : Math.ceil(lengthM / picketWidthM);
+    picketPitch > 0
+      ? Math.ceil(lengthM / picketPitch)
+      : Math.ceil(lengthM / picketWidthM);
 
   const primary = [
-    { key: "posts", value: posts, unit: "posts", primary: true, format: "integer" as const },
-    { key: "rails", value: rails, unit: "rails", primary: true, format: "integer" as const },
-    { key: "pickets", value: pickets, unit: "pickets", primary: true, format: "integer" as const },
+    {
+      key: "posts",
+      value: posts,
+      unit: "posts",
+      primary: true,
+      format: "integer" as const,
+    },
+    {
+      key: "rails",
+      value: rails,
+      unit: "rails",
+      primary: true,
+      format: "integer" as const,
+    },
+    {
+      key: "pickets",
+      value: pickets,
+      unit: "pickets",
+      primary: true,
+      format: "integer" as const,
+    },
   ];
 
   const secondary: CalcResultField[] = [
     { key: "sections", value: sections, unit: "sections", format: "integer" as const },
-    { key: "fenceLengthM", value: round(lengthM, 2), unit: "m", format: "number" as const },
+    {
+      key: "fenceLengthM",
+      value: round(lengthM, 2),
+      unit: "m",
+      format: "number" as const,
+    },
   ];
 
   if (inputs.postSizeNote) {

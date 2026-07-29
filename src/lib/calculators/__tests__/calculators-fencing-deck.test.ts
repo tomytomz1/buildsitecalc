@@ -36,7 +36,9 @@ describe("calculateDeckBoard", () => {
   });
 
   it("rejects NaN waste", () => {
-    expectFail(calculateDeckBoard({ ...deckBoardDefaultInputs, wastePercent: Number.NaN }));
+    expectFail(
+      calculateDeckBoard({ ...deckBoardDefaultInputs, wastePercent: Number.NaN }),
+    );
   });
 });
 
@@ -54,8 +56,8 @@ describe("calculateStair", () => {
     expectOk(result);
     expect(fieldValue(result, "numberOfRisers")).toBe(16);
     expect(fieldValue(result, "numberOfTreads")).toBe(15);
-    expect((fieldValue(result, "actualRiserHeight") as number)).toBeCloseTo(6.75, 2);
-    expect((fieldValue(result, "totalRun") as number)).toBeCloseTo(150, 0);
+    expect(fieldValue(result, "actualRiserHeight") as number).toBeCloseTo(6.75, 2);
+    expect(fieldValue(result, "totalRun") as number).toBeCloseTo(150, 0);
   });
 
   it("includes building code disclaimer in meta", () => {

@@ -26,14 +26,7 @@ export function LogoIcon({
       className={cn("h-8 w-8 shrink-0", className)}
     >
       {!decorative && <title>{title}</title>}
-      <rect
-        x="2"
-        y="2"
-        width="36"
-        height="36"
-        rx="6"
-        className="fill-slate-800"
-      />
+      <rect x="2" y="2" width="36" height="36" rx="6" className="fill-slate-800" />
       <path
         d="M8 12h24M8 20h24M8 28h16"
         className="stroke-slate-500"

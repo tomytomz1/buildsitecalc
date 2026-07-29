@@ -121,9 +121,13 @@ export function calculate(inputs: WallpaperInputs): CalcOutput<WallpaperInputs> 
   let rollCoverageM2: number;
   if (hasRollDimensions) {
     const rollUnit = inputs.rollLengthUnit ?? inputs.lengthUnit;
-    rollCoverageM2 = toMeters(inputs.rollWidth!, rollUnit) * toMeters(inputs.rollLength!, rollUnit);
+    rollCoverageM2 =
+      toMeters(inputs.rollWidth!, rollUnit) * toMeters(inputs.rollLength!, rollUnit);
   } else {
-    rollCoverageM2 = toSquareMeters(inputs.rollCoverage!, inputs.rollCoverageUnit ?? "ft2");
+    rollCoverageM2 = toSquareMeters(
+      inputs.rollCoverage!,
+      inputs.rollCoverageUnit ?? "ft2",
+    );
   }
 
   const patternRepeatM = toMeters(inputs.patternRepeat, inputs.patternRepeatUnit);
@@ -163,7 +167,12 @@ export function calculate(inputs: WallpaperInputs): CalcOutput<WallpaperInputs> 
     ],
     [
       { key: "netWallAreaM2", value: round(netAreaM2, 2), unit: "m²", format: "number" },
-      { key: "rollCoverageFt2", value: round(rollCoverageFt2, 2), unit: "ft²", format: "number" },
+      {
+        key: "rollCoverageFt2",
+        value: round(rollCoverageFt2, 2),
+        unit: "ft²",
+        format: "number",
+      },
       {
         key: "areaWithWasteFt2",
         value: round(fromSquareMeters(areaWithWaste, "ft2"), 2),

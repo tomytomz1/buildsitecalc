@@ -27,11 +27,7 @@ export function createStaticPageHandlers(pageKey: StaticPageKey) {
     });
   }
 
-  async function Page({
-    params,
-  }: {
-    params: Promise<{ locale: string }>;
-  }) {
+  async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const { locale: localeParam } = await params;
     if (!isLocale(localeParam)) notFound();
 
@@ -39,11 +35,9 @@ export function createStaticPageHandlers(pageKey: StaticPageKey) {
     const page = getDictionary(locale).pages[pageKey];
 
     return (
-      <div className="mx-auto max-w-3xl px-4 py-8 animate-fade-up">
+      <div className="animate-fade-up mx-auto max-w-3xl px-4 py-8">
         <header className="mb-8">
-          <h1 className="font-display text-3xl font-bold text-slate-900">
-            {page.title}
-          </h1>
+          <h1 className="font-display text-3xl font-bold text-slate-900">{page.title}</h1>
         </header>
         <StaticPageSections sections={page.sections} />
       </div>

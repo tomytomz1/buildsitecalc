@@ -1,9 +1,5 @@
 import { round } from "@/lib/utils";
-import {
-  marginFromMarkup,
-  markupFromMargin,
-  priceFromMarkup,
-} from "./units";
+import { marginFromMarkup, markupFromMargin, priceFromMarkup } from "./units";
 import { fail, ok, type CalcOutput } from "./types";
 
 export type LaborMarkupMode = "markup" | "margin";
@@ -28,7 +24,12 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
-function validPercent(value: number, key: string, errors: Record<string, string>, mode: LaborMarkupMode): void {
+function validPercent(
+  value: number,
+  key: string,
+  errors: Record<string, string>,
+  mode: LaborMarkupMode,
+): void {
   if (!Number.isFinite(value)) {
     errors[key] = "required";
     return;

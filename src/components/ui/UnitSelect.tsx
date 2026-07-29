@@ -126,10 +126,7 @@ export type UnitSelectProps = Omit<ComponentProps<typeof Select>, "options"> & {
 };
 
 export const UnitSelect = forwardRef<HTMLSelectElement, UnitSelectProps>(
-  function UnitSelect(
-    { kind = "length", units, options, locale = "en", ...props },
-    ref,
-  ) {
+  function UnitSelect({ kind = "length", units, options, locale = "en", ...props }, ref) {
     const resolvedOptions = options ?? unitOptionsForKind(kind, units, locale);
 
     return <Select ref={ref} options={resolvedOptions} {...props} />;

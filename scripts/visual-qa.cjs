@@ -37,12 +37,18 @@ const pages = [
       deviceScaleFactor: 1,
     });
     const page = await context.newPage();
-    page.on("pageerror", (err) => issues.push({ type: "pageerror", message: err.message, vp: vp.name }));
+    page.on("pageerror", (err) =>
+      issues.push({ type: "pageerror", message: err.message, vp: vp.name }),
+    );
     page.on("console", (msg) => {
-      if (msg.type() === "error") issues.push({ type: "console", message: msg.text(), vp: vp.name });
+      if (msg.type() === "error")
+        issues.push({ type: "console", message: msg.text(), vp: vp.name });
     });
     for (const p of pages) {
-      const res = await page.goto(BASE + p.path, { waitUntil: "networkidle", timeout: 60000 });
+      const res = await page.goto(BASE + p.path, {
+        waitUntil: "networkidle",
+        timeout: 60000,
+      });
       await page.waitForTimeout(400);
       const file = path.join(OUT, `${p.key}-${vp.name}.png`);
       await page.screenshot({ path: file, fullPage: true });
@@ -58,6 +64,11 @@ const pages = [
     await context.close();
   }
   await browser.close();
-  fs.writeFileSync(path.join("audit", "visual-qa.json"), JSON.stringify({ issues, count: viewports.length * pages.length }, null, 2));
-  console.log(JSON.stringify({ screenshots: viewports.length * pages.length, issues }, null, 2));
+  fs.writeFileSync(
+    path.join("audit", "visual-qa.json"),
+    JSON.stringify({ issues, count: viewports.length * pages.length }, null, 2),
+  );
+  console.log(
+    JSON.stringify({ screenshots: viewports.length * pages.length, issues }, null, 2),
+  );
 })();

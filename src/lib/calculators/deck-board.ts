@@ -1,10 +1,5 @@
 import { round } from "@/lib/utils";
-import {
-  applyWaste,
-  fromSquareMeters,
-  toMeters,
-  type LengthUnit,
-} from "./units";
+import { applyWaste, fromSquareMeters, toMeters, type LengthUnit } from "./units";
 import { fail, ok, type CalcOutput } from "./types";
 
 export interface DeckBoardInputs {
@@ -41,7 +36,11 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
-function nonNegativeFinite(value: number, key: string, errors: Record<string, string>): void {
+function nonNegativeFinite(
+  value: number,
+  key: string,
+  errors: Record<string, string>,
+): void {
   if (!Number.isFinite(value) || value < 0) {
     errors[key] = "invalid";
   }

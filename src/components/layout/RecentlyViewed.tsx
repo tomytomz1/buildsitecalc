@@ -47,9 +47,7 @@ export function recordRecentCalculator(item: RecentCalculator): void {
   if (typeof window === "undefined") return;
 
   try {
-    const existing = readRecentCalculators().filter(
-      (entry) => entry.id !== item.id,
-    );
+    const existing = readRecentCalculators().filter((entry) => entry.id !== item.id);
     const next = [item, ...existing].slice(0, MAX_ITEMS);
     const raw = JSON.stringify(next);
     window.localStorage.setItem(STORAGE_KEY, raw);
@@ -107,7 +105,7 @@ export function RecentlyViewed({
           <li key={item.id}>
             <Link
               href={item.href}
-              className="block truncate text-sm text-slate-700 underline-offset-2 hover:text-amber-800 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="block truncate text-sm text-slate-700 underline-offset-2 hover:text-amber-800 hover:underline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
             >
               {item.title}
             </Link>

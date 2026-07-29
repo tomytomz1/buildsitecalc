@@ -41,7 +41,9 @@ function recommendTruck(volumeFt3: number) {
   return TRUCK_TIERS[TRUCK_TIERS.length - 1];
 }
 
-export function calculate(inputs: MovingTruckSizeInputs): CalcOutput<MovingTruckSizeInputs> {
+export function calculate(
+  inputs: MovingTruckSizeInputs,
+): CalcOutput<MovingTruckSizeInputs> {
   const errors: Record<string, string> = {};
 
   const hasCubicFeet = Number.isFinite(inputs.cubicFeet) && inputs.cubicFeet! > 0;

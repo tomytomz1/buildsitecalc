@@ -10,10 +10,7 @@ export type ResultCardProps = {
   className?: string;
 };
 
-function formatFieldValue(
-  field: CalcResultField,
-  locale: "en" | "es",
-): string {
+function formatFieldValue(field: CalcResultField, locale: "en" | "es"): string {
   if (typeof field.value === "string") return field.value;
 
   switch (field.format) {
@@ -49,9 +46,7 @@ function ResultRow({
       )}
     >
       <dt className="font-medium">{field.key}</dt>
-      <dd className={cn("tabular-nums", emphasized && "text-amber-700")}>
-        {display}
-      </dd>
+      <dd className={cn("tabular-nums", emphasized && "text-amber-700")}>{display}</dd>
     </div>
   );
 }
@@ -82,12 +77,7 @@ export function ResultCard({
       ) : (
         <dl className="space-y-3">
           {primary.map((field) => (
-            <ResultRow
-              key={field.key}
-              field={field}
-              locale={locale}
-              emphasized
-            />
+            <ResultRow key={field.key} field={field} locale={locale} emphasized />
           ))}
           {secondary.length > 0 ? (
             <div className="space-y-2 border-t border-slate-200 pt-3">

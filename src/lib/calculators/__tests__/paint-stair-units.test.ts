@@ -9,11 +9,7 @@ import {
   stairDefaultInputs,
 } from "@/lib/calculators";
 import { organizationJsonLd } from "@/lib/seo";
-import {
-  getConfiguredSocialLinks,
-  isValidSocialUrl,
-  siteConfig,
-} from "@/config/site";
+import { getConfiguredSocialLinks, isValidSocialUrl, siteConfig } from "@/config/site";
 import { expectFail, expectOk, fieldValue } from "./helpers";
 import { mergeInputsFromSearchParams } from "@/lib/calculators/url-state";
 
@@ -144,10 +140,7 @@ describe("stair unit handling", () => {
     expect(fieldValue(result, "numberOfTreads")).toBe(15);
     expect(fieldValue(result, "actualRiserHeight")).toBeCloseTo(6.75, 2);
     expect(fieldValue(result, "totalRun")).toBe(150);
-    expect(fieldValue(result, "stringerLength", "secondary")).toBeCloseTo(
-      184.88,
-      1,
-    );
+    expect(fieldValue(result, "stringerLength", "secondary")).toBeCloseTo(184.88, 1);
     expect(result.primary.find((f) => f.key === "totalRun")?.unit).toBe("in");
   });
 
@@ -166,9 +159,7 @@ describe("stair unit handling", () => {
     });
     expectOk(inches);
     expectOk(feet);
-    expect(fieldValue(inches, "numberOfRisers")).toBe(
-      fieldValue(feet, "numberOfRisers"),
-    );
+    expect(fieldValue(inches, "numberOfRisers")).toBe(fieldValue(feet, "numberOfRisers"));
     expect(fieldValue(feet, "actualRiserHeight")).toBeCloseTo(6.75 / 12, 2);
   });
 
@@ -200,9 +191,7 @@ describe("stair unit handling", () => {
     });
     expectOk(result);
     expect(fieldValue(result, "numberOfRisers")).toBe(16);
-    expect(result.primary.find((f) => f.key === "actualRiserHeight")?.unit).toBe(
-      "mm",
-    );
+    expect(result.primary.find((f) => f.key === "actualRiserHeight")?.unit).toBe("mm");
   });
 
   it("URL state restores shared length unit", () => {

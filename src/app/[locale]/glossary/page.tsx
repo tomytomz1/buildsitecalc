@@ -35,11 +35,9 @@ export default async function GlossaryPage({
   const page = getDictionary(locale).pages.glossary;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8 animate-fade-up">
+    <div className="animate-fade-up mx-auto max-w-3xl px-4 py-8">
       <header className="mb-8">
-        <h1 className="font-display text-3xl font-bold text-slate-900">
-          {page.title}
-        </h1>
+        <h1 className="font-display text-3xl font-bold text-slate-900">{page.title}</h1>
       </header>
 
       <StaticPageSections sections={page.sections} />

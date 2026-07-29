@@ -18,7 +18,7 @@ export function FormulaBlock({
         className,
       )}
     >
-      <figcaption className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <figcaption className="mb-2 text-xs font-semibold tracking-wide text-slate-500 uppercase">
         {label}
       </figcaption>
       <pre className="overflow-x-auto font-mono text-sm leading-relaxed text-slate-800">

@@ -1,11 +1,6 @@
 import { parseFraction } from "./fractions";
 import { fail, ok, type CalcOutput } from "./types";
-import {
-  applyWaste,
-  fromCubicMeters,
-  toMeters,
-  type LengthUnit,
-} from "./units";
+import { applyWaste, fromCubicMeters, toMeters, type LengthUnit } from "./units";
 import { round } from "../utils";
 
 export interface ConcreteSlabInputs {
@@ -29,8 +24,7 @@ export const defaultInputs: ConcreteSlabInputs = {
 };
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }

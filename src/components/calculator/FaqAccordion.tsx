@@ -27,7 +27,7 @@ export function FaqAccordion({
       <div className="divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white">
         {items.map((item) => (
           <details key={item.question} className="group">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset [&::-webkit-details-marker]:hidden">
               <span>{item.question}</span>
               <ChevronDown
                 className="h-4 w-4 shrink-0 text-slate-500 transition-transform group-open:rotate-180"

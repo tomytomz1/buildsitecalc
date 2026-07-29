@@ -40,16 +40,14 @@ const UNIT_LABEL: Record<LengthUnit, string> = {
 };
 
 function parsePositiveValue(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(String(value));
+  const parsed = typeof value === "number" ? value : parseFraction(String(value));
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }
 
 function parseOptionalNonNegative(value: number | string | undefined): number | null {
   if (value === undefined || value === "") return null;
-  const parsed =
-    typeof value === "number" ? value : parseFraction(String(value));
+  const parsed = typeof value === "number" ? value : parseFraction(String(value));
   if (parsed === null || !Number.isFinite(parsed) || parsed < 0) return null;
   return parsed;
 }
@@ -62,10 +60,11 @@ export function convertStairInputsOnUnitChange(
 ): StairInputs {
   if (from === to) return inputs;
 
-  const convertField = (value: number | string | undefined): number | string | undefined => {
+  const convertField = (
+    value: number | string | undefined,
+  ): number | string | undefined => {
     if (value === undefined || value === "") return value;
-    const parsed =
-      typeof value === "number" ? value : parseFraction(String(value));
+    const parsed = typeof value === "number" ? value : parseFraction(String(value));
     if (parsed === null || !Number.isFinite(parsed)) return value;
     return round(convertLength(parsed, from, to), 4);
   };
@@ -110,13 +109,10 @@ export function calculate(inputs: StairInputs): CalcOutput<StairInputs> {
   const numberOfTreads = Math.max(numberOfRisers - 1, 0);
   const actualRiserHeightIn = totalRiseIn / numberOfRisers;
   const totalRunIn = numberOfTreads * treadDepthIn;
-  const stringerLengthIn = Math.sqrt(
-    totalRiseIn * totalRiseIn + totalRunIn * totalRunIn,
-  );
+  const stringerLengthIn = Math.sqrt(totalRiseIn * totalRiseIn + totalRunIn * totalRunIn);
 
   const unitLabel = UNIT_LABEL[unit];
-  const toDisplay = (inches: number) =>
-    round(convertLength(inches, "in", unit), 2);
+  const toDisplay = (inches: number) => round(convertLength(inches, "in", unit), 2);
 
   const meta: Record<string, unknown> = {
     disclaimer: BUILDING_CODE_DISCLAIMER,
@@ -124,8 +120,7 @@ export function calculate(inputs: StairInputs): CalcOutput<StairInputs> {
   };
 
   if (actualRiserHeightIn < RISER_MIN_IN || actualRiserHeightIn > RISER_MAX_IN) {
-    meta.riserWarning =
-      `Actual riser height (${toDisplay(actualRiserHeightIn)} ${unitLabel}) is outside the typical IRC range of ${round(convertLength(RISER_MIN_IN, "in", unit), 2)}–${round(convertLength(RISER_MAX_IN, "in", unit), 2)} ${unitLabel}. Adjust target riser height or verify with local code.`;
+    meta.riserWarning = `Actual riser height (${toDisplay(actualRiserHeightIn)} ${unitLabel}) is outside the typical IRC range of ${round(convertLength(RISER_MIN_IN, "in", unit), 2)}–${round(convertLength(RISER_MAX_IN, "in", unit), 2)} ${unitLabel}. Adjust target riser height or verify with local code.`;
   }
 
   const secondary = [

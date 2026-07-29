@@ -1,20 +1,12 @@
 "use client";
 
-import {
-  forwardRef,
-  useId,
-  useMemo,
-  type InputHTMLAttributes,
-} from "react";
+import { forwardRef, useId, useMemo, type InputHTMLAttributes } from "react";
 import { parseFraction } from "@/lib/calculators/fractions";
 import { cn, formatNumber } from "@/lib/utils";
 import { ErrorMessage } from "./ErrorMessage";
 import { inputClassName } from "./Input";
 
-export type FractionalInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "type"
-> & {
+export type FractionalInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
   label: string;
   hint?: string;
   error?: string;
@@ -98,7 +90,7 @@ export const FractionalInput = forwardRef<HTMLInputElement, FractionalInputProps
           aria-describedby={
             [hintId, parsedId, errorId].filter(Boolean).join(" ") || undefined
           }
-          placeholder='e.g. 10 1/2 or 3/4'
+          placeholder="e.g. 10 1/2 or 3/4"
           className={cn(inputClassName(Boolean(error)), className)}
           onChange={onChange}
           {...props}

@@ -1,15 +1,11 @@
 import { expect } from "vitest";
 import type { CalcFailure, CalcOutput, CalcSuccess } from "@/lib/calculators/types";
 
-export function expectOk<T>(
-  result: CalcOutput<T>,
-): asserts result is CalcSuccess<T> {
+export function expectOk<T>(result: CalcOutput<T>): asserts result is CalcSuccess<T> {
   expect(result.ok).toBe(true);
 }
 
-export function expectFail<T>(
-  result: CalcOutput<T>,
-): asserts result is CalcFailure {
+export function expectFail<T>(result: CalcOutput<T>): asserts result is CalcFailure {
   expect(result.ok).toBe(false);
 }
 

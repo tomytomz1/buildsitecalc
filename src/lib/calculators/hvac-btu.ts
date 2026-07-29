@@ -41,7 +41,11 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
-function positiveMultiplier(value: number, key: string, errors: Record<string, string>): void {
+function positiveMultiplier(
+  value: number,
+  key: string,
+  errors: Record<string, string>,
+): void {
   if (!Number.isFinite(value)) {
     errors[key] = "required";
   } else if (value <= 0) {

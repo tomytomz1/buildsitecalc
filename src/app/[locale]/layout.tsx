@@ -7,10 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { HtmlLang } from "@/components/layout/HtmlLang";
 import { SkipNav } from "@/components/ui/SkipNav";
 import { getDictionary } from "@/lib/i18n";
-import {
-  buildCategoryLinks,
-  buildSearchCalculators,
-} from "@/lib/page-helpers";
+import { buildCategoryLinks, buildSearchCalculators } from "@/lib/page-helpers";
 
 export function generateStaticParams() {
   return siteConfig.locale.supported.map((locale) => ({ locale }));

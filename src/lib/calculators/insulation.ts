@@ -45,7 +45,11 @@ function positive(value: number, key: string, errors: Record<string, string>): v
   }
 }
 
-function nonNegativeFinite(value: number, key: string, errors: Record<string, string>): void {
+function nonNegativeFinite(
+  value: number,
+  key: string,
+  errors: Record<string, string>,
+): void {
   if (!Number.isFinite(value) || value < 0) {
     errors[key] = "invalid";
   }
@@ -107,7 +111,7 @@ export function calculate(inputs: InsulationInputs): CalcOutput<InsulationInputs
       unit: "m²",
       format: "number" as const,
     },
-      {
+    {
       key: "netArea",
       value: round(areaFt2, 2),
       unit: "ft²",

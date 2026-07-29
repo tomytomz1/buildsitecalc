@@ -51,11 +51,7 @@ export function fromMeters(meters: number, unit: LengthUnit): number {
   return meters / LENGTH_TO_M[unit];
 }
 
-export function convertLength(
-  value: number,
-  from: LengthUnit,
-  to: LengthUnit,
-): number {
+export function convertLength(value: number, from: LengthUnit, to: LengthUnit): number {
   return fromMeters(toMeters(value, from), to);
 }
 
@@ -79,11 +75,7 @@ export function fromCubicMeters(m3: number, unit: VolumeUnit): number {
   return m3 / VOLUME_TO_M3[unit];
 }
 
-export function convertVolume(
-  value: number,
-  from: VolumeUnit,
-  to: VolumeUnit,
-): number {
+export function convertVolume(value: number, from: VolumeUnit, to: VolumeUnit): number {
   return fromCubicMeters(toCubicMeters(value, from), to);
 }
 

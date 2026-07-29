@@ -37,8 +37,7 @@ export const defaultInputs: DrywallInputs = {
 };
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }
@@ -71,8 +70,7 @@ export function calculate(inputs: DrywallInputs): CalcOutput<DrywallInputs> {
   }
 
   const hasArea = inputs.area !== undefined && inputs.area !== "";
-  const hasDims =
-    inputs.length !== undefined && inputs.width !== undefined;
+  const hasDims = inputs.length !== undefined && inputs.width !== undefined;
 
   if (!hasArea && !hasDims) {
     return fail({ area: "required" });

@@ -34,9 +34,7 @@ export function PrintCopyShare({
     shareFailed: shareFailedLabel = "Could not share",
   } = labels;
 
-  const [copiedAction, setCopiedAction] = useState<
-    "results" | "link" | null
-  >(null);
+  const [copiedAction, setCopiedAction] = useState<"results" | "link" | null>(null);
   const [shareError, setShareError] = useState(false);
 
   const flashCopied = useCallback((action: "results" | "link") => {
@@ -109,10 +107,7 @@ export function PrintCopyShare({
 
   return (
     <div
-      className={cn(
-        "flex flex-wrap items-center gap-2 print:hidden",
-        className,
-      )}
+      className={cn("flex flex-wrap items-center gap-2 print:hidden", className)}
       role="group"
       aria-label="Share and export results"
     >

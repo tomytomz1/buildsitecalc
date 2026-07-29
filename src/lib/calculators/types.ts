@@ -59,8 +59,7 @@ export interface CalcFailure {
 }
 
 export type CalcOutput<TInputs = Record<string, unknown>> =
-  | CalcSuccess<TInputs>
-  | CalcFailure;
+  CalcSuccess<TInputs> | CalcFailure;
 
 export function fail(errors: Record<string, string>): CalcFailure {
   return { ok: false, errors };

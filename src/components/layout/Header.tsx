@@ -72,19 +72,16 @@ export function Header({
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
         <Logo locale={locale} />
 
-        <nav
-          className="hidden items-center gap-1 md:flex"
-          aria-label="Main navigation"
-        >
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
           <Link
             href={`/${locale}`}
-            className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
           >
             {labels.home ?? "Home"}
           </Link>
           <Link
             href={`/${locale}/calculators`}
-            className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
           >
             {labels.calculators}
           </Link>
@@ -93,7 +90,7 @@ export function Header({
             <div ref={categoriesRef} className="relative">
               <button
                 type="button"
-                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                 aria-expanded={categoriesOpen}
                 aria-haspopup="true"
                 onClick={() => setCategoriesOpen((open) => !open)}
@@ -110,14 +107,14 @@ export function Header({
               {categoriesOpen ? (
                 <ul
                   role="menu"
-                  className="absolute left-0 top-full z-50 mt-1 min-w-[14rem] rounded-md border border-slate-200 bg-white py-1 shadow-lg"
+                  className="absolute top-full left-0 z-50 mt-1 min-w-[14rem] rounded-md border border-slate-200 bg-white py-1 shadow-lg"
                 >
                   {categoryLinks.map((link) => (
                     <li key={link.href} role="none">
                       <Link
                         href={link.href}
                         role="menuitem"
-                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500"
+                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
                         onClick={() => setCategoriesOpen(false)}
                       >
                         {link.label}
@@ -130,7 +127,7 @@ export function Header({
           ) : (
             <Link
               href={`/${locale}/categories`}
-              className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
             >
               {labels.categories}
             </Link>
@@ -151,7 +148,7 @@ export function Header({
 
           <Link
             href={resolvedSearchHref}
-            className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 lg:hidden"
+            className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none lg:hidden"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
             <span className="sr-only sm:not-sr-only">{labels.search}</span>
@@ -161,7 +158,7 @@ export function Header({
 
           <button
             type="button"
-            className="inline-flex rounded-md p-2 text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 md:hidden"
+            className="inline-flex rounded-md p-2 text-slate-700 hover:bg-slate-100 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none md:hidden"
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             onClick={() => setMobileOpen((open) => !open)}
@@ -203,29 +200,29 @@ export function Header({
                 {labels.calculators}
               </Link>
             </li>
-            {categoryLinks.length > 0
-              ? categoryLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))
-              : (
-                <li>
+            {categoryLinks.length > 0 ? (
+              categoryLinks.map((link) => (
+                <li key={link.href}>
                   <Link
-                    href={`/${locale}/categories`}
+                    href={link.href}
                     className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {labels.categories}
+                    {link.label}
                   </Link>
                 </li>
-              )}
+              ))
+            ) : (
+              <li>
+                <Link
+                  href={`/${locale}/categories`}
+                  className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {labels.categories}
+                </Link>
+              </li>
+            )}
             <li>
               <Link
                 href={resolvedSearchHref}

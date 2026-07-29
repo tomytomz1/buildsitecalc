@@ -31,8 +31,7 @@ export const defaultInputs: MulchInputs = {
 };
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }

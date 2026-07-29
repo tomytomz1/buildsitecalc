@@ -8,10 +8,7 @@ export type AdPlaceholderProps = {
   minHeight?: number;
 };
 
-const formatClasses: Record<
-  NonNullable<AdPlaceholderProps["format"]>,
-  string
-> = {
+const formatClasses: Record<NonNullable<AdPlaceholderProps["format"]>, string> = {
   auto: "min-h-[250px]",
   rectangle: "min-h-[250px] max-w-[336px]",
   horizontal: "min-h-[90px] w-full",

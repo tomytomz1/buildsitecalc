@@ -52,7 +52,7 @@ describe("calculateWallpaper", () => {
   it("computes rolls from perimeter and height", () => {
     const result = calculateWallpaper(wallpaperDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "rollsNeeded") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "rollsNeeded") as number).toBeGreaterThan(0);
   });
 
   it("requires perimeter or walls", () => {

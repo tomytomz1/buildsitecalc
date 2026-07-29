@@ -10,9 +10,9 @@ const CONSENT_KEY = "pch-consent";
 function isTrackingConfigured(): boolean {
   return Boolean(
     siteConfig.analytics.googleAnalyticsId ||
-      siteConfig.analytics.googleTagManagerId ||
-      siteConfig.ads.enabled ||
-      siteConfig.ads.adsenseClientId,
+    siteConfig.analytics.googleTagManagerId ||
+    siteConfig.ads.enabled ||
+    siteConfig.ads.adsenseClientId,
   );
 }
 
@@ -100,14 +100,14 @@ export function ConsentBanner({ labels = {}, className }: ConsentBannerProps) {
           <button
             type="button"
             onClick={decline}
-            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
           >
             {declineLabel}
           </button>
           <button
             type="button"
             onClick={accept}
-            className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
           >
             {acceptLabel}
           </button>

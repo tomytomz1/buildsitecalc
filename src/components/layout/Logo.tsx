@@ -19,21 +19,20 @@ export function Logo({
   tagline,
 }: LogoProps) {
   const href = `/${locale}`;
-  const resolvedTagline =
-    tagline ?? siteConfig.brand.tagline[locale];
+  const resolvedTagline = tagline ?? siteConfig.brand.tagline[locale];
 
   return (
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2",
+        "group inline-flex items-center gap-2.5 rounded-md focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:outline-none",
         className,
       )}
       aria-label={`${siteConfig.brand.name} home`}
     >
       <LogoIcon decorative />
       <span className="flex flex-col">
-        <span className="text-lg font-bold leading-tight tracking-tight text-slate-900 group-hover:text-amber-800">
+        <span className="text-lg leading-tight font-bold tracking-tight text-slate-900 group-hover:text-amber-800">
           <span className="text-slate-800">Build</span>
           <span className="text-amber-700">Site</span>
           <span className="font-semibold text-slate-600">Calc</span>

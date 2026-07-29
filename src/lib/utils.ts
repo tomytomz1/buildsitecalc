@@ -30,11 +30,7 @@ export function formatNumber(
   }).format(value);
 }
 
-export function formatCurrency(
-  value: number,
-  locale: string,
-  currency = "USD",
-): string {
+export function formatCurrency(value: number, locale: string, currency = "USD"): string {
   return new Intl.NumberFormat(locale === "es" ? "es-ES" : "en-US", {
     style: "currency",
     currency,

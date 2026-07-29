@@ -7,16 +7,8 @@ import { HomeSearch } from "@/components/pages/HomeSearch";
 import { RecentlyViewed } from "@/components/layout/RecentlyViewed";
 import { getDictionary } from "@/lib/i18n";
 import { getAllCalculators, getAllCategories } from "@/lib/calculators/registry";
-import {
-  buildPageMetadata,
-  JsonLd,
-  organizationJsonLd,
-  websiteJsonLd,
-} from "@/lib/seo";
-import {
-  buildSearchCalculators,
-  getCategoryTitle,
-} from "@/lib/page-helpers";
+import { buildPageMetadata, JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { buildSearchCalculators, getCategoryTitle } from "@/lib/page-helpers";
 import { calculatorPath, categoryPath } from "@/lib/routes";
 
 export async function generateMetadata({
@@ -57,10 +49,10 @@ export default async function HomePage({
 
       <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
         <section className="animate-fade-up text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-amber-700">
+          <p className="text-sm font-semibold tracking-wide text-amber-700 uppercase">
             {siteConfig.brand.name}
           </p>
-          <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="font-display mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             {dict.home.title}
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
@@ -77,7 +69,7 @@ export default async function HomePage({
 
         {popular.length > 0 ? (
           <section
-            className="mt-10 animate-fade-up"
+            className="animate-fade-up mt-10"
             style={{ animationDelay: "80ms" }}
             aria-labelledby="popular-heading"
           >
@@ -92,7 +84,7 @@ export default async function HomePage({
                 <li key={calc.id}>
                   <Link
                     href={calculatorPath(locale, calc)}
-                    className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm transition-colors hover:border-amber-300 hover:bg-amber-50 hover:text-amber-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm transition-colors hover:border-amber-300 hover:bg-amber-50 hover:text-amber-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                   >
                     {dict.calculators[calc.id].title}
                   </Link>
@@ -103,7 +95,7 @@ export default async function HomePage({
         ) : null}
 
         <section
-          className="mt-12 animate-fade-up"
+          className="animate-fade-up mt-12"
           style={{ animationDelay: "120ms" }}
           aria-labelledby="categories-heading"
         >
@@ -118,12 +110,12 @@ export default async function HomePage({
               <li key={category.id}>
                 <Link
                   href={categoryPath(locale, category)}
-                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-amber-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-amber-300 hover:shadow-md focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                 >
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50">
                     <CategoryIcon name={category.icon} />
                   </span>
-                  <span className="mt-3 font-display text-lg font-semibold text-slate-900 group-hover:text-amber-900">
+                  <span className="font-display mt-3 text-lg font-semibold text-slate-900 group-hover:text-amber-900">
                     {getCategoryTitle(locale, dict, category)}
                   </span>
                   <span className="mt-1 text-sm leading-relaxed text-slate-600">
@@ -136,7 +128,7 @@ export default async function HomePage({
         </section>
 
         <section
-          className="mt-12 rounded-xl border border-slate-200 bg-white p-6 shadow-sm animate-fade-up"
+          className="animate-fade-up mt-12 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
           style={{ animationDelay: "160ms" }}
           aria-labelledby="how-estimates-heading"
         >
@@ -151,10 +143,7 @@ export default async function HomePage({
           </p>
         </section>
 
-        <section
-          className="mt-10 animate-fade-up"
-          style={{ animationDelay: "200ms" }}
-        >
+        <section className="animate-fade-up mt-10" style={{ animationDelay: "200ms" }}>
           <RecentlyViewed title={dict.home.recentlyTitle} />
         </section>
       </div>

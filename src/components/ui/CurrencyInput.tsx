@@ -3,10 +3,7 @@ import { cn } from "@/lib/utils";
 import { ErrorMessage } from "./ErrorMessage";
 import { inputClassName } from "./Input";
 
-export type CurrencyInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "type"
-> & {
+export type CurrencyInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
   label: string;
   hint?: string;
   error?: string;
@@ -54,7 +51,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
         </label>
         <div className="relative">
           <span
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-slate-500"
+            className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-sm font-medium text-slate-500"
             aria-hidden="true"
           >
             {prefix}
@@ -68,14 +65,8 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
             min={props.min ?? 0}
             required={required}
             aria-invalid={error ? true : undefined}
-            aria-describedby={
-              [hintId, errorId].filter(Boolean).join(" ") || undefined
-            }
-            className={cn(
-              inputClassName(Boolean(error)),
-              "pl-7",
-              className,
-            )}
+            aria-describedby={[hintId, errorId].filter(Boolean).join(" ") || undefined}
+            className={cn(inputClassName(Boolean(error)), "pl-7", className)}
             {...props}
           />
         </div>

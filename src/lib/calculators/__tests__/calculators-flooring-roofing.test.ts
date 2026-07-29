@@ -13,7 +13,7 @@ describe("calculateFlooring", () => {
   it("computes area with waste for 12×10 ft room", () => {
     const result = calculateFlooring(flooringDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "areaWithWasteFt2") as number)).toBeCloseTo(132, 0);
+    expect(fieldValue(result, "areaWithWasteFt2") as number).toBeCloseTo(132, 0);
     expect(fieldValue(result, "packsNeeded")).toBe(7);
   });
 
@@ -26,7 +26,7 @@ describe("calculateTile", () => {
   it("computes tile count for 10×8 ft area with 12×12 tiles", () => {
     const result = calculateTile(tileDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "tilesNeeded") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "tilesNeeded") as number).toBeGreaterThan(0);
   });
 
   it("rejects zero tile dimensions", () => {
@@ -38,8 +38,8 @@ describe("calculateRoofingShingle", () => {
   it("computes squares and bundles from footprint and pitch", () => {
     const result = calculateRoofingShingle(roofingShingleDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "squares") as number)).toBeGreaterThan(0);
-    expect((fieldValue(result, "bundles") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "squares") as number).toBeGreaterThan(0);
+    expect(fieldValue(result, "bundles") as number).toBeGreaterThan(0);
   });
 
   it("accepts direct roof area without pitch", () => {
@@ -50,6 +50,6 @@ describe("calculateRoofingShingle", () => {
       bundlesPerSquare: 3,
     });
     expectOk(result);
-    expect((fieldValue(result, "squares") as number)).toBeCloseTo(16.5, 0);
+    expect(fieldValue(result, "squares") as number).toBeCloseTo(16.5, 0);
   });
 });

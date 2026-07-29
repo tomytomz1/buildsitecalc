@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -63,9 +56,7 @@ export function SearchBox({
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const results = useMemo(() => {
-    const found = onSearch
-      ? onSearch(query)
-      : defaultFilter(calculators, query);
+    const found = onSearch ? onSearch(query) : defaultFilter(calculators, query);
     return found.slice(0, maxResults);
   }, [calculators, maxResults, onSearch, query]);
 
@@ -78,10 +69,7 @@ export function SearchBox({
 
   useEffect(() => {
     function handlePointerDown(event: MouseEvent) {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         closeDropdown();
       }
     }
@@ -96,15 +84,11 @@ export function SearchBox({
     switch (event.key) {
       case "ArrowDown":
         event.preventDefault();
-        setActiveIndex((prev) =>
-          prev < results.length - 1 ? prev + 1 : 0,
-        );
+        setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : 0));
         break;
       case "ArrowUp":
         event.preventDefault();
-        setActiveIndex((prev) =>
-          prev > 0 ? prev - 1 : results.length - 1,
-        );
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : results.length - 1));
         break;
       case "Escape":
         closeDropdown();
@@ -125,7 +109,7 @@ export function SearchBox({
       </label>
       <div className="relative">
         <Search
-          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+          className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-slate-400"
           aria-hidden="true"
         />
         <input
@@ -143,11 +127,7 @@ export function SearchBox({
           value={query}
           autoComplete="off"
           lang={locale}
-          className={cn(
-            inputClassName(false),
-            "pl-9 pr-9",
-            inputExtraClassName,
-          )}
+          className={cn(inputClassName(false), "pr-9 pl-9", inputExtraClassName)}
           onChange={(event) => {
             setQuery(event.target.value);
             setIsOpen(true);
@@ -159,7 +139,7 @@ export function SearchBox({
         {query ? (
           <button
             type="button"
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-slate-400 hover:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            className="absolute top-1/2 right-2 -translate-y-1/2 rounded p-1 text-slate-400 hover:text-slate-600 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
             onClick={() => {
               setQuery("");
               closeDropdown();
@@ -179,7 +159,11 @@ export function SearchBox({
           className="absolute z-50 mt-1 max-h-72 w-full overflow-auto rounded-md border border-slate-200 bg-white py-1 shadow-lg"
         >
           {results.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-slate-500" role="option" aria-selected="false">
+            <li
+              className="px-3 py-2 text-sm text-slate-500"
+              role="option"
+              aria-selected="false"
+            >
               No calculators found
             </li>
           ) : (

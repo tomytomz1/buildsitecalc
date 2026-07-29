@@ -3,7 +3,13 @@ import { expect } from "@playwright/test";
 
 /** Wait for calculator client hydration. */
 export async function waitForCalculatorReady(page: Page): Promise<void> {
-  await expect(page.getByRole("button", { name: /^Calculate$|^Calcular$/ })).toBeEnabled({
+  // Prefer the form submit control; fall back to any Calculate button.
+  const calculate = page
+    .locator("form")
+    .getByRole("button", { name: /^Calculate$|^Calcular$/ });
+  await expect(
+    calculate.or(page.getByRole("button", { name: /^Calculate$|^Calcular$/ })),
+  ).toBeEnabled({
     timeout: 15_000,
   });
   await page.evaluate(
@@ -14,7 +20,10 @@ export async function waitForCalculatorReady(page: Page): Promise<void> {
   );
 }
 
-export async function clickCalculate(page: Page, locale: "en" | "es" = "en"): Promise<void> {
+export async function clickCalculate(
+  page: Page,
+  locale: "en" | "es" = "en",
+): Promise<void> {
   await waitForCalculatorReady(page);
   const label = locale === "es" ? "Calcular" : "Calculate";
   await page.locator("form").getByRole("button", { name: label }).click();

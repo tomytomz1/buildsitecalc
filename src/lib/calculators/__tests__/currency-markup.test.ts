@@ -32,7 +32,11 @@ describe("markup/margin inverse relationship", () => {
 
     expectOk(result);
     expectClose(fieldValue(result, "sellingPrice") as number, expectedPrice, 2);
-    expectClose(fieldValue(result, "effectiveMargin", "secondary") as number, marginFromMarkup(markup), 2);
+    expectClose(
+      fieldValue(result, "effectiveMargin", "secondary") as number,
+      marginFromMarkup(markup),
+      2,
+    );
   });
 
   it("margin mode derives equivalent markup", () => {
@@ -43,7 +47,11 @@ describe("markup/margin inverse relationship", () => {
     });
 
     expectOk(result);
-    expectClose(fieldValue(result, "effectiveMarkup", "secondary") as number, markupFromMargin(20), 2);
+    expectClose(
+      fieldValue(result, "effectiveMarkup", "secondary") as number,
+      markupFromMargin(20),
+      2,
+    );
     expectClose(fieldValue(result, "sellingPrice") as number, 1000, 2);
   });
 });

@@ -17,10 +17,7 @@ export function WorkedExample({
 
   return (
     <section
-      className={cn(
-        "rounded-lg border border-amber-200 bg-amber-50/50 p-5",
-        className,
-      )}
+      className={cn("rounded-lg border border-amber-200 bg-amber-50/50 p-5", className)}
     >
       <h2 className="mb-4 text-lg font-semibold text-slate-900">{title}</h2>
       <ol className="list-decimal space-y-3 pl-5 text-sm leading-relaxed text-slate-700">

@@ -149,7 +149,8 @@ export function LengthWidthFieldset({
           onChange={onLength}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={fieldLabel(labels, "lengthUnit")}
           value={lengthUnit}
           error={lengthUnitError}
@@ -166,7 +167,8 @@ export function LengthWidthFieldset({
           onChange={onWidth}
         />
         <UnitSelect
-          locale={locale} name="widthUnit"
+          locale={locale}
+          name="widthUnit"
           label={fieldLabel(labels, "widthUnit")}
           value={widthUnit}
           error={widthUnitError}
@@ -226,7 +228,8 @@ export function RoomDimensionsFieldset({
           onChange={onLength}
         />
         <UnitSelect
-          locale={locale} name="lengthUnit"
+          locale={locale}
+          name="lengthUnit"
           label={fieldLabel(labels, "lengthUnit")}
           value={lengthUnit}
           error={err("lengthUnit")}
@@ -243,7 +246,8 @@ export function RoomDimensionsFieldset({
           onChange={onWidth}
         />
         <UnitSelect
-          locale={locale} name="widthUnit"
+          locale={locale}
+          name="widthUnit"
           label={fieldLabel(labels, "widthUnit")}
           value={widthUnit}
           error={err("widthUnit")}
@@ -260,7 +264,8 @@ export function RoomDimensionsFieldset({
           onChange={onHeight}
         />
         <UnitSelect
-          locale={locale} name="heightUnit"
+          locale={locale}
+          name="heightUnit"
           label={fieldLabel(labels, "heightUnit")}
           value={heightUnit}
           error={err("heightUnit")}
@@ -307,7 +312,8 @@ export function AreaWithUnitFields({
         onChange={onArea}
       />
       <UnitSelect
-        locale={locale} name={unitKey}
+        locale={locale}
+        name={unitKey}
         label={fieldLabel(labels, unitKey)}
         value={areaUnit}
         error={unitError}
@@ -411,7 +417,8 @@ export function RoomListEditor({
               onChange={(e) => updateRoom(index, { length: e.target.value })}
             />
             <UnitSelect
-              locale={locale} name={`rooms.${index}.lengthUnit`}
+              locale={locale}
+              name={`rooms.${index}.lengthUnit`}
               label={fieldLabel(labels, "lengthUnit")}
               value={room.lengthUnit}
               kind="length"
@@ -429,7 +436,8 @@ export function RoomListEditor({
               onChange={(e) => updateRoom(index, { width: e.target.value })}
             />
             <UnitSelect
-              locale={locale} name={`rooms.${index}.widthUnit`}
+              locale={locale}
+              name={`rooms.${index}.widthUnit`}
               label={fieldLabel(labels, "widthUnit")}
               value={room.widthUnit}
               kind="length"
@@ -773,7 +781,8 @@ export function ThicknessFields({
         onChange={onThickness}
       />
       <UnitSelect
-        locale={locale} name="thicknessUnit"
+        locale={locale}
+        name="thicknessUnit"
         label={fieldLabel(labels, "thicknessUnit")}
         value={thicknessUnit}
         error={thicknessUnitError}

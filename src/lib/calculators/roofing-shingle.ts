@@ -40,8 +40,7 @@ export const defaultInputs: RoofingShingleInputs = {
 const SQ_FT_PER_SQUARE = 100;
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }
@@ -91,8 +90,7 @@ export function calculate(
   }
 
   const hasRoofArea = inputs.roofArea !== undefined && inputs.roofArea !== "";
-  const hasFootprint =
-    inputs.length !== undefined && inputs.width !== undefined;
+  const hasFootprint = inputs.length !== undefined && inputs.width !== undefined;
 
   if (!hasRoofArea && !hasFootprint) {
     return fail({ roofArea: "required" });

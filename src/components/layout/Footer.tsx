@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  getConfiguredSocialLinks,
-  siteConfig,
-  type Locale,
-} from "@/config/site";
+import { getConfiguredSocialLinks, siteConfig, type Locale } from "@/config/site";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
@@ -53,14 +49,17 @@ export function Footer({ locale, links, className }: FooterProps) {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="space-y-3">
-            <Logo locale={locale} className="[&_span]:text-white [&_span_span]:text-white [&_.text-amber-700]:text-amber-400 [&_.text-slate-600]:text-slate-400 [&_.text-slate-800]:text-white" />
+            <Logo
+              locale={locale}
+              className="[&_.text-amber-700]:text-amber-400 [&_.text-slate-600]:text-slate-400 [&_.text-slate-800]:text-white [&_span]:text-white [&_span_span]:text-white"
+            />
             <p className="max-w-sm text-sm leading-relaxed text-slate-400">
               {siteConfig.brand.tagline[locale]}
             </p>
             <p className="text-sm">
               <a
                 href={`mailto:${siteConfig.contactEmail}`}
-                className="text-amber-400 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                className="text-amber-400 underline-offset-2 hover:underline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
               >
                 {siteConfig.contactEmail}
               </a>
@@ -73,7 +72,7 @@ export function Footer({ locale, links, className }: FooterProps) {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-slate-400 underline-offset-2 hover:text-amber-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                      className="text-sm text-slate-400 underline-offset-2 hover:text-amber-300 hover:underline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                     >
                       {link.label}
                     </a>
@@ -89,7 +88,7 @@ export function Footer({ locale, links, className }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 underline-offset-2 hover:text-amber-300 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="text-sm text-slate-400 underline-offset-2 hover:text-amber-300 hover:underline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
                   >
                     {link.label}
                   </Link>
@@ -101,8 +100,8 @@ export function Footer({ locale, links, className }: FooterProps) {
 
         <div className="mt-8 border-t border-slate-800 pt-6 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} {siteConfig.legal.companyName}. All
-            rights reserved.
+            © {new Date().getFullYear()} {siteConfig.legal.companyName}. All rights
+            reserved.
           </p>
         </div>
       </div>

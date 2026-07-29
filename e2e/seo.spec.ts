@@ -6,11 +6,11 @@ test.describe("SEO metadata", () => {
     const canonical = page.locator('link[rel="canonical"]');
     await expect(canonical).toHaveAttribute("href", /buildsitecalc\.com\/en$/);
 
-    await expect(page.locator('link[hreflang="en"]')).toHaveAttribute(
+    await expect(page.locator('link[hreflang="en-US"]')).toHaveAttribute(
       "href",
       /buildsitecalc\.com\/en$/,
     );
-    await expect(page.locator('link[hreflang="es"]')).toHaveAttribute(
+    await expect(page.locator('link[hreflang="es-ES"]')).toHaveAttribute(
       "href",
       /buildsitecalc\.com\/es$/,
     );
@@ -27,9 +27,17 @@ test.describe("SEO metadata", () => {
       "href",
       /buildsitecalc\.com\/en\/calculators\/concrete-slab$/,
     );
-    await expect(page.locator('link[hreflang="es"]')).toHaveAttribute(
+    await expect(page.locator('link[hreflang="en-US"]')).toHaveAttribute(
       "href",
-      /buildsitecalc\.com\/es\/calculators\/concrete-slab$/,
+      /buildsitecalc\.com\/en\/calculators\/concrete-slab$/,
+    );
+    await expect(page.locator('link[hreflang="es-ES"]')).toHaveAttribute(
+      "href",
+      /buildsitecalc\.com\/es\/calculators\/losa-de-concreto$/,
+    );
+    await expect(page.locator('link[hreflang="x-default"]')).toHaveAttribute(
+      "href",
+      /buildsitecalc\.com\/en\/calculators\/concrete-slab$/,
     );
   });
 });

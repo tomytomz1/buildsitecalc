@@ -2,9 +2,7 @@ import { test, expect } from "@playwright/test";
 import { clickCalculate, waitForCalculatorReady } from "./helpers";
 
 test.describe("Paint and stair unit handling", () => {
-  test("paint metric openings and coverage units are available", async ({
-    page,
-  }) => {
+  test("paint metric openings and coverage units are available", async ({ page }) => {
     await page.goto("/en/calculators/paint");
     await waitForCalculatorReady(page);
 
@@ -12,9 +10,18 @@ test.describe("Paint and stair unit handling", () => {
     await expect(page.getByLabel(/window area unit/i)).toBeVisible();
     await expect(page.getByLabel(/coverage unit/i)).toBeVisible();
 
-    await page.getByLabel(/^length unit$/i).first().selectOption("m");
-    await page.getByLabel(/^width unit$/i).first().selectOption("m");
-    await page.getByLabel(/^height unit$/i).first().selectOption("m");
+    await page
+      .getByLabel(/^length unit$/i)
+      .first()
+      .selectOption("m");
+    await page
+      .getByLabel(/^width unit$/i)
+      .first()
+      .selectOption("m");
+    await page
+      .getByLabel(/^height unit$/i)
+      .first()
+      .selectOption("m");
     await page.locator('input[name="length"]').fill("3.66");
     await page.locator('input[name="width"]').fill("3.05");
     await page.locator('input[name="height"]').fill("2.44");
@@ -23,7 +30,9 @@ test.describe("Paint and stair unit handling", () => {
 
     await clickCalculate(page);
     await expect(page.getByText(/Gallons to purchase/i)).toBeVisible();
-    await expect(page.locator("aside dd.tabular-nums").filter({ hasText: /28\.01/ })).toBeVisible();
+    await expect(
+      page.locator("aside dd.tabular-nums").filter({ hasText: /28\.01/ }),
+    ).toBeVisible();
 
     const url = new URL(page.url());
     expect(url.searchParams.get("lengthUnit")).toBe("m");
@@ -48,9 +57,7 @@ test.describe("Paint and stair unit handling", () => {
     await page.goto("/en/calculators/stair");
     await waitForCalculatorReady(page);
 
-    await expect(
-      page.getByText(/shared unit|never read as feet/i),
-    ).toBeVisible();
+    await expect(page.getByText(/shared unit|never read as feet/i)).toBeVisible();
 
     const rise = page.locator('input[name="totalRise"]');
     await expect(rise).toHaveValue("108");
@@ -60,7 +67,9 @@ test.describe("Paint and stair unit handling", () => {
 
     await clickCalculate(page);
     await expect(page.getByText(/^Risers$/i)).toBeVisible();
-    await expect(page.getByRole("term").filter({ hasText: /Stringer length/i })).toBeVisible();
+    await expect(
+      page.getByRole("term").filter({ hasText: /Stringer length/i }),
+    ).toBeVisible();
 
     const url = new URL(page.url());
     expect(url.searchParams.get("lengthUnit")).toBe("ft");

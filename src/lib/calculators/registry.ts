@@ -300,7 +300,12 @@ export const CALCULATORS: readonly CalculatorRegistryEntry[] = [
     slugEn: "roofing-shingle",
     slugEs: "tejas-asfalticas",
     icon: "Home",
-    relatedIds: ["square-footage", "project-budget", "material-cost", "project-waste-factor"],
+    relatedIds: [
+      "square-footage",
+      "project-budget",
+      "material-cost",
+      "project-waste-factor",
+    ],
     popular: true,
     searchTermsEn: [
       "roofing calculator",
@@ -872,7 +877,12 @@ export const CALCULATORS: readonly CalculatorRegistryEntry[] = [
     slugEn: "project-budget",
     slugEs: "presupuesto-proyecto",
     icon: "Wallet",
-    relatedIds: ["material-cost", "labor-markup", "project-waste-factor", "concrete-slab"],
+    relatedIds: [
+      "material-cost",
+      "labor-markup",
+      "project-waste-factor",
+      "concrete-slab",
+    ],
     popular: true,
     searchTermsEn: [
       "project budget calculator",
@@ -917,7 +927,10 @@ function normalizeSearchQuery(query: string): string {
   return query.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
-function getSlugForLocale(entry: CalculatorRegistryEntry, locale: RegistryLocale): string {
+function getSlugForLocale(
+  entry: CalculatorRegistryEntry,
+  locale: RegistryLocale,
+): string {
   return locale === "es" ? entry.slugEs : entry.slugEn;
 }
 
@@ -935,7 +948,11 @@ function getSearchTermsForLocale(
   return locale === "es" ? entry.searchTermsEs : entry.searchTermsEn;
 }
 
-function matchesSearch(entry: CalculatorRegistryEntry, query: string, locale: RegistryLocale): boolean {
+function matchesSearch(
+  entry: CalculatorRegistryEntry,
+  query: string,
+  locale: RegistryLocale,
+): boolean {
   if (!query) {
     return false;
   }

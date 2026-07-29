@@ -28,7 +28,7 @@ function boardFeetFromInches(
   lengthIn: number,
   quantity: number,
 ): number {
-  return (thicknessIn * widthIn * lengthIn) / 12 * quantity;
+  return ((thicknessIn * widthIn * lengthIn) / 12) * quantity;
 }
 
 function positive(value: number, key: string, errors: Record<string, string>): void {
@@ -55,7 +55,12 @@ export function calculate(inputs: BoardFootInputs): CalcOutput<BoardFootInputs> 
     ? convertLength(inputs.length, inputs.lengthUnit, "in")
     : inputs.length;
 
-  const boardFeet = boardFeetFromInches(inputs.thickness, inputs.width, lengthIn, inputs.quantity);
+  const boardFeet = boardFeetFromInches(
+    inputs.thickness,
+    inputs.width,
+    lengthIn,
+    inputs.quantity,
+  );
 
   const thicknessM = inputs.thickness * 0.0254;
   const widthM = inputs.width * 0.0254;

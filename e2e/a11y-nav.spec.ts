@@ -16,7 +16,11 @@ test.describe("Accessibility navigation", () => {
 
   test("locale 404 page shows not found content", async ({ page }) => {
     await page.goto("/en/does-not-exist-page");
-    await expect(page.getByRole("heading", { name: /not found|no encontrada/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Back to home|Volver al inicio/i })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: /not found|no encontrada/i }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Back to home|Volver al inicio/i }),
+    ).toBeVisible();
   });
 });

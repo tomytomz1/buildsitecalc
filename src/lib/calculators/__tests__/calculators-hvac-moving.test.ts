@@ -15,7 +15,7 @@ describe("calculateInsulation", () => {
   it("computes batts for insulated area", () => {
     const result = calculateInsulation(insulationDefaultInputs);
     expectOk(result);
-    expect((fieldValue(result, "battsNeeded") as number)).toBeGreaterThan(0);
+    expect(fieldValue(result, "battsNeeded") as number).toBeGreaterThan(0);
   });
 });
 
@@ -24,7 +24,7 @@ describe("calculateHvacBtu", () => {
     const result = calculateHvacBtu(hvacBtuDefaultInputs);
     expectOk(result);
     expect(fieldValue(result, "estimatedBtu")).toBe(6000);
-    expect((fieldValue(result, "tonnage") as number)).toBeCloseTo(0.5, 2);
+    expect(fieldValue(result, "tonnage") as number).toBeCloseTo(0.5, 2);
   });
 
   it("includes Manual J disclaimer in meta", () => {

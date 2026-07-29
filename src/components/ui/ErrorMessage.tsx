@@ -14,15 +14,9 @@ export function ErrorMessage({ id, children, className }: ErrorMessageProps) {
     <p
       id={id}
       role="alert"
-      className={cn(
-        "mt-1.5 flex items-start gap-1.5 text-sm text-red-700",
-        className,
-      )}
+      className={cn("mt-1.5 flex items-start gap-1.5 text-sm text-red-700", className)}
     >
-      <AlertCircle
-        className="mt-0.5 h-4 w-4 shrink-0"
-        aria-hidden="true"
-      />
+      <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
       <span>{children}</span>
     </p>
   );

@@ -63,15 +63,13 @@ const DEFAULT_WINDOW_FT2 = 15;
 const DEFAULT_COVERAGE_FT2_PER_GAL = 350;
 
 function parsePositive(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed <= 0) return null;
   return parsed;
 }
 
 function parseNonNegative(value: number | string): number | null {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(value);
+  const parsed = typeof value === "number" ? value : parseFraction(value);
   if (parsed === null || !Number.isFinite(parsed) || parsed < 0) return null;
   return parsed;
 }
@@ -260,8 +258,7 @@ export function convertPaintAreaInput(
   from: AreaUnit,
   to: AreaUnit,
 ): number {
-  const parsed =
-    typeof value === "number" ? value : parseFraction(String(value));
+  const parsed = typeof value === "number" ? value : parseFraction(String(value));
   if (parsed === null || !Number.isFinite(parsed)) return 0;
   return round(convertArea(parsed, from, to), 4);
 }

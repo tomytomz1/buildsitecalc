@@ -8,10 +8,7 @@
  * Exit code 1 on any failure. Point BASE_URL at a production build (`next start`)
  * or the live site — not required for unit tests.
  */
-const BASE_URL = (process.env.BASE_URL || "http://127.0.0.1:3000").replace(
-  /\/$/,
-  "",
-);
+const BASE_URL = (process.env.BASE_URL || "http://127.0.0.1:3000").replace(/\/$/, "");
 
 const CALC_EN = [
   "concrete-slab",
@@ -393,9 +390,7 @@ function findEnglishUnitLeaks(vis) {
     "\nSummary: " + (results.length - failed) + "/" + results.length + " passed",
   );
   if (failed) {
-    console.error(
-      "verify-seo-i18n FAILED (" + failed + " checks). BASE_URL=" + BASE_URL,
-    );
+    console.error("verify-seo-i18n FAILED (" + failed + " checks). BASE_URL=" + BASE_URL);
     process.exit(1);
   }
   console.log("verify-seo-i18n OK");

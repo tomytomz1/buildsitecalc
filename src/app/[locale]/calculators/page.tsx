@@ -42,19 +42,16 @@ export default async function CalculatorsDirectoryPage({
   const dict = getDictionary(locale);
   const query = q?.trim() ?? "";
   const allCalculators = getAllCalculators();
-  const filtered = query
-    ? search(query, locale)
-    : allCalculators;
+  const filtered = query ? search(query, locale) : allCalculators;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 animate-fade-up">
+    <div className="animate-fade-up mx-auto max-w-6xl px-4 py-8">
       <header className="max-w-3xl">
         <h1 className="font-display text-3xl font-bold text-slate-900">
           {dict.common.labels.allCalculators}
         </h1>
         <p className="mt-2 text-slate-600">
-          {dict.common.nav.calculators} — {filtered.length}{" "}
-          {query ? `"${query}"` : ""}
+          {dict.common.nav.calculators} — {filtered.length} {query ? `"${query}"` : ""}
         </p>
       </header>
 
@@ -70,12 +67,10 @@ export default async function CalculatorsDirectoryPage({
               <li key={calc.id}>
                 <Link
                   href={calculatorPath(locale, calc)}
-                  className="block px-5 py-4 transition-colors hover:bg-amber-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500"
+                  className="block px-5 py-4 transition-colors hover:bg-amber-50/40 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none focus-visible:ring-inset"
                 >
-                  <span className="font-medium text-slate-900">
-                    {content.title}
-                  </span>
-                  <span className="mt-0.5 block text-xs font-medium uppercase tracking-wide text-amber-700">
+                  <span className="font-medium text-slate-900">{content.title}</span>
+                  <span className="mt-0.5 block text-xs font-medium tracking-wide text-amber-700 uppercase">
                     {categoryTitle}
                   </span>
                   <span className="mt-1 block text-sm text-slate-600">

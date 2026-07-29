@@ -12,12 +12,9 @@ export type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-amber-600 text-white shadow-sm hover:bg-amber-700 active:bg-amber-800",
-  secondary:
-    "bg-slate-700 text-white shadow-sm hover:bg-slate-800 active:bg-slate-900",
-  ghost:
-    "bg-transparent text-slate-700 hover:bg-slate-100 active:bg-slate-200",
+  primary: "bg-amber-600 text-white shadow-sm hover:bg-amber-700 active:bg-amber-800",
+  secondary: "bg-slate-700 text-white shadow-sm hover:bg-slate-800 active:bg-slate-900",
+  ghost: "bg-transparent text-slate-700 hover:bg-slate-100 active:bg-slate-200",
   outline:
     "border border-slate-300 bg-white text-slate-800 shadow-sm hover:bg-slate-50 active:bg-slate-100",
 };
@@ -57,8 +54,7 @@ type NativeButtonProps = ButtonBaseProps &
 type AsChildProps = ButtonBaseProps & {
   asChild: true;
   children: ReactElement<
-    ButtonHTMLAttributes<HTMLButtonElement> &
-      AnchorHTMLAttributes<HTMLAnchorElement>
+    ButtonHTMLAttributes<HTMLButtonElement> & AnchorHTMLAttributes<HTMLAnchorElement>
   >;
 };
 

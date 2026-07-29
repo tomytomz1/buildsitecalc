@@ -8,7 +8,9 @@ test.describe("High-risk calculator disclaimers and units", () => {
     await page.goto("/en/calculators/stair");
     await waitForCalculatorReady(page);
     await clickCalculate(page);
-    await expect(page.getByRole("note").filter({ hasText: /building code/i })).toBeVisible();
+    await expect(
+      page.getByRole("note").filter({ hasText: /building code/i }),
+    ).toBeVisible();
   });
 
   test("HVAC page surfaces Manual J disclaimer after calculate", async ({ page }) => {

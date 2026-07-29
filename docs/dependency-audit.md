@@ -6,11 +6,11 @@
 
 ## Executive summary
 
-| Scope | Before | After actions |
-|-------|--------|---------------|
-| Production (`--omit=dev`) | **3 high** (postcss, sharp via next) | **0 vulnerabilities** |
-| Full tree (incl. dev) | **12 high** | **9 high** (eslint / brace-expansion chain only) |
-| Critical | 0 | 0 |
+| Scope                     | Before                               | After actions                                    |
+| ------------------------- | ------------------------------------ | ------------------------------------------------ |
+| Production (`--omit=dev`) | **3 high** (postcss, sharp via next) | **0 vulnerabilities**                            |
+| Full tree (incl. dev)     | **12 high**                          | **9 high** (eslint / brace-expansion chain only) |
+| Critical                  | 0                                    | 0                                                |
 
 Production high/critical issues were cleared with **npm `overrides`** for nested `postcss` and `sharp` (verified with `next build`). Remaining highs are **dev-only** (lint toolchain).
 
@@ -33,10 +33,10 @@ Production high/critical issues were cleared with **npm `overrides`** for nested
 
 ### Production (resolved)
 
-| Package | Severity | Path | Prod vs dev | Fixed version | Action / safety notes |
-|---------|----------|------|-------------|---------------|------------------------|
-| **postcss** | high (XSS advisory listed moderate in GHSA; path-traversal/file-read high) | `next` → nested `postcss@8.4.31` | **Production** (bundled with Next) | `>=8.5.18` (used `8.5.24`) | **Fixed via override.** Do not use `npm audit fix --force` (suggests `next@9.3.3`). Next stable still pins `8.4.31`; override is compatible within PostCSS 8.x. Build verified. |
-| **sharp** | high | `next` optionalDep `sharp@0.34.5` | **Production** (image optimization) | `>=0.35.0` (used `0.35.3`) | **Fixed via override.** Force-fix path also points at `next@9.3.3`. Next `16.3.0-preview` already depends on `sharp@^0.35.3`; override aligns with that. Build verified. |
+| Package     | Severity                                                                   | Path                              | Prod vs dev                         | Fixed version              | Action / safety notes                                                                                                                                                           |
+| ----------- | -------------------------------------------------------------------------- | --------------------------------- | ----------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **postcss** | high (XSS advisory listed moderate in GHSA; path-traversal/file-read high) | `next` → nested `postcss@8.4.31`  | **Production** (bundled with Next)  | `>=8.5.18` (used `8.5.24`) | **Fixed via override.** Do not use `npm audit fix --force` (suggests `next@9.3.3`). Next stable still pins `8.4.31`; override is compatible within PostCSS 8.x. Build verified. |
+| **sharp**   | high                                                                       | `next` optionalDep `sharp@0.34.5` | **Production** (image optimization) | `>=0.35.0` (used `0.35.3`) | **Fixed via override.** Force-fix path also points at `next@9.3.3`. Next `16.3.0-preview` already depends on `sharp@^0.35.3`; override aligns with that. Build verified.        |
 
 Advisories:
 
@@ -45,10 +45,10 @@ Advisories:
 
 ### Dev-only (remaining — accepted for launch)
 
-| Package | Severity | Path | Prod vs dev | Fixed version | Action / safety notes |
-|---------|----------|------|-------------|---------------|------------------------|
-| **brace-expansion** | high | `eslint` / `eslint-config-next` plugins → `minimatch@3.x` → `brace-expansion@1.1.16` | **Dev-only** | `5.0.8` (1.x line has no fix; latest 1.x still in vulnerable range `<=5.0.7`) | **Not force-fixed.** `npm audit fix --force` would install `eslint@10.8.0` (breaking) or ancient `eslint-config-next@0.2.4`. Overriding to `5.0.8` risks breaking `minimatch@3` API. **Acceptable for launch:** lint runs in CI/dev only; DoS requires attacker-controlled glob patterns in the ESLint process, not the production app. |
-| **minimatch** / **@eslint/config-array** / **@eslint/eslintrc** / **eslint** / **eslint-plugin-*** / **eslint-config-next** | high (inherited) | Same eslint ecosystem graph | **Dev-only** | Upstream: ESLint 10+ / updated plugins | Track ESLint 10 + `eslint-config-next` when Next documents support; do not force major upgrade solely for audit score. |
+| Package                                                                                                                     | Severity         | Path                                                                                 | Prod vs dev  | Fixed version                                                                 | Action / safety notes                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------ | ------------ | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **brace-expansion**                                                                                                         | high             | `eslint` / `eslint-config-next` plugins → `minimatch@3.x` → `brace-expansion@1.1.16` | **Dev-only** | `5.0.8` (1.x line has no fix; latest 1.x still in vulnerable range `<=5.0.7`) | **Not force-fixed.** `npm audit fix --force` would install `eslint@10.8.0` (breaking) or ancient `eslint-config-next@0.2.4`. Overriding to `5.0.8` risks breaking `minimatch@3` API. **Acceptable for launch:** lint runs in CI/dev only; DoS requires attacker-controlled glob patterns in the ESLint process, not the production app. |
+| **minimatch** / **@eslint/config-array** / **@eslint/eslintrc** / **eslint** / **eslint-plugin-*** / **eslint-config-next** | high (inherited) | Same eslint ecosystem graph                                                          | **Dev-only** | Upstream: ESLint 10+ / updated plugins                                        | Track ESLint 10 + `eslint-config-next` when Next documents support; do not force major upgrade solely for audit score.                                                                                                                                                                                                                  |
 
 Advisory: [GHSA-mh99-v99m-4gvg](https://github.com/advisories/GHSA-mh99-v99m-4gvg) (DoS via unbounded brace expansion).
 
@@ -63,18 +63,18 @@ Advisory: [GHSA-mh99-v99m-4gvg](https://github.com/advisories/GHSA-mh99-v99m-4gv
 
 ## Remaining risk (launch posture)
 
-| Category | Status | Rationale |
-|----------|--------|-----------|
-| **Production high/critical** | **None remaining** | Cleared by overrides; `npm audit --omit=dev` → 0. |
-| **Dev-only high** | **9 reported** (brace-expansion → eslint tree) | Blocked without breaking ESLint 9 / Next eslint-config. Not shipped to end users. Revisit when upgrading ESLint / eslint-config-next. |
-| **Overrides maintenance** | Monitor | When Next stable ships fixed `postcss` / `sharp`, consider removing overrides to stay on Next’s pin. Re-run audit after Next upgrades. |
+| Category                     | Status                                         | Rationale                                                                                                                              |
+| ---------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Production high/critical** | **None remaining**                             | Cleared by overrides; `npm audit --omit=dev` → 0.                                                                                      |
+| **Dev-only high**            | **9 reported** (brace-expansion → eslint tree) | Blocked without breaking ESLint 9 / Next eslint-config. Not shipped to end users. Revisit when upgrading ESLint / eslint-config-next.  |
+| **Overrides maintenance**    | Monitor                                        | When Next stable ships fixed `postcss` / `sharp`, consider removing overrides to stay on Next’s pin. Re-run audit after Next upgrades. |
 
 ### Explicitly rejected
 
-| Proposed fix | Why rejected |
-|--------------|--------------|
-| `npm audit fix --force` for postcss/sharp | Would install **next@9.3.3** (major downgrade, app-breaking). |
-| `npm audit fix --force` for brace-expansion | Would install **eslint@10.8.0** or broken ancient eslint-config-next; unvalidated against this repo. |
+| Proposed fix                                    | Why rejected                                                                                                                |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `npm audit fix --force` for postcss/sharp       | Would install **next@9.3.3** (major downgrade, app-breaking).                                                               |
+| `npm audit fix --force` for brace-expansion     | Would install **eslint@10.8.0** or broken ancient eslint-config-next; unvalidated against this repo.                        |
 | Upgrade to Next canary/preview solely for sharp | Preview still had vulnerable postcss in checked versions; overrides already fix both on stable 16.2.12 with verified build. |
 
 ---

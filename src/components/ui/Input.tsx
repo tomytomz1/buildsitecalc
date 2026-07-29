@@ -21,62 +21,55 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
   labelClassName?: string;
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  function Input(
-    {
-      id,
-      label,
-      type = "text",
-      hint,
-      error,
-      required,
-      className,
-      wrapperClassName,
-      labelClassName,
-      ...props
-    },
-    ref,
-  ) {
-    const inputId = id ?? props.name;
-    const hintId = hint && inputId ? `${inputId}-hint` : undefined;
-    const errorId = error && inputId ? `${inputId}-error` : undefined;
-
-    return (
-      <div className={cn("w-full", wrapperClassName)}>
-        <label
-          htmlFor={inputId}
-          className={cn(
-            "mb-1.5 block text-sm font-medium text-slate-800",
-            labelClassName,
-          )}
-        >
-          {label}
-          {required ? (
-            <span className="ml-0.5 text-red-600" aria-hidden="true">
-              *
-            </span>
-          ) : null}
-          {required ? <span className="sr-only"> (required)</span> : null}
-        </label>
-        <input
-          ref={ref}
-          id={inputId}
-          type={type}
-          required={required}
-          aria-invalid={error ? true : undefined}
-          aria-describedby={
-            [hintId, errorId].filter(Boolean).join(" ") || undefined
-          }
-          className={cn(inputClassName(Boolean(error)), className)}
-          {...props}
-        />
-        {hint ? (
-          <p id={hintId} className="mt-1.5 text-sm text-slate-500">
-            {hint}
-          </p>
-        ) : null}
-        {error ? <ErrorMessage id={errorId}>{error}</ErrorMessage> : null}
-      </div>
-    );
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  {
+    id,
+    label,
+    type = "text",
+    hint,
+    error,
+    required,
+    className,
+    wrapperClassName,
+    labelClassName,
+    ...props
   },
-);
+  ref,
+) {
+  const inputId = id ?? props.name;
+  const hintId = hint && inputId ? `${inputId}-hint` : undefined;
+  const errorId = error && inputId ? `${inputId}-error` : undefined;
+
+  return (
+    <div className={cn("w-full", wrapperClassName)}>
+      <label
+        htmlFor={inputId}
+        className={cn("mb-1.5 block text-sm font-medium text-slate-800", labelClassName)}
+      >
+        {label}
+        {required ? (
+          <span className="ml-0.5 text-red-600" aria-hidden="true">
+            *
+          </span>
+        ) : null}
+        {required ? <span className="sr-only"> (required)</span> : null}
+      </label>
+      <input
+        ref={ref}
+        id={inputId}
+        type={type}
+        required={required}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={[hintId, errorId].filter(Boolean).join(" ") || undefined}
+        className={cn(inputClassName(Boolean(error)), className)}
+        {...props}
+      />
+      {hint ? (
+        <p id={hintId} className="mt-1.5 text-sm text-slate-500">
+          {hint}
+        </p>
+      ) : null}
+      {error ? <ErrorMessage id={errorId}>{error}</ErrorMessage> : null}
+    </div>
+  );
+});

@@ -36,19 +36,19 @@ Open [http://localhost:3000](http://localhost:3000) (redirects to `/en`).
 
 ## Scripts
 
-| Command                | Description                                                       |
-| ---------------------- | ----------------------------------------------------------------- |
-| `npm run dev`          | Development server                                                |
-| `npm run build`        | Production build                                                  |
-| `npm run start`        | Serve production build                                            |
-| `npm run lint`         | ESLint                                                            |
-| `npm run typecheck`    | TypeScript check                                                  |
-| `npm run format`       | Prettier write                                                    |
-| `npm run test`         | Vitest unit tests                                                 |
-| `npm run test:e2e`     | Playwright e2e                                                    |
-| `npm run qa`           | format check + lint + typecheck + unit tests + build              |
-| `npm run smoke`        | Production smoke against BASE_URL (default http://127.0.0.1:3000) |
-| `npm run audit:routes` | Crawl public routes against BASE_URL                              |
+| Command                   | Description                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| `npm run dev`             | Development server                                                                       |
+| `npm run build`           | Production build                                                                         |
+| `npm run start`           | Serve production build                                                                   |
+| `npm run lint`            | ESLint                                                                                   |
+| `npm run typecheck`       | TypeScript check                                                                         |
+| `npm run format`          | Prettier write                                                                           |
+| `npm run test`            | Vitest unit tests                                                                        |
+| `npm run test:e2e`        | Playwright e2e                                                                           |
+| `npm run qa`              | format check + lint + typecheck + unit tests + build                                     |
+| `npm run smoke`           | Production smoke against BASE_URL (default http://127.0.0.1:3000)                        |
+| `npm run audit:routes`    | Crawl public routes against BASE_URL                                                     |
 | `npm run verify:seo-i18n` | SEO/i18n/OG/SSR checks against BASE_URL (hreflang, Spanish unit labels, sitemap, OG PNG) |
 
 Point `verify:seo-i18n` at a production build (`npm run build && npm run start`) or the live site:
