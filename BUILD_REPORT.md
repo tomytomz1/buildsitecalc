@@ -11,19 +11,19 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 ## Decisions & commercial defaults
 
-| Topic | Default | Location |
-|-------|---------|----------|
-| Domain | `https://buildsitecalc.com` | `src/config/site.ts` |
-| Contact | `hello@buildsitecalc.com` | `src/config/site.ts` |
-| Default locale | `/en` (root redirects) | middleware + `siteConfig` |
-| Currency display | USD / `en-US` formatting | utils + currency inputs |
-| Concrete bag volumes | 40/60/80 lb → 0.30 / 0.45 / 0.60 ft³ | `units.ts` |
-| Paint coverage | 350 ft²/gal default | paint calculator |
-| Gravel densities | loose 1520 / compacted 1760 / crushed 1600 kg/m³ (disclosed) | `units.ts` + gravel calc |
-| Stair guidance | Informational; IRC/code disclaimer in meta | stair calculator |
-| HVAC BTU | Rule-of-thumb only; **not Manual J** | hvac-btu calculator |
-| Ads / affiliates / GA | Off until env IDs set | `.env.example`, `siteConfig` |
-| Social profiles | Empty strings until provided | `siteConfig.social` |
+| Topic                 | Default                                                      | Location                     |
+| --------------------- | ------------------------------------------------------------ | ---------------------------- |
+| Domain                | `https://buildsitecalc.com`                                  | `src/config/site.ts`         |
+| Contact               | `hello@buildsitecalc.com`                                    | `src/config/site.ts`         |
+| Default locale        | `/en` (root redirects)                                       | middleware + `siteConfig`    |
+| Currency display      | USD / `en-US` formatting                                     | utils + currency inputs      |
+| Concrete bag volumes  | 40/60/80 lb → 0.30 / 0.45 / 0.60 ft³                         | `units.ts`                   |
+| Paint coverage        | 350 ft²/gal default                                          | paint calculator             |
+| Gravel densities      | loose 1520 / compacted 1760 / crushed 1600 kg/m³ (disclosed) | `units.ts` + gravel calc     |
+| Stair guidance        | Informational; IRC/code disclaimer in meta                   | stair calculator             |
+| HVAC BTU              | Rule-of-thumb only; **not Manual J**                         | hvac-btu calculator          |
+| Ads / affiliates / GA | Off until env IDs set                                        | `.env.example`, `siteConfig` |
+| Social profiles       | Empty strings until provided                                 | `siteConfig.social`          |
 
 ## Architecture
 
@@ -36,45 +36,74 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 ## Calculators completed (25)
 
-1. Concrete slab  
-2. Concrete bags  
-3. Paint  
-4. Flooring  
-5. Tile  
-6. Drywall  
-7. Roofing shingle  
-8. Mulch  
-9. Gravel  
-10. Topsoil  
-11. Fence material  
-12. Deck board  
-13. Stair  
-14. Wallpaper  
-15. Insulation  
-16. HVAC BTU  
-17. Moving truck size  
-18. Dumpster size  
-19. Project waste factor  
-20. Board foot  
-21. Square footage  
-22. Room volume  
-23. Labor markup  
-24. Material cost  
-25. Project budget  
+1. Concrete slab
+2. Concrete bags
+3. Paint
+4. Flooring
+5. Tile
+6. Drywall
+7. Roofing shingle
+8. Mulch
+9. Gravel
+10. Topsoil
+11. Fence material
+12. Deck board
+13. Stair
+14. Wallpaper
+15. Insulation
+16. HVAC BTU
+17. Moving truck size
+18. Dumpster size
+19. Project waste factor
+20. Board foot
+21. Square footage
+22. Room volume
+23. Labor markup
+24. Material cost
+25. Project budget
 
-## QA results (2026-07-29 final)
+## SEO / i18n / OG / SSR release (2026-07-29)
 
-| Check | Command | Result |
-|-------|---------|--------|
-| Unit tests | `npm run test` / `npx vitest run` | **118/118 passed** |
-| E2E | `npx playwright test` | **25/25 passed** (production server; see E2E stability commit) |
-| Typecheck | `npm run typecheck` | Pass |
-| ESLint errors | `npx eslint src --quiet` | Pass (0 errors) |
-| Production build | `npm run build` | Pass — **99** static pages generated |
-| Route crawl | `node scripts/route-crawl.cjs` | **97/97 OK** |
-| Production smoke | `npm run smoke` / `scripts/production-smoke.cjs` | **34/34** |
-| Dependency audit | `npm audit --omit=dev` | **0** prod vulns (safe overrides; see `docs/dependency-audit.md`) |
-| Middleware note | Next.js 16 deprecates `middleware` → `proxy` | Documented; still functional |
+| Commit    | Message                                                  |
+| --------- | -------------------------------------------------------- |
+| `d50f8ff` | Fix SEO metadata, bilingual routing, and social previews |
+| `b49c9da` | Render calculator default results during SSR             |
+| `614f253` | Normalize repository formatting with Prettier            |
+
+**Spanish unit labels:** `UnitSelect` takes `locale`; EN/ES visible labels (e.g. Feet → Pies); forms pass `locale={locale}`; `verify:seo-i18n` scans Spanish calculator pages for English unit phrases.
+
+**SSR defaults:** Calculator pages server-compute default results into HTML; client hydrates with `initialResult`; URL query overrides apply synchronously after mount.
+
+**Verify script:** `npm run verify:seo-i18n` (`scripts/verify-seo-i18n.cjs`, `BASE_URL`).
+
+### Post-release local QA
+
+| Check            | Command                     | Result                                                            |
+| ---------------- | --------------------------- | ----------------------------------------------------------------- |
+| Format           | `npm run format:check`      | Pass                                                              |
+| Lint             | `npm run lint`              | Pass                                                              |
+| Typecheck        | `npm run typecheck`         | Pass                                                              |
+| Unit tests       | `npm run test`              | **128/128 passed**                                                |
+| Production build | `npm run build`             | Pass                                                              |
+| SEO/i18n verify  | local `BASE_URL` prod start | **31/31 passed**                                                  |
+| Prod audit       | `npm audit --omit=dev`      | **0** vulnerabilities                                             |
+| E2E              | `npm run test:e2e`          | Prior suite green; SEO specs updated for `en-US`/`es-ES` hreflang |
+
+Production smoke + `verify:seo-i18n` against https://buildsitecalc.com run after push (do not claim Vercel deploy until verified).
+
+## QA results (2026-07-29 earlier final)
+
+| Check            | Command                                          | Result                                                            |
+| ---------------- | ------------------------------------------------ | ----------------------------------------------------------------- |
+| Unit tests       | `npm run test` / `npx vitest run`                | **118/118 passed** (pre-SSR-suite; now **128**)                   |
+| E2E              | `npx playwright test`                            | **25/25 passed** (production server; see E2E stability commit)    |
+| Typecheck        | `npm run typecheck`                              | Pass                                                              |
+| ESLint errors    | `npx eslint src --quiet`                         | Pass (0 errors)                                                   |
+| Production build | `npm run build`                                  | Pass — **99** static pages generated                              |
+| Route crawl      | `node scripts/route-crawl.cjs`                   | **97/97 OK**                                                      |
+| Production smoke | `npm run smoke` / `scripts/production-smoke.cjs` | **34/34**                                                         |
+| Dependency audit | `npm audit --omit=dev`                           | **0** prod vulns (safe overrides; see `docs/dependency-audit.md`) |
+| Middleware note  | Next.js 16 deprecates `middleware` → `proxy`     | Documented; still functional                                      |
 
 ### Known lint warnings (non-blocking)
 
@@ -93,20 +122,19 @@ BASE_URL=http://127.0.0.1:3000 npm run smoke
 
 ## Sitemap & SEO sanity
 
-- `/sitemap.xml` — locales × home, calculators, categories, static pages, 25 tools  
-- `/robots.txt` — allow all, sitemap pointer  
-- `/ads.txt` — placeholder publisher until `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` set  
-- Canonical + `hreflang` en / es / x-default via `buildPageMetadata`  
+- `/sitemap.xml` — locales × home, calculators, categories index + slugs, static pages, 25 tools; xhtml:link alternates
+- `/robots.txt` — allow all, sitemap pointer; **no** `Host` directive
+- `/ads.txt` — placeholder publisher until `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` set
+- Canonical + `hreflang` **en-US** / **es-ES** / x-default via `buildPageMetadata` (localized calculator/category slugs)
+- Dynamic OG images: `/api/og?title=…&locale=…`
 - JSON-LD: WebSite, Organization, WebApplication, BreadcrumbList, FAQPage, ItemList (no fake Review schema)
 
 ## Git status
 
 - Repository: https://github.com/tomytomz1/buildsitecalc
-- Branch: `master` (tracking `origin/master`; local ahead until push)
-- Remote: `origin` configured (`https://github.com/tomytomz1/buildsitecalc.git`)
-- E2E stability commit: `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` — Stabilize Playwright E2E against production build
-- Documentation: this BUILD_REPORT / LAUNCH_AUDIT sync committed as `Update final launch documentation`
-- Git status at write time: local `master` ahead of `origin/master` (push pending after GitHub auth)
+- Branch: `master`
+- SEO/i18n: `d50f8ff` · SSR: `b49c9da` · Prettier: `614f253`
+- Docs commit: `Update launch docs for SEO i18n SSR release` (this file)
 
 ```bash
 git push origin master
@@ -116,40 +144,40 @@ Do not force-push. Do not rewrite shared history.
 
 ## External items the operator must provide
 
-1. Real production domain + DNS  
-2. `contactEmail` confirmation / inbox  
-3. Social profile URLs (optional)  
-4. Google Analytics / GTM IDs (optional)  
-5. AdSense client + publisher IDs after approval  
-6. Legal review of Privacy / Terms / Cookies for target jurisdictions  
+1. Real production domain + DNS
+2. `contactEmail` confirmation / inbox
+3. Social profile URLs (optional)
+4. Google Analytics / GTM IDs (optional)
+5. AdSense client + publisher IDs after approval
+6. Legal review of Privacy / Terms / Cookies for target jurisdictions
 7. Professional verification of construction formulas for regulated work (stairs, HVAC, structural)
 
 ## Remaining deployment steps
 
-1. Fix GitHub credentials and `git push origin master` (no force-push; local master is ahead)  
-2. Import repo in Vercel (dashboard — no CLI required)  
-3. Set env vars from `.env.example`  
-4. Confirm `siteConfig.domain` is `https://buildsitecalc.com`  
-5. Deploy production and attach DNS/SSL  
-6. Verify `/en`, `/es`, `/sitemap.xml`, `/robots.txt`, `/ads.txt`  
-7. Submit sitemap in Google Search Console + Bing Webmaster  
-8. Enable ads only after AdSense approval + consent UX review  
+1. Fix GitHub credentials and `git push origin master` (no force-push; local master is ahead)
+2. Import repo in Vercel (dashboard — no CLI required)
+3. Set env vars from `.env.example`
+4. Confirm `siteConfig.domain` is `https://buildsitecalc.com`
+5. Deploy production and attach DNS/SSL
+6. Verify `/en`, `/es`, `/sitemap.xml`, `/robots.txt`, `/ads.txt`
+7. Submit sitemap in Google Search Console + Bing Webmaster
+8. Enable ads only after AdSense approval + consent UX review
 
 ## Real limitations (professional verification required)
 
-- **Stairs:** Not a building-code compliance tool; local IRC/amendments vary.  
-- **HVAC BTU:** Not ACCA Manual J; hire an HVAC professional for equipment sizing.  
-- **Concrete / structural:** Mix design, reinforcement, soil, and frost depth require engineer/contractor judgment.  
-- **Roofing:** Pitch, valleys, waste, and underlayment vary by product and climate.  
-- **Gravel/soil tonnage:** Densities are typical bulk averages; supplier tickets control.  
-- **Costs:** Material and labor prices are user-entered estimates, not live market data.  
-- **Accessibility:** Aimed at WCAG 2.2 AA; run axe/Lighthouse on staging before launch claims.  
-- **Ads CSP:** Headers are CSP-*compatible* for future AdSense; a strict CSP may need allowlists when ads go live.
+- **Stairs:** Not a building-code compliance tool; local IRC/amendments vary.
+- **HVAC BTU:** Not ACCA Manual J; hire an HVAC professional for equipment sizing.
+- **Concrete / structural:** Mix design, reinforcement, soil, and frost depth require engineer/contractor judgment.
+- **Roofing:** Pitch, valleys, waste, and underlayment vary by product and climate.
+- **Gravel/soil tonnage:** Densities are typical bulk averages; supplier tickets control.
+- **Costs:** Material and labor prices are user-entered estimates, not live market data.
+- **Accessibility:** Aimed at WCAG 2.2 AA; run axe/Lighthouse on staging before launch claims.
+- **Ads CSP:** Headers are CSP-_compatible_ for future AdSense; a strict CSP may need allowlists when ads go live.
 
 ## File map (key)
 
-- `src/config/site.ts` — brand hub  
-- `src/lib/calculators/` — engines + registry  
-- `src/lib/i18n/` — EN/ES content  
-- `src/app/[locale]/` — all pages  
-- `BUILD_REPORT.md` / `README.md` / `.env.example`  
+- `src/config/site.ts` — brand hub
+- `src/lib/calculators/` — engines + registry
+- `src/lib/i18n/` — EN/ES content
+- `src/app/[locale]/` — all pages
+- `BUILD_REPORT.md` / `README.md` / `.env.example`

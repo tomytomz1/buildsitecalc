@@ -1,7 +1,7 @@
 # Launch Audit — BuildSiteCalc
 
-**Date:** 2026-07-29 (final pre-deployment remediation + independent re-verification + E2E stabilization)
-**Auditor:** Independent launch audit + remediation pass + clean re-verification
+**Date:** 2026-07-29 (SEO/i18n/OG/SSR release + prior launch remediation)
+**Auditor:** Independent launch audit + remediation pass + SEO/i18n/SSR release
 **Repo:** https://github.com/tomytomz1/buildsitecalc
 **Local project path:** `C:\Users\Tomas\Desktop\buildsitecalc\buildsitecalc`
 **Production domain:** https://buildsitecalc.com
@@ -10,37 +10,50 @@
 
 ## Launch recommendation: GO
 
-Technical repository readiness is green. Ship to Vercel when DNS/domain attachment and any attorney review of legal pages are ready. Remaining work is operational/human — not product blockers in this repo.
+Technical repository readiness is green, including SEO/i18n/OG/SSR work below. Ship/redeploy on Vercel after push; confirm production with smoke + `verify:seo-i18n`. Remaining work is operational/human — not product blockers in this repo.
+
+## SEO / i18n / SSR release commits
+
+| Hash      | Message                                                  |
+| --------- | -------------------------------------------------------- |
+| `d50f8ff` | Fix SEO metadata, bilingual routing, and social previews |
+| `b49c9da` | Render calculator default results during SSR             |
+| `614f253` | Normalize repository formatting with Prettier            |
+
+- **Spanish unit labels:** localized `UnitSelect` labels; forms wire `locale`; verify script flags English unit phrases on ES pages.
+- **SSR:** default calculator results in initial HTML; crawlers see numbers (e.g. concrete-slab ~1.36 yd³).
+- **Local gates:** format/lint/typecheck pass; **128** unit tests; build pass; local `verify:seo-i18n` **31/31**; `npm audit --omit=dev` = 0.
+- **Production:** after `git push origin master`, run `BASE_URL=https://buildsitecalc.com npm run smoke` and `npm run verify:seo-i18n`. Do not claim Vercel deployed until those pass.
 
 ### Readiness by lane
 
-| Lane | Status | Notes |
-|------|--------|-------|
+| Lane                         | Status | Notes                                                                                                                                                                                |
+| ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Technical repo readiness** | **GO** | Lint, typecheck, 118 unit tests, 25/25 e2e (production server), production build (99 static pages), route crawl 97/97, production smoke 34/34, prod `npm audit --omit=dev` = 0 vulns |
-| **Vercel / DNS** | Human | Import repo, attach buildsitecalc.com, wait for SSL — see VERCEL_DEPLOYMENT.md |
-| **Legal review** | Human | Privacy / Terms / Cookies / Disclaimer attorney review for target jurisdictions |
-| **AdSense** | Human | Keep ads off until approval; set publisher ID then enable |
-| **Analytics** | Human | Optional GA/GTM IDs after consent copy is accepted |
+| **Vercel / DNS**             | Human  | Import repo, attach buildsitecalc.com, wait for SSL — see VERCEL_DEPLOYMENT.md                                                                                                       |
+| **Legal review**             | Human  | Privacy / Terms / Cookies / Disclaimer attorney review for target jurisdictions                                                                                                      |
+| **AdSense**                  | Human  | Keep ads off until approval; set publisher ID then enable                                                                                                                            |
+| **Analytics**                | Human  | Optional GA/GTM IDs after consent copy is accepted                                                                                                                                   |
 
-**Human blocker (git):** Local `master` is **ahead of `origin/master`** with unpushed commits (E2E stability `cd585cf` plus this documentation sync). Push failed earlier with GitHub HTTPS auth rejection (`Invalid username or token`). Human must re-auth and run `git push origin master` (no force-push). Earlier remediation commit `cea01d5` was pushed successfully.
+**Git:** Local `master` includes SEO/SSR/Prettier commits above plus this docs sync; push with `git push origin master` (no force-push).
 
 ## Executive results
 
-| Gate | Result |
-|------|--------|
-| Brand (BuildSiteCalc, domain, email) | Verified |
-| npm ci / lockfile sync | Pass |
-| Lint | Pass (0 errors) |
-| Typecheck | Pass |
-| Unit tests | **118 passed** |
-| E2E | **25/25 passed** (after production-server stabilization; see below) |
-| Production build | Pass — Next reports **99** static page generations |
-| Route crawl | **97/97 OK** |
-| Production smoke (`scripts/production-smoke.cjs`) | **34/34** against local production build (port **3001** when 3000 busy) |
-| Prod dependency audit (`npm audit --omit=dev`) | **0 vulnerabilities** |
-| Dev-only audit highs | brace-expansion via ESLint — non-blocking; see `docs/dependency-audit.md` |
-| Ads without IDs | Inactive; ads.txt has no fake publisher line |
-| Analytics without IDs | Inactive |
+| Gate                                              | Result                                                                    |
+| ------------------------------------------------- | ------------------------------------------------------------------------- |
+| Brand (BuildSiteCalc, domain, email)              | Verified                                                                  |
+| npm ci / lockfile sync                            | Pass                                                                      |
+| Lint                                              | Pass (0 errors)                                                           |
+| Typecheck                                         | Pass                                                                      |
+| Unit tests                                        | **118 passed**                                                            |
+| E2E                                               | **25/25 passed** (after production-server stabilization; see below)       |
+| Production build                                  | Pass — Next reports **99** static page generations                        |
+| Route crawl                                       | **97/97 OK**                                                              |
+| Production smoke (`scripts/production-smoke.cjs`) | **34/34** against local production build (port **3001** when 3000 busy)   |
+| Prod dependency audit (`npm audit --omit=dev`)    | **0 vulnerabilities**                                                     |
+| Dev-only audit highs                              | brace-expansion via ESLint — non-blocking; see `docs/dependency-audit.md` |
+| Ads without IDs                                   | Inactive; ads.txt has no fake publisher line                              |
+| Analytics without IDs                             | Inactive                                                                  |
 
 ## Remediations completed (original pass — `cea01d5`)
 
@@ -65,14 +78,14 @@ Includes prerendered SSG/static shells reported by next build (locale SSG pages,
 
 Operational health checklist in `scripts/route-crawl.cjs`:
 
-| Slice | Count |
-|-------|------:|
-| Root redirect `/` | 1 |
-| Infra: `/robots.txt`, `/sitemap.xml`, `/ads.txt` | 3 |
-| Intentional 404 probe | 1 |
-| EN public pages (home + calc directory + 9 static + 10 categories + 25 calculators) | 46 |
-| ES public pages (parity) | 46 |
-| **Total** | **97** |
+| Slice                                                                               |  Count |
+| ----------------------------------------------------------------------------------- | -----: |
+| Root redirect `/`                                                                   |      1 |
+| Infra: `/robots.txt`, `/sitemap.xml`, `/ads.txt`                                    |      3 |
+| Intentional 404 probe                                                               |      1 |
+| EN public pages (home + calc directory + 9 static + 10 categories + 25 calculators) |     46 |
+| ES public pages (parity)                                                            |     46 |
+| **Total**                                                                           | **97** |
 
 ### Exact 2-page content explanation
 
@@ -89,18 +102,18 @@ Headline **99 vs 97** is therefore not a missing-content bug; it is build invent
 
 Clean re-run after remediation. Results:
 
-| Step | Result |
-|------|--------|
-| `npm ci` | **PASS** |
-| Lint | **PASS** |
-| Typecheck | **PASS** |
-| Unit tests | **118/118** |
-| Initial E2E | **FAIL** — Playwright Chromium missing after `npm ci` |
-| E2E after `npx playwright install` | **23/25** flaky under `next dev` |
-| Production build | **PASS** — **99** static pages |
-| Route crawl | **97/97** |
-| Production smoke | **34/34** (used port **3001** when 3000 busy) |
-| `npm audit --omit=dev` | **0 vulnerabilities** |
+| Step                               | Result                                                |
+| ---------------------------------- | ----------------------------------------------------- |
+| `npm ci`                           | **PASS**                                              |
+| Lint                               | **PASS**                                              |
+| Typecheck                          | **PASS**                                              |
+| Unit tests                         | **118/118**                                           |
+| Initial E2E                        | **FAIL** — Playwright Chromium missing after `npm ci` |
+| E2E after `npx playwright install` | **23/25** flaky under `next dev`                      |
+| Production build                   | **PASS** — **99** static pages                        |
+| Route crawl                        | **97/97**                                             |
+| Production smoke                   | **34/34** (used port **3001** when 3000 busy)         |
+| `npm audit --omit=dev`             | **0 vulnerabilities**                                 |
 
 ### E2E flake root cause (not selectors)
 
@@ -108,11 +121,11 @@ Remaining failures under `next dev` were caused by **parallel Playwright workers
 
 ### E2E stability fix
 
-| Field | Value |
-|-------|--------|
-| Commit | `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` (short `cd585cf`) |
-| Message | Stabilize Playwright E2E against production build |
-| Files | `playwright.config.ts`, `next.config.ts`, `e2e/helpers.ts` |
+| Field   | Value                                                        |
+| ------- | ------------------------------------------------------------ |
+| Commit  | `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` (short `cd585cf`) |
+| Message | Stabilize Playwright E2E against production build            |
+| Files   | `playwright.config.ts`, `next.config.ts`, `e2e/helpers.ts`   |
 
 Changes:
 
@@ -124,31 +137,22 @@ Review confirmed: **no weakened assertions, skips, or error suppression**; **no 
 
 **After fix: E2E 25/25.**
 
-### Push status (local ahead of origin)
+### Push / deploy status
 
-**Push pending.** GitHub HTTPS auth previously rejected (`Invalid username or token`). Local branch `master` is **ahead of `origin/master`** with:
-
-| Commit | Message |
-|--------|---------|
-| `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` | Stabilize Playwright E2E against production build |
-| (docs sync) | Update final launch documentation |
-
-Human must re-authenticate and run:
+Push SEO/SSR/Prettier + docs commits with `git push origin master` (no force-push). Confirm Vercel auto-deploy, then:
 
 ```bash
-git push origin master
+BASE_URL=https://buildsitecalc.com npm run smoke
+BASE_URL=https://buildsitecalc.com npm run verify:seo-i18n
 ```
-
-Do **not** force-push. Remediation commit `cea01d5` was already pushed successfully to origin.
 
 ## Remaining human next actions (ordered)
 
-1. **Fix GitHub credentials and push** — `git push origin master` (no force-push). Local `master` is ahead with E2E stability (`cd585cf`) and documentation sync commits.
-2. **Vercel import + DNS** for buildsitecalc.com (see VERCEL_DEPLOYMENT.md). Do not invent DNS values.
+1. **Push** — `git push origin master` (no force-push) if not already done.
+2. **Confirm Vercel deploy** for buildsitecalc.com; run production smoke + `verify:seo-i18n`.
 3. **Attorney review** of Privacy / Terms / Cookies / Disclaimer.
-4. **After DNS:** `BASE_URL=https://buildsitecalc.com npm run smoke`.
-5. **Enable GA/GTM/AdSense only after** consent copy + approvals.
-6. **Optional:** fill real social profile URLs in `siteConfig.social` (empty is safe).
+4. **Enable GA/GTM/AdSense only after** consent copy + approvals.
+5. **Optional:** fill real social profile URLs in `siteConfig.social` (empty is safe).
 
 ## Notes for downstream instruction models
 
@@ -157,11 +161,10 @@ Do **not** force-push. Remediation commit `cea01d5` was already pushed successfu
 - **Domain:** https://buildsitecalc.com
 - **Brand:** BuildSiteCalc
 - **Dependency audit path:** `docs/dependency-audit.md` (**not** `audit/dependency-audit.md`)
-- **E2E stability commit:** `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` — Stabilize Playwright E2E against production build
-- **Documentation sync:** committed as `Update final launch documentation` (included on local master ahead of origin)
-- **Remote sync:** local `master` ahead of `origin/master` — push pending after GitHub auth is fixed
-- **BUILD_REPORT.md** and this audit are aligned on GO status, QA counts (118/118, 25/25, 34/34, 97/97, 99 pages, 0 prod vulns), repo URL, and push-pending git state
+- **SEO/i18n:** `d50f8ff` · **SSR:** `b49c9da` · **Prettier:** `614f253`
+- **Unit tests now:** 128 (includes unit-select locale + SSR default results)
+- **BUILD_REPORT.md** and this audit aligned on GO + SEO/SSR release status
 
 ## Recommendation rationale
 
-**GO** on technical repo readiness. Do not keep CONDITIONAL GO merely because DNS/deploy need humans — those are external attach steps, not unresolved product defects. The only immediate engineering follow-up for humans is pushing local commits (`cd585cf` + documentation sync) after fixing GitHub credentials.
+**GO** on technical repo readiness. After push, verify production with smoke + `verify:seo-i18n` before claiming the Vercel deploy is live with this release.
