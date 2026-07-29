@@ -2,6 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Run `npx playwright install chromium` if browsers are not installed yet.
+ *
+ * E2e uses a production server (`build && start`) instead of `next dev`.
+ * Turbopack under parallel workers can race on JSON manifests and surface
+ * "Unexpected end of JSON input", which replaces calculator pages with the
+ * Next.js error overlay and makes the Calculate button never appear.
  */
 export default defineConfig({
   testDir: "./e2e",
@@ -22,9 +27,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run dev",
+    command: "npm run build && npm run start",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
+    timeout: 300_000,
   },
 });

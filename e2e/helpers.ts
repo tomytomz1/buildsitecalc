@@ -3,7 +3,9 @@ import { expect } from "@playwright/test";
 
 /** Wait for calculator client hydration. */
 export async function waitForCalculatorReady(page: Page): Promise<void> {
-  await expect(page.getByRole("button", { name: /^Calculate$|^Calcular$/ })).toBeEnabled();
+  await expect(page.getByRole("button", { name: /^Calculate$|^Calcular$/ })).toBeEnabled({
+    timeout: 15_000,
+  });
   await page.evaluate(
     () =>
       new Promise<void>((resolve) => {
