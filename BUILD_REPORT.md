@@ -1,12 +1,13 @@
 # BuildSiteCalc — Build Report
 
-**Date:** 2026-07-28  
+**Date:** 2026-07-29  
 **Working brand:** BuildSiteCalc  
 **Stack:** Next.js 16 App Router, TypeScript strict, Tailwind CSS 4, Vitest, Playwright  
+**Launch recommendation:** **GO** (technical repo readiness)
 
 ## Executive summary
 
-Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fully functional client-side calculators**, shared unit/waste/markup engines, SEO (sitemap, robots, hreflang, structured data), policy pages, ad/analytics hooks (inactive by default), and passing unit + e2e suites.
+Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fully functional client-side calculators**, shared unit/waste/markup engines, SEO (sitemap, robots, hreflang, structured data), policy pages, ad/analytics hooks (inactive by default), and passing unit + e2e + smoke/crawl suites.
 
 ## Decisions & commercial defaults
 
@@ -61,16 +62,18 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 24. Material cost  
 25. Project budget  
 
-## QA results (2026-07-28)
+## QA results (2026-07-29 final)
 
 | Check | Command | Result |
 |-------|---------|--------|
-| Unit tests | `npm run test` / `npx vitest run` | **118 passed** |
-| E2E | `npx playwright test` | **25 passed** |
+| Unit tests | `npm run test` / `npx vitest run` | **118/118 passed** |
+| E2E | `npx playwright test` | **25/25 passed** (production server; see E2E stability commit) |
 | Typecheck | `npm run typecheck` | Pass |
 | ESLint errors | `npx eslint src --quiet` | Pass (0 errors) |
-| Production build | `npm run build` | Pass — **99** static routes generated |
-| Dependency audit | `npm audit --omit=dev` | **0** prod vulns (safe overrides; see docs/dependency-audit.md) |
+| Production build | `npm run build` | Pass — **99** static pages generated |
+| Route crawl | `node scripts/route-crawl.cjs` | **97/97 OK** |
+| Production smoke | `npm run smoke` / `scripts/production-smoke.cjs` | **34/34** |
+| Dependency audit | `npm audit --omit=dev` | **0** prod vulns (safe overrides; see `docs/dependency-audit.md`) |
 | Middleware note | Next.js 16 deprecates `middleware` → `proxy` | Documented; still functional |
 
 ### Known lint warnings (non-blocking)
@@ -82,11 +85,12 @@ Production-ready bilingual (EN/ES) home-improvement calculator site with **25 fu
 
 ## Production smoke
 
-\ash
+```bash
 npm run build && npm run start
 BASE_URL=http://127.0.0.1:3000 npm run smoke
 # Later: BASE_URL=https://buildsitecalc.com npm run smoke
-\\n
+```
+
 ## Sitemap & SEO sanity
 
 - `/sitemap.xml` — locales × home, calculators, categories, static pages, 25 tools  
@@ -97,16 +101,19 @@ BASE_URL=http://127.0.0.1:3000 npm run smoke
 
 ## Git status
 
-- Branch: `master`
-- Commit: `07a59b1` — `feat: launch BuildSiteCalc bilingual calculator site`
-- **No remote configured** — push when ready:
+- Repository: https://github.com/tomytomz1/buildsitecalc
+- Branch: `master` (tracking `origin/master`; local ahead until push)
+- Remote: `origin` configured (`https://github.com/tomytomz1/buildsitecalc.git`)
+- E2E stability commit: `cd585cf08e107a07031a384c1f7f4fc7544f6e6a` — Stabilize Playwright E2E against production build
+- Documentation: this BUILD_REPORT / LAUNCH_AUDIT sync committed as `Update final launch documentation`
+- Git status at write time: local `master` ahead of `origin/master` (push pending after GitHub auth)
 
 ```bash
-git remote add origin <your-repo-url>
-git push -u origin master
+git push origin master
 ```
 
 Do not force-push. Do not rewrite shared history.
+
 ## External items the operator must provide
 
 1. Real production domain + DNS  
@@ -119,11 +126,11 @@ Do not force-push. Do not rewrite shared history.
 
 ## Remaining deployment steps
 
-1. `git remote add origin <url>` if needed; `git push -u origin main` (or `master`)  
+1. Fix GitHub credentials and `git push origin master` (no force-push; local master is ahead)  
 2. Import repo in Vercel (dashboard — no CLI required)  
 3. Set env vars from `.env.example`  
-4. Update `siteConfig.domain` to the live URL  
-5. Deploy production  
+4. Confirm `siteConfig.domain` is `https://buildsitecalc.com`  
+5. Deploy production and attach DNS/SSL  
 6. Verify `/en`, `/es`, `/sitemap.xml`, `/robots.txt`, `/ads.txt`  
 7. Submit sitemap in Google Search Console + Bing Webmaster  
 8. Enable ads only after AdSense approval + consent UX review  
