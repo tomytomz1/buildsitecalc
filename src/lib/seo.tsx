@@ -24,6 +24,13 @@ function normalizePaths(
   };
 }
 
+/** Strips a trailing "| BuildSiteCalc" so the OG card doesn't show the brand
+ *  twice — the card already draws the wordmark. */
+function stripBrandSuffix(value: string): string {
+  const suffix = ` | ${siteConfig.brand.name}`;
+  return value.endsWith(suffix) ? value.slice(0, -suffix.length) : value;
+}
+
 export function buildAlternates(
   locale: Locale,
   pathWithoutLocale: string,
@@ -66,8 +73,9 @@ export function buildPageMetadata(options: {
   const localePath = paths[locale];
   const path = localePath ? `/${locale}/${localePath}` : `/${locale}`;
   const url = absoluteUrl(path);
+  const ogTitle = stripBrandSuffix(title);
   const ogImage = absoluteUrl(
-    `/api/og?title=${encodeURIComponent(title)}&locale=${locale}`,
+    `/api/og?title=${encodeURIComponent(ogTitle)}&locale=${locale}`,
   );
 
   return {
@@ -84,7 +92,7 @@ export function buildPageMetadata(options: {
       locale: locale === "es" ? "es_ES" : "en_US",
       alternateLocale: locale === "es" ? ["en_US"] : ["es_ES"],
       type: ogType,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }],
     },
     twitter: {
       card: "summary_large_image",
