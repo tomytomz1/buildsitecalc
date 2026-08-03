@@ -95,12 +95,16 @@ export function serializeInputValue(value: unknown): string | undefined {
   return undefined;
 }
 
-export function syncInputsToUrl<T extends Record<string, unknown>>(
+/**
+ * The query string that reproduces `inputs`, with no leading `?`.
+ *
+ * Shared by the URL sync and by saved estimates, so a saved estimate and a
+ * shared link always encode inputs identically.
+ */
+export function buildInputsQuery<T extends Record<string, unknown>>(
   inputs: T,
   defaults: T,
-): void {
-  if (typeof window === "undefined") return;
-
+): string {
   const params = new URLSearchParams();
 
   for (const key of Object.keys(defaults)) {
@@ -111,7 +115,16 @@ export function syncInputsToUrl<T extends Record<string, unknown>>(
     }
   }
 
-  const query = params.toString();
+  return params.toString();
+}
+
+export function syncInputsToUrl<T extends Record<string, unknown>>(
+  inputs: T,
+  defaults: T,
+): void {
+  if (typeof window === "undefined") return;
+
+  const query = buildInputsQuery(inputs, defaults);
   const nextUrl = query
     ? `${window.location.pathname}?${query}`
     : window.location.pathname;

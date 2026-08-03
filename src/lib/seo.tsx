@@ -41,9 +41,13 @@ export function buildAlternates(
   const esPath = paths.es ? `/es/${paths.es}` : "/es";
   return {
     canonical: absoluteUrl(locale === "es" ? esPath : enPath),
+    // Language-only codes, not en-US/es-ES. Region-qualified hreflang only
+    // matches searchers in that region: `es-ES` would exclude the Latin
+    // American audience that makes up most of the Spanish traffic, and `en-US`
+    // would exclude Canada, the UK, Australia and South Africa.
     languages: {
-      "en-US": absoluteUrl(enPath),
-      "es-ES": absoluteUrl(esPath),
+      en: absoluteUrl(enPath),
+      es: absoluteUrl(esPath),
       "x-default": absoluteUrl(enPath),
     },
   };
@@ -179,6 +183,39 @@ export function webApplicationJsonLd(options: {
       price: "0",
       priceCurrency: "USD",
     },
+  };
+}
+
+/**
+ * HowTo markup for a project workflow.
+ *
+ * Each step is a `HowToStep` pointing at the calculator that performs it, so
+ * the ordered relationship between the hub and its tools is machine-readable
+ * and not only expressed through the link graph.
+ */
+export function howToJsonLd(options: {
+  name: string;
+  description: string;
+  url: string;
+  locale: Locale;
+  steps: { name: string; text: string; url: string }[];
+  dateModified?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: options.name,
+    description: options.description,
+    url: options.url,
+    inLanguage: options.locale,
+    ...(options.dateModified ? { dateModified: options.dateModified } : {}),
+    step: options.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: step.url,
+    })),
   };
 }
 

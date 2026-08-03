@@ -248,7 +248,7 @@ function findEnglishUnitLeaks(vis) {
       const href = getAttr(tag, "href");
       if (hl) hrefLangs[hl] = href;
     }
-    for (const key of ["en-US", "es-ES", "x-default"]) {
+    for (const key of ["en", "es", "x-default"]) {
       hrefLangs[key]
         ? pass("hreflang " + key, hrefLangs[key])
         : fail("hreflang " + key, "missing");

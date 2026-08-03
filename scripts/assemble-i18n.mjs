@@ -13,8 +13,10 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { enCalculators } from "./i18n-data/en-calculators.mjs";
 import { enPages } from "./i18n-data/en-pages.mjs";
+import { enWorkflows } from "./i18n-data/en-workflows.mjs";
 import { esCalculators } from "./i18n-data/es-calculators.mjs";
 import { esPages } from "./i18n-data/es-pages.mjs";
+import { esWorkflows } from "./i18n-data/es-workflows.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const i18nDir = join(__dirname, "..", "src", "lib", "i18n");
@@ -75,7 +77,20 @@ function replaceTopLevelObject(src, key, value) {
   return src.slice(0, start) + replacement + src.slice(end);
 }
 
-function assemble(locale, calculators, pages) {
+/** Writes a top-level key, inserting it before `anchorKey` when it does not exist yet. */
+function upsertTopLevelObject(src, key, value, anchorKey) {
+  if (new RegExp(`^  ${key}:\\s*\\{`, "m").test(src)) {
+    return replaceTopLevelObject(src, key, value);
+  }
+  const anchor = new RegExp(`^  ${anchorKey}:\\s*\\{`, "m").exec(src);
+  if (!anchor) {
+    throw new Error(`Could not find anchor key ${anchorKey} to insert ${key} before`);
+  }
+  const insertion = `  ${key}: ${indentJson(value, "  ")},\n`;
+  return src.slice(0, anchor.index) + insertion + src.slice(anchor.index);
+}
+
+function assemble(locale, calculators, pages, workflows) {
   let src = readFileSync(join(i18nDir, `${locale}.ts`), "utf8");
   if (src.includes("PLACEHOLDER_CALCULATORS")) {
     src = src.replace(
@@ -90,9 +105,10 @@ function assemble(locale, calculators, pages) {
     src = replaceTopLevelObject(src, "calculators", calculators);
     src = replaceTopLevelObject(src, "pages", pages);
   }
+  src = upsertTopLevelObject(src, "workflows", workflows, "footer");
   writeFileSync(join(i18nDir, `${locale}.ts`), src, "utf8");
   console.log(`Assembled ${locale}.ts`);
 }
 
-assemble("en", enCalculators, enPages);
-assemble("es", esCalculators, esPages);
+assemble("en", enCalculators, enPages, enWorkflows);
+assemble("es", esCalculators, esPages, esWorkflows);

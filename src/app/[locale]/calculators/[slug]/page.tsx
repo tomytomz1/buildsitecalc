@@ -6,20 +6,22 @@ import { AssumptionsList } from "@/components/calculator/AssumptionsList";
 import { Breadcrumbs } from "@/components/calculator/Breadcrumbs";
 import { CalculatorPageClient } from "@/components/calculator/CalculatorPageClient";
 import { CalculatorDataTables } from "@/components/calculator/CalculatorDataTables";
+import { CalculatorLinkGraph } from "@/components/calculator/CalculatorLinkGraph";
 import { CalculatorReferences } from "@/components/calculator/CalculatorReferences";
 import { CalculatorSections } from "@/components/calculator/CalculatorSections";
 import { RoomDiagram, SlabDiagram, StairDiagram } from "@/components/calculator/Diagrams";
 import { CommonMistakes } from "@/components/calculator/CommonMistakes";
+import { EmbedSnippet } from "@/components/calculator/EmbedSnippet";
 import { FaqAccordion } from "@/components/calculator/FaqAccordion";
 import { FormulaBlock } from "@/components/calculator/FormulaBlock";
-import { RelatedCalculators } from "@/components/calculator/RelatedCalculators";
+import { QuickAnswers } from "@/components/calculator/QuickAnswers";
 import { WorkedExample } from "@/components/calculator/WorkedExample";
+import { WorkflowsUsingCalculator } from "@/components/workflow/WorkflowsUsingCalculator";
 import { getDictionary } from "@/lib/i18n";
 import {
   getAllCalculators,
   getAllCategories,
   getCalculatorBySlug,
-  getRelatedCalculators,
 } from "@/lib/calculators/registry";
 import { getCalculatorEngine } from "@/lib/calculators/engine";
 import type { CalcSuccess } from "@/lib/calculators/types";
@@ -35,7 +37,7 @@ import {
   JsonLd,
   webApplicationJsonLd,
 } from "@/lib/seo";
-import { calculatorPath, categoryPath, localePath } from "@/lib/routes";
+import { calculatorPath, categoryPath, embedPath, localePath } from "@/lib/routes";
 
 export async function generateStaticParams() {
   const locales: Locale[] = ["en", "es"];
@@ -96,7 +98,6 @@ export default async function CalculatorPage({
   const categoryTitle = dict.categories[calc.categoryId].title;
   const href = calculatorPath(locale, calc);
   const labels = buildCalculatorLabels(dict, calc.id);
-  const related = getRelatedCalculators(calc.id);
   const exampleSteps = parseWorkedExampleSteps(content.workedExample.body);
 
   // Server-compute the default result so crawlers see numbers in the HTML
@@ -208,6 +209,14 @@ export default async function CalculatorPage({
         />
 
         <div className="space-y-10">
+          {/* Directly below the calculator: first prose block in the DOM, but
+              still after the tool itself, because visitors arriving on a
+              calculator page came to calculate. */}
+          <QuickAnswers
+            title={locale === "es" ? "Respuestas rápidas" : "Quick answers"}
+            items={content.quickAnswers ?? []}
+          />
+
           <AssumptionsList
             title={dict.common.labels.assumptions}
             items={content.assumptions}
@@ -253,13 +262,33 @@ export default async function CalculatorPage({
             locale={locale}
           />
 
-          <RelatedCalculators
-            title={dict.common.labels.related}
-            items={related.map((relatedCalc) => ({
-              href: calculatorPath(locale, relatedCalc),
-              title: dict.calculators[relatedCalc.id].title,
-              description: dict.calculators[relatedCalc.id].shortDescription,
-            }))}
+          <CalculatorLinkGraph calculatorId={calc.id} locale={locale} dict={dict} />
+
+          <WorkflowsUsingCalculator calculatorId={calc.id} locale={locale} dict={dict} />
+
+          <EmbedSnippet
+            embedUrl={absoluteUrl(embedPath(locale, calc))}
+            pageUrl={absoluteUrl(href)}
+            title={content.title}
+            labels={
+              locale === "es"
+                ? {
+                    heading: "Ponga esta calculadora en su sitio",
+                    description:
+                      "Copie este código en cualquier página. La calculadora funciona igual que aquí, y el enlace debajo del recuadro es la atribución que pedimos a cambio.",
+                    copy: "Copiar código",
+                    copied: "Copiado",
+                    failed: "No se pudo copiar. Seleccione el código y cópielo a mano.",
+                  }
+                : {
+                    heading: "Put this calculator on your site",
+                    description:
+                      "Paste this into any page. The calculator works exactly as it does here, and the link below the frame is the attribution we ask for in return.",
+                    copy: "Copy embed code",
+                    copied: "Copied",
+                    failed: "Could not copy. Select the code and copy it manually.",
+                  }
+            }
           />
 
           <AdPlaceholder

@@ -7,6 +7,7 @@ export function calc(content) {
     formula: content.formula,
     assumptions: content.assumptions,
     workedExample: content.workedExample,
+    ...(content.quickAnswers ? { quickAnswers: content.quickAnswers } : {}),
     ...(content.sections ? { sections: content.sections } : {}),
     howToMeasure: content.howToMeasure,
     commonMistakes: content.commonMistakes,

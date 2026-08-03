@@ -1,0 +1,25 @@
+{
+  "label": "baseline",
+  "source": "C:\\Users\\Tomas\\Downloads\\buildsitecalc.com-Performance-on-Search-2026-08-03.xlsx",
+  "capturedAt": "2026-08-03",
+  "moneyPages": [
+    "paint",
+    "stair",
+    "flooring",
+    "tile",
+    "mulch",
+    "topsoil",
+    "square-footage",
+    "project-waste-factor"
+  ],
+  "metrics": {
+    "impressions": 387,
+    "impressionsFromNamedQueries": 272,
+    "anonymizedImpressions": 115,
+    "uniqueQueries": 216,
+    "pagesWithImpressions": 34,
+    "moneyPageAvgPosition": 71.81,
+    "moneyPageImpressions": 218,
+    "clicks": 1
+  }
+}

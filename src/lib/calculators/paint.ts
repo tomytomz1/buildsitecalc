@@ -252,6 +252,62 @@ export function calculate(inputs: PaintInputs): CalcOutput<PaintInputs> {
   );
 }
 
+export interface PaintCoverageQuery {
+  /** Container volume in US gallons. A quart is 0.25, a pint 0.125. */
+  gallons: number;
+  /** Area covered by one gallon, in `coverageRateUnit`. */
+  coverageRate?: number;
+  coverageRateUnit?: AreaUnit;
+  /** Coats the paint has to deliver. Coverage divides by this. */
+  coats?: number;
+  /** Waste allowance, matching the forward calculation's convention. */
+  wastePercent?: number;
+}
+
+export interface PaintCoverageResult {
+  gallons: number;
+  coats: number;
+  areaFt2: number;
+  areaM2: number;
+}
+
+/**
+ * The reverse of `calculate`: how much wall a given amount of paint covers.
+ *
+ * Searchers ask this direction far more often than they ask the forward
+ * question ("how many square feet does a gallon of paint cover", "5 gallons
+ * covers how many square feet", "1 qt paint coverage"), and the forward
+ * calculator cannot answer it. Deliberately mirrors the forward algebra so the
+ * two directions never disagree:
+ *   forward: gallons = area x coats x (1 + waste) / coverage
+ *   reverse: area    = gallons x coverage / (coats x (1 + waste))
+ */
+export function paintCoverageForGallons(
+  query: PaintCoverageQuery,
+): PaintCoverageResult | null {
+  const { gallons } = query;
+  const coats = query.coats ?? 1;
+  const coverageRate = query.coverageRate ?? DEFAULT_COVERAGE_FT2_PER_GAL;
+  const coverageRateUnit = query.coverageRateUnit ?? "ft2";
+  const wastePercent = query.wastePercent ?? 0;
+
+  if (!Number.isFinite(gallons) || gallons <= 0) return null;
+  if (!Number.isFinite(coats) || coats <= 0) return null;
+  if (!Number.isFinite(coverageRate) || coverageRate <= 0) return null;
+  if (!Number.isFinite(wastePercent) || wastePercent < 0) return null;
+
+  const coverageM2PerGal = coverageToM2PerGal(coverageRate, coverageRateUnit);
+  const wasteMultiplier = 1 + wastePercent / 100;
+  const areaM2 = (gallons * coverageM2PerGal) / (coats * wasteMultiplier);
+
+  return {
+    gallons,
+    coats,
+    areaFt2: round(fromSquareMeters(areaM2, "ft2"), 1),
+    areaM2: round(areaM2, 2),
+  };
+}
+
 /** Convert a paint area field when the user changes its unit (preserve physical area). */
 export function convertPaintAreaInput(
   value: number | string,

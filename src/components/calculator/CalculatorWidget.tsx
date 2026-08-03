@@ -6,7 +6,10 @@ import type { CalculatorLabels } from "@/components/calculator/forms/types";
 import { ResultCard } from "@/components/calculator/ResultCard";
 import { Button } from "@/components/ui/Button";
 import { useCalculatorState } from "@/hooks/useCalculatorState";
+import { buildInputsQuery } from "@/lib/calculators/url-state";
 import type { CalcResultField, CalcSuccess, CalculatorId } from "@/lib/calculators/types";
+import type { EstimateLine } from "@/lib/estimates/model";
+import { describeInputLines } from "@/lib/estimates/snapshot";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 
 export type CalculatorWidgetProps = {
@@ -23,6 +26,14 @@ export type CalculatorWidgetProps = {
 export type ShareHelpers = {
   getShareText: () => string;
   getShareUrl: () => string;
+  /** Everything a saved estimate needs: the inputs as a query plus a snapshot. */
+  getEstimateSnapshot: () => EstimateSnapshot | null;
+};
+
+export type EstimateSnapshot = {
+  query: string;
+  inputs: EstimateLine[];
+  results: EstimateLine[];
 };
 
 function mapResultFields(
@@ -77,8 +88,17 @@ export function CalculatorWidget({
   onShareHelpersChange,
   initialResult = null,
 }: CalculatorWidgetProps) {
-  const { inputs, result, errors, calculate, reset, setField, setInputs, hasCalculated } =
-    useCalculatorState(calculatorId, { initialResult });
+  const {
+    inputs,
+    defaultInputs,
+    result,
+    errors,
+    calculate,
+    reset,
+    setField,
+    setInputs,
+    hasCalculated,
+  } = useCalculatorState(calculatorId, { initialResult });
 
   const getShareUrl = useCallback(() => {
     if (typeof window === "undefined") return "";
@@ -95,14 +115,40 @@ export function CalculatorWidget({
     );
   }, [result, labels.results, locale]);
 
+  const getEstimateSnapshot = useCallback((): EstimateSnapshot | null => {
+    if (!result) return null;
+
+    const engineInputs = result.inputs as Record<string, unknown>;
+    return {
+      // Derived from the result's normalized inputs, not from the address bar,
+      // so a snapshot is correct even if the URL sync has not run yet.
+      query: buildInputsQuery(engineInputs, defaultInputs),
+      inputs: describeInputLines(engineInputs, defaultInputs, labels.inputs, locale),
+      results: [
+        ...mapResultFields(result.primary, labels.results),
+        ...mapResultFields(result.secondary, labels.results),
+      ].map((field) => ({
+        label: field.key,
+        value: formatFieldForShare(field, locale),
+      })),
+    };
+  }, [result, defaultInputs, labels.inputs, labels.results, locale]);
+
   useEffect(() => {
     if (!onShareHelpersChange) return;
     if (hasCalculated && result) {
-      onShareHelpersChange({ getShareText, getShareUrl });
+      onShareHelpersChange({ getShareText, getShareUrl, getEstimateSnapshot });
     } else {
       onShareHelpersChange(null);
     }
-  }, [hasCalculated, result, getShareText, getShareUrl, onShareHelpersChange]);
+  }, [
+    hasCalculated,
+    result,
+    getShareText,
+    getShareUrl,
+    getEstimateSnapshot,
+    onShareHelpersChange,
+  ]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

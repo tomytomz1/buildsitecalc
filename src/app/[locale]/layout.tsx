@@ -8,6 +8,7 @@ import { HtmlLang } from "@/components/layout/HtmlLang";
 import { SkipNav } from "@/components/ui/SkipNav";
 import { getDictionary } from "@/lib/i18n";
 import { buildCategoryLinks, buildSearchCalculators } from "@/lib/page-helpers";
+import { workflowLabel } from "@/lib/workflows/labels";
 
 export function generateStaticParams() {
   return siteConfig.locale.supported.map((locale) => ({ locale }));
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
             home: dict.common.nav.home,
             calculators: dict.common.nav.calculators,
             categories: dict.common.nav.categories,
+            projects: workflowLabel(locale, "indexTitle"),
             search: dict.common.buttons.search,
           }}
           categoryLinks={categoryLinks}

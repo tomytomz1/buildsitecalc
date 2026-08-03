@@ -8,6 +8,12 @@ import {
   type CategoryDefinition,
 } from "@/lib/calculators/registry";
 import type { CalculatorCategoryId, CalculatorId } from "@/lib/calculators/types";
+import {
+  getWorkflowById,
+  getWorkflowBySlug,
+  type WorkflowDefinition,
+  type WorkflowId,
+} from "@/lib/workflows/registry";
 
 export function localePath(locale: Locale, path = ""): string {
   const clean = path.replace(/^\//, "");
@@ -28,6 +34,27 @@ export function calculatorPathById(locale: Locale, id: CalculatorId): string {
   const calc = getCalculatorById(id);
   if (!calc) return localePath(locale, "calculators");
   return calculatorPath(locale, calc);
+}
+
+/**
+ * Embed URLs sit outside the `[locale]` segment so the whole embeddable surface
+ * shares one path prefix, which is what the relaxed framing headers in
+ * `next.config.ts` are scoped to.
+ */
+export function embedPath(locale: Locale, calc: CalculatorRegistryEntry): string {
+  const slug = locale === "es" ? calc.slugEs : calc.slugEn;
+  return `/embed/${locale}/${slug}`;
+}
+
+export function workflowPath(locale: Locale, workflow: WorkflowDefinition): string {
+  const slug = locale === "es" ? workflow.slugEs : workflow.slugEn;
+  return localePath(locale, `projects/${slug}`);
+}
+
+export function workflowPathById(locale: Locale, id: WorkflowId): string {
+  const workflow = getWorkflowById(id);
+  if (!workflow) return localePath(locale, "projects");
+  return workflowPath(locale, workflow);
 }
 
 export function categoryPathById(locale: Locale, id: CalculatorCategoryId): string {
@@ -62,6 +89,14 @@ export function switchLocalePath(currentPath: string, targetLocale: Locale): str
     const cat = getCategoryBySlug(currentLocale, rest[1]);
     if (cat) {
       return categoryPath(targetLocale, cat);
+    }
+  }
+
+  // Workflow hubs are localized the same way calculators are
+  if (rest[0] === "projects" && rest[1]) {
+    const workflow = getWorkflowBySlug(currentLocale, rest[1]);
+    if (workflow) {
+      return workflowPath(targetLocale, workflow);
     }
   }
 

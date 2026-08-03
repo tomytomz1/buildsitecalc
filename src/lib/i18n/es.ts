@@ -13,7 +13,7 @@ export const es: Dictionary = {
       copy: "Copiar resultados",
       print: "Imprimir",
       share: "Compartir",
-      copyLink: "Copiar enlace",
+      copyLink: "Copiar enlace con mis cifras",
       search: "Buscar",
       language: "Idioma",
       skipToContent: "Saltar al contenido principal",
@@ -780,6 +780,72 @@ export const es: Dictionary = {
         title: "Habitación 12 × 10 ft, cielos 8 ft, 2 manos",
         body: "Perímetro = 2×(12+10) = 44 ft. Área pared = 44 × 8 = 352 ft². Menos 1 puerta (21) y 2 ventanas (30) = 301 ft² pintables. Dos manos a 350 ft²/gal: (301×2)÷350 = 1,72 gal → 1,75 gal redondeado, más desperdicio. Equivalente métrico: longitudes en m y aberturas/rendimiento en m² dan el mismo resultado físico.",
       },
+      quickAnswers: [
+        {
+          question: "¿Cuántos pies cuadrados cubre un galón de pintura?",
+          answer:
+            "**Un galón cubre alrededor de 350 ft² en una sola mano** sobre tablaroca lisa y sellada. Ese es el rendimiento que la calculadora usa de forma predeterminada. Dos manos lo reducen a unos 175 ft² de muro terminado por galón, y las superficies rugosas o porosas lo bajan más, así que el número de envases depende tanto del sustrato y las manos como del tamaño del cuarto.",
+          table: {
+            title: "Cobertura por tamaño de envase a 350 ft² por galón",
+            columns: ["Envase", "Una mano", "Dos manos"],
+            rows: [
+              ["1 pinta (0,125 gal)", "43,8 ft²", "21,9 ft²"],
+              ["1 cuarto (0,25 gal)", "87,5 ft²", "43,8 ft²"],
+              ["1 galón", "350 ft²", "175 ft²"],
+              ["2 galones", "700 ft²", "350 ft²"],
+              ["5 galones", "1.750 ft²", "875 ft²"],
+            ],
+            note: "Las cifras no incluyen desperdicio. Capture un rendimiento distinto arriba para recalcular según su producto y sustrato.",
+          },
+        },
+        {
+          question: "¿Cuántos pies cuadrados cubren 5 galones de pintura?",
+          answer:
+            "**5 galones cubren cerca de 1.750 ft² en una mano, o 875 ft² en dos manos**, a 350 ft² por galón. Una cubeta de 5 galones alcanza aproximadamente para dos manos en los muros interiores de una casa de una planta de 1.000 ft², antes de descontar aberturas.",
+        },
+        {
+          question: "¿Cuánto cubre un cuarto o una pinta de pintura?",
+          answer:
+            "**Un cuarto cubre unos 87,5 ft² y una pinta unos 43,8 ft², a una mano.** Ambos son cantidades para acabados y retoques, no para muros: un cuarto equivale más o menos a una puerta interior con su marco, y una pinta sirve para un alféizar, una repisa o una prueba de color.",
+        },
+        {
+          question: "¿Cuánta pintura se necesita por pie cuadrado?",
+          answer:
+            "**Divida entre el rendimiento: un pie cuadrado consume cerca de 0,0029 galones por mano** a 350 ft² por galón. En la práctica, calcule un galón por cada 350 ft² por mano y redondee hacia arriba al siguiente envase, porque la pintura se vende en tamaños fijos y un galón parcial cuesta igual que uno completo.",
+          table: {
+            title: "Rendimientos publicados típicos por sustrato",
+            columns: ["Superficie", "Rendimiento por galón", "Por qué cambia"],
+            rows: [
+              [
+                "Tablaroca lisa y sellada",
+                "350-400 ft²",
+                "Predeterminado; menor absorción",
+              ],
+              [
+                "Tablaroca texturizada",
+                "300-350 ft²",
+                "La textura agrega superficie real",
+              ],
+              [
+                "Madera de fachada, exterior",
+                "250 ft²",
+                "La fibra y las testas absorben más",
+              ],
+              [
+                "Sellador, cualquier superficie",
+                "200-300 ft²",
+                "Formulado para penetrar, no para cubrir",
+              ],
+              [
+                "Estuco, ladrillo, mampostería",
+                "175-200 ft²",
+                "Muy poroso y de perfil profundo",
+              ],
+            ],
+            note: "Las cifras del fabricante en la etiqueta suponen condiciones ideales. El dato de la etiqueta es el punto de partida, no el final.",
+          },
+        },
+      ],
       sections: [
         {
           heading: "¿Cuánta pintura necesito para una habitación?",
@@ -1011,6 +1077,34 @@ export const es: Dictionary = {
         title: "Recámara 12 × 14 ft, 10% desperdicio",
         body: "Área = 168 ft². Con 10% = 184,8 ft². Si cada caja cubre 24 ft²: 184,8 ÷ 24 = 7,7 → 8 cajas.",
       },
+      quickAnswers: [
+        {
+          question: "¿Cuántas cajas de piso necesito?",
+          answer:
+            "**Sume su porcentaje de desperdicio al área del piso, divida entre la cobertura impresa en la caja y redondee hacia arriba.** Un cuarto de 12 por 10 ft son 120 ft²; con 10% de desperdicio son 132 ft², y contra una caja de 20 ft² resultan 6,6, así que compre 7. Redondee siempre en la caja, nunca en el pie cuadrado, y compre todo el pedido de una vez para que las cajas compartan el mismo lote de tono.",
+          table: {
+            title: "Cajas para un cuarto de 120 ft² con 10% de desperdicio",
+            columns: ["Cobertura por caja", "Cajas necesarias", "Entregado realmente"],
+            rows: [
+              ["18 ft²", "8", "144 ft²"],
+              ["20 ft²", "7", "140 ft²"],
+              ["24 ft²", "6", "144 ft²"],
+              ["30 ft²", "5", "150 ft²"],
+            ],
+            note: "La cobertura por caja varía entre productos incluso de una misma marca, así que tome el dato de la etiqueta en vez de suponer un tamaño estándar.",
+          },
+        },
+        {
+          question: "¿Cómo se calculan los pies cuadrados de piso?",
+          answer:
+            "**Multiplique largo por ancho de cada rectángulo y sume los rectángulos.** Un cuarto en L se divide en dos rectángulos; un ventanal saliente es un tercero. Mida en el punto más ancho de cada dirección, ignore el zoclo e incluya el piso bajo el remate inferior de los gabinetes y bajo el giro de las puertas, porque el piso corre debajo de ambos. Los closets y los escalones son cantidades aparte y se olvidan con facilidad.",
+        },
+        {
+          question: "¿Cuánto piso extra hay que comprar por desperdicio?",
+          answer:
+            "**10% para un tendido recto en un cuarto rectangular simple, y 12 a 15% para instalaciones en diagonal o de tabla ancha.** El factor real es la relación entre bordes cortados y área de campo, así que un pasillo largo y angosto desperdicia más por pie cuadrado que un cuarto abierto del mismo tamaño. La espina de pescado y el chevron requieren todavía más.",
+        },
+      ],
       sections: [
         {
           heading: "¿Cómo se calcula cuánto piso se necesita?",
@@ -1820,6 +1914,50 @@ export const es: Dictionary = {
         title: "Cama 200 ft², profundidad 3 in",
         body: "3 in = 0,25 ft. Volumen = 200 × 0,25 = 50 ft³ = 1,85 yd³. Con 10% ≈ 2,0 yd³.",
       },
+      quickAnswers: [
+        {
+          question: "¿Cuántas bolsas de mantillo hay en una yarda cúbica?",
+          answer:
+            "**13,5 bolsas del tamaño estándar de 2 ft³, o 9 bolsas de 3 ft³.** Una yarda cúbica son 27 ft³, así que el conteo de bolsas es simplemente 27 dividido entre el volumen de la bolsa. Como no se venden bolsas parciales, redondee hacia arriba: compre 14 bolsas de 2 ft³ para una yarda completa.",
+          table: {
+            title: "Bolsas por yarda cúbica según tamaño de bolsa",
+            columns: [
+              "Tamaño de bolsa",
+              "Bolsas por yd³",
+              "Comprar para 1 yd³",
+              "Comprar para 3 yd³",
+            ],
+            rows: [
+              ["1 ft³", "27", "27", "81"],
+              ["1,5 ft³", "18", "18", "54"],
+              ["2 ft³ (estándar minorista)", "13,5", "14", "41"],
+              ["3 ft³", "9", "9", "27"],
+            ],
+            note: "La entrega a granel suele salir más barata que en bolsas por encima de unas 3 yardas cúbicas, y ahorra manipular varias docenas de bolsas.",
+          },
+        },
+        {
+          question: "¿Cuántas bolsas de mantillo son 3 yardas cúbicas?",
+          answer:
+            "**41 bolsas de 2 ft³, o 27 bolsas de 3 ft³.** Tres yardas cúbicas son 3 × 27 = 81 ft³; al dividir entre una bolsa de 2 ft³ resultan 40,5, que se redondea a 41. En este volumen la mayoría de proveedores entrega a granel por menos que el equivalente en bolsas.",
+        },
+        {
+          question: "¿Cuánta área cubre una yarda de mantillo?",
+          answer:
+            "**Una yarda cúbica cubre 162 ft² a 2 in de profundidad, 108 ft² a 3 in u 81 ft² a 4 in.** La cobertura es 27 ft³ dividido entre la profundidad en pies, así que al duplicar la profundidad se reduce a la mitad el área. Las camas decorativas se cubren normalmente a 2 o 3 in, y una capa de renovación sobre mantillo existente solo necesita 1 o 2 in.",
+          table: {
+            title: "Cobertura de una yarda cúbica según profundidad",
+            columns: ["Profundidad", "Área cubierta", "Uso típico"],
+            rows: [
+              ["1 in", "324 ft²", "Renovación ligera sobre mantillo existente"],
+              ["2 in", "162 ft²", "Renovación o mantillo de textura fina"],
+              ["3 in", "108 ft²", "Cama decorativa estándar"],
+              ["4 in", "81 ft²", "Control de maleza, corteza gruesa"],
+              ["6 in", "54 ft²", "Cama nueva sobre suelo desnudo"],
+            ],
+          },
+        },
+      ],
       sections: [
         {
           heading: "¿Cómo se calcula cuánto mantillo se necesita?",
@@ -2181,6 +2319,35 @@ export const es: Dictionary = {
         title: "Césped 500 ft², tierra 4 in",
         body: "4 in = 0,333 ft. Volumen = 500 × 0,333 = 167 ft³ = 6,2 yd³. Con 10% ≈ 6,8 yd³.",
       },
+      quickAnswers: [
+        {
+          question: "¿Cuánta área cubre una yarda cúbica de tierra vegetal?",
+          answer:
+            "**Una yarda cúbica cubre 81 ft² a 4 in de profundidad, 108 ft² a 3 in o 54 ft² a 6 in.** Una yarda cúbica son 27 ft³, así que la cobertura es 27 dividido entre la profundidad en pies. Establecer césped suele pedir 4 a 6 in de tierra cribada, mientras que cubrir un césped existente solo necesita entre 1/4 y 1/2 in.",
+          table: {
+            title: "Cobertura de una yarda cúbica según profundidad",
+            columns: ["Profundidad", "Área cubierta", "Uso típico"],
+            rows: [
+              ["1/2 in", "648 ft²", "Cubrir un césped establecido"],
+              ["2 in", "162 ft²", "Resiembra o nivelación ligera"],
+              ["3 in", "108 ft²", "Establecimiento de césped delgado"],
+              ["4 in", "81 ft²", "Establecimiento de césped estándar"],
+              ["6 in", "54 ft²", "Subsuelo pobre o nivelación fuerte"],
+              ["12 in", "27 ft²", "Camas elevadas y macetones"],
+            ],
+          },
+        },
+        {
+          question: "¿Cuántos pies cúbicos hay en una yarda de tierra vegetal?",
+          answer:
+            "**27 pies cúbicos.** Esa conversión es geometría fija: una yarda cúbica mide 3 ft por lado, y 3 × 3 × 3 = 27. Los proveedores cotizan la tierra a granel en yardas cúbicas mientras que la tierra en bolsa se etiqueta en pies cúbicos, así que la cifra de 27 es la que permite comparar ambos precios de forma directa.",
+        },
+        {
+          question: "¿Cuánta tierra vegetal necesito para una cama elevada?",
+          answer:
+            "**Multiplique largo por ancho por profundidad de llenado y divida entre 27 para obtener yardas cúbicas.** Una cama de 4 por 8 ft llenada a 12 in son 32 ft³, o 1,19 yd³, que equivalen a unas 16 bolsas de 2 ft³. Pida un poco de más, porque la tierra se asienta de forma notable tras los primeros riegos y casi siempre hay que rellenar.",
+        },
+      ],
       sections: [
         {
           heading: "¿Cómo se calcula cuánta tierra vegetal se necesita?",
@@ -2712,6 +2879,42 @@ export const es: Dictionary = {
         title: "Ascenso 9 ft, contrahuella objetivo 7 in",
         body: "Ingrese 108 in de ascenso (o 9 ft con unidad Pies — se convierte). Contrahuellas = 108 ÷ 7 ≈ 15,4 → 16 (ceil). Contrahuella real = 108 ÷ 16 = 6,75 in. Huellas = 15. Recorrido = 15 × 10 in = 150 in. Larguero ≈ √(108² + 150²) ≈ 184,9 in.",
       },
+      quickAnswers: [
+        {
+          question: "¿Cuál es la altura máxima de contrahuella en una escalera?",
+          answer:
+            "**El IRC limita la contrahuella residencial a 7 3/4 in (196 mm); el IBC limita la comercial a 7 in (178 mm).** Ambos códigos también acotan la variación dentro de un mismo tramo: la contrahuella más alta no puede exceder a la más baja por más de 3/8 in. Esa regla de uniformidad es donde más escaleras fallan la inspección, porque cada contrahuella puede estar bajo el máximo y el tramo aun así no cumplir.",
+          table: {
+            title: "Límites de contrahuella y huella por código",
+            columns: [
+              "Norma",
+              "Contrahuella máx.",
+              "Huella mín.",
+              "Variación en un tramo",
+            ],
+            rows: [
+              ["IRC (vivienda uni y bifamiliar)", "7 3/4 in", "10 in", "3/8 in"],
+              ["IBC (comercial y público)", "7 in", "11 in", "3/8 in"],
+            ],
+            note: "Esta calculadora entrega geometría, no un dictamen de cumplimiento. Las jurisdicciones locales modifican estas cifras, así que confirme con su autoridad antes de cortar largueros.",
+          },
+        },
+        {
+          question: "¿Cuántos escalones se necesitan para un ascenso de 19 pulgadas?",
+          answer:
+            "**Tres contrahuellas de 6,33 in cada una.** Con dos contrahuellas tocarían 9,5 in cada una, muy por encima del máximo residencial de 7 3/4 in, así que tres es el mínimo que cumple. Tres contrahuellas dan dos huellas, porque un tramo que remata en un piso siempre tiene una huella menos que contrahuellas.",
+        },
+        {
+          question: "¿Cuál es una relación cómoda de contrahuella y huella?",
+          answer:
+            "**Cerca de 7 in de contrahuella con una huella de 10 a 11 in es el objetivo cómodo habitual** en obra residencial, y por eso 7 in es el valor predeterminado de esta calculadora. Las verificaciones clásicas son que contrahuella más huella quede cerca de 17 a 18 in, y que dos veces la contrahuella más la huella quede cerca de 25 in. Una contrahuella más alta ahorra espacio en planta y cuesta bastante más esfuerzo al subir.",
+        },
+        {
+          question: "¿Cómo se calculan la contrahuella y la huella de una escalera?",
+          answer:
+            "**Divida el ascenso total entre la contrahuella objetivo y redondee hacia arriba para obtener el número de contrahuellas; luego divida el ascenso total entre ese número para la contrahuella real.** Las huellas son siempre una menos que las contrahuellas, el recorrido total es huellas por profundidad de huella, y el larguero es la diagonal: la raíz cuadrada del ascenso al cuadrado más el recorrido al cuadrado. Redondear hacia arriba importa, porque es lo que mantiene todas las contrahuellas iguales y bajo el máximo.",
+        },
+      ],
       sections: [
         {
           heading: "¿Cuál es la altura máxima de contrahuella que permite el código?",
@@ -5792,6 +5995,140 @@ export const es: Dictionary = {
     },
   },
 
+  workflows: {
+    "deck-build": {
+      title: "Secuencia de calculadoras para construir un deck",
+      shortDescription: "Todos los cálculos de un deck, en orden de obra.",
+      description:
+        "Recorra un deck desde la superficie hasta el presupuesto final: bases, tablas, madera de estructura, escaleras, barandal y la lista de materiales que los une.",
+      metaTitle: "Cómo estimar un deck: calculadoras en orden de obra",
+      metaDescription:
+        "Estime un deck paso a paso: superficie, bases, tablas, pies tablero, escaleras, barandal y presupuesto total. Calculadoras gratis en el orden real de obra.",
+      intro: [
+        "Un deck se descompone en la etapa de pedido mucho más seguido que en la etapa de estructura. La causa casi siempre es la secuencia: alguien cotiza la tabla antes de conocer la superficie, u olvida que las escaleras llevan su propia madera, o descubre en la caja que las bases de los postes necesitan un concreto que nadie contó. Cada cálculo de abajo depende del anterior.",
+        "Avance de arriba hacia abajo. Cada paso arrastra su resultado al siguiente, y los dos últimos convierten las cantidades en dinero. Omita un paso solo cuando el deck realmente no tenga ese elemento, y tome en cuenta que las escaleras y el barandal son donde la mayoría de los estimados se queda corta.",
+      ],
+      outcome:
+        "Una lista de materiales con cantidades de bases, tabla, estructura, escaleras y barandal, cotizada y totalizada con mano de obra y contingencia.",
+      faqs: [
+        {
+          question: "¿En qué orden conviene estimar un deck?",
+          answer:
+            "**Primero la superficie, luego las bases, luego la tabla, luego la madera de estructura, después escaleras y barandal, y el costo al final.** Todas las cantidades dependen de la superficie, y cotizar antes de fijarlas obliga a volver a cotizar. Las escaleras son el paso que más se olvida, y llevan su propia madera y sus propios límites de código.",
+        },
+        {
+          question: "¿Por qué los estimados de deck quedan cortos tan seguido?",
+          answer:
+            "**Por tres cosas: escaleras, barandal y desperdicio.** La tabla se calcula con cuidado y después los largueros, huellas, balaustres y postes de barandal se agregan de memoria. El desperdicio de corte en tabla de deck también sale más alto de lo esperado, porque el largo de la tabla rara vez divide de forma exacta el ancho del deck.",
+        },
+        {
+          question: "¿Se necesita concreto para un deck?",
+          answer:
+            "**Sí, para las bases de los postes, salvo que use un sistema de pilotes o helicoidal.** El conteo de sacos depende del diámetro y la profundidad del hoyo, y es fácil quedarse corto: un hoyo de 12 in de diámetro y 36 in de profundidad lleva unos 2,4 ft³ de concreto, es decir cuatro o cinco sacos de 80 lb por hoyo.",
+        },
+      ],
+      lastUpdated: "2026-08-03",
+    },
+    "room-repaint": {
+      title: "Secuencia de calculadoras para repintar una habitación",
+      shortDescription: "Del área de muro a los galones y a una lista cotizada.",
+      description:
+        "Repinte una habitación en el orden correcto: mida el área de muro, revise el volumen para ventilación, repare el panel y calcule galones, rollos y costo total.",
+      metaTitle: "Cómo estimar el repintado de una habitación, en orden",
+      metaDescription:
+        "Estime un repintado paso a paso: área de muro, volumen del cuarto, reparación de tablaroca, galones de pintura, rollos de papel tapiz y costo total.",
+      intro: [
+        "Repintar es el trabajo más subestimado de una casa, y casi siempre por la misma razón: la pintura se compra contra el área de piso en vez del área de muro. Un cuarto de 12 por 10 ft tiene 120 ft² de piso y 352 ft² de muro, y la pintura tiene que cubrir el muro.",
+        "Esta secuencia arranca con la medida que de verdad importa, revisa si la superficie necesita trabajo antes de aplicar pintura y termina con una lista cotizada. El margen de retoque cerca del final vale la pena: igualar un color seis meses después es mucho más difícil que comprar un cuarto de galón extra ahora.",
+      ],
+      outcome:
+        "Galones por mano, el panel y la pasta que requieran las reparaciones, un margen de retoque, y todo cotizado.",
+      faqs: [
+        {
+          question: "¿Hay que medir área de piso o área de muro para comprar pintura?",
+          answer:
+            "**Área de muro, siempre.** Multiplique el perímetro del cuarto por la altura del cielo y luego descuente puertas y ventanas. El área de piso y la de muro no son proporcionales: un cuarto largo y angosto tiene mucho más muro por pie cuadrado de piso que un cuarto cuadrado del mismo tamaño.",
+        },
+        {
+          question: "¿Hay que reparar la tablaroca antes de pintar?",
+          answer:
+            "**Repare primero, porque la pintura hace más visibles los defectos, no menos.** La pasta fresca y los parches sin sellar también absorben pintura a un ritmo distinto que el muro alrededor, así que una reparación sin sellador se nota como una mancha opaca en el acabado aunque el color coincida.",
+        },
+        {
+          question: "¿Cuánta pintura extra conviene comprar?",
+          answer:
+            "**La suficiente para retoques, que normalmente significa redondear al siguiente envase en vez de sumar un porcentaje.** La pintura se vende en tamaños fijos, así que 1,7 galones calculados se vuelven 2 galones de todos modos. Guarde el sobrante bien cerrado y etiquetado con el nombre del cuarto.",
+        },
+      ],
+      lastUpdated: "2026-08-03",
+    },
+    "bathroom-tile": {
+      title: "Secuencia de calculadoras para enchapar un baño",
+      shortDescription: "Piso, muros, panel de respaldo y el desperdicio real.",
+      description:
+        "Enchape un baño en orden: separe áreas de piso y muro, panel de respaldo para zona húmeda, conteo de azulejo y el factor de desperdicio más alto que exigen los cuartos pequeños.",
+      metaTitle: "Cómo estimar el azulejo de un baño, en orden",
+      metaDescription:
+        "Estime el enchape de un baño paso a paso: áreas de piso y muro, panel de respaldo, conteo de azulejo, factor de desperdicio en cuartos pequeños y costo total.",
+      intro: [
+        "El baño es el peor cuarto de la casa para estimar azulejo, y la razón es geométrica. Un cuarto pequeño con tina, inodoro, mueble de lavabo y un vano tiene una proporción inusualmente alta de bordes cortados frente a área de campo, lo que significa que el 10% de desperdicio habitual con frecuencia no alcanza.",
+        "La otra trampa es el sustrato. La tablaroca común no va detrás del azulejo en zona húmeda, y descubrirlo después de que llegó el material cuesta un viaje y un retraso. Recorra los pasos en orden y trate el paso del factor de desperdicio como una decisión real, no como un valor por defecto.",
+      ],
+      outcome:
+        "Conteos separados de azulejo de piso y muro, hojas de panel de respaldo, un margen de desperdicio realista y una lista cotizada con adhesivo y boquilla.",
+      faqs: [
+        {
+          question: "¿Cuánto desperdicio hay que dejar en azulejo de baño?",
+          answer:
+            "**Calcule 15% en vez del 10% habitual, y más en trazos diagonales o con patrón.** Los cuartos pequeños cortan una proporción alta de su azulejo, y los muebles multiplican los bordes cortados. Compre todo el pedido de una vez para que las cajas vengan de la misma corrida de producción.",
+        },
+        {
+          question: "¿Se puede enchapar sobre tablaroca común en un baño?",
+          answer:
+            "**No en la zona húmeda.** Los muros de tina y regadera necesitan panel de cemento o un sustrato resistente al agua equivalente. Fuera de la zona húmeda, en un muro que solo recibe humedad ambiental, el panel común suele ser aceptable, pero confirme su código local antes de decidir.",
+        },
+        {
+          question: "¿Conviene calcular el azulejo de piso y de muro por separado?",
+          answer:
+            "**Sí, porque normalmente son productos distintos con distinta cobertura por caja.** Además suelen llevar factores de desperdicio diferentes, ya que un muro de regadera tiene más bordes cortados alrededor de llaves y nichos que un piso abierto.",
+        },
+      ],
+      lastUpdated: "2026-08-03",
+    },
+    "driveway-concrete": {
+      title: "Secuencia de calculadoras para colar una entrada de concreto",
+      shortDescription: "Base, yardas cúbicas, sacos, renivelación y disposición.",
+      description:
+        "Cole una entrada de concreto en orden: área en la cimbra, base de grava compactada, yardas cúbicas para premezclado o conteo de sacos, y luego renivelación, disposición y costo.",
+      metaTitle: "Cómo estimar una entrada de concreto, en orden",
+      metaDescription:
+        "Estime una entrada de concreto paso a paso: área, base de grava, yardas cúbicas de concreto, conteo de sacos, renivelación, tamaño de contenedor y costo total.",
+      intro: [
+        "Colar una entrada no perdona, porque el concreto llega en un camión con el reloj corriendo. Pedir de menos deja una junta fría a media losa; pedir de más significa pagar concreto que termina en el desperdicio. Ambas cosas se evitan fijando las cantidades antes de hacer el pedido.",
+        "La base es el paso que más se omite al estimar y menos se omite en la práctica, así que va en la secuencia. La disposición también: la tierra excavada y cualquier losa demolida tienen que ir a algún lado, y eso es una partida.",
+      ],
+      outcome:
+        "Volumen de base compactada, concreto en yardas cúbicas con alternativa en sacos, tierra de renivelación, volumen de escombro y un total con cargos por bomba o carga corta.",
+      faqs: [
+        {
+          question: "¿Qué espesor debe tener una entrada de concreto?",
+          answer:
+            "**Cuatro pulgadas es lo típico para autos, y cinco a seis pulgadas donde vayan a estacionarse camiones o vehículos pesados.** El espesor determina el volumen de forma directa, así que la decisión va antes del pedido: pasar de 4 a 5 in agrega 25% al pedido de concreto sobre la misma área.",
+        },
+        {
+          question: "¿Se necesita base de grava bajo una entrada de concreto?",
+          answer:
+            "**En casi todos los casos, sí.** Una base granular compactada da soporte uniforme y drenaje, que es lo que evita el agrietamiento por asentamiento diferencial. Es un pedido de material aparte en yardas cúbicas o toneladas, y es fácil dejarlo fuera de un estimado.",
+        },
+        {
+          question: "¿Conviene premezclado o sacos?",
+          answer:
+            "**Premezclado para cualquier cosa cercana a una entrada completa; sacos solo para plataformas pequeñas y reparaciones.** El punto de cruce suele estar alrededor de una yarda cúbica, que son unos 45 sacos de 80 lb. Por encima de eso, mezclar en sitio es más lento de lo que permite el tiempo de trabajo del concreto.",
+        },
+      ],
+      lastUpdated: "2026-08-03",
+    },
+  },
   footer: {
     tagline:
       "Todas las calculadoras de medidas, materiales y costos que necesita para su proyecto.",

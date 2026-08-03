@@ -1,4 +1,5 @@
 import type { CalculatorCategoryId, CalculatorId } from "@/lib/calculators/types";
+import type { WorkflowId } from "@/lib/workflows/registry";
 
 export type Locale = "en" | "es";
 
@@ -31,6 +32,29 @@ export interface PageSection {
   paragraphs: string[];
 }
 
+/**
+ * A single high-intent question answered directly on the calculator page.
+ *
+ * These target queries the page already receives impressions for but cannot
+ * answer, because they ask for the reverse of what the calculator computes
+ * (gallons to area rather than area to gallons), a unit conversion, or a code
+ * constant. The question is rendered verbatim as an H2 so it matches how the
+ * query is typed, and the answer must lead with the number before any
+ * explanation.
+ *
+ * Every figure quoted here is asserted against the calculator engines in
+ * `src/lib/i18n/__tests__/quick-answers.test.ts`, so content cannot drift away
+ * from what the tools actually compute.
+ */
+export interface QuickAnswer {
+  /** Verbatim target query, sentence-cased. Rendered as an H2. */
+  question: string;
+  /** Direct answer, number first. Supports `**bold**`. */
+  answer: string;
+  /** Optional reference table covering the variants of the question. */
+  table?: CalculatorDataTable;
+}
+
 export interface StaticPage {
   title: string;
   metaDescription: string;
@@ -58,6 +82,7 @@ export interface CalculatorContent {
   formula: string;
   assumptions: string[];
   workedExample: WorkedExample;
+  quickAnswers?: QuickAnswer[];
   sections?: PageSection[];
   howToMeasure: string;
   commonMistakes: string[];
@@ -165,11 +190,32 @@ export interface Errors404Dictionary {
   backHome: string;
 }
 
+/**
+ * Copy for a project workflow hub.
+ *
+ * The workflow's slug and its ordered steps live in
+ * `src/lib/workflows/registry.ts` rather than here, because the internal link
+ * graph consumes the step list directly and must not depend on the
+ * presentation dictionaries. Everything a reader sees lives here.
+ */
+export interface WorkflowContent {
+  title: string;
+  shortDescription: string;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+  intro: string[];
+  outcome: string;
+  faqs: FaqItem[];
+  lastUpdated?: string;
+}
+
 export interface Dictionary {
   common: CommonDictionary;
   home: HomeDictionary;
   categories: Record<CalculatorCategoryId, CategoryContent>;
   calculators: Record<CalculatorId, CalculatorContent>;
+  workflows: Record<WorkflowId, WorkflowContent>;
   pages: PagesDictionary;
   footer: FooterDictionary;
   errors404: Errors404Dictionary;

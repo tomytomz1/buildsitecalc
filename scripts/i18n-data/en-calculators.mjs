@@ -400,6 +400,64 @@ export const enCalculators = {
       title: "12 × 10 ft room, 8 ft ceilings, 2 coats",
       body: "Perimeter = 2×(12+10) = 44 ft. Wall area = 44 × 8 = 352 ft². Minus 1 door (21) and 2 windows (30) = 301 ft² paintable. Two coats on 350 ft²/gal: (301×2)÷350 = 1.72 gal → 1.75 gal with quarter-gallon rounding, plus waste. Metric equivalent: enter lengths in m and openings/coverage in m² for the same physical result.",
     },
+    quickAnswers: [
+      {
+        question: "How many square feet does a gallon of paint cover?",
+        answer:
+          "**One gallon covers about 350 ft² in a single coat** on smooth, primed drywall. That is the spread rate this calculator uses by default. Two coats halve it to roughly 175 ft² of finished wall per gallon, and rough or porous surfaces cut it further, so the container count depends as much on substrate and coat count as on room size.",
+        table: {
+          title: "Coverage by container size at 350 ft² per gallon",
+          columns: ["Container", "One coat", "Two coats"],
+          rows: [
+            ["1 pint (0.125 gal)", "43.8 ft²", "21.9 ft²"],
+            ["1 quart (0.25 gal)", "87.5 ft²", "43.8 ft²"],
+            ["1 gallon", "350 ft²", "175 ft²"],
+            ["2 gallons", "700 ft²", "350 ft²"],
+            ["5 gallons", "1,750 ft²", "875 ft²"],
+          ],
+          note: "Figures assume no waste allowance. Enter a different spread rate above to recompute for your product and substrate.",
+        },
+      },
+      {
+        question: "How many square feet does 5 gallons of paint cover?",
+        answer:
+          "**5 gallons covers about 1,750 ft² in one coat, or 875 ft² in two coats**, at 350 ft² per gallon. A 5-gallon pail is therefore roughly the right amount for two coats on the walls of a 1,000 ft² single-storey home interior, before deducting openings.",
+      },
+      {
+        question: "How much will a quart or a pint of paint cover?",
+        answer:
+          "**A quart covers about 87.5 ft² and a pint about 43.8 ft², one coat.** Both are trim-and-touch-up quantities rather than wall quantities: a quart is roughly one interior door and its casing, and a pint suits a windowsill, a shelf, or colour sampling.",
+      },
+      {
+        question: "How much paint do I need per square foot?",
+        answer:
+          "**Divide by the spread rate: one square foot needs about 0.0029 gallons per coat** at 350 ft² per gallon. Practically, plan one gallon per 350 ft² per coat and round up to the next container, because paint is sold in fixed sizes and a partial gallon still costs a full one.",
+        table: {
+          title: "Typical published spread rates by substrate",
+          columns: ["Surface", "Spread rate per gallon", "Why it differs"],
+          rows: [
+            [
+              "Smooth, primed drywall",
+              "350-400 ft²",
+              "Calculator default; least absorbent",
+            ],
+            [
+              "Textured or orange-peel drywall",
+              "300-350 ft²",
+              "Texture adds real surface area",
+            ],
+            ["Wood siding, exterior", "250 ft²", "Grain and end-grain absorb more"],
+            ["Primer, any surface", "200-300 ft²", "Formulated to soak in, not cover"],
+            [
+              "Stucco, brick, masonry",
+              "175-200 ft²",
+              "Highly porous and deeply profiled",
+            ],
+          ],
+          note: "Manufacturer figures on the label assume ideal conditions. The label rate is where you start, not where you finish.",
+        },
+      },
+    ],
     sections: [
       {
         heading: "How much paint do I need for a room?",
@@ -630,6 +688,34 @@ export const enCalculators = {
       title: "12 × 14 ft bedroom, 10% waste",
       body: "Area = 168 ft². With 10% waste = 184.8 ft². If each carton covers 24 ft²: 184.8 ÷ 24 = 7.7 → 8 cartons.",
     },
+    quickAnswers: [
+      {
+        question: "How many boxes of flooring do I need?",
+        answer:
+          "**Add your waste allowance to the floor area, then divide by the coverage printed on the carton and round up.** A 12 by 10 ft room is 120 ft²; at 10% waste that is 132 ft², and against a 20 ft² carton it comes to 6.6, so you buy 7. Always round up at the carton, never at the square foot, and buy the whole order in one go so every carton shares a dye lot.",
+        table: {
+          title: "Cartons needed for a 120 ft² room at 10% waste",
+          columns: ["Carton coverage", "Cartons needed", "Actually delivered"],
+          rows: [
+            ["18 ft²", "8", "144 ft²"],
+            ["20 ft²", "7", "140 ft²"],
+            ["24 ft²", "6", "144 ft²"],
+            ["30 ft²", "5", "150 ft²"],
+          ],
+          note: "Carton coverage varies by product even within one brand, so take the figure from the label rather than assuming a standard size.",
+        },
+      },
+      {
+        question: "How do you calculate flooring square footage?",
+        answer:
+          "**Multiply length by width for each rectangle and add the rectangles together.** An L-shaped room splits into two rectangles; a bay window is a third. Measure at the widest point in each direction, ignore baseboard, and include the floor under a toe-kick or a door swing because flooring runs beneath both. Closets and stair treads are separate quantities and are easy to forget.",
+      },
+      {
+        question: "How much extra flooring should I buy for waste?",
+        answer:
+          "**10% for a straight layout in a simple rectangular room, and 12 to 15% for a diagonal or wide-plank install.** The real driver is the ratio of cut edges to field area, so a long narrow hallway wastes more per square foot than an open room of the same size. Herringbone and chevron patterns run higher still.",
+      },
+    ],
     sections: [
       {
         heading: "How do you calculate how much flooring you need?",
@@ -1431,6 +1517,45 @@ export const enCalculators = {
       title: "200 ft² bed, 3 in depth",
       body: "Depth 3 in = 0.25 ft. Volume = 200 × 0.25 = 50 ft³. Cubic yards = 50 ÷ 27 ≈ 1.85 yd³. With 10% waste ≈ 2.0 yd³.",
     },
+    quickAnswers: [
+      {
+        question: "How many bags of mulch are in a cubic yard?",
+        answer:
+          "**13.5 bags of the standard 2 ft³ size, or 9 bags of 3 ft³.** A cubic yard is 27 ft³, so the bag count is simply 27 divided by the bag volume. Because partial bags are not sold, round up: buy 14 of the 2 ft³ bags for one full yard.",
+        table: {
+          title: "Bags per cubic yard by bag size",
+          columns: ["Bag size", "Bags per yd³", "Buy for 1 yd³", "Buy for 3 yd³"],
+          rows: [
+            ["1 ft³", "27", "27", "81"],
+            ["1.5 ft³", "18", "18", "54"],
+            ["2 ft³ (retail standard)", "13.5", "14", "41"],
+            ["3 ft³", "9", "9", "27"],
+          ],
+          note: "Bulk delivery is usually cheaper than bags above about 3 cubic yards, and it saves handling several dozen bags.",
+        },
+      },
+      {
+        question: "How many bags of mulch is 3 cubic yards?",
+        answer:
+          "**41 bags of 2 ft³, or 27 bags of 3 ft³.** Three cubic yards is 3 × 27 = 81 ft³; dividing by a 2 ft³ bag gives 40.5, which rounds up to 41. At this volume most suppliers will deliver in bulk for less than the bagged equivalent.",
+      },
+      {
+        question: "How much area does a yard of mulch cover?",
+        answer:
+          "**One cubic yard covers 162 ft² at 2 in deep, 108 ft² at 3 in, or 81 ft² at 4 in.** Coverage is 27 ft³ divided by the depth in feet, so doubling the depth halves the area. Decorative beds are usually mulched at 2 to 3 in, and a refresh layer over existing mulch only needs 1 to 2 in.",
+        table: {
+          title: "Coverage from one cubic yard by depth",
+          columns: ["Depth", "Area covered", "Typical use"],
+          rows: [
+            ["1 in", "324 ft²", "Light refresh over existing mulch"],
+            ["2 in", "162 ft²", "Refresh or fine-textured mulch"],
+            ["3 in", "108 ft²", "Standard decorative bed"],
+            ["4 in", "81 ft²", "Weed suppression, coarse bark"],
+            ["6 in", "54 ft²", "New bed over bare soil"],
+          ],
+        },
+      },
+    ],
     sections: [
       {
         heading: "How do you calculate how much mulch you need?",
@@ -1783,6 +1908,35 @@ export const enCalculators = {
       title: "500 ft² lawn area, 4 in topsoil",
       body: "Depth = 4 in = 0.333 ft. Volume = 500 × 0.333 = 167 ft³ = 6.2 yd³. With 10% waste ≈ 6.8 yd³.",
     },
+    quickAnswers: [
+      {
+        question: "How much area does a cubic yard of topsoil cover?",
+        answer:
+          "**One cubic yard covers 81 ft² at 4 in deep, 108 ft² at 3 in, or 54 ft² at 6 in.** A cubic yard is 27 ft³, so coverage is 27 divided by the depth in feet. Lawn establishment usually calls for 4 to 6 in of screened topsoil, while topdressing an existing lawn needs only about 1/4 to 1/2 in.",
+        table: {
+          title: "Coverage from one cubic yard by depth",
+          columns: ["Depth", "Area covered", "Typical use"],
+          rows: [
+            ["1/2 in", "648 ft²", "Topdressing an established lawn"],
+            ["2 in", "162 ft²", "Overseeding or light regrading"],
+            ["3 in", "108 ft²", "Thin lawn establishment"],
+            ["4 in", "81 ft²", "Standard lawn establishment"],
+            ["6 in", "54 ft²", "Poor subsoil or heavy grading"],
+            ["12 in", "27 ft²", "Raised beds and planters"],
+          ],
+        },
+      },
+      {
+        question: "How many cubic feet are in a yard of topsoil?",
+        answer:
+          "**27 cubic feet.** That conversion is fixed geometry: a cubic yard is 3 ft on each side, and 3 × 3 × 3 = 27. Suppliers quote bulk soil in cubic yards while bagged soil is labelled in cubic feet, so the 27 figure is what lets you compare the two prices directly.",
+      },
+      {
+        question: "How much topsoil do I need for a raised bed?",
+        answer:
+          "**Multiply length by width by fill depth, then divide by 27 for cubic yards.** A 4 ft by 8 ft bed filled 12 in deep is 32 ft³, or 1.19 yd³, which is about 16 bags of 2 ft³. Order slightly over, because soil settles noticeably after the first few waterings and beds almost always need topping up.",
+      },
+    ],
     sections: [
       {
         heading: "How do you calculate how much topsoil you need?",
@@ -2309,6 +2463,37 @@ export const enCalculators = {
       title: "9 ft total rise, 7 in target riser",
       body: "Enter total rise as 108 in (or 9 ft with unit Feet — values convert). Risers = 108 ÷ 7 ≈ 15.4 → 16 risers (ceil). Actual riser = 108 ÷ 16 = 6.75 in. Treads = 15. Run = 15 × 10 in tread = 150 in. Stringer ≈ √(108² + 150²) ≈ 184.9 in.",
     },
+    quickAnswers: [
+      {
+        question: "What is the maximum stair rise?",
+        answer:
+          "**The IRC limits a residential riser to 7 3/4 in (196 mm); the IBC limits a commercial riser to 7 in (178 mm).** Both codes also cap the variation within one flight: the tallest riser may not exceed the shortest by more than 3/8 in. That uniformity rule is where stairs most often fail inspection, because every individual riser can be under the maximum and the flight still not comply.",
+        table: {
+          title: "Riser and tread limits by code",
+          columns: ["Standard", "Max riser", "Min tread", "Variation in one flight"],
+          rows: [
+            ["IRC (one- and two-family homes)", "7 3/4 in", "10 in", "3/8 in"],
+            ["IBC (commercial and public)", "7 in", "11 in", "3/8 in"],
+          ],
+          note: "This calculator produces geometry, not a compliance ruling. Local jurisdictions amend these figures, so confirm with your building department before cutting stringers.",
+        },
+      },
+      {
+        question: "How many steps do you need for a 19 inch rise?",
+        answer:
+          "**Three risers of 6.33 in each.** Two risers would need 9.5 in apiece, well over the 7 3/4 in residential maximum, so three is the minimum that complies. Three risers give two treads, because a flight that lands on a floor always has one fewer tread than riser.",
+      },
+      {
+        question: "What is a comfortable stair rise and run?",
+        answer:
+          "**Around 7 in of rise with a 10 to 11 in tread is the usual comfortable target** in residential work, which is why 7 in is this calculator's default. The classic checks are that rise plus run falls near 17 to 18 in and that twice the rise plus the run lands near 25 in. A taller riser saves floor space and costs noticeably more effort to climb.",
+      },
+      {
+        question: "How do you calculate rise and run for stairs?",
+        answer:
+          "**Divide total rise by your target riser height and round up to get the riser count, then divide total rise by that count for the actual riser.** Treads are always one fewer than risers, total run is treads multiplied by tread depth, and the stringer is the diagonal, the square root of rise squared plus run squared. Rounding up matters: it is what keeps every riser equal and under the maximum.",
+      },
+    ],
     sections: [
       {
         heading: "What is the maximum stair riser height allowed by code?",

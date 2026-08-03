@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Search } from "lucide-react";
 import type { Locale } from "@/config/site";
+import { SavedEstimatesNavLink } from "@/components/estimates/SavedEstimatesNavLink";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { SearchBox, type SearchCalculator } from "./SearchBox";
@@ -20,6 +21,7 @@ export type HeaderProps = {
     home?: string;
     calculators: string;
     categories: string;
+    projects?: string;
     search: string;
     openMenu?: string;
     closeMenu?: string;
@@ -132,6 +134,17 @@ export function Header({
               {labels.categories}
             </Link>
           )}
+
+          {labels.projects ? (
+            <Link
+              href={`/${locale}/projects`}
+              className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+            >
+              {labels.projects}
+            </Link>
+          ) : null}
+
+          <SavedEstimatesNavLink locale={locale} />
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
@@ -223,6 +236,24 @@ export function Header({
                 </Link>
               </li>
             )}
+            {labels.projects ? (
+              <li>
+                <Link
+                  href={`/${locale}/projects`}
+                  className="block rounded-md px-3 py-2 text-sm font-medium text-slate-800 hover:bg-slate-100"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {labels.projects}
+                </Link>
+              </li>
+            ) : null}
+            <li>
+              <SavedEstimatesNavLink
+                locale={locale}
+                className="block"
+                onNavigate={() => setMobileOpen(false)}
+              />
+            </li>
             <li>
               <Link
                 href={resolvedSearchHref}

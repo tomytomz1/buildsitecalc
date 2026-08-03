@@ -6,6 +6,7 @@ import {
   type ShareHelpers,
 } from "@/components/calculator/CalculatorWidget";
 import { PrintCopyShare } from "@/components/calculator/PrintCopyShare";
+import { SaveEstimateButton } from "@/components/calculator/SaveEstimateButton";
 import type { CalculatorLabels } from "@/components/calculator/forms/types";
 import { recordRecentCalculator } from "@/components/layout/RecentlyViewed";
 import type { CalcSuccess, CalculatorId } from "@/lib/calculators/types";
@@ -46,18 +47,27 @@ export function CalculatorPageClient({
       onShareHelpersChange={setShareHelpers}
       actions={
         shareHelpers ? (
-          <PrintCopyShare
-            getShareText={shareHelpers.getShareText}
-            getShareUrl={shareHelpers.getShareUrl}
-            labels={{
-              print: labels.ui.print,
-              copyResults: labels.ui.copyResults,
-              copyLink: labels.ui.copyLink,
-              share: labels.ui.share,
-              copied: labels.ui.copied,
-              shareFailed: labels.ui.shareFailed,
-            }}
-          />
+          <div className="space-y-3">
+            <PrintCopyShare
+              getShareText={shareHelpers.getShareText}
+              getShareUrl={shareHelpers.getShareUrl}
+              labels={{
+                print: labels.ui.print,
+                copyResults: labels.ui.copyResults,
+                copyLink: labels.ui.copyLink,
+                share: labels.ui.share,
+                copied: labels.ui.copied,
+                shareFailed: labels.ui.shareFailed,
+              }}
+            />
+            <SaveEstimateButton
+              calculatorId={calculatorId}
+              locale={locale}
+              title={title}
+              href={href}
+              getSnapshot={shareHelpers.getEstimateSnapshot}
+            />
+          </div>
         ) : null
       }
     />

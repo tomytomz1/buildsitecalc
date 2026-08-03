@@ -81,7 +81,10 @@ export {
   calculate as calculatePaint,
   convertPaintAreaInput,
   defaultInputs as paintDefaultInputs,
+  paintCoverageForGallons,
   preferredPaintAreaUnit,
+  type PaintCoverageQuery,
+  type PaintCoverageResult,
   type PaintInputs,
 } from "./paint";
 
@@ -145,6 +148,12 @@ export {
   calculate as calculateStair,
   convertStairInputsOnUnitChange,
   defaultInputs as stairDefaultInputs,
+  RISER_MAX_COMMERCIAL_IN,
+  RISER_MAX_IN,
+  RISER_MIN_IN,
+  RISER_UNIFORMITY_TOLERANCE_IN,
+  TREAD_MIN_COMMERCIAL_IN,
+  TREAD_MIN_IN,
   type StairInputs,
 } from "./stair";
 

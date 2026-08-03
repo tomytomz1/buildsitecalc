@@ -21,12 +21,23 @@ export const siteConfig = {
     default: "en" as const,
     supported: ["en", "es"] as const,
   },
+  /**
+   * Absolute profile URLs. Anything set here is emitted as `sameAs` on the
+   * Organization JSON-LD, which is how a search engine ties this domain to the
+   * accounts that talk about it — a real entity signal for a site with no
+   * backlink history.
+   *
+   * Read from the environment rather than hard-coded so a profile can be added
+   * the moment it exists, without a code change. Invalid or empty values are
+   * dropped by `getConfiguredSocialLinks`, so a half-filled config never emits a
+   * `sameAs` pointing at a profile that does not exist.
+   */
   social: {
-    twitter: "",
-    facebook: "",
-    youtube: "",
-    pinterest: "",
-    linkedin: "",
+    twitter: process.env.NEXT_PUBLIC_SOCIAL_TWITTER ?? "",
+    facebook: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK ?? "",
+    youtube: process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE ?? "",
+    pinterest: process.env.NEXT_PUBLIC_SOCIAL_PINTEREST ?? "",
+    linkedin: process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN ?? "",
   },
   analytics: {
     googleAnalyticsId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "",

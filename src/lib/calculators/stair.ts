@@ -24,8 +24,18 @@ export const defaultInputs: StairInputs = {
   stairWidth: "",
 };
 
-const RISER_MIN_IN = 4;
-const RISER_MAX_IN = 7.75;
+/**
+ * Riser limits in inches. IRC R311.7.5.1 caps residential risers at 7 3/4 in;
+ * the IBC is stricter at 7 in for commercial stairs. Exported so page content
+ * quoting these figures can be asserted against them rather than hard-coding
+ * the numbers twice.
+ */
+export const RISER_MIN_IN = 4;
+export const RISER_MAX_IN = 7.75;
+export const RISER_MAX_COMMERCIAL_IN = 7;
+export const TREAD_MIN_IN = 10;
+export const TREAD_MIN_COMMERCIAL_IN = 11;
+export const RISER_UNIFORMITY_TOLERANCE_IN = 0.375;
 
 const BUILDING_CODE_DISCLAIMER =
   "This calculator provides basic stair geometry only. Local building codes and the IRC impose specific requirements for riser height, tread depth, headroom, handrails, and landings. Always verify with your local authority and a qualified professional — this is not a code-compliance tool.";

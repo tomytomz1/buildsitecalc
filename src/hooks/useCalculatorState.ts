@@ -16,6 +16,8 @@ export interface UseCalculatorStateOptions {
 
 export interface UseCalculatorStateResult {
   inputs: Record<string, unknown>;
+  /** Engine defaults, exposed so callers can serialize inputs the same way. */
+  defaultInputs: Record<string, unknown>;
   result: CalcSuccess | null;
   errors: Record<string, string>;
   calculate: () => void;
@@ -123,6 +125,7 @@ export function useCalculatorState(
 
   return {
     inputs,
+    defaultInputs,
     result,
     errors,
     calculate,

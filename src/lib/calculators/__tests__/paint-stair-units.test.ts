@@ -215,11 +215,17 @@ describe("social configuration safety", () => {
     expect(isValidSocialUrl("https://example.com/buildsitecalc")).toBe(true);
   });
 
-  it("omits empty social profiles from configured links and Organization JSON-LD", () => {
-    expect(Object.values(siteConfig.social).every((v) => v === "")).toBe(true);
-    expect(getConfiguredSocialLinks()).toEqual([]);
-    const org = organizationJsonLd();
-    expect(org).not.toHaveProperty("sameAs");
+  it("emits sameAs for exactly the profiles that are configured", () => {
+    const valid = Object.values(siteConfig.social).filter(isValidSocialUrl);
+    const links = getConfiguredSocialLinks();
+    expect(links.map((link) => link.url)).toEqual(valid.map((url) => url.trim()));
+
+    const org = organizationJsonLd() as { sameAs?: string[] };
+    if (valid.length === 0) {
+      expect(org).not.toHaveProperty("sameAs");
+    } else {
+      expect(org.sameAs).toEqual(links.map((link) => link.url));
+    }
     expect(JSON.stringify(org)).not.toMatch(/""/);
   });
 });
