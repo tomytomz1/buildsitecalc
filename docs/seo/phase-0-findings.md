@@ -75,6 +75,18 @@ result set. This is a code-reference SERP with no incumbent authority.
 promulchcalculator.com, pinestrawking.com, buildmaterialcalc.com. Every single
 result is a small single-purpose calculator site.
 
+**"how many steps for 19 inch rise"** - builtbyfieldlab.com,
+concretecalcs.com, calcoi.com, remodelcalculators.com,
+webcalculus.com. All small niche calculator sites. No Home Depot,
+Omni, or Calculator.net in the visible top set. Confirms the stair
+cluster is the site's best bet.
+
+**"3 cubic yards of mulch"** - promulchcalculator.com (dedicated
+yards-to-bags converter), guidedreview.com, midwestcompostllc.com,
+mulch-calculator.net, calculatorlib.com. Same pattern as the
+bags-to-yards SERP: single-purpose calculators and local suppliers,
+no major publisher owning the answer.
+
 This is a green light for the `quickAnswers` approach. It also revealed the
 format that wins these SERPs, which the implementation follows:
 

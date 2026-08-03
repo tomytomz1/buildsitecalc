@@ -56,12 +56,12 @@ Only submit where a calculator site is genuinely in scope. Each submission is
 one nofollow-or-follow listing plus a real referral trickle; the value is entity
 signal and discovery, not PageRank.
 
-| Directory     | Submit at                                                     | Notes                                                                                                                   |
-| ------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| SaaSHub       | [saashub.com/submit](https://www.saashub.com/submit) (200 OK) | Free listing, needs a one-line description plus category. Category: "Calculators" / "Construction".                     |
-| Toolfinder    | [toolfinder.co/submit](https://toolfinder.co/submit) (200 OK) | Curated, editor reviews before publishing. Lead with the bilingual angle since almost no competitor has it.             |
-| AlternativeTo | Sign in, then "Add application" from the site header          | The submit path could not be verified from a script — the site is behind Cloudflare bot protection. Do it in a browser. |
-| Product Hunt  | Optional, `producthunt.com` "Submit" flow                     | Worth one launch of the embeddable widget, not of the site itself. Only if you can be online the whole launch day.      |
+| Directory     | Submit at                                                                                                                       | Notes                                                                                                                                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SaaSHub       | [saashub.com/submit](https://www.saashub.com/submit) (200 OK)                                                                   | Free listing, needs a one-line description plus category. Category: "Calculators" / "Construction".                                                                                                                                    |
+| Toolfinder    | [toolfinder.com/submit](https://toolfinder.com/submit) (200 OK; toolfinder.co redirects here)                                   | Curated, editor reviews before publishing. Lead with the bilingual angle since almost no competitor has it.                                                                                                                            |
+| AlternativeTo | Sign up, wait 7 days, then User icon -> "Suggest new application" ([FAQ](https://alternativeto.net/faq/#add-a-new-application)) | New accounts cannot submit for one week. Submit one calculator deep URL (e.g. /en/calculators/paint) as an alternative to Omni Calculator or Calculator.net — whole-site collections get rejected. Nofollow, but useful for discovery. |
+| Product Hunt  | Optional, `producthunt.com` "Submit" flow                                                                                       | Worth one launch of the embeddable widget, not of the site itself. Only if you can be online the whole launch day.                                                                                                                     |
 
 ## Tier 4 — reactive PR (journalist requests)
 
@@ -141,3 +141,13 @@ workstream worked. 1-2 means the pitch is wrong, not the channel — rewrite the
 angle rather than sending more of the same. Zero replies across 40 sends means
 stop and reconsider whether the embeddable widget plus directories alone carry
 the entity signal.
+
+## Re-verification (2026-08-03, post-deploy)
+
+Prospect URLs re-checked after the production deploy of commit `935a065`:
+
+- FIT, Gateway CTC, Cornell, Texas A&M AgriLife, Iowa State Extension: HTTP 200
+- SaaSHub submit, Toolfinder submit (canonical host toolfinder.com): HTTP 200
+- AlternativeTo homepage: HTTP 200; submit path is account-gated (see FAQ above)
+- Qwoted: HTTP 200; Featured.com returned 429 from this IP (rate limit, not dead)
+- Live site: `/` is 308 → `/en`; `/en/projects/build-a-deck` 200; `/embed/en/paint` 200 with `frame-ancestors *`; paint page emits language-only `hreflang` and Quick answers
