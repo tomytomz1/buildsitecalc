@@ -1,0 +1,32 @@
+name: Validate SEO metadata changes
+
+on:
+  pull_request:
+    paths:
+      - 'src/lib/seo.tsx'
+      - 'src/lib/seo-metadata-overrides.ts'
+      - 'src/lib/i18n/__tests__/seo-metadata.test.ts'
+      - '.github/workflows/seo-metadata-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  metadata-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: TypeScript
+        run: npm run typecheck
+      - name: ESLint
+        run: npm run lint
+      - name: Unit tests
+        run: npm run test
+      - name: Next.js production build
+        run: npm run build
