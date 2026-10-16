@@ -144,6 +144,13 @@ export const en: Dictionary = {
       taxPercent: "Tax rate (%)",
     },
     inputLabels: {
+      amount: "Amount",
+      dimensions: "Dimensions",
+      itemName: "Line item name",
+      materialName: "Material name",
+      roomName: "Room name",
+      unitCost: "Unit cost",
+      wallLength: "Wall length",
       length: "Length",
       width: "Width",
       height: "Height",
