@@ -1,0 +1,47 @@
+name: IndexNow production URLs
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    # Only successful production deployments, never preview builds.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       startsWith(github.event.deployment.environment, 'Production'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore previous submitted sitemap
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow/last-sitemap.json
+          key: indexnow-sitemap-${{ github.event.deployment.sha || github.sha }}
+          restore-keys: |
+            indexnow-sitemap-
+      - name: Unit-test IndexNow submission logic
+        run: node --test scripts/indexnow-submit.test.mjs
+      - name: Notify IndexNow of changed production URLs
+        run: node scripts/indexnow-submit.mjs
+      - name: Save successful sitemap snapshot
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow/last-sitemap.json
+          key: indexnow-sitemap-${{ github.event.deployment.sha || github.sha }}
