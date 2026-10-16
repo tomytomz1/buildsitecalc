@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSeoMetadataOverride } from "@/lib/seo-metadata-overrides";
 import {
   absoluteUrl,
   getConfiguredSocialLinks,
@@ -70,14 +71,17 @@ export function buildPageMetadata(options: {
     pathsByLocale,
     ogType = "website",
   } = options;
-  const fullTitle = title.includes(siteConfig.brand.name)
-    ? title
-    : `${title} | ${siteConfig.brand.name}`;
+  const override = getSeoMetadataOverride(locale, pathWithoutLocale);
+  const effectiveTitle = override?.title ?? title;
+  const effectiveDescription = override?.description ?? description;
+  const fullTitle = effectiveTitle.includes(siteConfig.brand.name)
+    ? effectiveTitle
+    : `${effectiveTitle} | ${siteConfig.brand.name}`;
   const paths = normalizePaths(pathWithoutLocale, pathsByLocale);
   const localePath = paths[locale];
   const path = localePath ? `/${locale}/${localePath}` : `/${locale}`;
   const url = absoluteUrl(path);
-  const ogTitle = stripBrandSuffix(title);
+  const ogTitle = stripBrandSuffix(effectiveTitle);
   const ogImage = absoluteUrl(
     `/api/og?title=${encodeURIComponent(ogTitle)}&locale=${locale}`,
   );
@@ -86,11 +90,11 @@ export function buildPageMetadata(options: {
     // `absolute` bypasses the root layout's `%s | BuildSiteCalc` template.
     // Without it the brand is appended twice.
     title: { absolute: fullTitle },
-    description,
+    description: effectiveDescription,
     alternates: buildAlternates(locale, pathWithoutLocale, pathsByLocale),
     openGraph: {
       title: fullTitle,
-      description,
+      description: effectiveDescription,
       url,
       siteName: siteConfig.brand.name,
       locale: locale === "es" ? "es_ES" : "en_US",
@@ -101,7 +105,7 @@ export function buildPageMetadata(options: {
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
-      description,
+      description: effectiveDescription,
       images: [ogImage],
     },
     robots: {
