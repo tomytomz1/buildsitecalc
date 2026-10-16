@@ -332,6 +332,33 @@ type RoomRow = {
   widthUnit: LengthUnit;
 };
 
+/**
+ * Older shared estimates store the engine's neutral default "Room 1". Display
+ * it in the selected language without mutating or breaking saved URL state.
+ * Explicit user-provided room names are never translated or overwritten.
+ */
+export function localizedRoomName(
+  name: string | undefined,
+  roomLabel: string,
+  index: number,
+): string {
+  const defaultName = `${roomLabel} ${index + 1}`;
+  if (!name || name === `Room ${index + 1}` || name === defaultName) {
+    return defaultName;
+  }
+  return name;
+}
+
+export function localizedRoomLegend(
+  name: string | undefined,
+  roomLabel: string,
+  index: number,
+): string {
+  const defaultName = `${roomLabel} ${index + 1}`;
+  const displayName = localizedRoomName(name, roomLabel, index);
+  return displayName === defaultName ? defaultName : `${defaultName}: ${displayName}`;
+}
+
 export function RoomListEditor({
   labels,
   locale,
@@ -398,13 +425,13 @@ export function RoomListEditor({
       {rooms.map((room, index) => (
         <Fieldset
           key={index}
-          legend={`${roomLabel} ${index + 1}${room.name ? `: ${room.name}` : ""}`}
+          legend={localizedRoomLegend(room.name, roomLabel, index)}
         >
           <FormGrid>
             <Input
               name={`rooms.${index}.name`}
               label={fieldLabel(labels, "roomName")}
-              value={room.name ?? ""}
+              value={localizedRoomName(room.name, roomLabel, index)}
               onChange={(e) => updateRoom(index, { name: e.target.value })}
             />
             <FractionalInput

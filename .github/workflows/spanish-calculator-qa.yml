@@ -1,0 +1,32 @@
+name: Validate calculator language fixes
+
+on:
+  pull_request:
+    paths:
+      - 'src/components/calculator/forms/**'
+      - 'src/lib/i18n/en.ts'
+      - 'src/lib/i18n/es.ts'
+      - '.github/workflows/spanish-calculator-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: TypeScript
+        run: npm run typecheck
+      - name: ESLint
+        run: npm run lint
+      - name: Tests
+        run: npm run test
+      - name: Production build
+        run: npm run build
