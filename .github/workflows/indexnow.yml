@@ -18,8 +18,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.deployment_status.state == 'success' &&
-       startsWith(github.event.deployment.environment, 'Production') &&
-       github.event.deployment.ref == 'master')
+       startsWith(github.event.deployment.environment, 'Production'))
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -37,6 +36,8 @@ jobs:
           key: indexnow-sitemap-${{ github.event.deployment.sha || github.sha }}
           restore-keys: |
             indexnow-sitemap-
+      - name: Unit-test IndexNow submission logic
+        run: node --test scripts/indexnow-submit.test.mjs
       - name: Notify IndexNow of changed production URLs
         run: node scripts/indexnow-submit.mjs
       - name: Save successful sitemap snapshot
