@@ -29,7 +29,9 @@ export function initAnalytics(): void {
   const gaId = siteConfig.analytics.googleAnalyticsId;
   if (!gaId || typeof window === "undefined") return;
 
-  // Integration point: load gtag only when ID + consent are present.
+  // Load the Google tag only after explicit consent, and only once.
+  // Without the script, gtag() just queues commands and no data reaches GA4.
+  if (document.getElementById("buildsitecalc-ga4")) return;
   const w = window as Window & {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
@@ -40,4 +42,10 @@ export function initAnalytics(): void {
   };
   w.gtag("js", new Date());
   w.gtag("config", gaId, { anonymize_ip: true });
+
+  const script = document.createElement("script");
+  script.id = "buildsitecalc-ga4";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`;
+  document.head.appendChild(script);
 }
