@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { siteConfig } from "@/config/site";
-import { initAnalytics, setAnalyticsConsent } from "@/lib/analytics";
+import { initAnalytics, revokeAnalytics, setAnalyticsConsent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const CONSENT_KEY = "pch-consent";
@@ -62,6 +62,9 @@ export function ConsentBanner({ labels = {}, className }: ConsentBannerProps) {
     if (consent === "granted") {
       setAnalyticsConsent(true);
       initAnalytics();
+    } else if (consent === "denied") {
+      // Covers consent withdrawn here or in another tab after it was granted.
+      revokeAnalytics();
     }
   }, [consent]);
 
@@ -73,6 +76,7 @@ export function ConsentBanner({ labels = {}, className }: ConsentBannerProps) {
 
   const decline = useCallback(() => {
     setAnalyticsConsent(false);
+    revokeAnalytics();
     notifyConsentChange();
   }, []);
 

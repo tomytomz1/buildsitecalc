@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getConfiguredSocialLinks, siteConfig, type Locale } from "@/config/site";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
@@ -94,6 +95,11 @@ export function Footer({ locale, links, className }: FooterProps) {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton
+                  label={locale === "es" ? "Configuración de cookies" : "Cookie settings"}
+                />
+              </li>
             </ul>
           </nav>
         </div>
@@ -103,7 +109,17 @@ export function Footer({ locale, links, className }: FooterProps) {
             © {new Date().getFullYear()} {siteConfig.legal.companyName}. All rights
             reserved.
           </p>
-          <p className="mt-2 text-slate-300">Built by <a href="https://beltran.digital/" target="_blank" rel="noopener" className="underline underline-offset-4 hover:text-amber-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none">Beltrán Digital</a></p>
+          <p className="mt-2 text-slate-300">
+            Built by{" "}
+            <a
+              href="https://beltran.digital/"
+              target="_blank"
+              rel="noopener"
+              className="underline underline-offset-4 hover:text-amber-300 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:outline-none"
+            >
+              Beltrán Digital
+            </a>
+          </p>
         </div>
       </div>
     </footer>
