@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("SEO metadata", () => {
-
   test("server HTML declares Spanish on the original response, without hydration", async ({ request }) => {
     for (const route of [
       "/es/calculators/pies-cuadrados",
@@ -12,18 +11,18 @@ test.describe("SEO metadata", () => {
       const response = await request.get(route);
       expect(response.status(), route).toBe(200);
       const html = await response.text();
-      expect(html).toMatch(/<html\\b[^>]*lang="es"/);
+      expect(html).toMatch(/<html\b[^>]*lang="es"/);
     }
   });
 
   test("English calculator and Spanish embed HTML declare the correct language", async ({ request }) => {
     const english = await request.get("/en/calculators/square-footage");
     expect(english.status()).toBe(200);
-    expect(await english.text()).toMatch(/<html\\b[^>]*lang="en"/);
+    expect(await english.text()).toMatch(/<html\b[^>]*lang="en"/);
 
     const spanishEmbed = await request.get("/embed/es/pies-cuadrados");
     expect(spanishEmbed.status()).toBe(200);
-    expect(await spanishEmbed.text()).toMatch(/<html\\b[^>]*lang="es"/);
+    expect(await spanishEmbed.text()).toMatch(/<html\b[^>]*lang="es"/);
     expect(await (await request.get("/sitemap.xml")).text()).toContain("sitemap");
   });
   test("home has canonical and hreflang alternates", async ({ page }) => {
