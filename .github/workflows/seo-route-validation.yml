@@ -1,0 +1,27 @@
+name: SEO route and document validation
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - "src/app/**"
+      - "src/lib/root-layout-shared.ts"
+      - "next.config.ts"
+      - "e2e/seo.spec.ts"
+      - "e2e/embed.spec.ts"
+      - ".github/workflows/seo-route-validation.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run qa
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test e2e/seo.spec.ts e2e/embed.spec.ts
