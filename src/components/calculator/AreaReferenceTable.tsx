@@ -4,7 +4,7 @@ type Props = { locale: "en" | "es"; showWaste?: boolean };
 
 export function AreaReferenceTable({ locale, showWaste = false }: Props) {
   const spanish = locale === "es";
-  const number = new Intl.NumberFormat(spanish ? "es-MX" : "en-US", {
+  const number = new Intl.NumberFormat(spanish ? "es-ES" : "en-US", {
     maximumFractionDigits: 2,
   });
   const rows = areaReferenceRows();
