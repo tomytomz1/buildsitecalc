@@ -8,7 +8,7 @@ export default function GlobalNotFound() {
       <body style={{ fontFamily: "system-ui, sans-serif", padding: "2rem" }}>
         <h1>Page not found</h1>
         <p>The requested page does not exist.</p>
-        <a href="/en">Back to calculators</a>
+        <p>Start again at buildsitecalc.com/en.</p>
       </body>
     </html>
   );
