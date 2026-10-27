@@ -15,6 +15,7 @@ import { EmbedSnippet } from "@/components/calculator/EmbedSnippet";
 import { FaqAccordion } from "@/components/calculator/FaqAccordion";
 import { FormulaBlock } from "@/components/calculator/FormulaBlock";
 import { QuickAnswers } from "@/components/calculator/QuickAnswers";
+import { AreaReferenceTable } from "@/components/calculator/AreaReferenceTable";
 import { WorkedExample } from "@/components/calculator/WorkedExample";
 import { WorkflowsUsingCalculator } from "@/components/workflow/WorkflowsUsingCalculator";
 import { getDictionary } from "@/lib/i18n";
@@ -209,6 +210,10 @@ export default async function CalculatorPage({
         />
 
         <div className="space-y-10">
+          {calc.id === "square-footage" || calc.id === "flooring" ? (
+            <AreaReferenceTable locale={locale} showWaste={calc.id === "flooring"} />
+          ) : null}
+
           {/* Directly below the calculator: first prose block in the DOM, but
               still after the tool itself, because visitors arriving on a
               calculator page came to calculate. */}
