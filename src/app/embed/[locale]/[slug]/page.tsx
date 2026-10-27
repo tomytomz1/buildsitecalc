@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { absoluteUrl, isLocale, siteConfig, type Locale } from "@/config/site";
 import { CalculatorWidget } from "@/components/calculator/CalculatorWidget";
-import { HtmlLang } from "@/components/layout/HtmlLang";
 import { getAllCalculators, getCalculatorBySlug } from "@/lib/calculators/registry";
 import { getCalculatorEngine } from "@/lib/calculators/engine";
 import type { CalcSuccess } from "@/lib/calculators/types";
@@ -83,8 +82,6 @@ export default async function EmbedCalculatorPage({
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col gap-4 p-4">
-      <HtmlLang locale={locale} />
-
       <h1 className="font-display text-xl font-semibold text-slate-900">
         {content.title}
       </h1>
