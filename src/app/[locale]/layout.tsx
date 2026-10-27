@@ -4,7 +4,8 @@ import { isLocale, siteConfig, type Locale } from "@/config/site";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { ConsentBanner } from "@/components/layout/ConsentBanner";
 import { Footer } from "@/components/layout/Footer";
-import { HtmlLang } from "@/components/layout/HtmlLang";
+import { baseMetadata, rootFontVariables } from "@/lib/root-layout-shared";
+import "../globals.css";
 import { SkipNav } from "@/components/ui/SkipNav";
 import { getDictionary } from "@/lib/i18n";
 import { buildCategoryLinks, buildSearchCalculators } from "@/lib/page-helpers";
@@ -33,8 +34,8 @@ export default async function LocaleLayout({
   const searchCalculators = buildSearchCalculators(locale, dict);
 
   return (
-    <>
-      <HtmlLang locale={locale} />
+    <html lang={locale} className={rootFontVariables}>
+      <body className="min-h-screen antialiased">
       <SkipNav label={dict.common.buttons.skipToContent} />
       <div className="flex min-h-screen flex-col">
         <AppHeader
@@ -56,7 +57,8 @@ export default async function LocaleLayout({
         <Footer locale={locale} links={dict.footer.links} />
         <ConsentBanner />
       </div>
-    </>
+      </body>
+    </html>
   );
 }
 
@@ -71,6 +73,7 @@ export async function generateMetadata({
   }
 
   return {
+    ...baseMetadata,
     alternates: {
       languages: {
         en: "/en",

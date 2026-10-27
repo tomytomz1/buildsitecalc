@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { siteConfig } from "@/config/site";
-import "./globals.css";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin", "latin-ext"],
@@ -15,7 +14,9 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export const rootFontVariables = `${sourceSans.variable} ${sourceSerif.variable}`;
+
+export const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
     default: siteConfig.brand.name,
@@ -26,15 +27,3 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.brand.name }],
   generator: "Next.js",
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${sourceSans.variable} ${sourceSerif.variable}`}>
-      <body className="min-h-screen antialiased">{children}</body>
-    </html>
-  );
-}

@@ -45,6 +45,7 @@ const embedHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  experimental: { globalNotFound: true },
   allowedDevOrigins: ["127.0.0.1", "localhost"],
   // Parent lockfiles (e.g. ~/package-lock.json) can make Turbopack pick the
   // wrong workspace root and break module resolution during `next dev`.
